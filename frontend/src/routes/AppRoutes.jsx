@@ -6,6 +6,12 @@ import MainLayout from "../layouts/MainLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Leads from "../pages/Leads/Leads";
 import Home from "../pages/Website/Home";
+import ContactUs from "../pages/Website/ContactUs";
+import Blog from "../pages/Website/Blog";
+import Pricing from "../pages/Website/Pricing";
+
+
+
 // import LeadSources from "../pages/LeadSources/LeadSources";
 // import Automation from "../pages/Automation/Automation";
 // import Email from "../pages/Email/Email";
@@ -20,6 +26,14 @@ const AppRoutes = () => {
     <Routes>
       <Route>
         <Route index element={<Home />} />
+       <Route path="/contact" element={<ContactUs />} />
+       <Route path="/Blog" element={<Blog />} />
+       <Route path="/Pricing" element={<Pricing />} />
+
+
+
+
+
       </Route>
       {/* Main Dashboard Layout */}
       {/* <Route path="/" element={<MainLayout />}>
@@ -28,6 +42,7 @@ const AppRoutes = () => {
         <Route path="leads" element={<Leads />} />
       </Route> */}
     </Routes>
+    
   );
 };
 
