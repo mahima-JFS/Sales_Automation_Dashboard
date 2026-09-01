@@ -84,13 +84,13 @@ const FAQHome = () => {
     <Box
       sx={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: "fit-content",
         backgroundColor: "#ffffff",
         color: "#000000",
 
         // IMPORTANT FOR MOBILE
         overflowX: "hidden",
-        m: 0,
+        mb: 2,
         p: 0,
         boxSizing: "border-box",
       }}

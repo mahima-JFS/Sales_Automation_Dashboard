@@ -13,6 +13,8 @@ import {
   FormControl,
 } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
+
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -92,6 +94,8 @@ const bookingGroups = [
 ];
 
 const AppointmentBooking = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -119,12 +123,6 @@ const AppointmentBooking = () => {
           },
         }}
       >
-        {/* =====================================================
-        MAIN LAYOUT
-        Desktop >= 1024px = SAME ROW
-        Tablet + Mobile < 1024px = IMAGE BELOW
-    ===================================================== */}
-
         <Box
           sx={{
             display: "flex",
@@ -366,6 +364,7 @@ const AppointmentBooking = () => {
               <Button
                 variant="contained"
                 endIcon={<ArrowOutwardIcon />}
+                onClick={() => navigate("/book-a-demo")}
                 sx={{
                   mt: 3.5,
 

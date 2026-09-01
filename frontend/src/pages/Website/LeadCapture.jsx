@@ -15,6 +15,8 @@ import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import CheckCircleIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
+import { useNavigate } from "react-router-dom";
+
 const leadRows = [
   {
     name: "leads",
@@ -83,6 +85,8 @@ const leadRows = [
 ];
 
 const LeadCapture = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -659,6 +663,7 @@ const LeadCapture = () => {
             <Button
               variant="contained"
               endIcon={<ArrowOutwardIcon />}
+              onClick={() => navigate("/book-a-demo")}
               sx={{
                 mt: 3,
                 width: 186,

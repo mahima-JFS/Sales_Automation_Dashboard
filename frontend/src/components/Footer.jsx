@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Box,
   Container,
@@ -13,6 +14,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
+
 import { Link as RouterLink } from "react-router-dom";
 
 const Footer = () => {
@@ -35,9 +37,10 @@ const Footer = () => {
         <Container
           maxWidth="xl"
           sx={{
+            width: "100%",
             px: {
-              xs: 3,
-              sm: 4,
+              xs: 2,
+              sm: 3,
               md: 5,
               lg: 6,
             },
@@ -50,14 +53,14 @@ const Footer = () => {
           <Box
             sx={{
               pt: {
-                xs: 5,
-                sm: 6,
+                xs: 4,
+                sm: 5,
                 md: 7,
               },
 
               pb: {
-                xs: 5,
-                sm: 6,
+                xs: 4,
+                sm: 5,
                 md: 7,
               },
             }}
@@ -68,25 +71,45 @@ const Footer = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                gap: 1.5,
+
+                flexDirection: {
+                  xs: "column",
+                  sm: "row",
+                },
+
+                justifyContent: {
+                  xs: "center",
+                  sm: "flex-start",
+                },
+
+                textAlign: {
+                  xs: "center",
+                  sm: "left",
+                },
+
+                gap: {
+                  xs: 0.5,
+                  sm: 1.5,
+                },
+
                 mb: {
-                  xs: 4,
+                  xs: 3,
                   md: 5,
                 },
               }}
             >
-              {/* RAPID SALES LOGO */}
+              {/* LOGO */}
 
               <Box
                 sx={{
                   width: {
-                    xs: "85px",
-                    sm: "95px",
+                    xs: "70px",
+                    sm: "90px",
                     md: "105px",
                   },
 
                   height: {
-                    xs: "65px",
+                    xs: "60px",
                     sm: "70px",
                     md: "78px",
                   },
@@ -99,77 +122,136 @@ const Footer = () => {
                 <Box
                   sx={{
                     position: "relative",
-                    width: "72px",
-                    height: "72px",
+
+                    width: {
+                      xs: "60px",
+                      md: "72px",
+                    },
+
+                    height: {
+                      xs: "60px",
+                      md: "72px",
+                    },
                   }}
                 >
-                  {/* Orange outer shape */}
+                  {/* ORANGE SHAPE */}
 
                   <Box
                     sx={{
                       position: "absolute",
-                      width: "55px",
-                      height: "78px",
-                      left: "8px",
+
+                      width: {
+                        xs: "46px",
+                        md: "55px",
+                      },
+
+                      height: {
+                        xs: "65px",
+                        md: "78px",
+                      },
+
+                      left: {
+                        xs: "7px",
+                        md: "8px",
+                      },
+
                       top: "-2px",
+
                       borderRadius: "55% 45% 45% 55%",
+
                       backgroundColor: "#e86b00",
+
                       transform: "rotate(-12deg)",
                     }}
                   />
 
-                  {/* White inner shape */}
+                  {/* WHITE INNER SHAPE */}
 
                   <Box
                     sx={{
                       position: "absolute",
-                      width: "35px",
-                      height: "54px",
-                      left: "25px",
-                      top: "7px",
+
+                      width: {
+                        xs: "29px",
+                        md: "35px",
+                      },
+
+                      height: {
+                        xs: "45px",
+                        md: "54px",
+                      },
+
+                      left: {
+                        xs: "21px",
+                        md: "25px",
+                      },
+
+                      top: {
+                        xs: "6px",
+                        md: "7px",
+                      },
+
                       backgroundColor: "#ffffff",
+
                       borderRadius: "50%",
+
                       transform: "rotate(-12deg)",
                     }}
                   />
                 </Box>
               </Box>
 
+              {/* BRAND NAME */}
+
               <Typography
                 sx={{
                   fontSize: {
-                    xs: "26px",
-                    sm: "28px",
+                    xs: "24px",
+                    sm: "27px",
                     md: "30px",
                   },
 
                   fontWeight: 400,
+
                   color: "#111111",
-                  whiteSpace: "nowrap",
+
+                  whiteSpace: "normal",
+
+                  lineHeight: 1.2,
+
+                  wordBreak: "break-word",
                 }}
               >
                 JFS Technologies
               </Typography>
             </Box>
 
-            {/* =================================================
-                MAIN TAGLINE
-            ================================================= */}
+            {/* MAIN TAGLINE */}
 
             <Typography
               component="h2"
               sx={{
                 maxWidth: "850px",
 
-                fontSize: {
-                  xs: "20px",
-                  sm: "30px",
-                  md: "38px",
-                  lg: "42px",
+                textAlign: {
+                  xs: "center",
+                  sm: "left",
                 },
 
-                lineHeight: 1.2,
+                fontSize: {
+                  xs: "25px",
+                  sm: "28px",
+                  md: "32px",
+                  lg: "35px",
+                },
+
+                lineHeight: {
+                  xs: 1.25,
+                  md: 1.2,
+                },
+
                 fontWeight: 400,
+
                 color: "#050505",
 
                 mb: 0,
@@ -181,9 +263,7 @@ const Footer = () => {
             </Typography>
           </Box>
 
-          {/* =================================================
-              DIVIDER
-          ================================================= */}
+          {/* DIVIDER */}
 
           <Box
             sx={{
@@ -200,52 +280,35 @@ const Footer = () => {
           <Box
             sx={{
               py: {
-                xs: 5,
-                sm: 6,
+                xs: 4,
+                sm: 5,
                 md: 6,
               },
             }}
           >
             <Grid
               container
-              spacing={{
+              rowSpacing={{
                 xs: 4,
                 sm: 5,
                 md: 3,
               }}
+              columnSpacing={{
+                xs: 2,
+                sm: 4,
+                md: 3,
+              }}
             >
-              {/* =================================================
-                  RESOURCES
-              ================================================= */}
+              {/* RESOURCES */}
 
               <Grid
                 size={{
-                  xs: 12,
+                  xs: 6,
                   sm: 6,
                   md: 3,
                 }}
               >
-                <Typography
-                  sx={{
-                    color: "#718096",
-                    fontSize: {
-                      xs: "16px",
-                      md: "17px",
-                    },
-                    fontWeight: 600,
-                    mb: 2.5,
-                  }}
-                >
-                  Resources
-                </Typography>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 1.8,
-                  }}
-                >
+                <FooterColumn title="Resources">
                   <FooterLink to="/features">Features</FooterLink>
 
                   <FooterLink to="/comparisons">Comparisons</FooterLink>
@@ -255,177 +318,82 @@ const Footer = () => {
                   <FooterLink to="/blog">Blog</FooterLink>
 
                   <FooterLink to="/contact-us">Contact Us</FooterLink>
-                </Box>
+                </FooterColumn>
               </Grid>
 
-              {/* =================================================
-                  LEGAL
-              ================================================= */}
+              {/* LEGAL */}
 
               <Grid
                 size={{
-                  xs: 12,
+                  xs: 6,
                   sm: 6,
                   md: 3,
                 }}
               >
-                <Typography
-                  sx={{
-                    color: "#718096",
-                    fontSize: {
-                      xs: "16px",
-                      md: "17px",
-                    },
-                    fontWeight: 600,
-                    mb: 2.5,
-                  }}
-                >
-                  Legal
-                </Typography>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 1.8,
-                  }}
-                >
+                <FooterColumn title="Legal">
                   <FooterLink to="/terms">Terms & Conditions</FooterLink>
 
                   <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
-                </Box>
+                </FooterColumn>
               </Grid>
 
-              {/* =================================================
-                  SITE
-              ================================================= */}
+              {/* SITE */}
 
               <Grid
                 size={{
-                  xs: 12,
+                  xs: 6,
                   sm: 6,
                   md: 3,
                 }}
               >
-                <Typography
-                  sx={{
-                    color: "#718096",
-                    fontSize: {
-                      xs: "16px",
-                      md: "17px",
-                    },
-                    fontWeight: 600,
-                    mb: 2.5,
-                  }}
-                >
-                  Site
-                </Typography>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 1.8,
-                  }}
-                >
-                  <Link
-                    href="#top"
-                    underline="none"
-                    sx={{
-                      color: "#050505",
-                      fontSize: {
-                        xs: "16px",
-                        md: "17px",
-                      },
-                      cursor: "pointer",
-
-                      "&:hover": {
-                        color: "#4b36df",
-                      },
-                    }}
-                  >
+                <FooterColumn title="Site">
+                  <Link href="#top" underline="none" sx={linkStyle}>
                     Back to Top
                   </Link>
-                </Box>
+                </FooterColumn>
               </Grid>
 
-              {/* =================================================
-                  CONTACT
-              ================================================= */}
+              {/* CONTACT */}
 
               <Grid
                 size={{
-                  xs: 12,
+                  xs: 6,
                   sm: 6,
                   md: 3,
                 }}
               >
-                <Typography
-                  sx={{
-                    color: "#718096",
-                    fontSize: {
-                      xs: "16px",
-                      md: "17px",
-                    },
-                    fontWeight: 600,
-                    mb: 2.5,
-                  }}
-                >
-                  Contact
-                </Typography>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 1.8,
-                  }}
-                >
+                <FooterColumn title="Contact">
                   <Link
-                    href="mailto:jsf@gmail.com"
+                    href="mailto:contact@jfshome.com"
                     underline="none"
-                    sx={{
-                      color: "#050505",
-                      fontSize: {
-                        xs: "16px",
-                        md: "17px",
-                      },
-
-                      "&:hover": {
-                        color: "#4b36df",
-                      },
-                    }}
+                    sx={linkStyle}
                   >
                     contact@jfshome.com
                   </Link>
 
                   <Link
-                    href="tel:+919213015559"
+                    href="tel:+919876543210"
                     underline="none"
-                    sx={{
-                      color: "#050505",
-                      fontSize: {
-                        xs: "16px",
-                        md: "17px",
-                      },
-
-                      "&:hover": {
-                        color: "#4b36df",
-                      },
-                    }}
+                    sx={linkStyle}
                   >
                     +91 98765 43210
                   </Link>
 
                   <Typography
                     sx={{
-                      maxWidth: "370px",
                       color: "#050505",
+
                       fontSize: {
-                        xs: "16px",
+                        xs: "13px",
+                        sm: "15px",
                         md: "17px",
                       },
+
                       lineHeight: 1.55,
+
+                      wordBreak: "break-word",
+
+                      maxWidth: "100%",
                     }}
                   >
                     Office no: 423,
@@ -436,7 +404,7 @@ const Footer = () => {
                     <br />
                     Pune, Maharashtra 411001
                   </Typography>
-                </Box>
+                </FooterColumn>
               </Grid>
             </Grid>
           </Box>
@@ -447,26 +415,36 @@ const Footer = () => {
 
           <Box
             sx={{
-              pb: {
-                xs: 3,
-                md: 4,
+              borderTop: "1px solid #e5e7eb",
+
+              py: {
+                xs: 2.5,
+                md: 3,
               },
 
               display: "flex",
 
               flexDirection: {
                 xs: "column",
-                md: "row",
+                sm: "row",
               },
 
-              alignItems: {
-                xs: "flex-start",
-                md: "center",
+              alignItems: "center",
+
+              justifyContent: {
+                xs: "center",
+                sm: "space-between",
               },
 
-              justifyContent: "space-between",
+              textAlign: {
+                xs: "center",
+                sm: "left",
+              },
 
-              gap: 3,
+              gap: {
+                xs: 1.5,
+                sm: 1,
+              },
             }}
           >
             {/* COPYRIGHT */}
@@ -490,50 +468,18 @@ const Footer = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                gap: 1,
+                justifyContent: "center",
+                gap: 0.5,
               }}
             >
-              <IconButton
-                component="a"
-                href="#"
-                sx={{
-                  color: "#050505",
+              <SocialButton icon={<FacebookIcon />} href="#" />
 
-                  "&:hover": {
-                    backgroundColor: "#f2f2f2",
-                  },
-                }}
-              >
-                <FacebookIcon />
-              </IconButton>
+              <SocialButton icon={<InstagramIcon />} href="#" />
 
-              <IconButton
-                component="a"
-                href="#"
-                sx={{
-                  color: "#050505",
-
-                  "&:hover": {
-                    backgroundColor: "#f2f2f2",
-                  },
-                }}
-              >
-                <InstagramIcon />
-              </IconButton>
-
-              <IconButton
-                component="a"
-                href="#"
-                sx={{
-                  color: "#050505",
-
-                  "&:hover": {
-                    backgroundColor: "#f2f2f2",
-                  },
-                }}
-              >
-                <AlternateEmailIcon />
-              </IconButton>
+              <SocialButton
+                icon={<AlternateEmailIcon />}
+                href="mailto:contact@jfshome.com"
+              />
             </Box>
 
             {/* POWERED BY */}
@@ -563,26 +509,31 @@ const Footer = () => {
         href="https://wa.me/919213015559"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
         sx={{
           position: "fixed",
 
           left: {
-            xs: "18px",
+            xs: "12px",
+            sm: "18px",
             md: "22px",
           },
 
           bottom: {
-            xs: "18px",
+            xs: "12px",
+            sm: "18px",
             md: "20px",
           },
 
           width: {
-            xs: "58px",
+            xs: "50px",
+            sm: "58px",
             md: "68px",
           },
 
           height: {
-            xs: "58px",
+            xs: "50px",
+            sm: "58px",
             md: "68px",
           },
 
@@ -613,7 +564,8 @@ const Footer = () => {
         <WhatsAppIcon
           sx={{
             fontSize: {
-              xs: "34px",
+              xs: "30px",
+              sm: "34px",
               md: "40px",
             },
           }}
@@ -625,30 +577,40 @@ const Footer = () => {
       ===================================================== */}
 
       <Box
+        role="button"
+        tabIndex={0}
+        aria-label="Open chat"
         sx={{
           position: "fixed",
 
           right: {
-            xs: "18px",
+            xs: "12px",
+            sm: "18px",
             md: "22px",
           },
 
           bottom: {
-            xs: "18px",
+            xs: "12px",
+            sm: "18px",
             md: "20px",
           },
 
           width: {
-            xs: "58px",
+            xs: "50px",
+            sm: "58px",
             md: "68px",
           },
 
           height: {
-            xs: "58px",
+            xs: "50px",
+            sm: "58px",
             md: "68px",
           },
 
-          borderRadius: "15px",
+          borderRadius: {
+            xs: "12px",
+            md: "15px",
+          },
 
           backgroundColor: "#10b981",
 
@@ -675,7 +637,8 @@ const Footer = () => {
         <ForumOutlinedIcon
           sx={{
             fontSize: {
-              xs: "30px",
+              xs: "27px",
+              sm: "30px",
               md: "36px",
             },
           }}
@@ -686,36 +649,124 @@ const Footer = () => {
 };
 
 /* =========================================================
+   COMMON FOOTER COLUMN
+========================================================= */
+
+const FooterColumn = ({ title, children }) => {
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        minWidth: 0,
+      }}
+    >
+      <Typography
+        sx={{
+          color: "#718096",
+
+          fontSize: {
+            xs: "16px",
+            md: "17px",
+          },
+
+          fontWeight: 600,
+
+          mb: {
+            xs: 2,
+            md: 2.5,
+          },
+        }}
+      >
+        {title}
+      </Typography>
+
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+
+          gap: {
+            xs: 1.5,
+            md: 1.8,
+          },
+        }}
+      >
+        {children}
+      </Box>
+    </Box>
+  );
+};
+
+/* =========================================================
+   COMMON LINK STYLE
+========================================================= */
+
+const linkStyle = {
+  width: "fit-content",
+  maxWidth: "100%",
+
+  color: "#050505",
+
+  fontSize: {
+    xs: "13px",
+    sm: "15px",
+    md: "17px",
+  },
+
+  fontWeight: 400,
+
+  lineHeight: 1.4,
+
+  wordBreak: "break-word",
+
+  transition: "color 0.2s ease",
+
+  "&:hover": {
+    color: "#4b36df",
+  },
+};
+
+/* =========================================================
    REUSABLE FOOTER LINK
 ========================================================= */
 
 const FooterLink = ({ children, to }) => {
   return (
-    <Link
-      component={RouterLink}
-      to={to}
-      underline="none"
-      sx={{
-        width: "fit-content",
+    <Link component={RouterLink} to={to} underline="none" sx={linkStyle}>
+      {children}
+    </Link>
+  );
+};
 
+/* =========================================================
+   SOCIAL BUTTON
+========================================================= */
+
+const SocialButton = ({ icon, href }) => {
+  return (
+    <IconButton
+      component="a"
+      href={href}
+      sx={{
         color: "#050505",
 
-        fontSize: {
-          xs: "16px",
-          md: "17px",
+        width: {
+          xs: 40,
+          md: 44,
         },
 
-        fontWeight: 400,
-
-        transition: "color 0.2s ease",
+        height: {
+          xs: 40,
+          md: 44,
+        },
 
         "&:hover": {
-          color: "#4b36df",
+          backgroundColor: "#f2f2f2",
         },
       }}
     >
-      {children}
-    </Link>
+      {icon}
+    </IconButton>
   );
 };
 
