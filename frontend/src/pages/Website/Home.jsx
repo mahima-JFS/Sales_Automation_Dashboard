@@ -11,6 +11,8 @@ import {
   Link,
 } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
+
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import BoltIcon from "@mui/icons-material/Bolt";
@@ -90,6 +92,8 @@ const SHOWCASE_ITEMS = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [activeShowcase, setActiveShowcase] = useState(0);
 
   useEffect(() => {
@@ -215,6 +219,7 @@ const Home = () => {
               disableElevation
               disableRipple
               endIcon={<ArrowOutwardIcon />}
+              onClick={() => navigate("/book-a-demo")}
               sx={{
                 width: {
                   xs: "100%",
@@ -223,21 +228,14 @@ const Home = () => {
                 maxWidth: "228px",
                 height: "50px",
                 minHeight: "50px",
-
                 minWidth: 0,
-
                 padding: "0 12px",
-
                 borderRadius: "23px",
-
                 backgroundColor: "#FF6811",
                 color: "#FFFFFF",
-
                 fontSize: "18px",
                 fontWeight: 700,
-
                 lineHeight: 1,
-
                 textTransform: "none",
                 whiteSpace: "nowrap",
 

@@ -2,7 +2,11 @@ import React from "react";
 import { Box, Button, Typography, Paper, Stack } from "@mui/material";
 import laptopImage from "../../assets/images/laptop.png";
 
+import { useNavigate } from "react-router-dom";
+
 const SequenceAutomation = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -133,6 +137,7 @@ const SequenceAutomation = () => {
               {/* PRIMARY BUTTON */}
               <Button
                 variant="contained"
+                onClick={() => navigate("/features")}
                 sx={{
                   height: 48,
                   minWidth: {

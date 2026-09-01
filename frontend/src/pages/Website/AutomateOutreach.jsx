@@ -14,8 +14,10 @@ import {
 
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useNavigate } from "react-router-dom";
 
 const AutomateOutreach = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -55,7 +57,7 @@ const AutomateOutreach = () => {
     <Box
       sx={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: "fit-content",
         backgroundColor: "#ffffff",
         color: "#000000",
         overflowX: "hidden",
@@ -156,6 +158,7 @@ const AutomateOutreach = () => {
           <Button
             variant="contained"
             endIcon={<ArrowForwardIcon />}
+            onClick={() => navigate("/book-a-demo")}
             sx={{
               minWidth: {
                 xs: "170px",
