@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import FAQHome from "./FAQHome";
+
 import {
   Box,
   Button,
@@ -11,6 +13,7 @@ import {
 
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckIcon from "@mui/icons-material/Check";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
@@ -101,7 +104,7 @@ const plans = [
       "10 Email Accounts",
       "Send UPTO 500 Emails / Day",
       "WhatsApp Conversation as per your Meta or CAPS tier",
-      "Marketing,Utility & Auth Templates",
+      "Marketing, Utility & Auth Templates",
       "AI Calling",
       "10 Calling Languages",
       "20 AI Voices",
@@ -120,7 +123,7 @@ const plans = [
       "Broadcast",
       "Abandoned Cart Notifications",
       "250/day (Meta Tier Based)",
-      "Marketing ,Utility & Auth Templates",
+      "Marketing, Utility & Auth Templates",
     ],
   },
 
@@ -150,8 +153,8 @@ const Feature = ({ children }) => {
         display: "flex",
         alignItems: "flex-start",
         gap: "9px",
-        minHeight: "43px",
-        py: "4px",
+        minHeight: "34px",
+        py: "2px",
       }}
     >
       <CheckIcon
@@ -167,8 +170,8 @@ const Feature = ({ children }) => {
         sx={{
           fontFamily: "Arial, sans-serif",
           fontSize: {
-            xs: "16px",
-            md: "18px",
+            xs: "14px",
+            md: "15px",
           },
           lineHeight: 1.45,
           color: "#29476d",
@@ -205,16 +208,14 @@ const PricingCard = ({ plan }) => {
         width: "100%",
         height: "100%",
         borderRadius: isPopular ? "24px" : "22px",
-        p: isPopular ? "0" : "10px",
+        p: isPopular ? "0" : "8px",
         boxSizing: "border-box",
 
         background: isPopular
           ? "linear-gradient(135deg, #4e2bd9 0%, #f05a20 100%)"
           : "#f8f9fc",
 
-        border: isPopular
-          ? "none"
-          : "1px solid #e5e8ee",
+        border: isPopular ? "none" : "1px solid #e5e8ee",
       }}
     >
       {/* POPULAR HEADER */}
@@ -255,25 +256,24 @@ const PricingCard = ({ plan }) => {
           background: "#fff",
           borderRadius: isPopular ? "22px" : "20px",
 
-          minHeight: "570px",
+          minHeight: "500px",
           height: "100%",
 
           px: {
-            xs: "20px",
-            md: "24px",
+            xs: "16px",
+            md: "18px",
           },
 
           pt: {
-            xs: "24px",
-            md: "25px",
+            xs: "18px",
+            md: "20px",
           },
 
-          pb: "28px",
+          pb: "20px",
 
           boxSizing: "border-box",
 
-          boxShadow:
-            "0 1px 8px rgba(0,0,0,0.05)",
+          boxShadow: "0 1px 8px rgba(0,0,0,0.05)",
         }}
       >
         {/* PLAN NAME */}
@@ -284,14 +284,12 @@ const PricingCard = ({ plan }) => {
             color: "#f4510b",
             fontFamily: "Arial, sans-serif",
             fontSize: {
-              xs: "21px",
-              md: "24px",
+              xs: "18px",
+              md: "20px",
             },
             fontWeight: 500,
 
-            mb: plan.price
-              ? "17px"
-              : "35px",
+            mb: plan.price ? "17px" : "35px",
           }}
         >
           {plan.name}
@@ -311,12 +309,11 @@ const PricingCard = ({ plan }) => {
             >
               <Typography
                 sx={{
-                  fontFamily:
-                    "Arial, sans-serif",
+                  fontFamily: "Arial, sans-serif",
 
                   fontSize: {
-                    xs: "44px",
-                    md: "52px",
+                    xs: "36px",
+                    md: "42px",
                   },
 
                   lineHeight: 1,
@@ -325,8 +322,7 @@ const PricingCard = ({ plan }) => {
 
                   color: "#050505",
 
-                  letterSpacing:
-                    "-1.5px",
+                  letterSpacing: "-1.5px",
                 }}
               >
                 {plan.price}
@@ -334,11 +330,8 @@ const PricingCard = ({ plan }) => {
 
               <Typography
                 sx={{
-                  fontFamily:
-                    "Arial, sans-serif",
-
+                  fontFamily: "Arial, sans-serif",
                   fontSize: "19px",
-
                   color: "#52647a",
                 }}
               >
@@ -347,11 +340,8 @@ const PricingCard = ({ plan }) => {
 
               <Typography
                 sx={{
-                  fontFamily:
-                    "Arial, sans-serif",
-
+                  fontFamily: "Arial, sans-serif",
                   fontSize: "14px",
-
                   color: "#718096",
                 }}
               >
@@ -365,21 +355,14 @@ const PricingCard = ({ plan }) => {
               <Typography
                 sx={{
                   textAlign: "center",
-
                   mt: "17px",
-
                   mb: "23px",
-
-                  fontFamily:
-                    "Arial, sans-serif",
-
+                  fontFamily: "Arial, sans-serif",
                   fontSize: "17px",
-
                   color: "#52647a",
                 }}
               >
                 Includes{" "}
-
                 <Box
                   component="span"
                   sx={{
@@ -410,20 +393,17 @@ const PricingCard = ({ plan }) => {
           fullWidth
           disableElevation
           sx={{
-            height: "64px",
+            height: "52px",
 
             borderRadius: "11px",
 
-            background: isPopular
-              ? "#f4510b"
-              : "#000",
+            background: isPopular ? "#f4510b" : "#000",
 
             color: "#fff",
 
             textTransform: "none",
 
-            fontFamily:
-              "Arial, sans-serif",
+            fontFamily: "Arial, sans-serif",
 
             fontSize: {
               xs: "20px",
@@ -432,13 +412,10 @@ const PricingCard = ({ plan }) => {
 
             fontWeight: 400,
 
-            mb: "28px",
+            mb: "20px",
 
             "&:hover": {
-              background:
-                isPopular
-                  ? "#df4608"
-                  : "#151515",
+              background: isPopular ? "#df4608" : "#151515",
             },
           }}
         >
@@ -448,15 +425,9 @@ const PricingCard = ({ plan }) => {
         {/* FEATURES */}
 
         <Box>
-          {plan.features.map(
-            (feature, index) => (
-              <Feature
-                key={index}
-              >
-                {feature}
-              </Feature>
-            )
-          )}
+          {plan.features.map((feature, index) => (
+            <Feature key={index}>{feature}</Feature>
+          ))}
         </Box>
       </Box>
     </Box>
@@ -468,8 +439,7 @@ const PricingCard = ({ plan }) => {
 ========================================================= */
 
 export default function PricingSection() {
-  const [billing, setBilling] =
-    useState("monthly");
+  const [billing, setBilling] = useState("monthly");
 
   return (
     <>
@@ -481,23 +451,13 @@ export default function PricingSection() {
       <Box
         sx={{
           minHeight: "590px",
-
           position: "relative",
-
           overflow: "hidden",
-
           backgroundColor: "#fff",
 
           backgroundImage: `
-            linear-gradient(
-              #eeeeee 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              90deg,
-              #eeeeee 1px,
-              transparent 1px
-            )
+            linear-gradient(#eeeeee 1px, transparent 1px),
+            linear-gradient(90deg, #eeeeee 1px, transparent 1px)
           `,
 
           backgroundSize: "23px 23px",
@@ -530,27 +490,24 @@ export default function PricingSection() {
             <Typography
               component="h1"
               sx={{
-                fontFamily:
-                  "Arial, sans-serif",
+                fontFamily: "Arial, sans-serif",
 
                 fontSize: {
-                  xs: "42px",
-                  sm: "54px",
-                  md: "62px",
+                  xs: "20px",
+                  sm: "30px",
+                  md: "40px",
                 },
 
                 fontWeight: 400,
 
                 lineHeight: 1.15,
 
-                letterSpacing:
-                  "-2.5px",
+                letterSpacing: "-2.5px",
 
                 color: "#050505",
               }}
             >
               Plans that{" "}
-
               <Box
                 component="span"
                 sx={{
@@ -560,7 +517,6 @@ export default function PricingSection() {
               >
                 scale
               </Box>{" "}
-
               your sales
             </Typography>
 
@@ -570,12 +526,11 @@ export default function PricingSection() {
 
                 color: "#58709b",
 
-                fontFamily:
-                  "Arial, sans-serif",
+                fontFamily: "Arial, sans-serif",
 
                 fontSize: {
-                  xs: "17px",
-                  md: "24px",
+                  xs: "10px",
+                  md: "20px",
                 },
 
                 fontWeight: 400,
@@ -583,10 +538,8 @@ export default function PricingSection() {
                 lineHeight: 1.5,
               }}
             >
-              Automate outreach across
-              WhatsApp, Email, and AI
-              Voice calls — all from one
-              powerful AI sales platform.
+              Automate outreach across WhatsApp, Email, and AI Voice calls —
+              all from one powerful AI sales platform.
             </Typography>
 
             {/* GET STARTED */}
@@ -594,42 +547,35 @@ export default function PricingSection() {
             <Button
               variant="contained"
               disableElevation
-              endIcon={
-                <ArrowOutwardIcon />
-              }
+              endIcon={<ArrowOutwardIcon />}
               sx={{
                 mt: 8,
 
-                width: "273px",
+                width: "200px",
 
-                height: "69px",
+                height: "50px",
 
                 borderRadius: "12px",
 
-                backgroundColor:
-                  "#f4510b",
+                backgroundColor: "#f4510b",
 
                 color: "#fff",
 
                 textTransform: "none",
 
-                fontFamily:
-                  "Arial, sans-serif",
+                fontFamily: "Arial, sans-serif",
 
                 fontSize: "24px",
 
                 fontWeight: 600,
 
                 "&:hover": {
-                  backgroundColor:
-                    "#df4607",
+                  backgroundColor: "#df4607",
                 },
 
-                "& .MuiButton-endIcon":
-                  {
-                    marginLeft:
-                      "12px",
-                  },
+                "& .MuiButton-endIcon": {
+                  marginLeft: "12px",
+                },
 
                 "& svg": {
                   fontSize: "27px",
@@ -668,68 +614,54 @@ export default function PricingSection() {
               },
             }}
           >
-            {features.map(
-              (feature) => (
-                <Stack
-                  key={feature}
-                  direction="row"
-                  alignItems="center"
-                  spacing={1.4}
+            {features.map((feature) => (
+              <Stack
+                key={feature}
+                direction="row"
+                alignItems="center"
+                spacing={1.4}
+              >
+                <Box
+                  sx={{
+                    width: "31px",
+                    height: "31px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#5139dc",
+                    flexShrink: 0,
+                  }}
                 >
-                  <Box
+                  <AutoAwesomeIcon
                     sx={{
-                      width: "31px",
-
-                      height: "31px",
-
-                      display: "flex",
-
-                      alignItems:
-                        "center",
-
-                      justifyContent:
-                        "center",
-
-                      color: "#5139dc",
-
-                      flexShrink: 0,
+                      fontSize: "30px",
+                      strokeWidth: 1.5,
                     }}
-                  >
-                    <AutoAwesomeIcon
-                      sx={{
-                        fontSize:
-                          "30px",
+                  />
+                </Box>
 
-                        strokeWidth:
-                          1.5,
-                      }}
-                    />
-                  </Box>
+                <Typography
+                  sx={{
+                    color: "#111",
 
-                  <Typography
-                    sx={{
-                      color: "#111",
+                    fontFamily: "Arial, sans-serif",
 
-                      fontFamily:
-                        "Arial, sans-serif",
+                    fontSize: {
+                      xs: "18px",
+                      md: "23px",
+                    },
 
-                      fontSize: {
-                        xs: "18px",
-                        md: "23px",
-                      },
+                    fontWeight: 400,
 
-                      fontWeight: 400,
-
-                      whiteSpace: {
-                        sm: "nowrap",
-                      },
-                    }}
-                  >
-                    {feature}
-                  </Typography>
-                </Stack>
-              )
-            )}
+                    whiteSpace: {
+                      sm: "nowrap",
+                    },
+                  }}
+                >
+                  {feature}
+                </Typography>
+              </Stack>
+            ))}
           </Stack>
         </Container>
       </Box>
@@ -753,30 +685,29 @@ export default function PricingSection() {
         }}
       >
         <Container
-          maxWidth={false}
-          sx={{
-            width: "100%",
+  maxWidth={false}
+  sx={{
+    width: "100%",
+    maxWidth: "1190px",
+    mx: "auto",
 
-            maxWidth: "1720px",
+    px: {
+      xs: "18px",
+      md: "24px",
+    },
 
-            mx: "auto",
+    boxSizing: "border-box",
+  }}
+>
 
-            px: {
-              xs: "18px",
-              md: "24px",
-            },
 
-            boxSizing: "border-box",
-          }}
-        >
           {/* PRICING BADGE */}
 
           <Box
             sx={{
               display: "flex",
 
-              justifyContent:
-                "center",
+              justifyContent: "center",
 
               mb: "30px",
             }}
@@ -791,19 +722,15 @@ export default function PricingSection() {
 
                 borderRadius: "40px",
 
-                border:
-                  "1.5px solid #f4510b",
+                border: "1.5px solid #f4510b",
 
-                background:
-                  "#fff0e9",
+                background: "#fff0e9",
 
                 display: "flex",
 
-                alignItems:
-                  "center",
+                alignItems: "center",
 
-                justifyContent:
-                  "center",
+                justifyContent: "center",
 
                 gap: "14px",
               }}
@@ -816,38 +743,31 @@ export default function PricingSection() {
 
                   borderRadius: "50%",
 
-                  background:
-                    "#f8bc35",
+                  background: "#f8bc35",
 
-                  border:
-                    "2px solid #f2a71c",
+                  border: "2px solid #f2a71c",
 
                   display: "flex",
 
-                  alignItems:
-                    "center",
+                  alignItems: "center",
 
-                  justifyContent:
-                    "center",
+                  justifyContent: "center",
                 }}
               >
                 <LocalOfferIcon
                   sx={{
-                    color:
-                      "#e89b15",
+                    color: "#e89b15",
 
-                    fontSize:
-                      "18px",
+                    fontSize: "5px",
                   }}
                 />
               </Box>
 
               <Typography
                 sx={{
-                  fontFamily:
-                    "Arial, sans-serif",
+                  fontFamily: "Arial, sans-serif",
 
-                  fontSize: "20px",
+                  fontSize: "15px",
 
                   fontWeight: 700,
 
@@ -866,13 +786,12 @@ export default function PricingSection() {
             sx={{
               textAlign: "center",
 
-              fontFamily:
-                "Arial, sans-serif",
+              fontFamily: "Arial, sans-serif",
 
               fontSize: {
-                xs: "42px",
-                sm: "50px",
-                md: "56px",
+                xs: "20px",
+                sm: "30px",
+                md: "40px",
               },
 
               lineHeight: 1.15,
@@ -881,8 +800,7 @@ export default function PricingSection() {
 
               color: "#050505",
 
-              letterSpacing:
-                "-2px",
+              letterSpacing: "-2px",
             }}
           >
             <Box
@@ -893,7 +811,6 @@ export default function PricingSection() {
             >
               Start for Free
             </Box>
-
             , Scale on Demand
           </Typography>
 
@@ -911,38 +828,30 @@ export default function PricingSection() {
 
               color: "#38577c",
 
-              fontFamily:
-                "Arial, sans-serif",
+              fontFamily: "Arial, sans-serif",
 
               fontSize: {
-                xs: "17px",
-                md: "23px",
+                xs: "10px",
+                md: "20px",
               },
 
               lineHeight: 1.5,
             }}
           >
-            Replace separate subscriptions
-            for Email, WhatsApp, and Callers.
-            Consolidate your entire outreach
-            stack into one system and track
-            your exact calling costs in
-            real-time.
+            Replace separate subscriptions for Email, WhatsApp, and Callers.
+            Consolidate your entire outreach stack into one system and track
+            your exact calling costs in real-time.
           </Typography>
 
-          {/* =================================================
-              BILLING TOGGLE
-          ================================================= */}
+          {/* BILLING TOGGLE */}
 
           <Box
             sx={{
               display: "flex",
 
-              justifyContent:
-                "flex-end",
+              justifyContent: "flex-end",
 
-              alignItems:
-                "flex-end",
+              alignItems: "flex-end",
 
               mt: {
                 xs: "40px",
@@ -960,28 +869,24 @@ export default function PricingSection() {
             <Box>
               <Typography
                 sx={{
-                  textAlign:
-                    "right",
+                  textAlign: "right",
 
                   color: "#5138dc",
 
-                  fontFamily:
-                    "Arial, sans-serif",
+                  fontFamily: "Arial, sans-serif",
 
-                  fontSize: "20px",
+                  fontSize: "15px",
 
                   mb: "57px",
 
                   mr: "20px",
 
-                  position:
-                    "relative",
+                  position: "relative",
 
                   "&::after": {
                     content: '""',
 
-                    position:
-                      "absolute",
+                    position: "absolute",
 
                     right: "52px",
 
@@ -991,14 +896,11 @@ export default function PricingSection() {
 
                     height: "48px",
 
-                    background:
-                      "#6047e1",
+                    background: "#6047e1",
 
-                    transform:
-                      "rotate(-12deg)",
+                    transform: "rotate(-12deg)",
 
-                    borderRadius:
-                      "2px",
+                    borderRadius: "2px",
                   },
                 }}
               >
@@ -1008,117 +910,92 @@ export default function PricingSection() {
               <ToggleButtonGroup
                 exclusive
                 value={billing}
-                onChange={(
-                  event,
-                  value
-                ) => {
+                onChange={(event, value) => {
                   if (value) {
                     setBilling(value);
                   }
                 }}
                 sx={{
-                  height: "69px",
+                  height: "50px",
 
-                  background:
-                    "#29976c",
+                  background: "#29976c",
 
-                  borderRadius:
-                    "16px",
+                  borderRadius: "16px",
 
-                  padding: "6px",
+                  padding: "5px",
 
-                  "& .MuiToggleButtonGroup-grouped":
-                    {
-                      border:
-                        "none !important",
-                    },
+                  "& .MuiToggleButtonGroup-grouped": {
+                    border: "none !important",
+                  },
                 }}
               >
-                {[
-                  "monthly",
-                  "quarterly",
-                  "annually",
-                ].map(
-                  (item) => (
-                    <ToggleButton
-                      key={item}
-                      value={item}
-                      sx={{
-                        px: {
-                          xs: "16px",
-                          md: "26px",
-                        },
+                {["monthly", "quarterly", "annually"].map((item) => (
+                  <ToggleButton
+                    key={item}
+                    value={item}
+                    sx={{
+                      px: {
+                        xs: "16px",
+                        md: "26px",
+                      },
 
-                        minWidth:
-                          "110px",
+                      minWidth: "100px",
 
-                        borderRadius:
-                          "13px !important",
+                      borderRadius: "20px !important",
 
-                        color: "#fff",
+                      color: "#fff",
 
-                        fontFamily:
-                          "Arial, sans-serif",
+                      fontFamily: "Arial, sans-serif",
 
-                        fontSize:
-                          "19px",
+                      fontSize: "15px",
 
-                        fontWeight: 600,
+                      fontWeight: 600,
 
-                        textTransform:
-                          "capitalize",
+                      textTransform: "capitalize",
 
-                        "&.Mui-selected":
-                          {
-                            background:
-                              "#fff",
+                      "&.Mui-selected": {
+                        background: "#fff",
+                        color: "#111",
+                      },
 
-                            color:
-                              "#111",
-                          },
-
-                        "&.Mui-selected:hover":
-                          {
-                            background:
-                              "#fff",
-                          },
-                      }}
-                    >
-                      {item}
-                    </ToggleButton>
-                  )
-                )}
+                      "&.Mui-selected:hover": {
+                        background: "#fff",
+                      },
+                    }}
+                  >
+                    {item}
+                  </ToggleButton>
+                ))}
               </ToggleButtonGroup>
             </Box>
           </Box>
 
-          {/* =================================================
-              PRICING CARDS
-
-              IMPORTANT:
-              CSS GRID = 3 CARDS PER ROW
-          ================================================= */}
+          {/* PRICING CARDS */}
 
           <Box
-            sx={{
-              display: "grid",
+  sx={{
+    display: "grid",
 
-              gridTemplateColumns: {
-                xs: "1fr",
-                sm: "repeat(2, minmax(0, 1fr))",
-                md: "repeat(3, minmax(0, 1fr))",
-              },
+    gridTemplateColumns: {
+      xs: "1fr",
+      sm: "repeat(2, minmax(0, 1fr))",
+      md: "repeat(3, minmax(0, 1fr))",
+    },
 
-              gap: {
-                xs: "24px",
-                md: "28px",
-              },
+    gap: {
+      xs: "24px",
+      md: "28px",
+    },
 
-              width: "100%",
+    width: "100%",
+    maxWidth: "1380px",
+    mx: "auto",
 
-              alignItems: "stretch",
-            }}
-          >
+    alignItems: "stretch",
+  }}
+>
+
+          
             {plans.map((plan) => (
               <Box
                 key={plan.name}
@@ -1130,20 +1007,189 @@ export default function PricingSection() {
                   minWidth: 0,
                 }}
               >
-                <PricingCard
-                  plan={plan}
-                />
+                <PricingCard plan={plan} />
               </Box>
             ))}
           </Box>
         </Container>
       </Box>
 
+      {/* =====================================================
+          FAQ SECTION
+      ===================================================== */}
 
 
+      {/* =====================================================
+          CTA SECTION
+      ===================================================== */}
 
+      <Box
+        sx={{
+          width: "100%",
 
-      
+          minHeight: {
+            xs: "300px",
+            sm: "300px",
+            md: "360px",
+          },
+
+          display: "flex",
+
+          alignItems: "center",
+
+          justifyContent: "center",
+
+          textAlign: "center",
+
+          background:
+            "linear-gradient(180deg, #000000 0%, #080020 35%, #24165d 65%, #4935df 100%)",
+
+          color: "#ffffff",
+
+          px: 2,
+
+          py: 8,
+        }}
+      >
+        <Box
+          sx={{
+            width: "100%",
+
+            maxWidth: "1000px",
+
+            mx: "auto",
+          }}
+        >
+          {/* LOGO */}
+
+          <Box
+            sx={{
+              width: "75px",
+
+              height: "30px",
+
+              mx: "auto",
+
+              mb: 5,
+
+              display: "flex",
+
+              alignItems: "center",
+
+              justifyContent: "center",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: "80px",
+
+                fontWeight: 700,
+
+                color: "#ef7200",
+
+                lineHeight: 1,
+              }}
+            >
+              ◉
+            </Typography>
+          </Box>
+
+          {/* CTA HEADING */}
+
+          <Typography
+            component="h2"
+            sx={{
+              fontSize: {
+                xs: "20px",
+                sm: "30px",
+                md: "45px",
+              },
+
+              lineHeight: 1.15,
+
+              fontWeight: 400,
+
+              color: "#ffffff",
+
+              mb: 2.5,
+            }}
+          >
+            Automate Your Outreach
+          </Typography>
+
+          {/* CTA DESCRIPTION */}
+
+          <Typography
+            sx={{
+              maxWidth: "850px",
+
+              mx: "auto",
+
+              fontSize: {
+                xs: "17px",
+                sm: "19px",
+                md: "23px",
+              },
+
+              lineHeight: 1.5,
+
+              color: "#d6d4e9",
+
+              mb: 5,
+            }}
+          >
+            Automate your entire outreach across Email, WhatsApp, and AI
+            Calls, all from one dashboard.
+          </Typography>
+
+          {/* CTA BUTTON */}
+
+          <Button
+            variant="contained"
+            endIcon={<ArrowForwardIcon />}
+            sx={{
+              minWidth: {
+                xs: "170px",
+                sm: "190px",
+              },
+
+              height: {
+                xs: "46px",
+                md: "52px",
+              },
+
+              borderRadius: "12px",
+
+              backgroundColor: "#ffffff",
+
+              color: "#000000",
+
+              fontSize: {
+                xs: "15px",
+                md: "20px",
+              },
+
+              fontWeight: 500,
+
+              textTransform: "none",
+
+              boxShadow: "none",
+
+              "&:hover": {
+                backgroundColor: "#f5f5f5",
+
+                boxShadow: "none",
+              },
+            }}
+          >
+            Book a Demo
+          </Button>
+          
+        </Box>
+        
+      </Box>
+            <FAQHome />
+
     </>
   );
 }

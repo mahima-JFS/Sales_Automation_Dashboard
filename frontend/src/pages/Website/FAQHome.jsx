@@ -138,6 +138,34 @@ const FAQHome = () => {
           {/* =================================================
               CONTACT HEADING
           ================================================= */}
+<Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                    width: "fit-content",
+                    mx: "auto",
+                justifyContent: "center",
+                px: 2.5,
+                py: 1.2,
+                mb: 3,
+                border: "1px solid #ff5a13",
+                borderRadius: "30px",
+                backgroundColor: "#fff0e9",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: "14px",
+                    md: "16px",
+                  },
+                  fontWeight: 600,
+                  color: "#111111",
+                }}
+              >
+                CONTACT US
+              </Typography>
+            </Box>
 
           <Box
             sx={{
