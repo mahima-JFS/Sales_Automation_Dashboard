@@ -24,19 +24,12 @@ import OutReactFeatures from "./OutReactFeatures";
 import BuiltForTeams from "./BuiltForTeams";
 import PriceSection from "./PriceSection";
 import FAQHome from "./FAQHome";
+import AutomateOutreach from "./AutomateOutreach";
+import ContactForm from "./ContactForm";
 // import rapidIntro from "../assets/rapid-sales-intro.png";
 // import dashboardImage from "../assets/rapid-sales-dashboard.png";
 // import aiCallingImage from "../assets/rapid-sales-ai-calling.png";
 // import emailImage from "../assets/rapid-sales-email.png";
-
-const NAV_LINKS = [
-  { label: "Home", href: "#home", active: true },
-  { label: "Features", href: "#features" },
-  { label: "Comparisons", href: "#comparisons" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact us", href: "#contact" },
-];
 
 const FEATURES = [
   {
@@ -118,121 +111,6 @@ const Home = () => {
         color: "#0F172A",
       }}
     >
-      <AppBar
-        position="static"
-        elevation={0}
-        sx={{
-          bgcolor: "#FFFFFF",
-          color: "#0F172A",
-          borderBottom: "1px solid #F1F5F9",
-        }}
-      >
-        <Container maxWidth="xl">
-          <Toolbar
-            disableGutters
-            sx={{
-              minHeight: "72px !important",
-              display: "flex",
-              justifyContent: "space-between",
-              gap: 3,
-            }}
-          >
-            {/* LOGO */}
-
-            <Stack direction="row" spacing={1} alignItems="center">
-              <Box
-                sx={{
-                  width: 38,
-                  height: 38,
-                  borderRadius: "12px",
-                  bgcolor: "#FFF7ED",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <BoltIcon
-                  sx={{
-                    color: "#E8590C",
-                    fontSize: 24,
-                  }}
-                />
-              </Box>
-
-              <Typography
-                sx={{
-                  fontSize: 19,
-                  fontWeight: 700,
-                  letterSpacing: "-0.4px",
-                }}
-              >
-                Rapid Sales
-              </Typography>
-            </Stack>
-
-            {/* NAVIGATION */}
-
-            <Stack
-              direction="row"
-              spacing={3}
-              alignItems="center"
-              sx={{
-                display: {
-                  xs: "none",
-                  md: "flex",
-                },
-              }}
-            >
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  underline="none"
-                  sx={{
-                    fontSize: 14,
-                    fontWeight: link.active ? 600 : 400,
-                    color: link.active ? "#F97316" : "#475569",
-                    pb: 0.5,
-
-                    borderBottom: link.active
-                      ? "2px solid #F97316"
-                      : "2px solid transparent",
-
-                    "&:hover": {
-                      color: "#F97316",
-                    },
-                  }}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </Stack>
-
-            {/* SIGN IN */}
-
-            <Button
-              variant="outlined"
-              sx={{
-                borderRadius: 10,
-                px: 2.5,
-                py: 1,
-                textTransform: "none",
-                fontWeight: 600,
-                borderColor: "#FDBA8C",
-                color: "#F97316",
-
-                "&:hover": {
-                  borderColor: "#F97316",
-                  bgcolor: "#FFF7ED",
-                },
-              }}
-            >
-              Sign in
-            </Button>
-          </Toolbar>
-        </Container>
-      </AppBar>
-
       <Box
         component="main"
         sx={{
@@ -274,7 +152,7 @@ const Home = () => {
 
               fontWeight: 700,
               lineHeight: 1.1,
-              letterSpacing: "-0.04em",
+              letterSpacing: "-0.02em",
               color: "#0F172A",
             }}
           >
@@ -315,68 +193,129 @@ const Home = () => {
 
           {/* BUTTONS */}
 
-          <Stack
-            direction={{
-              xs: "column",
-              sm: "row",
-            }}
-            spacing={2}
-            justifyContent="center"
-            alignItems="center"
+          <Box
             sx={{
-              mt: 4,
+              mt: "42px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: {
+                xs: "16px",
+                sm: "18px",
+              },
+              flexDirection: {
+                xs: "column",
+                sm: "row",
+              },
             }}
           >
+            {/* BOOK A DEMO */}
+
             <Button
-              variant="contained"
+              disableElevation
+              disableRipple
               endIcon={<ArrowOutwardIcon />}
               sx={{
-                bgcolor: "#F97316",
+                width: {
+                  xs: "100%",
+                  sm: "228px",
+                },
+                maxWidth: "228px",
+                height: "50px",
+                minHeight: "50px",
+
+                minWidth: 0,
+
+                padding: "0 12px",
+
+                borderRadius: "23px",
+
+                backgroundColor: "#FF6811",
                 color: "#FFFFFF",
 
-                borderRadius: 10,
-                px: 3.5,
-                py: 1.5,
+                fontSize: "18px",
+                fontWeight: 700,
 
-                fontSize: 15,
-                fontWeight: 600,
+                lineHeight: 1,
+
                 textTransform: "none",
+                whiteSpace: "nowrap",
 
-                boxShadow: "0px 8px 20px rgba(249,115,22,0.25)",
+                boxShadow: "0px 10px 24px rgba(255, 104, 17, 0.25)",
+
+                "& .MuiButton-endIcon": {
+                  marginLeft: "10px",
+                  marginRight: 0,
+                },
+
+                "& .MuiSvgIcon-root": {
+                  fontSize: "21px",
+                },
 
                 "&:hover": {
-                  bgcolor: "#EA580C",
+                  backgroundColor: "#FF6811",
+                  boxShadow: "0px 10px 24px rgba(255, 104, 17, 0.25)",
                 },
               }}
             >
               Book a Demo
             </Button>
 
+            {/* SEE IT IN ACTION */}
+
             <Button
               variant="outlined"
+              disableRipple
               endIcon={<ArrowOutwardIcon />}
               sx={{
-                borderRadius: 10,
-                px: 3.5,
-                py: 1.5,
+                width: {
+                  xs: "100%",
+                  sm: "248px",
+                },
+                maxWidth: "248px",
+                height: "50px",
+                minHeight: "50px",
 
-                fontSize: 15,
-                fontWeight: 600,
+                minWidth: 0,
+
+                padding: "0 12px",
+
+                borderRadius: "23px",
+
+                border: "1px solid #E9C7A8",
+
+                backgroundColor: "transparent",
+
+                color: "#C95D16",
+
+                fontSize: "18px",
+                fontWeight: 700,
+
+                lineHeight: 1,
+
                 textTransform: "none",
+                whiteSpace: "nowrap",
 
-                borderColor: "#FED7AA",
-                color: "#F97316",
-                bgcolor: "rgba(255,247,237,0.5)",
+                boxShadow: "none",
+
+                "& .MuiButton-endIcon": {
+                  marginLeft: "10px",
+                  marginRight: 0,
+                },
+
+                "& .MuiSvgIcon-root": {
+                  fontSize: "21px",
+                },
 
                 "&:hover": {
-                  borderColor: "#F97316",
-                  bgcolor: "#FFF7ED",
+                  border: "1px solid #E9C7A8",
+                  backgroundColor: "transparent",
                 },
               }}
             >
               See It In Action
             </Button>
-          </Stack>
+          </Box>
 
           {/* PRICING PILL */}
 
@@ -743,6 +682,8 @@ const Home = () => {
       <BuiltForTeams />
       <PriceSection />
       <FAQHome />
+      <AutomateOutreach />
+      <ContactForm />
     </Box>
   );
 };
