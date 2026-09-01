@@ -234,9 +234,9 @@ const Blog = () => {
               component="h1"
               sx={{
                 fontSize: {
-                  xs: "24px",
-                  sm: "30px",
-                  md: "38px",
+                  xs: "30px",
+                  sm: "25px",
+                  md: "30px",
                 },
                 lineHeight: 1.15,
                 fontWeight: 400,
@@ -716,9 +716,9 @@ const Blog = () => {
               component="h2"
               sx={{
                 fontSize: {
-                  xs: "34px",
-                  sm: "44px",
-                  md: "54px",
+                  xs: "25px",
+                  sm: "30px",
+                  md: "40px",
                 },
                 lineHeight: 1.15,
                 fontWeight: 400,
@@ -726,7 +726,7 @@ const Blog = () => {
                 mb: 2,
               }}
             >
-              Let's Get in{" "}
+              Let's Build Something{" "}
               <Box
                 component="span"
                 sx={{
@@ -734,7 +734,7 @@ const Blog = () => {
                   fontWeight: 500,
                 }}
               >
-                Touch
+                Together
               </Box>
             </Typography>
 
@@ -751,9 +751,7 @@ const Blog = () => {
                 color: "#526b8a",
               }}
             >
-              We'd love to learn about your business needs and show you how
-              Rapid Sales can streamline customer engagement through AI
-              Calling, Email Outreach, and WhatsApp Automation.
+             Tell us about your outreach goals. Our team will help you automate conversations and scale faster.
             </Typography>
           </Box>
 
