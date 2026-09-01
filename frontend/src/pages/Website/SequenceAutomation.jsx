@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Button, Typography, Paper, Stack } from "@mui/material";
+import laptopImage from "../../assets/images/laptop.png";
 
 const SequenceAutomation = () => {
   return (
@@ -25,10 +26,6 @@ const SequenceAutomation = () => {
           ),
           #f8f8f9
         `,
-        py: {
-          xs: 6,
-          md: 8,
-        },
       }}
     >
       {/* MAIN CONTENT */}
@@ -251,255 +248,36 @@ const SequenceAutomation = () => {
             />
 
             {/* LAPTOP WRAPPER */}
+            {/* ================= RIGHT SECTION ================= */}
             <Box
               sx={{
                 position: "relative",
-                width: {
-                  xs: 330,
-                  sm: 440,
-                  md: 500,
-                },
                 height: {
-                  xs: 260,
-                  sm: 330,
-                  md: 370,
+                  xs: 330,
+                  sm: 390,
+                  md: 420,
                 },
-                zIndex: 2,
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              {/* LAPTOP SCREEN */}
               <Box
+                component="img"
+                src={laptopImage}
+                alt="AI Sales Automation"
                 sx={{
-                  position: "absolute",
-                  width: "72%",
-                  height: "60%",
-                  left: "15%",
-                  top: "5%",
-                  border: "4px solid #222",
-                  borderRadius: "9px",
-                  bgcolor: "#ffffff",
-                  overflow: "hidden",
-                  transform: "perspective(900px) rotateZ(-14deg) rotateX(4deg)",
-                  transformOrigin: "center",
-                  boxShadow: "0 20px 35px rgba(30, 30, 40, 0.22)",
-                }}
-              >
-                {/* SCREEN TOP BAR */}
-                <Box
-                  sx={{
-                    height: "13%",
-                    borderBottom: "1px solid #e5e7eb",
-                    display: "flex",
-                    alignItems: "center",
-                    px: 1.2,
-                    gap: 0.6,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: "50%",
-                      bgcolor: "#d9dce0",
-                    }}
-                  />
-
-                  <Box
-                    sx={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: "50%",
-                      bgcolor: "#d9dce0",
-                    }}
-                  />
-
-                  <Box
-                    sx={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: "50%",
-                      bgcolor: "#d9dce0",
-                    }}
-                  />
-
-                  <Box
-                    sx={{
-                      width: "30%",
-                      height: 6,
-                      borderRadius: 2,
-                      bgcolor: "#f2f3f5",
-                      ml: 1,
-                    }}
-                  />
-                </Box>
-
-                {/* SCREEN CONTENT */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    height: "87%",
-                  }}
-                >
-                  {/* SIDEBAR */}
-                  <Box
-                    sx={{
-                      width: "19%",
-                      borderRight: "1px solid #eef0f2",
-                      p: 0.8,
-                    }}
-                  >
-                    {[1, 2, 3, 4].map((item) => (
-                      <Box
-                        key={item}
-                        sx={{
-                          width: "100%",
-                          height: 7,
-                          borderRadius: 2,
-                          bgcolor: item === 1 ? "#f6e8df" : "#f0f2f4",
-                          mb: 1,
-                        }}
-                      />
-                    ))}
-                  </Box>
-
-                  {/* WORKFLOW */}
-                  <Box
-                    sx={{
-                      flex: 1,
-                      position: "relative",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      pt: 1.5,
-                    }}
-                  >
-                    {/* WORKFLOW HEADER */}
-                    <Box
-                      sx={{
-                        width: "30%",
-                        height: 15,
-                        borderRadius: 1,
-                        background: "linear-gradient(90deg, #ef5a12, #5b46b8)",
-                        mb: 1,
-                      }}
-                    />
-
-                    {/* FLOW STEPS */}
-                    {[1, 2, 3, 4].map((item) => (
-                      <React.Fragment key={item}>
-                        <Paper
-                          elevation={0}
-                          sx={{
-                            width: "38%",
-                            height: 18,
-                            borderRadius: "3px",
-                            border: "1px solid #e4e6eb",
-                            bgcolor: "#fff",
-                            display: "flex",
-                            alignItems: "center",
-                            px: 0.6,
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              width: 5,
-                              height: 5,
-                              borderRadius: "50%",
-                              bgcolor:
-                                item === 1
-                                  ? "#25a7a0"
-                                  : item === 2
-                                    ? "#ed8b35"
-                                    : item === 3
-                                      ? "#c971d4"
-                                      : "#aab1bb",
-                              mr: 0.6,
-                            }}
-                          />
-
-                          <Box
-                            sx={{
-                              height: 4,
-                              width: "60%",
-                              borderRadius: 1,
-                              bgcolor: "#eceef1",
-                            }}
-                          />
-                        </Paper>
-
-                        {item < 4 && (
-                          <Box
-                            sx={{
-                              width: 1,
-                              height: 8,
-                              bgcolor: "#cfd4da",
-                            }}
-                          />
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </Box>
-                </Box>
-              </Box>
-
-              {/* LAPTOP KEYBOARD */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  width: "70%",
-                  height: "32%",
-                  left: "10%",
-                  top: "48%",
-                  transform:
-                    "perspective(800px) rotateX(62deg) rotateZ(-14deg)",
-                  transformOrigin: "center top",
-                  bgcolor: "#777a80",
-                  borderRadius: "4px 4px 12px 12px",
-                  overflow: "hidden",
-                  boxShadow: "0 12px 22px rgba(20,20,30,0.25)",
-                }}
-              >
-                {/* KEYBOARD */}
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: "14%",
-                    left: "12%",
-                    width: "62%",
-                    height: "55%",
-                    backgroundImage:
-                      "repeating-linear-gradient(90deg, #24262b 0px, #24262b 10px, transparent 10px, transparent 12px), repeating-linear-gradient(0deg, #24262b 0px, #24262b 7px, transparent 7px, transparent 9px)",
-                    opacity: 0.9,
-                  }}
-                />
-
-                {/* TRACKPAD */}
-                <Box
-                  sx={{
-                    position: "absolute",
-                    width: "24%",
-                    height: "35%",
-                    bottom: "8%",
-                    left: "42%",
-                    border: "1px solid #555960",
-                    borderRadius: "2px",
-                  }}
-                />
-              </Box>
-
-              {/* LAPTOP PURPLE BASE */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  width: "82%",
-                  height: "23%",
-                  bottom: "0%",
-                  left: "11%",
-                  transform: "skewY(5deg)",
-                  borderRadius: "0 0 12px 12px",
-                  background:
-                    "linear-gradient(110deg, #2a245d 0%, #49328e 40%, #30165c 70%, #8c54d5 100%)",
-                  boxShadow: "0 20px 35px rgba(55, 30, 100, 0.25)",
+                  width: {
+                    xs: "100%",
+                    sm: 440,
+                    md: 540,
+                    lg: 600,
+                  },
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                  display: "block",
                 }}
               />
             </Box>

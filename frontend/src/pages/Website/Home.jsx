@@ -20,6 +20,10 @@ import AppointmentBooking from "./AppointmentBooking";
 import LeadCapture from "./LeadCapture";
 import CommunicationChannels from "./CommunicationChannels";
 import SequenceAutomation from "./SequenceAutomation";
+import OutReactFeatures from "./OutReactFeatures";
+import BuiltForTeams from "./BuiltForTeams";
+import PriceSection from "./PriceSection";
+import FAQHome from "./FAQHome";
 // import rapidIntro from "../assets/rapid-sales-intro.png";
 // import dashboardImage from "../assets/rapid-sales-dashboard.png";
 // import aiCallingImage from "../assets/rapid-sales-ai-calling.png";
@@ -114,14 +118,6 @@ const Home = () => {
         color: "#0F172A",
       }}
     >
-      {/* <Box
-        sx={{
-          height: 4,
-          width: "100%",
-          background: "linear-gradient(to right, #F97316, #FB923C, #818CF8)",
-        }}
-      /> */}
-
       <AppBar
         position="static"
         elevation={0}
@@ -468,8 +464,8 @@ const Home = () => {
       </Box>
 
       {/* =====================================================
-    SALES AUTOMATION SHOWCASE
-===================================================== */}
+          SALES AUTOMATION SHOWCASE
+      ===================================================== */}
 
       <Box
         sx={{
@@ -743,6 +739,10 @@ const Home = () => {
       <LeadCapture />
       <CommunicationChannels />
       <SequenceAutomation />
+      <OutReactFeatures />
+      <BuiltForTeams />
+      <PriceSection />
+      <FAQHome />
     </Box>
   );
 };
