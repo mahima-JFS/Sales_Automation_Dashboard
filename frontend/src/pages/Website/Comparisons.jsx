@@ -221,7 +221,7 @@ const Comparisons = () => {
         component="section"
         sx={{
           width: "100%",
-          minHeight: "100vh",
+          minHeight: "auto",
 
           display: "flex",
           justifyContent: "center",
@@ -285,85 +285,11 @@ const Comparisons = () => {
               },
 
               pb: {
-                xs: 8,
-                md: 10,
+                xs: 4,
+                md: 5,
               },
             }}
           >
-            {/* ==================================================
-                BREADCRUMB
-            ================================================== */}
-
-            <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              spacing={1}
-              sx={{
-                width: "100%",
-                mb: {
-                  xs: 4,
-                  md: 4.5,
-                },
-              }}
-            >
-              <Typography
-                component="span"
-                sx={{
-                  color: "#536B9B",
-
-                  fontSize: {
-                    xs: "16px",
-                    sm: "17px",
-                    md: "19px",
-                  },
-
-                  fontWeight: 400,
-
-                  textAlign: "center",
-                }}
-              >
-                Home
-              </Typography>
-
-              <Typography
-                component="span"
-                sx={{
-                  color: "#536B9B",
-
-                  fontSize: {
-                    xs: "20px",
-                    md: "22px",
-                  },
-
-                  lineHeight: 1,
-
-                  fontWeight: 400,
-                }}
-              >
-                ›
-              </Typography>
-
-              <Typography
-                component="span"
-                sx={{
-                  color: "#536B9B",
-
-                  fontSize: {
-                    xs: "16px",
-                    sm: "17px",
-                    md: "19px",
-                  },
-
-                  fontWeight: 400,
-
-                  textAlign: "center",
-                }}
-              >
-                Comparisons
-              </Typography>
-            </Stack>
-
             {/* ==================================================
                 MAIN HEADING
             ================================================== */}
@@ -372,30 +298,30 @@ const Comparisons = () => {
               component="h1"
               sx={{
                 width: "100%",
-                maxWidth: "1200px",
+                maxWidth: "1100px",
 
                 mx: "auto",
 
                 color: "#050505",
 
                 fontSize: {
-                  xs: "38px",
-                  sm: "48px",
-                  md: "58px",
-                  lg: "60px",
+                  xs: "10px",
+                  sm: "20px",
+                  md: "30px",
+                  lg: "35px",
                 },
 
                 lineHeight: {
                   xs: 1.2,
-                  sm: 1.25,
-                  md: 1.3,
+                  sm: 1.2,
+                  md: 1.25,
                 },
 
                 fontWeight: 600,
 
                 letterSpacing: {
-                  xs: "-1px",
-                  md: "-2px",
+                  xs: "-0.7px",
+                  md: "-1.5px",
                 },
 
                 textAlign: "center",
@@ -424,28 +350,28 @@ const Comparisons = () => {
               component="p"
               sx={{
                 width: "100%",
-                maxWidth: "1280px",
+                maxWidth: "1100px",
 
                 mx: "auto",
 
                 mt: {
-                  xs: 4,
-                  sm: 4.5,
-                  md: 5,
+                  xs: 3,
+                  sm: 3.5,
+                  md: 4,
                 },
 
                 color: "#53678F",
 
                 fontSize: {
-                  xs: "16px",
-                  sm: "18px",
-                  md: "22px",
-                  lg: "24px",
+                  xs: "10px",
+                  sm: "10px",
+                  md: "15px",
+                  lg: "10px",
                 },
 
                 lineHeight: {
-                  xs: 1.65,
-                  md: 1.9,
+                  xs: 1.55,
+                  md: 1.7,
                 },
 
                 fontWeight: 400,
@@ -472,16 +398,16 @@ const Comparisons = () => {
               justifyContent="center"
               alignItems="center"
               spacing={{
-                xs: 2,
-                md: 4,
-                lg: 5,
+                xs: 1.5,
+                md: 3,
+                lg: 4,
               }}
               sx={{
-                width: "100%",
+                width: "auto",
 
                 mt: {
-                  xs: 4,
-                  md: 4.5,
+                  xs: 3,
+                  md: 3.5,
                 },
 
                 textAlign: "center",
@@ -504,126 +430,126 @@ const Comparisons = () => {
                 BUTTONS
             ================================================== */}
 
-            <Stack
-              direction={{
-                xs: "column",
-                sm: "row",
-              }}
-              justifyContent="center"
-              alignItems="center"
-              spacing={2}
+            <Box
               sx={{
                 width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
 
                 mt: {
-                  xs: 5,
-                  sm: 6,
-                  md: 6.5,
+                  xs: 4,
+                  sm: 5,
+                  md: 5.5,
                 },
-
-                mx: "auto",
-
-                textAlign: "center",
               }}
             >
-              {/* BOOK DEMO */}
+              <Stack
+                direction={{
+                  xs: "column",
+                  sm: "row",
+                }}
+                justifyContent="center"
+                alignItems="center"
+                spacing={1.5}
+              >
+                {/* BOOK DEMO */}
 
-              <Button
-                variant="contained"
-                endIcon={<ArrowOutward />}
-                sx={{
-                  width: {
-                    xs: "100%",
-                    sm: "410px",
-                    md: "410px",
-                  },
+                <Button
+                  variant="contained"
+                  endIcon={<ArrowOutward />}
+                  sx={{
+                    width: {
+                      xs: "220px",
+                      sm: "240px",
+                      md: "260px",
+                    },
 
-                  maxWidth: "410px",
+                    height: {
+                      xs: "48px",
+                      sm: "50px",
+                    },
 
-                  height: {
-                    xs: "58px",
-                    sm: "64px",
-                  },
+                    borderRadius: "10px",
 
-                  borderRadius: "11px",
+                    backgroundColor: "#F4510B",
 
-                  backgroundColor: "#F4510B",
+                    color: "#FFFFFF",
 
-                  color: "#FFFFFF",
+                    fontSize: {
+                      xs: "15px",
+                      sm: "16px",
+                      md: "17px",
+                    },
 
-                  fontSize: {
-                    xs: "18px",
-                    md: "21px",
-                  },
+                    fontWeight: 600,
 
-                  fontWeight: 600,
+                    textTransform: "none",
 
-                  textTransform: "none",
-
-                  boxShadow: "none",
-
-                  "&:hover": {
-                    backgroundColor: "#E54805",
                     boxShadow: "none",
-                  },
 
-                  "& .MuiButton-endIcon": {
-                    marginLeft: "8px",
-                  },
-                }}
-              >
-                Book a Demo
-              </Button>
+                    "&:hover": {
+                      backgroundColor: "#E54805",
+                      boxShadow: "none",
+                    },
 
-              {/* PRICING */}
+                    "& .MuiButton-endIcon": {
+                      marginLeft: "6px",
+                    },
+                  }}
+                >
+                  Book a Demo
+                </Button>
 
-              <Button
-                variant="outlined"
-                endIcon={<ArrowOutward />}
-                sx={{
-                  width: {
-                    xs: "100%",
-                    sm: "410px",
-                    md: "415px",
-                  },
+                {/* PRICING */}
 
-                  maxWidth: "415px",
+                <Button
+                  variant="outlined"
+                  endIcon={<ArrowOutward />}
+                  sx={{
+                    width: {
+                      xs: "280px",
+                      sm: "300px",
+                      md: "320px",
+                    },
 
-                  height: {
-                    xs: "58px",
-                    sm: "64px",
-                  },
+                    height: {
+                      xs: "48px",
+                      sm: "50px",
+                    },
 
-                  borderRadius: "11px",
+                    borderRadius: "10px",
 
-                  border: "1px solid #F4510B",
-
-                  color: "#F4510B",
-
-                  backgroundColor: "rgba(255,255,255,0.35)",
-
-                  fontSize: {
-                    xs: "18px",
-                    md: "21px",
-                  },
-
-                  fontWeight: 400,
-
-                  textTransform: "none",
-
-                  "&:hover": {
                     border: "1px solid #F4510B",
-                    backgroundColor: "rgba(244,81,11,0.04)",
-                  },
 
-                  "& .MuiButton-endIcon": {
-                    marginLeft: "8px",
-                  },
-                }}
-              >
-                See Rapid Sales Pricing
-              </Button>
-            </Stack>
+                    color: "#F4510B",
+
+                    backgroundColor: "rgba(255,255,255,0.35)",
+
+                    fontSize: {
+                      xs: "15px",
+                      sm: "16px",
+                      md: "17px",
+                    },
+
+                    fontWeight: 400,
+
+                    textTransform: "none",
+
+                    "&:hover": {
+                      border: "1px solid #F4510B",
+                      backgroundColor: "rgba(244,81,11,0.04)",
+                    },
+
+                    "& .MuiButton-endIcon": {
+                      marginLeft: "6px",
+                    },
+                  }}
+                >
+                  See Rapid Sales Pricing
+                </Button>
+              </Stack>
+            </Box>
           </Box>
         </Container>
       </Box>
@@ -659,15 +585,15 @@ const VerificationItem = ({ children }) => {
       direction="row"
       alignItems="center"
       justifyContent="center"
-      spacing={0.6}
+      spacing={0.5}
     >
       <Check
         sx={{
           color: "#00A85A",
 
           fontSize: {
-            xs: 20,
-            md: 21,
+            xs: 18,
+            md: 19,
           },
         }}
       />
@@ -678,9 +604,9 @@ const VerificationItem = ({ children }) => {
           color: "#53678F",
 
           fontSize: {
-            xs: "14px",
-            sm: "15px",
-            md: "17px",
+            xs: "13px",
+            sm: "14px",
+            md: "15px",
           },
 
           fontWeight: 400,
@@ -712,9 +638,9 @@ const ComparisonSection = ({ section, index }) => {
         backgroundColor: section.background,
 
         py: {
-          xs: 9,
-          sm: 11,
-          md: 14,
+          xs: 4,
+          sm: 5,
+          md: 6,
         },
 
         borderTop:
@@ -748,14 +674,14 @@ const ComparisonSection = ({ section, index }) => {
 
             textAlign: "center",
 
-            maxWidth: "1500px",
+            maxWidth: "1400px",
 
             mx: "auto",
 
             mb: {
-              xs: 6,
-              sm: 7,
-              md: 9,
+              xs: 5,
+              sm: 6,
+              md: 7,
             },
           }}
         >
@@ -770,13 +696,13 @@ const ComparisonSection = ({ section, index }) => {
               justifyContent: "center",
 
               px: {
-                xs: 2.5,
-                sm: 3,
+                xs: 2,
+                sm: 2.5,
               },
 
               py: {
-                xs: 1,
-                sm: 1.2,
+                xs: 0.8,
+                sm: 1,
               },
 
               border: "1px solid #FFD0AE",
@@ -786,8 +712,8 @@ const ComparisonSection = ({ section, index }) => {
               backgroundColor: "#FFFDFC",
 
               mb: {
-                xs: 3.5,
-                md: 4,
+                xs: 2.5,
+                md: 3,
               },
             }}
           >
@@ -796,14 +722,14 @@ const ComparisonSection = ({ section, index }) => {
                 color: "#F4510B",
 
                 fontSize: {
-                  xs: "13px",
-                  sm: "14px",
-                  md: "15px",
+                  xs: "11px",
+                  sm: "12px",
+                  md: "13px",
                 },
 
                 fontWeight: 600,
 
-                letterSpacing: "1px",
+                letterSpacing: "0.8px",
 
                 whiteSpace: "nowrap",
               }}
@@ -820,22 +746,22 @@ const ComparisonSection = ({ section, index }) => {
               color: "#050505",
 
               fontSize: {
-                xs: "35px",
-                sm: "43px",
-                md: "50px",
-                lg: "52px",
+                xs: "24px",
+                sm: "28px",
+                md: "34px",
+                lg: "36px",
               },
 
               lineHeight: {
-                xs: 1.25,
-                md: 1.3,
+                xs: 1.2,
+                md: 1.25,
               },
 
               fontWeight: 400,
 
-              letterSpacing: "-1px",
+              letterSpacing: "-0.8px",
 
-              maxWidth: "1050px",
+              maxWidth: "1000px",
 
               mx: "auto",
 
@@ -853,20 +779,20 @@ const ComparisonSection = ({ section, index }) => {
               color: "#53678F",
 
               fontSize: {
-                xs: "16px",
-                sm: "18px",
-                md: "21px",
+                xs: "14px",
+                sm: "16px",
+                md: "18px",
               },
 
-              lineHeight: 1.7,
+              lineHeight: 1.6,
 
-              maxWidth: "1350px",
+              maxWidth: "1200px",
 
               mx: "auto",
 
               mt: {
-                xs: 4,
-                md: 5,
+                xs: 3,
+                md: 3.5,
               },
 
               textAlign: "center",
@@ -895,7 +821,7 @@ const ComparisonSection = ({ section, index }) => {
             gap: {
               xs: 2,
               sm: 2.5,
-              md: 3.5,
+              md: 3,
             },
 
             alignItems: "stretch",
@@ -924,9 +850,9 @@ const ComparisonCard = ({ card }) => {
         width: "100%",
 
         minHeight: {
-          xs: "300px",
-          sm: "320px",
-          md: "370px",
+          xs: "280px",
+          sm: "300px",
+          md: "340px",
         },
 
         boxSizing: "border-box",
@@ -935,7 +861,7 @@ const ComparisonCard = ({ card }) => {
 
         flexDirection: "column",
 
-        borderRadius: "24px",
+        borderRadius: "20px",
 
         border: card.featured
           ? "1px solid #F4510B"
@@ -944,18 +870,18 @@ const ComparisonCard = ({ card }) => {
         backgroundColor: "#FFFFFF",
 
         boxShadow:
-          "0 8px 15px rgba(0, 0, 0, 0.10)",
+          "0 6px 14px rgba(0, 0, 0, 0.08)",
 
         px: {
-          xs: 3,
-          sm: 3.5,
-          md: 4.5,
+          xs: 2,
+          sm: 2.5,
+          md: 2.5,
         },
 
         py: {
-          xs: 3,
-          sm: 3.5,
-          md: 4,
+          xs: 2,
+          sm: 2.5,
+          md: 2.5,
         },
 
         transition:
@@ -965,7 +891,7 @@ const ComparisonCard = ({ card }) => {
           transform: "translateY(-4px)",
 
           boxShadow:
-            "0 14px 28px rgba(0, 0, 0, 0.13)",
+            "0 12px 24px rgba(0, 0, 0, 0.11)",
         },
       }}
     >
@@ -976,20 +902,20 @@ const ComparisonCard = ({ card }) => {
           color: "#8A9AB5",
 
           fontSize: {
-            xs: "13px",
-            sm: "14px",
-            md: "16px",
+            xs: "11px",
+            sm: "12px",
+            md: "13px",
           },
 
           fontWeight: 600,
 
-          letterSpacing: "1.2px",
+          letterSpacing: "1px",
 
           lineHeight: 1.4,
 
           mb: {
-            xs: 2.5,
-            md: 3,
+            xs: 1,
+            md: 1.5,
           },
         }}
       >
@@ -1004,20 +930,20 @@ const ComparisonCard = ({ card }) => {
           color: "#071D3A",
 
           fontSize: {
-            xs: "23px",
-            sm: "25px",
-            md: "29px",
+            xs: "20px",
+            sm: "22px",
+            md: "25px",
           },
 
           lineHeight: 1.3,
 
           fontWeight: 700,
 
-          letterSpacing: "-0.5px",
+          letterSpacing: "-0.4px",
 
           mb: {
-            xs: 2.5,
-            md: 3,
+            xs: 2,
+            md: 2.5,
           },
         }}
       >
@@ -1032,14 +958,14 @@ const ComparisonCard = ({ card }) => {
           color: "#355477",
 
           fontSize: {
-            xs: "16px",
-            sm: "17px",
-            md: "19px",
+            xs: "14px",
+            sm: "15px",
+            md: "16px",
           },
 
           lineHeight: {
-            xs: 1.7,
-            md: 1.8,
+            xs: 1.6,
+            md: 1.7,
           },
 
           margin: 0,
@@ -1061,13 +987,13 @@ const ComparisonCard = ({ card }) => {
 
           p: 0,
 
-          mt: 3,
+          mt: 1,
 
           color: "#F4510B",
 
           fontSize: {
-            xs: "18px",
-            md: "20px",
+            xs: "15px",
+            md: "17px",
           },
 
           fontWeight: 600,
@@ -1108,25 +1034,25 @@ const ComparisonGroundRules = () => {
         overflow: "hidden",
 
         py: {
-          xs: 8,
-          sm: 9,
-          md: 10,
-          lg: 11,
+          xs: 7,
+          sm: 8,
+          md: 9,
+          lg: 10,
         },
       }}
     >
       <Container
         maxWidth={false}
         sx={{
-          maxWidth: "1350px",
+          maxWidth: "1250px",
 
           mx: "auto",
 
           px: {
-            xs: 3,
-            sm: 4,
-            md: 5,
-            lg: 6,
+            xs: 2.5,
+            sm: 3,
+            md: 4,
+            lg: 5,
           },
         }}
       >
@@ -1140,9 +1066,9 @@ const ComparisonGroundRules = () => {
             justifyContent: "center",
 
             mb: {
-              xs: 4,
-              sm: 4.5,
-              md: 5,
+              xs: 3,
+              sm: 3.5,
+              md: 4,
             },
           }}
         >
@@ -1161,13 +1087,13 @@ const ComparisonGroundRules = () => {
               borderRadius: "999px",
 
               px: {
-                xs: 2.5,
-                sm: 3,
+                xs: 1,
+                sm: 1.5,
               },
 
               py: {
-                xs: 1,
-                sm: 1.15,
+                xs: 0.8,
+                sm: 1,
               },
             }}
           >
@@ -1176,17 +1102,17 @@ const ComparisonGroundRules = () => {
                 color: "#FF5B18",
 
                 fontSize: {
-                  xs: "13px",
-                  sm: "15px",
-                  md: "16px",
+                  xs: "11px",
+                  sm: "12px",
+                  md: "13px",
                 },
 
                 fontWeight: 600,
 
                 letterSpacing: {
-                  xs: "2px",
-                  sm: "2.5px",
-                  md: "3px",
+                  xs: "1.5px",
+                  sm: "2px",
+                  md: "2.2px",
                 },
 
                 lineHeight: 1,
@@ -1208,14 +1134,13 @@ const ComparisonGroundRules = () => {
           sx={{
             textAlign: "center",
 
-            fontFamily:
-              "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial, Helvetica, sans-serif",
 
             fontSize: {
-              xs: "38px",
-              sm: "46px",
-              md: "52px",
-              lg: "56px",
+              xs: "35px",
+              sm: "30px",
+              md: "35px",
+              lg: "35px",
             },
 
             lineHeight: {
@@ -1227,16 +1152,16 @@ const ComparisonGroundRules = () => {
             fontWeight: 400,
 
             letterSpacing: {
-              xs: "-1px",
-              md: "-1.5px",
+              xs: "-0.7px",
+              md: "-1px",
             },
 
             color: "#050505",
 
             mb: {
-              xs: 6,
-              sm: 7,
-              md: 8,
+              xs: 5,
+              sm: 6,
+              md: 7,
             },
           }}
         >
@@ -1259,188 +1184,222 @@ const ComparisonGroundRules = () => {
         </Typography>
 
         {/* ==================================================
-            RULES
+            CENTERED RULES
         ================================================== */}
 
         <Box
-          component="ul"
           sx={{
-            maxWidth: "1100px",
+            width: "100%",
 
-            mx: "auto",
+            display: "flex",
 
-            pl: {
-              xs: 3,
-              sm: 4,
+            justifyContent: {
+              xs: "flex-start",
+              md: "center",
             },
 
-            m: 0,
-
-            "& li": {
-              pl: {
-                xs: 0.5,
-                sm: 1,
-              },
-
-              mb: {
-                xs: 3.5,
-                sm: 3.8,
-                md: 4,
-              },
-
-              fontSize: {
-                xs: "16px",
-                sm: "18px",
-                md: "20px",
-                lg: "21px",
-              },
-
-              lineHeight: {
-                xs: 1.75,
-                sm: 1.8,
-                md: 1.85,
-              },
-
-              color: "#345477",
-            },
-
-            "& li::marker": {
-              color: "#000000",
-            },
-
-            "& li:last-child": {
-              mb: 0,
-            },
+            alignItems: "flex-start",
           }}
         >
-          <Box component="li">
-            <Typography
-              component="span"
-              sx={{
-                fontSize: "inherit",
-                lineHeight: "inherit",
-                fontWeight: 700,
-                color: "#29466A",
-              }}
-            >
-              Every price is verified on the vendor&apos;s official pricing
-              page
-            </Typography>
+          <Box
+            component="ul"
+            sx={{
+              width: {
+                xs: "100%",
+                md: "800px",
+              },
 
-            <Typography
-              component="span"
-              sx={{
-                fontSize: "inherit",
-                lineHeight: "inherit",
+              maxWidth: "1050px",
+
+              m: 0,
+
+              pl: {
+                xs: 2.5,
+                sm: 3,
+                md: 3,
+              },
+
+              textAlign: "left",
+
+              "& li": {
+                pl: {
+                  xs: 0.5,
+                  sm: 0.8,
+                },
+
+                mb: {
+                  xs: 2.5,
+                  sm: 3,
+                  md: 3,
+                },
+
+                fontSize: {
+                  xs: "13px",
+                  sm: "14px",
+                  md: "15px",
+                  lg: "16px",
+                },
+
+                lineHeight: {
+                  xs: 1.6,
+                  sm: 1.65,
+                  md: 1.7,
+                },
+
                 color: "#345477",
-              }}
-            >
-              {" "}
-              — checked June 10, 2026, linked as a source on each page, and
-              updated when vendors change plans.
-            </Typography>
-          </Box>
+              },
 
-          <Box component="li">
-            <Typography
-              component="span"
-              sx={{
-                fontSize: "inherit",
-                lineHeight: "inherit",
-                fontWeight: 700,
-                color: "#29466A",
-              }}
-            >
-              Competitor strengths are stated plainly.
-            </Typography>
+              "& li::marker": {
+                color: "#000000",
+              },
 
-            <Typography
-              component="span"
-              sx={{
-                fontSize: "inherit",
-                lineHeight: "inherit",
-                color: "#345477",
-              }}
-            >
-              {" "}
-              Wati&apos;s inbox is genuinely deeper. Interakt&apos;s unlimited
-              agents are genuinely rare. Instantly genuinely wins on email
-              volume. Pretending otherwise would waste your time.
-            </Typography>
-          </Box>
+              "& li:last-child": {
+                mb: 0,
+              },
+            }}
+          >
+            {/* ==================================================
+                RULE 1
+            ================================================== */}
 
-          <Box component="li">
-            <Typography
-              component="span"
-              sx={{
-                fontSize: "inherit",
-                lineHeight: "inherit",
-                fontWeight: 700,
-                color: "#29466A",
-              }}
-            >
-              The recommendation is conditional, not absolute.
-            </Typography>
-
-            <Typography
-              component="span"
-              sx={{
-                fontSize: "inherit",
-                lineHeight: "inherit",
-                color: "#345477",
-              }}
-            >
-              {" "}
-              Each page ends with &quot;choose them if / choose us if&quot;
-              because the right tool depends on whether your buyers live in
-              Gmail, on LinkedIn, or on WhatsApp.
-            </Typography>
-          </Box>
-
-          <Box component="li">
-            <Typography
-              component="span"
-              sx={{
-                fontSize: "inherit",
-                lineHeight: "inherit",
-                fontWeight: 700,
-                color: "#29466A",
-              }}
-            >
-              Found an error?
-            </Typography>
-
-            <Typography
-              component="span"
-              sx={{
-                fontSize: "inherit",
-                lineHeight: "inherit",
-                color: "#345477",
-              }}
-            >
-              {" "}
-              Email{" "}
-              <Link
-                href="mailto:help@rapidsales.ai"
-                underline="always"
+            <Box component="li">
+              <Typography
+                component="span"
                 sx={{
-                  color: "#345477",
-
                   fontSize: "inherit",
-
-                  fontWeight: 400,
-
-                  textUnderlineOffset: "2px",
-
-                  "&:hover": {
-                    color: "#4C3DDB",
-                  },
+                  lineHeight: "inherit",
+                  fontWeight: 700,
+                  color: "#29466A",
                 }}
               >
-                help@rapidsales.ai
-              </Link>{" "}
-              and we&apos;ll fix it.
-            </Typography>
+                Every price is verified on the vendor&apos;s official pricing
+                page
+              </Typography>
+
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  color: "#345477",
+                }}
+              >
+                {" "}
+                — checked June 10, 2026, linked as a source on each page, and
+                updated when vendors change plans.
+              </Typography>
+            </Box>
+
+            {/* ==================================================
+                RULE 2
+            ================================================== */}
+
+            <Box component="li">
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  fontWeight: 700,
+                  color: "#29466A",
+                }}
+              >
+                Competitor strengths are stated plainly.
+              </Typography>
+
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  color: "#345477",
+                }}
+              >
+                {" "}
+                Wati&apos;s inbox is genuinely deeper. Interakt&apos;s
+                unlimited agents are genuinely rare. Instantly genuinely wins
+                on email volume. Pretending otherwise would waste your time.
+              </Typography>
+            </Box>
+
+            {/* ==================================================
+                RULE 3
+            ================================================== */}
+
+            <Box component="li">
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  fontWeight: 700,
+                  color: "#29466A",
+                }}
+              >
+                The recommendation is conditional, not absolute.
+              </Typography>
+
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  color: "#345477",
+                }}
+              >
+                {" "}
+                Each page ends with &quot;choose them if / choose us if&quot;
+                because the right tool depends on whether your buyers live in
+                Gmail, on LinkedIn, or on WhatsApp.
+              </Typography>
+            </Box>
+
+            {/* ==================================================
+                RULE 4
+            ================================================== */}
+
+            <Box component="li">
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  fontWeight: 700,
+                  color: "#29466A",
+                }}
+              >
+                Found an error?
+              </Typography>
+
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "inherit",
+                  lineHeight: "inherit",
+                  color: "#345477",
+                }}
+              >
+                {" "}
+                Email{" "}
+                <Link
+                  href="mailto:help@rapidsales.ai"
+                  underline="always"
+                  sx={{
+                    color: "#345477",
+                    fontSize: "inherit",
+                    fontWeight: 400,
+                    textUnderlineOffset: "2px",
+
+                    "&:hover": {
+                      color: "#4C3DDB",
+                    },
+                  }}
+                >
+                  help@rapidsales.ai
+                </Link>{" "}
+                and we&apos;ll fix it.
+              </Typography>
+            </Box>
           </Box>
         </Box>
       </Container>
