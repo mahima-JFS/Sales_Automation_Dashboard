@@ -102,26 +102,67 @@ const AppointmentBooking = () => {
         bgcolor: "#f8f8f8",
         background:
           "radial-gradient(circle at 65% 38%, rgba(234, 137, 42, 0.13), transparent 27%), radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), transparent 35%), #f8f8f8",
-        py: { xs: 5, md: 6 },
+        py: {
+          xs: 5,
+          md: 6,
+        },
       }}
     >
       <Box
         sx={{
           maxWidth: 1380,
           mx: "auto",
-          px: { xs: 2.5, sm: 4, md: 6 },
+          px: {
+            xs: 2.5,
+            sm: 4,
+            md: 6,
+          },
         }}
       >
-        {/* 
-          IMPORTANT:
-          alignItems="center" means the Calendar column
-          is vertically centered relative to the LEFT content.
-        */}
-        <Grid container spacing={{ xs: 6, md: 4 }} alignItems="center">
-          {/* ================= LEFT SECTION ================= */}
-          <Grid item xs={12} md={6}>
-            <Box sx={{ maxWidth: 670 }}>
+        {/* =====================================================
+        MAIN LAYOUT
+        Desktop >= 1024px = SAME ROW
+        Tablet + Mobile < 1024px = IMAGE BELOW
+    ===================================================== */}
+
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+
+            "@media (min-width: 1024px)": {
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 4,
+            },
+          }}
+        >
+          {/* =====================================================
+          LEFT SECTION
+      ===================================================== */}
+
+          <Box
+            sx={{
+              width: "100%",
+
+              "@media (min-width: 1024px)": {
+                width: "50%",
+                minWidth: 0,
+              },
+            }}
+          >
+            <Box
+              sx={{
+                maxWidth: 670,
+
+                "@media (min-width: 1024px)": {
+                  maxWidth: "100%",
+                },
+              }}
+            >
               {/* Badge */}
+
               <Chip
                 icon={
                   <CalendarMonthOutlinedIcon
@@ -146,6 +187,7 @@ const AppointmentBooking = () => {
               />
 
               {/* Heading */}
+
               <Typography
                 component="h1"
                 sx={{
@@ -176,6 +218,7 @@ const AppointmentBooking = () => {
               </Typography>
 
               {/* Description */}
+
               <Typography
                 sx={{
                   maxWidth: 710,
@@ -195,19 +238,22 @@ const AppointmentBooking = () => {
               </Typography>
 
               {/* Feature Cards */}
+
               <Box
                 sx={{
                   display: "grid",
+
                   gridTemplateColumns: {
                     xs: "1fr",
-                    md: "repeat(2, 1fr)",
+                    sm: "repeat(2, 1fr)",
                   },
+
                   gap: {
                     xs: 2,
                     md: "20px 22px",
                   },
+
                   width: "100%",
-                  maxWidth: "720px",
                 }}
               >
                 {features.map((feature) => (
@@ -216,43 +262,61 @@ const AppointmentBooking = () => {
                     elevation={0}
                     sx={{
                       height: {
-                        xs: 40,
+                        xs: 48,
                         md: 60,
                       },
+
                       width: "100%",
+
                       display: "flex",
                       alignItems: "center",
-                      gap: 2,
+
+                      gap: {
+                        xs: 1.5,
+                        md: 2,
+                      },
+
                       px: {
-                        xs: 2,
+                        xs: 1.5,
                         md: 2.5,
                       },
+
                       borderRadius: "16px",
+
                       bgcolor: "rgba(255,255,255,0.55)",
+
                       border: "1px solid #d6dbe1",
+
                       boxShadow: "0 3px 7px rgba(20, 30, 50, 0.08)",
+
                       boxSizing: "border-box",
                     }}
                   >
                     {/* Check Circle */}
+
                     <Box
                       sx={{
                         width: {
-                          xs: 30,
+                          xs: 28,
                           md: 35,
                         },
+
                         height: {
-                          xs: 30,
+                          xs: 28,
                           md: 35,
                         },
+
                         minWidth: {
-                          xs: 30,
+                          xs: 28,
                           md: 35,
                         },
+
                         borderRadius: "50%",
+
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+
                         bgcolor: "#f6eee9",
                       }}
                     >
@@ -260,7 +324,10 @@ const AppointmentBooking = () => {
                         component="span"
                         sx={{
                           color: "#e87532",
-                          fontSize: 20,
+                          fontSize: {
+                            xs: 17,
+                            md: 20,
+                          },
                           fontWeight: 600,
                           lineHeight: 1,
                           fontFamily: "Arial, sans-serif",
@@ -273,12 +340,19 @@ const AppointmentBooking = () => {
                     <Typography
                       sx={{
                         fontSize: {
-                          xs: 14,
+                          xs: 13,
                           md: 16,
                         },
+
                         color: "#17202d",
+
                         fontWeight: 500,
+
                         whiteSpace: "nowrap",
+
+                        overflow: "hidden",
+
+                        textOverflow: "ellipsis",
                       }}
                     >
                       {feature}
@@ -288,19 +362,29 @@ const AppointmentBooking = () => {
               </Box>
 
               {/* Button */}
+
               <Button
                 variant="contained"
                 endIcon={<ArrowOutwardIcon />}
                 sx={{
                   mt: 3.5,
+
                   width: 218,
+
                   height: 56,
+
                   borderRadius: "10px",
+
                   textTransform: "none",
+
                   bgcolor: "#f85b08",
+
                   fontSize: 18,
+
                   fontWeight: 700,
+
                   boxShadow: "none",
+
                   "&:hover": {
                     bgcolor: "#df4f03",
                     boxShadow: "none",
@@ -310,351 +394,484 @@ const AppointmentBooking = () => {
                 Book Demo
               </Button>
             </Box>
-          </Grid>
+          </Box>
 
-          {/* ================= RIGHT SECTION ================= */}
-          <Grid
-            item
-            xs={12}
-            md={6}
+          {/* =====================================================
+          RIGHT SECTION
+      ===================================================== */}
+
+          <Box
             sx={{
+              width: "100%",
+
               display: "flex",
+
+              justifyContent: "center",
+
               alignItems: "center",
+
+              "@media (min-width: 1024px)": {
+                width: "50%",
+                minWidth: 0,
+                justifyContent: "flex-end",
+              },
             }}
           >
-            <Box
+            <Paper
+              elevation={0}
               sx={{
                 width: "100%",
-                display: "flex",
-                justifyContent: {
-                  xs: "center",
-                  md: "flex-end",
+
+                maxWidth: {
+                  xs: 680,
+                  md: 680,
                 },
+
+                height: {
+                  xs: 470,
+                  sm: 470,
+                  lg: 400,
+                },
+
+                overflow: "hidden",
+
+                borderRadius: "20px",
+
+                bgcolor: "rgba(255,255,255,0.68)",
+
+                border: "1px solid #d6dce5",
+
+                boxShadow: "0 24px 35px rgba(50, 38, 20, 0.2)",
               }}
             >
-              <Paper
-                elevation={0}
+              {/* Calendar Header */}
+
+              <Box
                 sx={{
-                  width: "100%",
-                  maxWidth: 680,
-                  height: { xs: 470, lg: 400 },
-                  overflow: "hidden",
-                  borderRadius: "20px",
-                  bgcolor: "rgba(255,255,255,0.68)",
-                  border: "1px solid #d6dce5",
-                  boxShadow: "0 24px 35px rgba(50, 38, 20, 0.2)",
+                  px: 2.2,
+                  pt: 1.5,
+                  pb: 1.3,
+                  borderBottom: "1px solid #e4e7eb",
                 }}
               >
-                {/* Calendar Header */}
-                <Box
-                  sx={{
-                    px: 2.2,
-                    pt: 1.5,
-                    pb: 1.3,
-                    borderBottom: "1px solid #e4e7eb",
-                  }}
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
                 >
-                  <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                  >
-                    <Box>
-                      <Stack direction="row" spacing={0.7} alignItems="center">
-                        <CalendarMonthOutlinedIcon
-                          sx={{
-                            color: "#e87838",
-                            fontSize: 19,
-                          }}
-                        />
-
-                        <Typography
-                          sx={{
-                            fontSize: 16,
-                            fontWeight: 700,
-                            color: "#27313d",
-                          }}
-                        >
-                          Booking Calendar
-                        </Typography>
-                      </Stack>
+                  <Box>
+                    <Stack direction="row" spacing={0.7} alignItems="center">
+                      <CalendarMonthOutlinedIcon
+                        sx={{
+                          color: "#e87838",
+                          fontSize: 19,
+                        }}
+                      />
 
                       <Typography
                         sx={{
-                          fontSize: 9,
-                          color: "#5e6977",
-                          mt: 0.3,
+                          fontSize: 16,
+                          fontWeight: 700,
+                          color: "#27313d",
                         }}
                       >
-                        Bookings your agent makes on calls, day by day
+                        Booking Calendar
+                      </Typography>
+                    </Stack>
+
+                    <Typography
+                      sx={{
+                        fontSize: 9,
+                        color: "#5e6977",
+                        mt: 0.3,
+                      }}
+                    >
+                      Bookings your agent makes on calls, day by day
+                    </Typography>
+                  </Box>
+
+                  <Button
+                    size="small"
+                    startIcon={
+                      <RefreshIcon
+                        sx={{
+                          fontSize: 14,
+                        }}
+                      />
+                    }
+                    sx={{
+                      minWidth: 65,
+                      height: 28,
+                      borderRadius: "6px",
+                      textTransform: "none",
+                      fontSize: 9,
+                      color: "#45505d",
+                      bgcolor: "#fff",
+                      border: "1px solid #e2e5e8",
+                    }}
+                  >
+                    Refresh
+                  </Button>
+                </Stack>
+              </Box>
+
+              {/* Filters */}
+
+              <Box
+                sx={{
+                  px: 1.7,
+                  py: 1,
+
+                  display: "flex",
+
+                  alignItems: "center",
+
+                  gap: 1,
+
+                  borderBottom: "1px solid #e8eaed",
+
+                  overflow: "hidden",
+                }}
+              >
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    height: 34,
+                    width: 102,
+                    minWidth: 102,
+
+                    px: 1,
+
+                    display: "flex",
+
+                    alignItems: "center",
+
+                    justifyContent: "space-between",
+
+                    borderRadius: "7px",
+
+                    borderColor: "#d8dde3",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: 9,
+                      color: "#596574",
+                    }}
+                  >
+                    01-07-2026
+                  </Typography>
+
+                  <CalendarMonthOutlinedIcon
+                    sx={{
+                      fontSize: 12,
+                      color: "#52606d",
+                    }}
+                  />
+                </Paper>
+
+                <Typography
+                  sx={{
+                    color: "#a0a7b0",
+                  }}
+                >
+                  →
+                </Typography>
+
+                <Paper
+                  variant="outlined"
+                  sx={{
+                    height: 34,
+                    width: 102,
+                    minWidth: 102,
+
+                    px: 1,
+
+                    display: "flex",
+
+                    alignItems: "center",
+
+                    justifyContent: "space-between",
+
+                    borderRadius: "7px",
+
+                    borderColor: "#d8dde3",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: 9,
+                      color: "#596574",
+                    }}
+                  >
+                    07-08-2026
+                  </Typography>
+
+                  <CalendarMonthOutlinedIcon
+                    sx={{
+                      fontSize: 12,
+                      color: "#52606d",
+                    }}
+                  />
+                </Paper>
+
+                <FormControl
+                  size="small"
+                  sx={{
+                    minWidth: 82,
+                  }}
+                >
+                  <Select
+                    defaultValue="Confirmed"
+                    sx={{
+                      height: 34,
+
+                      fontSize: 9,
+
+                      borderRadius: "7px",
+
+                      "& .MuiSelect-select": {
+                        py: 0.8,
+                      },
+                    }}
+                  >
+                    <MenuItem value="Confirmed">Confirmed</MenuItem>
+
+                    <MenuItem value="Pending">Pending</MenuItem>
+                  </Select>
+                </FormControl>
+
+                <Box
+                  sx={{
+                    flexGrow: 1,
+                  }}
+                />
+
+                <Typography
+                  sx={{
+                    fontSize: 8,
+                    color: "#64707d",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  13 bookings
+                </Typography>
+
+                <Button
+                  startIcon={
+                    <FileDownloadOutlinedIcon
+                      sx={{
+                        fontSize: 12,
+                      }}
+                    />
+                  }
+                  sx={{
+                    minWidth: 76,
+                    height: 28,
+                    fontSize: 8,
+                    textTransform: "none",
+                    color: "#5c6875",
+                    border: "1px solid #e1e4e8",
+                    borderRadius: "6px",
+                  }}
+                >
+                  Export Excel
+                </Button>
+              </Box>
+
+              {/* Calendar Bookings */}
+
+              <Box
+                sx={{
+                  height: 300,
+                  overflow: "hidden",
+                }}
+              >
+                {bookingGroups.map((group) => (
+                  <Box key={group.date}>
+                    {/* Date Header */}
+
+                    <Box
+                      sx={{
+                        height: 31,
+
+                        px: 2,
+
+                        display: "flex",
+
+                        alignItems: "center",
+
+                        bgcolor: "#f4f5f6",
+
+                        borderBottom: "1px solid #e6e8eb",
+                      }}
+                    >
+                      <CalendarMonthOutlinedIcon
+                        sx={{
+                          fontSize: 10,
+                          color: "#8a94a0",
+                          mr: 0.8,
+                        }}
+                      />
+
+                      <Typography
+                        sx={{
+                          fontSize: 8,
+                          fontWeight: 700,
+                          color: "#52606d",
+                        }}
+                      >
+                        {group.date}
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontSize: 7,
+                          color: "#8a949f",
+                          ml: 0.6,
+                        }}
+                      >
+                        - {group.count}
                       </Typography>
                     </Box>
 
-                    <Button
-                      size="small"
-                      startIcon={<RefreshIcon sx={{ fontSize: 14 }} />}
-                      sx={{
-                        minWidth: 65,
-                        height: 28,
-                        borderRadius: "6px",
-                        textTransform: "none",
-                        fontSize: 9,
-                        color: "#45505d",
-                        bgcolor: "#fff",
-                        border: "1px solid #e2e5e8",
-                      }}
-                    >
-                      Refresh
-                    </Button>
-                  </Stack>
-                </Box>
+                    {/* Booking Rows */}
 
-                {/* Filters */}
-                <Box
-                  sx={{
-                    px: 1.7,
-                    py: 1,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                    borderBottom: "1px solid #e8eaed",
-                  }}
-                >
-                  <Paper
-                    variant="outlined"
-                    sx={{
-                      height: 34,
-                      width: 102,
-                      px: 1,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      borderRadius: "7px",
-                      borderColor: "#d8dde3",
-                    }}
-                  >
-                    <Typography sx={{ fontSize: 9, color: "#596574" }}>
-                      01-07-2026
-                    </Typography>
-
-                    <CalendarMonthOutlinedIcon
-                      sx={{ fontSize: 12, color: "#52606d" }}
-                    />
-                  </Paper>
-
-                  <Typography sx={{ color: "#a0a7b0" }}>→</Typography>
-
-                  <Paper
-                    variant="outlined"
-                    sx={{
-                      height: 34,
-                      width: 102,
-                      px: 1,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      borderRadius: "7px",
-                      borderColor: "#d8dde3",
-                    }}
-                  >
-                    <Typography sx={{ fontSize: 9, color: "#596574" }}>
-                      07-08-2026
-                    </Typography>
-
-                    <CalendarMonthOutlinedIcon
-                      sx={{ fontSize: 12, color: "#52606d" }}
-                    />
-                  </Paper>
-
-                  <FormControl size="small">
-                    <Select
-                      defaultValue="Confirmed"
-                      sx={{
-                        height: 34,
-                        minWidth: 82,
-                        fontSize: 9,
-                        borderRadius: "7px",
-                        "& .MuiSelect-select": {
-                          py: 0.8,
-                        },
-                      }}
-                    >
-                      <MenuItem value="Confirmed">Confirmed</MenuItem>
-                      <MenuItem value="Pending">Pending</MenuItem>
-                    </Select>
-                  </FormControl>
-
-                  <Box sx={{ flexGrow: 1 }} />
-
-                  <Typography
-                    sx={{
-                      fontSize: 8,
-                      color: "#64707d",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    13 bookings
-                  </Typography>
-
-                  <Button
-                    startIcon={
-                      <FileDownloadOutlinedIcon sx={{ fontSize: 12 }} />
-                    }
-                    sx={{
-                      minWidth: 76,
-                      height: 28,
-                      fontSize: 8,
-                      textTransform: "none",
-                      color: "#5c6875",
-                      border: "1px solid #e1e4e8",
-                      borderRadius: "6px",
-                    }}
-                  >
-                    Export Excel
-                  </Button>
-                </Box>
-
-                {/* Calendar Bookings */}
-                <Box sx={{ height: 300, overflow: "hidden" }}>
-                  {bookingGroups.map((group) => (
-                    <Box key={group.date}>
-                      {/* Date Header */}
+                    {group.bookings.map((booking, index) => (
                       <Box
+                        key={`${group.date}-${index}`}
                         sx={{
-                          height: 31,
+                          minHeight: 43,
+
                           px: 2,
+
                           display: "flex",
+
                           alignItems: "center",
-                          bgcolor: "#f4f5f6",
-                          borderBottom: "1px solid #e6e8eb",
+
+                          borderBottom: "1px solid #eceef0",
                         }}
                       >
-                        <CalendarMonthOutlinedIcon
+                        {/* Time */}
+
+                        <Box
                           sx={{
-                            fontSize: 10,
-                            color: "#8a94a0",
-                            mr: 0.8,
+                            width: "16%",
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: 10,
+                              fontWeight: 700,
+                              color: "#384552",
+                            }}
+                          >
+                            {booking.time}
+                          </Typography>
+                        </Box>
+
+                        {/* Details */}
+
+                        <Box
+                          sx={{
+                            flexGrow: 1,
+
+                            minWidth: 0,
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: 10,
+                              fontWeight: 700,
+                              color: "#46515e",
+                            }}
+                          >
+                            {booking.name}
+                          </Typography>
+
+                          <Stack
+                            direction="row"
+                            spacing={1}
+                            sx={{
+                              mt: 0.2,
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: 7,
+                                color: "#88919c",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              ☎ {booking.phone}
+                            </Typography>
+
+                            <Typography
+                              sx={{
+                                fontSize: 7,
+                                color: "#88919c",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {booking.project}
+                            </Typography>
+
+                            <Typography
+                              sx={{
+                                fontSize: 7,
+                                color: "#88919c",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {booking.booked}
+                            </Typography>
+                          </Stack>
+                        </Box>
+
+                        {/* Status */}
+
+                        <Chip
+                          label="Confirmed"
+                          size="small"
+                          sx={{
+                            height: 20,
+
+                            fontSize: 7,
+
+                            bgcolor: "#eef8f1",
+
+                            color: "#27815b",
+
+                            fontWeight: 600,
+
+                            mr: 1.5,
                           }}
                         />
 
-                        <Typography
+                        {/* Close */}
+
+                        <IconButton
+                          size="small"
                           sx={{
-                            fontSize: 8,
-                            fontWeight: 700,
-                            color: "#52606d",
+                            width: 22,
+                            height: 22,
+                            color: "#8c98a4",
                           }}
                         >
-                          {group.date}
-                        </Typography>
-
-                        <Typography
-                          sx={{
-                            fontSize: 7,
-                            color: "#8a949f",
-                            ml: 0.6,
-                          }}
-                        >
-                          - {group.count}
-                        </Typography>
-                      </Box>
-
-                      {/* Booking Rows */}
-                      {group.bookings.map((booking, index) => (
-                        <Box
-                          key={`${group.date}-${index}`}
-                          sx={{
-                            minHeight: 43,
-                            px: 2,
-                            display: "flex",
-                            alignItems: "center",
-                            borderBottom: "1px solid #eceef0",
-                          }}
-                        >
-                          <Box sx={{ width: "16%" }}>
-                            <Typography
-                              sx={{
-                                fontSize: 10,
-                                fontWeight: 700,
-                                color: "#384552",
-                              }}
-                            >
-                              {booking.time}
-                            </Typography>
-                          </Box>
-
-                          <Box sx={{ flexGrow: 1 }}>
-                            <Typography
-                              sx={{
-                                fontSize: 10,
-                                fontWeight: 700,
-                                color: "#46515e",
-                              }}
-                            >
-                              {booking.name}
-                            </Typography>
-
-                            <Stack direction="row" spacing={1} sx={{ mt: 0.2 }}>
-                              <Typography
-                                sx={{
-                                  fontSize: 7,
-                                  color: "#88919c",
-                                }}
-                              >
-                                ☎ {booking.phone}
-                              </Typography>
-
-                              <Typography
-                                sx={{
-                                  fontSize: 7,
-                                  color: "#88919c",
-                                }}
-                              >
-                                {booking.project}
-                              </Typography>
-
-                              <Typography
-                                sx={{
-                                  fontSize: 7,
-                                  color: "#88919c",
-                                }}
-                              >
-                                {booking.booked}
-                              </Typography>
-                            </Stack>
-                          </Box>
-
-                          <Chip
-                            label="Confirmed"
-                            size="small"
+                          <CloseIcon
                             sx={{
-                              height: 20,
-                              fontSize: 7,
-                              bgcolor: "#eef8f1",
-                              color: "#27815b",
-                              fontWeight: 600,
-                              mr: 1.5,
+                              fontSize: 12,
                             }}
                           />
-
-                          <IconButton
-                            size="small"
-                            sx={{
-                              width: 22,
-                              height: 22,
-                              color: "#8c98a4",
-                            }}
-                          >
-                            <CloseIcon sx={{ fontSize: 12 }} />
-                          </IconButton>
-                        </Box>
-                      ))}
-                    </Box>
-                  ))}
-                </Box>
-              </Paper>
-            </Box>
-          </Grid>
-        </Grid>
+                        </IconButton>
+                      </Box>
+                    ))}
+                  </Box>
+                ))}
+              </Box>
+            </Paper>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

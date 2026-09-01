@@ -9,8 +9,7 @@ import Home from "../pages/Website/Home";
 import ContactUs from "../pages/Website/ContactUs";
 import Blog from "../pages/Website/Blog";
 import Pricing from "../pages/Website/Pricing";
-
-
+import Features from "../pages/Website/Features";
 
 // import LeadSources from "../pages/LeadSources/LeadSources";
 // import Automation from "../pages/Automation/Automation";
@@ -26,14 +25,10 @@ const AppRoutes = () => {
     <Routes>
       <Route>
         <Route index element={<Home />} />
-       <Route path="/contact" element={<ContactUs />} />
-       <Route path="/Blog" element={<Blog />} />
-       <Route path="/Pricing" element={<Pricing />} />
-
-
-
-
-
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/features" element={<Features />} />
       </Route>
       {/* Main Dashboard Layout */}
       {/* <Route path="/" element={<MainLayout />}>
@@ -42,7 +37,6 @@ const AppRoutes = () => {
         <Route path="leads" element={<Leads />} />
       </Route> */}
     </Routes>
-    
   );
 };
 

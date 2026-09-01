@@ -162,10 +162,10 @@ const Footer = () => {
                 maxWidth: "850px",
 
                 fontSize: {
-                  xs: "30px",
-                  sm: "38px",
-                  md: "46px",
-                  lg: "50px",
+                  xs: "20px",
+                  sm: "30px",
+                  md: "38px",
+                  lg: "42px",
                 },
 
                 lineHeight: 1.2,
@@ -246,25 +246,15 @@ const Footer = () => {
                     gap: 1.8,
                   }}
                 >
-                  <FooterLink to="/features">
-                    Features
-                  </FooterLink>
+                  <FooterLink to="/features">Features</FooterLink>
 
-                  <FooterLink to="/comparisons">
-                    Comparisons
-                  </FooterLink>
+                  <FooterLink to="/comparisons">Comparisons</FooterLink>
 
-                  <FooterLink to="/pricing">
-                    Pricing
-                  </FooterLink>
+                  <FooterLink to="/pricing">Pricing</FooterLink>
 
-                  <FooterLink to="/blog">
-                    Blog
-                  </FooterLink>
+                  <FooterLink to="/blog">Blog</FooterLink>
 
-                  <FooterLink to="/contact-us">
-                    Contact Us
-                  </FooterLink>
+                  <FooterLink to="/contact-us">Contact Us</FooterLink>
                 </Box>
               </Grid>
 
@@ -300,13 +290,9 @@ const Footer = () => {
                     gap: 1.8,
                   }}
                 >
-                  <FooterLink to="/terms">
-                    Terms & Conditions
-                  </FooterLink>
+                  <FooterLink to="/terms">Terms & Conditions</FooterLink>
 
-                  <FooterLink to="/privacy-policy">
-                    Privacy Policy
-                  </FooterLink>
+                  <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
                 </Box>
               </Grid>
 
@@ -428,8 +414,7 @@ const Footer = () => {
                       },
                     }}
                   >
-                 +91 98765 43210
-
+                    +91 98765 43210
                   </Link>
 
                   <Typography
@@ -450,8 +435,6 @@ const Footer = () => {
                     MG Road, Camp,
                     <br />
                     Pune, Maharashtra 411001
-
-
                   </Typography>
                 </Box>
               </Grid>
@@ -689,14 +672,14 @@ const Footer = () => {
           },
         }}
       >
-       <ForumOutlinedIcon
-  sx={{
-    fontSize: {
-      xs: "30px",
-      md: "36px",
-    },
-  }}
-/>
+        <ForumOutlinedIcon
+          sx={{
+            fontSize: {
+              xs: "30px",
+              md: "36px",
+            },
+          }}
+        />
       </Box>
     </>
   );
