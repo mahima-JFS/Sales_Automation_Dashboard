@@ -15,7 +15,7 @@ import BookDemo from "../pages/Website/BookDemo";
 import FeatureAIAgent from "../pages/Website/FeatureAIAgent";
 import WhatappAutomation from "../pages/Website/WhatappAutomation";
 import EmailOutreach from "../pages/Website/EmailOutreach";
-
+import BlogDetails from "../pages/Website/BlogDetails";
 // import LeadSources from "../pages/LeadSources/LeadSources";
 // import Automation from "../pages/Automation/Automation";
 // import Email from "../pages/Email/Email";
@@ -42,6 +42,7 @@ const AppRoutes = () => {
           element={<WhatappAutomation />}
         />
         <Route path="/feature/email-outreach" element={<EmailOutreach />} />
+        <Route path="/blog/:slug" element={<BlogDetails />} />
       </Route>
       {/* Main Dashboard Layout */}
       {/* <Route path="/" element={<MainLayout />}>
