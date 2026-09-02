@@ -28,10 +28,11 @@ import PriceSection from "./PriceSection";
 import FAQHome from "./FAQHome";
 import AutomateOutreach from "./AutomateOutreach";
 import ContactForm from "./ContactForm";
-// import rapidIntro from "../assets/rapid-sales-intro.png";
-// import dashboardImage from "../assets/rapid-sales-dashboard.png";
-// import aiCallingImage from "../assets/rapid-sales-ai-calling.png";
-// import emailImage from "../assets/rapid-sales-email.png";
+import rapidIntro from "../../assets/images/video1.png";
+import dashboardImage from "../../assets/images/dashboard.webp";
+import aiCallingImage from "../../assets/images/aicallingdashboard.webp";
+import emailImage from "../../assets/images/emailsequence.webp";
+import whatsappImage from "../../assets/images/video2.png";
 
 const FEATURES = [
   {
@@ -57,37 +58,37 @@ const SHOWCASE_ITEMS = [
     id: "ai",
     title: "AI Calling",
     description: "Launch AI-powered calls to large lead lists in one go.",
-    // image: aiCallingImage,
+    image: aiCallingImage,
   },
   {
     id: "whatsapp",
     title: "WhatsApp Outreach",
     description: "Engage and follow up with leads through WhatsApp.",
-    // image: rapidIntro,
+    image: rapidIntro,
   },
   {
     id: "email",
     title: "Email Outreach",
     description: "Run email campaigns at scale with better visibility.",
-    // image: emailImage,
+    image: emailImage,
   },
   {
     id: "multi",
     title: "Multi-Channel Sequences",
     description: "Combine Email, WhatsApp and AI calls in one automation.",
-    // image: rapidIntro,
+    image: rapidIntro,
   },
   {
     id: "analytics",
     title: "Campaign Analytics",
     description: "Track campaign performance, lead activity, and outcomes.",
-    // image: dashboardImage,
+    image: dashboardImage,
   },
   {
     id: "leads",
     title: "Lead Management & History",
     description: "Manage every lead and interaction from one place.",
-    // image: dashboardImage,
+    image: whatsappImage,
   },
 ];
 
@@ -230,7 +231,7 @@ const Home = () => {
                 minHeight: "50px",
                 minWidth: 0,
                 padding: "0 12px",
-                borderRadius: "23px",
+                borderRadius: "12px",
                 backgroundColor: "#FF6811",
                 color: "#FFFFFF",
                 fontSize: "18px",
@@ -278,7 +279,7 @@ const Home = () => {
 
                 padding: "0 12px",
 
-                borderRadius: "23px",
+                borderRadius: "12px",
 
                 border: "1px solid #E9C7A8",
 
@@ -408,15 +409,22 @@ const Home = () => {
         sx={{
           position: "relative",
           py: {
-            xs: 6,
+            xs: 5,
+            sm: 6,
             md: 10,
+          },
+          px: {
+            xs: 2,
+            sm: 4,
+            md: 10,
+            lg: 18,
           },
 
           background:
             "radial-gradient(circle at left center, rgba(99,102,241,0.12), transparent 35%), radial-gradient(circle at right center, rgba(249,115,22,0.12), transparent 35%)",
         }}
       >
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" disableGutters>
           {/* TOP HEADING */}
 
           <Typography
@@ -424,10 +432,18 @@ const Home = () => {
             sx={{
               maxWidth: 850,
               mx: "auto",
-              mb: 5,
+              mb: {
+                xs: 3,
+                sm: 4,
+                md: 5,
+              },
+              px: {
+                xs: 1,
+                sm: 0,
+              },
               fontSize: {
-                xs: 22,
-                sm: 27,
+                xs: 19,
+                sm: 24,
                 md: 32,
               },
               fontWeight: 600,
@@ -450,37 +466,35 @@ const Home = () => {
             sx={{
               display: "grid",
               gridTemplateColumns: {
-                xs: "1fr",
-                md: "260px 1fr",
+                xs: "110px minmax(0, 1fr)",
+                sm: "150px minmax(0, 1fr)",
+                md: "260px minmax(0, 1fr)",
               },
+
+              width: "100%",
+              maxWidth: "100%",
 
               border: "1px solid #CBD5E1",
               borderRadius: {
-                xs: 3,
+                xs: 2,
+                sm: 3,
                 md: 5,
               },
 
               overflow: "hidden",
               bgcolor: "#FFFFFF",
 
-              boxShadow: "0px 30px 80px rgba(15,23,42,0.12)",
+              boxShadow: {
+                xs: "0px 12px 30px rgba(15,23,42,0.10)",
+                md: "0px 30px 80px rgba(15,23,42,0.12)",
+              },
             }}
           >
-            {/* =========================================
-          LEFT MENU
-      ========================================= */}
-
             <Box
               sx={{
-                borderRight: {
-                  xs: "none",
-                  md: "1px solid #CBD5E1",
-                },
+                minWidth: 0,
 
-                borderBottom: {
-                  xs: "1px solid #CBD5E1",
-                  md: "none",
-                },
+                borderRight: "1px solid #CBD5E1",
 
                 bgcolor: "#FAFAFA",
               }}
@@ -493,10 +507,22 @@ const Home = () => {
                     key={item.id}
                     onClick={() => setActiveShowcase(index)}
                     sx={{
-                      minHeight: 88,
+                      minHeight: {
+                        xs: 40,
+                        sm: 60,
+                        md: 88,
+                      },
 
-                      px: 3,
-                      py: 2,
+                      px: {
+                        xs: 1,
+                        sm: 1.75,
+                        md: 3,
+                      },
+                      py: {
+                        xs: 0.75,
+                        sm: 1.25,
+                        md: 2,
+                      },
 
                       cursor: "pointer",
 
@@ -516,7 +542,12 @@ const Home = () => {
                   >
                     <Typography
                       sx={{
-                        fontSize: 15,
+                        fontSize: {
+                          xs: 8.5,
+                          sm: 12,
+                          md: 15,
+                        },
+                        lineHeight: 1.25,
                         fontWeight: isActive ? 700 : 500,
                         color: isActive ? "#4F46E5" : "#1E293B",
                       }}
@@ -528,9 +559,21 @@ const Home = () => {
                       <Typography
                         sx={{
                           mt: 0.5,
-                          fontSize: 12,
-                          lineHeight: 1.4,
+                          fontSize: {
+                            xs: 7,
+                            sm: 10,
+                            md: 12,
+                          },
+                          lineHeight: 1.3,
                           color: "#64748B",
+
+                          display: {
+                            xs: "none",
+                            sm: "-webkit-box",
+                          },
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
                         }}
                       >
                         {item.description}
@@ -542,55 +585,65 @@ const Home = () => {
             </Box>
 
             {/* =========================================
-          RIGHT IMAGE
-      ========================================= */}
+        RIGHT IMAGE / VIDEO
+    ========================================= */}
 
             <Box
               sx={{
                 position: "relative",
+                width: "100%",
+                minWidth: 0,
                 minHeight: {
-                  xs: 280,
-                  sm: 400,
+                  xs: 220,
+                  sm: 320,
                   md: 530,
                 },
 
                 overflow: "hidden",
 
                 bgcolor: "#F8FAFC",
-
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
               }}
             >
-              <Box
-                component="img"
-                src={SHOWCASE_ITEMS[activeShowcase].image}
-                alt={SHOWCASE_ITEMS[activeShowcase].title}
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-
-                  transition: "opacity 0.4s ease",
-                }}
-              />
-              <Box
-                component="video"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                }}
-              >
-                <source src="/videos/Rapid_sales.mp4" type="video/mp4" />
-              </Box>
+              {SHOWCASE_ITEMS[activeShowcase].video ? (
+                <Box
+                  component="video"
+                  key={SHOWCASE_ITEMS[activeShowcase].id}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  sx={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center top",
+                    display: "block",
+                  }}
+                >
+                  <source
+                    src={SHOWCASE_ITEMS[activeShowcase].video}
+                    type="video/mp4"
+                  />
+                </Box>
+              ) : (
+                <Box
+                  component="img"
+                  src={SHOWCASE_ITEMS[activeShowcase].image}
+                  alt={SHOWCASE_ITEMS[activeShowcase].title}
+                  sx={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center top",
+                    transition: "opacity 0.4s ease",
+                  }}
+                />
+              )}
 
               {/* TITLE OVERLAY */}
 
@@ -599,7 +652,8 @@ const Home = () => {
                   position: "absolute",
 
                   top: {
-                    xs: 15,
+                    xs: 8,
+                    sm: 16,
                     md: 30,
                   },
 
@@ -617,8 +671,8 @@ const Home = () => {
                 <Typography
                   sx={{
                     fontSize: {
-                      xs: 18,
-                      sm: 24,
+                      xs: 11,
+                      sm: 16,
                       md: 30,
                     },
 
@@ -642,11 +696,20 @@ const Home = () => {
             sx={{
               maxWidth: 850,
               mx: "auto",
-              mt: 5,
+              mt: {
+                xs: 3,
+                sm: 4,
+                md: 5,
+              },
+              px: {
+                xs: 1,
+                sm: 0,
+              },
 
               fontSize: {
-                xs: 20,
-                sm: 24,
+                xs: 15,
+                sm: 18,
+                md: 24,
               },
 
               fontWeight: 600,
@@ -668,7 +731,6 @@ const Home = () => {
           </Typography>
         </Container>
       </Box>
-
       {/* Feature  */}
       <FeatureStackHero />
       <StactsSection />

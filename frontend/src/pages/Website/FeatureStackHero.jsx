@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Paper,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
-// Small inline icon components so this file has zero extra dependencies
-// beyond @mui/material (no @mui/icons-material install needed).
 function IconUsers(props) {
   return (
     <svg
@@ -115,9 +119,6 @@ function IconBarChart(props) {
   );
 }
 
-// Same accent palette used across the rest of the page
-// (orange CTA, indigo highlights, plus a few complementary hues)
-// so every card gets its own distinct color instead of repeating one.
 const FEATURES = [
   { label: "Import and manage contacts", icon: IconUsers, color: "#4F46E5" },
   { label: "Manage email campaigns", icon: IconMail, color: "#0EA5E9" },
@@ -151,36 +152,36 @@ function hexToRgba(hex, alpha) {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-// Offset -> visual state. 0 is the "active" (front, biggest) card.
-// Distance from 0 shrinks width, spreads cards apart vertically,
-// nudges them right, and fades/scales them down.
+// Offset -> visual state, expressed in PERCENT of the container's
+// own width/height instead of fixed px, so the whole stack scales
+// naturally with the container on any screen size.
+// 0 is the "active" (front, biggest) card.
 const STACK_STYLES = {
-  0: { width: 440, top: 172, left: 10, opacity: 1, scale: 1, zIndex: 10 },
+  0: { width: 88, top: 36.5, left: 2, opacity: 1, scale: 1, zIndex: 10 },
   "-1": {
-    width: 410,
-    top: 113,
-    left: 20,
+    width: 82,
+    top: 24,
+    left: 4,
     opacity: 0.95,
     scale: 0.96,
     zIndex: 3,
   },
-  1: { width: 410, top: 230, left: 20, opacity: 0.95, scale: 0.96, zIndex: 3 },
+  1: { width: 82, top: 49, left: 4, opacity: 0.95, scale: 0.96, zIndex: 3 },
   "-2": {
-    width: 380,
-    top: 55,
-    left: 35,
+    width: 76,
+    top: 11.5,
+    left: 7,
     opacity: 0.85,
     scale: 0.92,
     zIndex: 2,
   },
-  2: { width: 380, top: 285, left: 35, opacity: 0.85, scale: 0.92, zIndex: 2 },
-  "-3": { width: 345, top: 0, left: 45, opacity: 0.7, scale: 0.86, zIndex: 1 },
-  3: { width: 345, top: 340, left: 45, opacity: 0.7, scale: 0.86, zIndex: 1 },
+  2: { width: 76, top: 60.5, left: 7, opacity: 0.85, scale: 0.92, zIndex: 2 },
+  "-3": { width: 69, top: 0, left: 9, opacity: 0.7, scale: 0.86, zIndex: 1 },
+  3: { width: 69, top: 72.5, left: 9, opacity: 0.7, scale: 0.86, zIndex: 1 },
 };
 
 const ROTATE_MS = 2200;
 
-// Shortest signed distance from `active` to `index` on a circular track of length `count`.
 function signedOffset(index, active, count) {
   let diff = index - active;
   if (diff > count / 2) diff -= count;
@@ -190,6 +191,7 @@ function signedOffset(index, active, count) {
 
 export default function FeatureStackHero() {
   const [active, setActive] = useState(0);
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -214,7 +216,7 @@ export default function FeatureStackHero() {
             display: "flex",
             flexDirection: { xs: "column", lg: "row" },
             alignItems: "center",
-            gap: { xs: 6, lg: 5 },
+            gap: { xs: 4, sm: 5, lg: 5 },
           }}
         >
           {/* Left: copy */}
@@ -223,7 +225,7 @@ export default function FeatureStackHero() {
               component="h2"
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: "2.25rem", sm: "3rem" },
+                fontSize: { xs: "1.85rem", sm: "2.5rem", md: "3rem" },
                 lineHeight: 1.15,
                 letterSpacing: "-0.02em",
                 color: "#0F172A",
@@ -239,8 +241,8 @@ export default function FeatureStackHero() {
             </Typography>
             <Typography
               sx={{
-                mt: 3,
-                fontSize: 18,
+                mt: { xs: 2, sm: 3 },
+                fontSize: { xs: 15, sm: 18 },
                 lineHeight: 1.7,
                 fontWeight: 400,
                 color: "#64748B",
@@ -266,8 +268,16 @@ export default function FeatureStackHero() {
               sx={{
                 position: "relative",
                 width: "100%",
-                maxWidth: 500,
-                height: 470,
+                maxWidth: {
+                  xs: 340,
+                  sm: 420,
+                  md: 500,
+                },
+                height: {
+                  xs: 340,
+                  sm: 400,
+                  md: 470,
+                },
               }}
             >
               {/* decorative dot grid */}
@@ -276,8 +286,8 @@ export default function FeatureStackHero() {
                   position: "absolute",
                   bottom: -10,
                   right: -10,
-                  width: 180,
-                  height: 180,
+                  width: { xs: 110, sm: 140, md: 180 },
+                  height: { xs: 110, sm: 140, md: 180 },
                   opacity: 0.6,
                   pointerEvents: "none",
                   backgroundImage:
@@ -291,7 +301,6 @@ export default function FeatureStackHero() {
                 const style = STACK_STYLES[offset];
                 const Icon = feature.icon;
 
-                // cards further than 3 steps away from active are fully hidden
                 if (!style) {
                   return null;
                 }
@@ -304,9 +313,9 @@ export default function FeatureStackHero() {
                     sx={{
                       position: "absolute",
                       transition: "all 700ms ease-in-out",
-                      width: style.width,
-                      top: style.top,
-                      left: style.left,
+                      width: `${style.width}%`,
+                      top: `${style.top}%`,
+                      left: `${style.left}%`,
                       zIndex: style.zIndex,
                       opacity: style.opacity,
                       transform: `scale(${style.scale})`,
@@ -317,10 +326,10 @@ export default function FeatureStackHero() {
                       sx={{
                         display: "flex",
                         alignItems: "center",
-                        gap: 2,
-                        px: 3,
-                        py: 2,
-                        borderRadius: 3,
+                        gap: { xs: 1.25, sm: 1.75, md: 2 },
+                        px: { xs: 1.75, sm: 2.25, md: 3 },
+                        py: { xs: 1.25, sm: 1.5, md: 2 },
+                        borderRadius: { xs: 2, sm: 3 },
                         bgcolor: "#FFFFFF",
                         border: "1px solid",
                         borderColor: isActive ? feature.color : "#E2E8F0",
@@ -334,8 +343,8 @@ export default function FeatureStackHero() {
                       <Box
                         sx={{
                           position: "relative",
-                          width: 40,
-                          height: 40,
+                          width: { xs: 30, sm: 34, md: 40 },
+                          height: { xs: 30, sm: 34, md: 40 },
                           flexShrink: 0,
                           borderRadius: "50%",
                           overflow: "hidden",
@@ -348,18 +357,29 @@ export default function FeatureStackHero() {
                             position: "absolute",
                             inset: 0,
                             margin: "auto",
-                            width: 20,
-                            height: 20,
+                            width: { xs: 15, sm: 17, md: 20 },
+                            height: { xs: 15, sm: 17, md: 20 },
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            "& svg": { display: "block" },
+                            "& svg": {
+                              display: "block",
+                              width: "100%",
+                              height: "100%",
+                            },
                           }}
                         >
                           <Icon />
                         </Box>
                       </Box>
-                      <Typography sx={{ fontWeight: 600, color: "#0F172A" }}>
+                      <Typography
+                        sx={{
+                          fontWeight: 600,
+                          color: "#0F172A",
+                          fontSize: { xs: 12.5, sm: 14, md: 16 },
+                          lineHeight: 1.3,
+                        }}
+                      >
                         {feature.label}
                       </Typography>
                     </Paper>
