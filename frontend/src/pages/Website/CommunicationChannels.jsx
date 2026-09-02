@@ -5,6 +5,8 @@ import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
+import { useNavigate } from "react-router-dom";
+
 const channels = [
   {
     title: (
@@ -28,7 +30,9 @@ const channels = [
       "Custom AI scripts",
       "Multi-language calling",
     ],
+    learn: "/feature/ai-calling-agent",
   },
+
   {
     title: (
       <>
@@ -51,7 +55,9 @@ const channels = [
       "Approved message templates",
       "AI auto replies",
     ],
+    learn: "/feature/whatsapp-automation",
   },
+
   {
     title: (
       <>
@@ -73,10 +79,12 @@ const channels = [
       "Scheduled emails",
       "Email Automation",
     ],
+    learn: "/feature/email-outreach",
   },
 ];
 
 const CommunicationChannels = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -305,12 +313,14 @@ const CommunicationChannels = () => {
 
                 {/* LEARN MORE */}
                 <Typography
+                  onClick={() => navigate(channel.learn)}
                   sx={{
                     mt: 2,
                     color: channel.color,
                     fontSize: 17,
                     fontWeight: 600,
                     cursor: "pointer",
+
                     "&:hover": {
                       opacity: 0.75,
                     },

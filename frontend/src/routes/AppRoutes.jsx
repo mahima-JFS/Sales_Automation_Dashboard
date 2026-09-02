@@ -12,6 +12,10 @@ import Pricing from "../pages/Website/Pricing";
 import Features from "../pages/Website/Features";
 import Comparisons from "../pages/Website/Comparisons";
 import BookDemo from "../pages/Website/BookDemo";
+import FeatureAIAgent from "../pages/Website/FeatureAIAgent";
+import WhatappAutomation from "../pages/Website/WhatappAutomation";
+import EmailOutreach from "../pages/Website/EmailOutreach";
+
 import BlogDetails from "../pages/Website/BlogDetails";
 // import LeadSources from "../pages/LeadSources/LeadSources";
 // import Automation from "../pages/Automation/Automation";
@@ -33,6 +37,12 @@ const AppRoutes = () => {
         <Route path="/features" element={<Features />} />
         <Route path="/comparisons" element={<Comparisons />} />
         <Route path="/book-a-demo" element={<BookDemo />} />
+        <Route path="/feature/ai-calling-agent" element={<FeatureAIAgent />} />
+        <Route
+          path="/feature/whatsapp-automation"
+          element={<WhatappAutomation />}
+        />
+        <Route path="/feature/email-outreach" element={<EmailOutreach />} />
         <Route path="/blog/:slug"element={<BlogDetails />}/>
       </Route>
       {/* Main Dashboard Layout */}
