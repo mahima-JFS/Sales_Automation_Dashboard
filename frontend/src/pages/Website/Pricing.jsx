@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import FAQHome from "./FAQHome";
+
 
 import {
   Box,
@@ -439,6 +441,8 @@ const PricingCard = ({ plan }) => {
 ========================================================= */
 
 export default function PricingSection() {
+    const navigate = useNavigate();
+
   const [billing, setBilling] = useState("monthly");
 
   return (
@@ -544,46 +548,46 @@ export default function PricingSection() {
 
             {/* GET STARTED */}
 
-            <Button
-              variant="contained"
-              disableElevation
-              endIcon={<ArrowOutwardIcon />}
-              sx={{
-                mt: 8,
+           <Button
+  variant="contained"
+  endIcon={<ArrowForwardIcon />}
+  onClick={() => navigate("/book-a-demo")}
+  sx={{
+    minWidth: {
+      xs: "170px",
+      sm: "190px",
+    },
 
-                width: "200px",
+    height: {
+      xs: "46px",
+      md: "52px",
+    },
 
-                height: "50px",
+    borderRadius: "12px",
 
-                borderRadius: "12px",
+    backgroundColor: "#ffffff",
 
-                backgroundColor: "#f4510b",
+    color: "#000000",
 
-                color: "#fff",
+    fontSize: {
+      xs: "15px",
+      md: "20px",
+    },
 
-                textTransform: "none",
+    fontWeight: 500,
 
-                fontFamily: "Arial, sans-serif",
+    textTransform: "none",
 
-                fontSize: "24px",
+    boxShadow: "none",
 
-                fontWeight: 600,
-
-                "&:hover": {
-                  backgroundColor: "#df4607",
-                },
-
-                "& .MuiButton-endIcon": {
-                  marginLeft: "12px",
-                },
-
-                "& svg": {
-                  fontSize: "27px",
-                },
-              }}
-            >
-              Get Started
-            </Button>
+    "&:hover": {
+      backgroundColor: "#f5f5f5",
+      boxShadow: "none",
+    },
+  }}
+>
+  Book a Demo
+</Button>
           </Box>
 
           {/* FEATURE ROW */}
@@ -1147,6 +1151,8 @@ export default function PricingSection() {
           <Button
             variant="contained"
             endIcon={<ArrowForwardIcon />}
+              onClick={() => navigate("/book-a-demo")}
+
             sx={{
               minWidth: {
                 xs: "170px",

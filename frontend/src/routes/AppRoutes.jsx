@@ -12,7 +12,7 @@ import Pricing from "../pages/Website/Pricing";
 import Features from "../pages/Website/Features";
 import Comparisons from "../pages/Website/Comparisons";
 import BookDemo from "../pages/Website/BookDemo";
-
+import BlogDetails from "../pages/Website/BlogDetails";
 // import LeadSources from "../pages/LeadSources/LeadSources";
 // import Automation from "../pages/Automation/Automation";
 // import Email from "../pages/Email/Email";
@@ -33,6 +33,7 @@ const AppRoutes = () => {
         <Route path="/features" element={<Features />} />
         <Route path="/comparisons" element={<Comparisons />} />
         <Route path="/book-a-demo" element={<BookDemo />} />
+        <Route path="/blog/:slug"element={<BlogDetails />}/>
       </Route>
       {/* Main Dashboard Layout */}
       {/* <Route path="/" element={<MainLayout />}>
