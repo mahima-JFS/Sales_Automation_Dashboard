@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import {
   Box,
   Button,
@@ -458,6 +459,8 @@ const Comparisons = () => {
                 <Button
                   variant="contained"
                   endIcon={<ArrowOutward />}
+                    onClick={() => navigate("/book-a-demo")}
+
                   sx={{
                     width: {
                       xs: "220px",

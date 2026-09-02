@@ -4,18 +4,30 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Alert,
   Box,
   Button,
   Container,
   FormControl,
   MenuItem,
   Select,
+  Snackbar,
   TextField,
   Typography,
 } from "@mui/material";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SearchIcon from "@mui/icons-material/Search";
+
+import PhoneInputModule from "react-phone-input-2";
+
+const PhoneInput =
+  PhoneInputModule?.default ?? PhoneInputModule;
+  
+  import "react-phone-input-2/lib/style.css";
+
+const CONTACT_API_URL =
+  import.meta.env.VITE_CONTACT_API_URL || "/api/contact-us";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -27,6 +39,73 @@ const ContactUs = () => {
     useCase: "",
   });
 
+  const [phoneCountry, setPhoneCountry] = useState({
+    name: "India",
+    dialCode: "91",
+    countryCode: "in",
+  });
+
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    severity: "success",
+    message: "",
+  });
+
+  const faqData = [
+    {
+      question: "What is Rapid Sales?",
+      answer:
+        "Rapid Sales is a smart AI sales assistant that automates multi-channel outbound outreach. It combines Email, WhatsApp, and AI Voice calls into a single workflow to engage prospects, qualify leads, and automatically hand over only high-intent, genuine buyers to your human sales team.",
+    },
+    {
+      question: "How can RapidSales help my sales team?",
+      answer:
+        "RapidSales automates repetitive sales activities such as lead engagement, follow-ups, appointment booking, and customer nurturing. This allows sales teams to focus on closing deals while the platform handles outreach and lead qualification.",
+    },
+    {
+      question: "Does RapidSales support WhatsApp automation?",
+      answer:
+        "Yes. RapidSales enables businesses to automate WhatsApp conversations, send personalized messages, schedule follow-ups, and engage leads at scale while maintaining a human-like communication experience.",
+    },
+    {
+      question: "Can I automate email outreach with RapidSales?",
+      answer:
+        "Absolutely. RapidSales helps businesses create automated email campaigns, nurture leads, schedule follow-ups, and track engagement metrics to improve conversion rates.",
+    },
+    {
+      question: "What industries can use RapidSales?",
+      answer:
+        "RapidSales can be used by agencies, real estate companies, SaaS businesses, e-commerce companies, service providers, and many other industries.",
+    },
+    {
+      question: "Does RapidSales offer AI voice calling?",
+      answer:
+        "Yes. RapidSales provides AI-powered voice calling capabilities to automate customer conversations and sales outreach.",
+    },
+    {
+      question: "Can RapidSales integrate with my CRM?",
+      answer:
+        "RapidSales can integrate with CRM systems to help synchronize customer information, leads, and sales activities.",
+    },
+    {
+      question: "Will my WhatsApp number get banned for cold outreach?",
+      answer:
+        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+    },
+  ];
+
+  const showMessage = (message, severity = "success") => {
+    setSnackbar({
+      open: true,
+      severity,
+      message,
+    });
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -34,65 +113,226 @@ const ContactUs = () => {
       ...previous,
       [name]: value,
     }));
+
+    if (errors[name]) {
+      setErrors((previous) => ({
+        ...previous,
+        [name]: "",
+      }));
+    }
   };
 
-  const handleSubmit = (event) => {
+  const handlePhoneChange = (value, country) => {
+    setFormData((previous) => ({
+      ...previous,
+      phone: value,
+    }));
+
+    if (country) {
+      setPhoneCountry(country);
+    }
+
+    if (errors.phone) {
+      setErrors((previous) => ({
+        ...previous,
+        phone: "",
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())
+    ) {
+      newErrors.email = "Valid email required";
+    }
+
+    const digitsOnly = String(formData.phone || "").replace(/\D/g, "");
+    const countryCodeLength = String(phoneCountry?.dialCode || "").length;
+    const localDigits = Math.max(
+      0,
+      digitsOnly.length - countryCodeLength
+    );
+
+    if (!formData.phone || localDigits < 6) {
+      newErrors.phone = "Valid phone required";
+    } else if (localDigits > 15) {
+      newErrors.phone = "Valid phone required";
+    }
+
+    if (!formData.company.trim()) {
+      newErrors.company = "Company name is required";
+    }
+
+    if (!formData.teamSize) {
+      newErrors.teamSize = "Select team size";
+    }
+
+    return newErrors;
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("Contact Form Data:", formData);
+    setSubmitted(true);
 
-    alert("Message sent successfully!");
+    const newErrors = validateForm();
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      showMessage("Please fill all required fields correctly.", "error");
+      return;
+    }
+
+    setLoading(true);
+
+    /*
+      The phone field contains the complete international number.
+
+      Example:
+      India 9876543210 -> +919876543210
+      USA 5551234567    -> +15551234567
+
+      The backend can use this `phone` value to send an SMS/WhatsApp
+      message to the number entered by the visitor.
+    */
+    const payload = {
+      fullName: formData.fullName.trim(),
+      email: formData.email.trim(),
+      phone: `+${String(formData.phone).replace(/\D/g, "")}`,
+      company: formData.company.trim(),
+      teamSize: formData.teamSize,
+      useCase: formData.useCase.trim(),
+
+      // Message that the backend/SMS provider can send to this phone.
+      message:
+        formData.useCase.trim() ||
+        `Hello ${formData.fullName.trim()}, thank you for contacting Rapid Sales.`,
+    };
+
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      let result = null;
+
+      try {
+        result = await response.json();
+      } catch {
+        result = null;
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          result?.message || "Unable to send your message."
+        );
+      }
+
+      showMessage(
+        result?.message || "Message sent successfully!",
+        "success"
+      );
+
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        company: "",
+        teamSize: "",
+        useCase: "",
+      });
+
+      setPhoneCountry({
+        name: "India",
+        dialCode: "91",
+        countryCode: "in",
+      });
+
+      setErrors({});
+      setSubmitted(false);
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      showMessage(
+        error?.message ||
+          "Message could not be sent. Please try again.",
+        "error"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const faqData = [
-    {
-      question: "What is Rapid Sales?",
-      answer:
-      "Rapid Sales is a smart AI sales assistant that automates multi-channel outbound outreach. It combines Email, WhatsApp, and AI Voice calls into a single workflow to engage prospects, qualify leads, and automatically hand over only high-intent, genuine buyers to your human sales team." ,
+  const fieldSx = (fieldName) => ({
+    "& .MuiOutlinedInput-root": {
+      minHeight: {
+        xs: "46px",
+        md: "50px",
+      },
+      borderRadius: "12px",
+      fontSize: {
+        xs: "14px",
+        md: "16px",
+      },
+      backgroundColor: "#ffffff",
     },
 
-    {
-      question: "How can RapidSales help my sales team?",
-      answer:
-      "RapidSales automates repetitive sales activities such as lead engagement, follow-ups, appointment booking, and customer nurturing. This allows sales teams to focus on closing deals while the platform handles outreach and lead qualification." ,
-   },
-
-    {
-      question: "Does RapidSales support WhatsApp automation?",
-      answer:
-      "Yes. RapidSales enables businesses to automate WhatsApp conversations, send personalized messages, schedule follow-ups, and engage leads at scale while maintaining a human-like communication experience.",
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor:
+        submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
+      borderWidth:
+        submitted && errors[fieldName] ? "2px" : "1px",
     },
 
-    {
-      question: "Can I automate email outreach with RapidSales?",
-      answer:
-      "Absolutely. RapidSales helps businesses create automated email campaigns, nurture leads, schedule follow-ups, and track engagement metrics to improve conversion rates.",
+    "&:hover .MuiOutlinedInput-notchedOutline": {
+      borderColor:
+        submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
     },
 
-    {
-      question: "What industries can use RapidSales?",
-      answer:
-        "RapidSales can be used by agencies, real estate companies, SaaS businesses, e-commerce companies, service providers, and many other industries.",
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+      {
+        borderColor:
+          submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
+        borderWidth: "2px",
+      },
+
+    "& input": {
+      paddingLeft: {
+        xs: "14px",
+        md: "16px",
+      },
+      paddingRight: {
+        xs: "14px",
+        md: "16px",
+      },
     },
 
-    {
-      question: "Does RapidSales offer AI voice calling?",
-      answer:
-        "Yes. RapidSales provides AI-powered voice calling capabilities to automate customer conversations and sales outreach.",
+    "& input::placeholder": {
+      color: "#718096",
+      opacity: 1,
     },
 
-    {
-      question: "Can RapidSales integrate with my CRM?",
-      answer:
-        "RapidSales can integrate with CRM systems to help synchronize customer information, leads, and sales activities.",
+    "& .MuiFormHelperText-root": {
+      marginLeft: 0,
+      marginTop: "4px",
+      fontSize: "14px",
+      color: "#ff1f1f",
     },
-
-    {
-      question: "Will my WhatsApp number get banned for cold outreach?",
-      answer:
-        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
-    },
-  ];
+  });
 
   return (
     <Box
@@ -104,21 +344,16 @@ const ContactUs = () => {
         overflowX: "hidden",
       }}
     >
-      {/* =====================================================
-          CONTACT SECTION
-      ===================================================== */}
-
+      {/* CONTACT SECTION */}
       <Box
         sx={{
           width: "100%",
           backgroundColor: "#ffffff",
-
           pt: {
             xs: 5,
             sm: 6,
             md: 7,
           },
-
           pb: {
             xs: 6,
             md: 7,
@@ -135,18 +370,13 @@ const ContactUs = () => {
             },
           }}
         >
-          {/* =================================================
-              CONTACT HEADING
-          ================================================= */}
-
+          {/* HEADING */}
           <Box
             sx={{
               width: "100%",
               maxWidth: "800px",
               margin: "0 auto",
-
               textAlign: "center",
-
               mb: {
                 xs: 4,
                 md: 5,
@@ -161,11 +391,9 @@ const ContactUs = () => {
                   sm: "34px",
                   md: "40px",
                 },
-
                 lineHeight: 1.2,
                 fontWeight: 400,
                 color: "#000000",
-
                 mb: {
                   xs: 2,
                   md: 2.5,
@@ -180,13 +408,11 @@ const ContactUs = () => {
                 width: "100%",
                 maxWidth: "760px",
                 margin: "0 auto",
-
                 fontSize: {
                   xs: "15px",
                   sm: "16px",
                   md: "18px",
                 },
-
                 lineHeight: 1.55,
                 fontWeight: 400,
                 color: "#355777",
@@ -198,70 +424,52 @@ const ContactUs = () => {
             </Typography>
           </Box>
 
-          {/* =================================================
-              CONTACT FORM CARD
-          ================================================= */}
-
+          {/* FORM */}
           <Box
             component="form"
             onSubmit={handleSubmit}
+            noValidate
             sx={{
               width: "90%",
               maxWidth: "800px",
               mx: "auto",
-
               backgroundColor: "#ffffff",
-
               border: "1px solid #dddddf",
-
               borderRadius: {
                 xs: "14px",
                 sm: "17px",
                 md: "20px",
               },
-
               px: {
                 xs: 1.5,
                 sm: 2.5,
                 md: 3,
               },
-
               py: {
                 xs: 2,
                 sm: 2.5,
                 md: 3,
               },
-
               boxShadow: "0 5px 20px rgba(91, 65, 255, 0.05)",
             }}
           >
-            {/* =================================================
-                FORM GRID
-            ================================================= */}
-
             <Box
               sx={{
                 display: "grid",
-
                 gridTemplateColumns: {
                   xs: "1fr",
                   md: "1fr 1fr",
                 },
-
                 columnGap: {
                   md: 3,
                 },
-
                 rowGap: {
                   xs: 2.5,
                   md: 3,
                 },
               }}
             >
-              {/* =================================================
-                  FULL NAME
-              ================================================= */}
-
+              {/* FULL NAME */}
               <Box>
                 <Typography
                   sx={{
@@ -269,11 +477,9 @@ const ContactUs = () => {
                       xs: "14px",
                       md: "15px",
                     },
-
                     lineHeight: 1.3,
                     fontWeight: 500,
                     color: "#000000",
-
                     mb: 1,
                   }}
                 >
@@ -287,62 +493,13 @@ const ContactUs = () => {
                   onChange={handleChange}
                   placeholder="John Doe"
                   variant="outlined"
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      height: {
-                        xs: "46px",
-                        md: "50px",
-                      },
-
-                      borderRadius: "12px",
-
-                      fontSize: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-
-                      backgroundColor: "#ffffff",
-                    },
-
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#111111",
-                      borderWidth: "1px",
-                    },
-
-                    "&:hover .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#111111",
-                    },
-
-                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                      {
-                        borderColor: "#111111",
-                        borderWidth: "2px",
-                      },
-
-                    "& input": {
-                      paddingLeft: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-
-                      paddingRight: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-                    },
-
-                    "& input::placeholder": {
-                      color: "#718096",
-                      opacity: 1,
-                    },
-                  }}
+                  error={submitted && Boolean(errors.fullName)}
+                  helperText={submitted ? errors.fullName : ""}
+                  sx={fieldSx("fullName")}
                 />
               </Box>
 
-              {/* =================================================
-                  EMAIL
-              ================================================= */}
-
+              {/* EMAIL */}
               <Box>
                 <Typography
                   sx={{
@@ -350,11 +507,9 @@ const ContactUs = () => {
                       xs: "14px",
                       md: "15px",
                     },
-
                     lineHeight: 1.3,
                     fontWeight: 500,
                     color: "#000000",
-
                     mb: 1,
                   }}
                 >
@@ -369,65 +524,21 @@ const ContactUs = () => {
                   onChange={handleChange}
                   placeholder="john@email.com"
                   variant="outlined"
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      height: {
-                        xs: "46px",
-                        md: "50px",
-                      },
-
-                      borderRadius: "12px",
-
-                      fontSize: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-                    },
-
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#111111",
-                    },
-
-                    "&:hover .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#111111",
-                    },
-
-                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                      {
-                        borderColor: "#111111",
-                        borderWidth: "2px",
-                      },
-
-                    "& input": {
-                      paddingLeft: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-
-                      paddingRight: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-                    },
-
-                    "& input::placeholder": {
-                      color: "#718096",
-                      opacity: 1,
-                    },
-                  }}
+                  error={submitted && Boolean(errors.email)}
+                  helperText={submitted ? errors.email : ""}
+                  sx={fieldSx("email")}
                 />
               </Box>
 
-              {/* =================================================
-                  PHONE NUMBER
-              ================================================= */}
-
+              {/* PHONE */}
               <Box
                 sx={{
                   gridColumn: {
                     xs: "auto",
                     md: "1 / -1",
                   },
+                  minWidth: 0,
+                  position: "relative",
                 }}
               >
                 <Typography
@@ -436,9 +547,7 @@ const ContactUs = () => {
                       xs: "14px",
                       md: "15px",
                     },
-
                     fontWeight: 500,
-
                     mb: 1,
                   }}
                 >
@@ -449,119 +558,162 @@ const ContactUs = () => {
                   sx={{
                     width: "100%",
 
-                    height: {
-                      xs: "48px",
-                      md: "50px",
+                    "& .react-tel-input": {
+                      width: "100%",
                     },
 
-                    display: "flex",
-                    alignItems: "center",
+                    "& .react-tel-input .form-control": {
+                      width: "100%",
+                      height: {
+                        xs: "48px",
+                        md: "50px",
+                      },
+                      borderRadius: "12px",
+                      border:
+                        submitted && errors.phone
+                          ? "2px solid #ff1f1f"
+                          : "1px solid #111111",
+                      color: "#111111",
+                      fontSize: {
+                        xs: "14px",
+                        md: "16px",
+                      },
+                      backgroundColor: "#ffffff",
+                      paddingLeft: "58px",
+                      boxSizing: "border-box",
+                    },
 
-                    border: "1px solid #111111",
-                    borderRadius: "12px",
+                    "& .react-tel-input .form-control:focus": {
+                      border:
+                        submitted && errors.phone
+                          ? "2px solid #ff1f1f"
+                          : "2px solid #111111",
+                      boxShadow: "none",
+                    },
 
-                    backgroundColor: "#ffffff",
+                    "& .react-tel-input .flag-dropdown": {
+                      border: "none",
+                      borderRadius: "12px 0 0 12px",
+                      backgroundColor: "#ffffff",
+                    },
 
-                    overflow: "hidden",
+                    "& .react-tel-input .flag-dropdown.open": {
+                      border: "none",
+                      backgroundColor: "#ffffff",
+                    },
 
-                    "&:focus-within": {
-                      border: "2px solid #111111",
+                    "& .react-tel-input .selected-flag": {
+                      width: "50px",
+                      height: "100%",
+                      paddingLeft: "12px",
+                      borderRadius: "12px 0 0 12px",
+                      backgroundColor: "#ffffff",
+                    },
+
+                    "& .react-tel-input .selected-flag:hover": {
+                      backgroundColor: "#ffffff",
+                    },
+
+                    "& .react-tel-input .selected-flag:focus": {
+                      backgroundColor: "#ffffff",
+                    },
+
+                    "& .react-tel-input .country-list": {
+                      width: {
+                        xs: "calc(100vw - 70px)",
+                        sm: "450px",
+                        md: "450px",
+                      },
+                      maxWidth: "450px",
+                      maxHeight: "300px",
+                      zIndex: 9999,
+                      marginTop: "4px",
+                      boxShadow: "0 5px 18px rgba(0,0,0,0.18)",
+                      borderRadius: "4px",
+                      fontSize: "16px",
+                    },
+
+                    "& .react-tel-input .country-list .country": {
+                      padding: "10px 12px",
+                    },
+
+                    "& .react-tel-input .country-list .country:hover": {
+                      backgroundColor: "#f1f1f1",
+                    },
+
+                    "& .react-tel-input .country-list .country.highlight": {
+                      backgroundColor: "#f1f1f1",
+                    },
+
+                    "& .react-tel-input .country-list .search": {
+                      position: "sticky",
+                      top: 0,
+                      zIndex: 2,
+                      backgroundColor: "#ffffff",
+                      padding: "10px",
+                    },
+
+                    "& .react-tel-input .country-list .search-box": {
+                      width: "100%",
+                      height: "38px",
+                      border: "1px solid #cccccc",
+                      borderRadius: "7px",
+                      padding: "0 10px",
+                      fontSize: "14px",
+                      boxSizing: "border-box",
                     },
                   }}
                 >
-                  {/* COUNTRY CODE */}
-
-                  <Box
-                    sx={{
-                      height: "100%",
-
-                      minWidth: {
-                        xs: "85px",
-                        md: "95px",
-                      },
-
-                      display: "flex",
-                      alignItems: "center",
-
-                      gap: 0.5,
-
-                      px: {
-                        xs: 1,
-                        md: 1.3,
-                      },
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "16px",
-                          md: "17px",
-                        },
-                      }}
-                    >
-                      🇮🇳
-                    </Typography>
-
-                    <Typography
-                      sx={{
-                        color: "#555555",
-                        fontSize: "11px",
-                      }}
-                    >
-                      ▼
-                    </Typography>
-
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "14px",
-                          md: "15px",
-                        },
-
-                        color: "#111111",
-                      }}
-                    >
-                      +91
-                    </Typography>
-                  </Box>
-
-                  {/* PHONE INPUT */}
-
-                  <TextField
-                    fullWidth
-                    name="phone"
+                  <PhoneInput
+                    country="in"
                     value={formData.phone}
-                    onChange={handleChange}
-                    variant="standard"
-                    type="tel"
-                    slotProps={{
-                      input: {
-                        disableUnderline: true,
-                      },
+                    onChange={handlePhoneChange}
+                    countryCodeEditable={false}
+                    enableSearch
+                    searchPlaceholder="Search country"
+                    preferredCountries={["in", "us", "gb", "ae"]}
+                    autoFormat
+                    inputProps={{
+                      name: "phone",
+                      autoComplete: "tel",
+                      "aria-label": "Phone Number",
                     }}
-                    sx={{
-                      "& input": {
-                        height: {
-                          xs: "46px",
-                          md: "48px",
-                        },
+                    isValid={(value, country) => {
+                      if (!value) {
+                        return "Valid phone required";
+                      }
 
-                        padding: "0 8px",
+                      const digits = String(value).replace(/\D/g, "");
+                      const dialCode = String(
+                        country?.dialCode || ""
+                      );
 
-                        fontSize: {
-                          xs: "14px",
-                          md: "16px",
-                        },
-                      },
+                      const localLength =
+                        digits.length - dialCode.length;
+
+                      if (localLength < 6 || localLength > 15) {
+                        return "Valid phone required";
+                      }
+
+                      return true;
                     }}
                   />
                 </Box>
+
+                {submitted && errors.phone && (
+                  <Typography
+                    sx={{
+                      color: "#ff1f1f",
+                      fontSize: "14px",
+                      marginTop: "4px",
+                    }}
+                  >
+                    {errors.phone}
+                  </Typography>
+                )}
               </Box>
 
-              {/* =================================================
-                  COMPANY NAME
-              ================================================= */}
-
+              {/* COMPANY */}
               <Box>
                 <Typography
                   sx={{
@@ -569,9 +721,7 @@ const ContactUs = () => {
                       xs: "14px",
                       md: "15px",
                     },
-
                     fontWeight: 500,
-
                     mb: 1,
                   }}
                 >
@@ -585,59 +735,13 @@ const ContactUs = () => {
                   onChange={handleChange}
                   placeholder="Enter your company name"
                   variant="outlined"
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      height: {
-                        xs: "46px",
-                        md: "50px",
-                      },
-
-                      borderRadius: "12px",
-
-                      fontSize: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-                    },
-
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#111111",
-                    },
-
-                    "&:hover .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#111111",
-                    },
-
-                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                      {
-                        borderColor: "#111111",
-                        borderWidth: "2px",
-                      },
-
-                    "& input": {
-                      paddingLeft: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-
-                      paddingRight: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-                    },
-
-                    "& input::placeholder": {
-                      color: "#718096",
-                      opacity: 1,
-                    },
-                  }}
+                  error={submitted && Boolean(errors.company)}
+                  helperText={submitted ? errors.company : ""}
+                  sx={fieldSx("company")}
                 />
               </Box>
 
-              {/* =================================================
-                  SALES TEAM SIZE
-              ================================================= */}
-
+              {/* TEAM SIZE */}
               <Box>
                 <Typography
                   sx={{
@@ -645,16 +749,17 @@ const ContactUs = () => {
                       xs: "14px",
                       md: "15px",
                     },
-
                     fontWeight: 500,
-
                     mb: 1,
                   }}
                 >
                   Sales Team Size <span>*</span>
                 </Typography>
 
-                <FormControl fullWidth>
+                <FormControl
+                  fullWidth
+                  error={submitted && Boolean(errors.teamSize)}
+                >
                   <Select
                     name="teamSize"
                     value={formData.teamSize}
@@ -665,31 +770,41 @@ const ContactUs = () => {
                         xs: "46px",
                         md: "50px",
                       },
-
                       borderRadius: "12px",
-
                       fontSize: {
                         xs: "14px",
                         md: "16px",
                       },
 
                       "& .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "#111111",
+                        borderColor:
+                          submitted && errors.teamSize
+                            ? "#ff1f1f"
+                            : "#111111",
+                        borderWidth:
+                          submitted && errors.teamSize
+                            ? "2px"
+                            : "1px",
                       },
 
                       "&:hover .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "#111111",
+                        borderColor:
+                          submitted && errors.teamSize
+                            ? "#ff1f1f"
+                            : "#111111",
                       },
 
                       "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "#111111",
+                        borderColor:
+                          submitted && errors.teamSize
+                            ? "#ff1f1f"
+                            : "#111111",
                         borderWidth: "2px",
                       },
 
                       "& .MuiSelect-select": {
                         display: "flex",
                         alignItems: "center",
-
                         paddingLeft: {
                           xs: "14px",
                           md: "16px",
@@ -700,26 +815,29 @@ const ContactUs = () => {
                     <MenuItem value="" disabled>
                       Select team size
                     </MenuItem>
-
                     <MenuItem value="1-5">1 - 5</MenuItem>
-
                     <MenuItem value="6-10">6 - 10</MenuItem>
-
                     <MenuItem value="11-25">11 - 25</MenuItem>
-
                     <MenuItem value="26-50">26 - 50</MenuItem>
-
                     <MenuItem value="51-100">51 - 100</MenuItem>
-
                     <MenuItem value="100+">100+</MenuItem>
                   </Select>
+
+                  {submitted && errors.teamSize && (
+                    <Typography
+                      sx={{
+                        color: "#ff1f1f",
+                        fontSize: "14px",
+                        marginTop: "4px",
+                      }}
+                    >
+                      {errors.teamSize}
+                    </Typography>
+                  )}
                 </FormControl>
               </Box>
 
-              {/* =================================================
-                  USE CASE
-              ================================================= */}
-
+              {/* USE CASE */}
               <Box
                 sx={{
                   gridColumn: {
@@ -734,9 +852,7 @@ const ContactUs = () => {
                       xs: "14px",
                       md: "15px",
                     },
-
                     fontWeight: 500,
-
                     mb: 1,
                   }}
                 >
@@ -758,14 +874,11 @@ const ContactUs = () => {
                         xs: "80px",
                         md: "85px",
                       },
-
                       borderRadius: "12px",
-
                       fontSize: {
                         xs: "14px",
                         md: "16px",
                       },
-
                       alignItems: "flex-start",
                     },
 
@@ -788,7 +901,6 @@ const ContactUs = () => {
                         xs: "14px",
                         md: "16px",
                       },
-
                       paddingTop: {
                         xs: "12px",
                         md: "14px",
@@ -804,17 +916,12 @@ const ContactUs = () => {
               </Box>
             </Box>
 
-            {/* =================================================
-                SEND MESSAGE BUTTON
-            ================================================= */}
-
+            {/* SEND BUTTON */}
             <Box
               sx={{
                 width: "100%",
-
                 display: "flex",
                 justifyContent: "center",
-
                 mt: {
                   xs: 3,
                   md: 3.5,
@@ -824,60 +931,50 @@ const ContactUs = () => {
               <Button
                 type="submit"
                 variant="contained"
+                disabled={loading}
                 sx={{
                   width: {
                     xs: "100%",
                     sm: "200px",
                   },
-
                   height: {
                     xs: "46px",
                     md: "48px",
                   },
-
                   borderRadius: "12px",
-
                   backgroundColor: "#4b36df",
-
                   color: "#ffffff",
-
                   fontSize: {
                     xs: "14px",
                     md: "16px",
                   },
-
                   fontWeight: 600,
-
                   textTransform: "none",
-
                   boxShadow:
                     "0 8px 18px rgba(75, 54, 223, 0.20)",
-
                   "&:hover": {
                     backgroundColor: "#3d2ac5",
-
                     boxShadow:
                       "0 10px 22px rgba(75, 54, 223, 0.26)",
                   },
+                  "&.Mui-disabled": {
+                    backgroundColor: "#8c82df",
+                    color: "#ffffff",
+                  },
                 }}
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </Button>
             </Box>
           </Box>
         </Container>
       </Box>
 
-      {/* =====================================================
-          FAQ SECTION
-      ===================================================== */}
-
+      {/* FAQ SECTION */}
       <Box
         sx={{
           width: "100%",
-
           backgroundColor: "#ffffff",
-
           pb: {
             xs: 6,
             sm: 7,
@@ -895,41 +992,29 @@ const ContactUs = () => {
             },
           }}
         >
-          {/* =================================================
-              FAQ BADGE
-          ================================================= */}
-
+          {/* FAQ BADGE */}
           <Box
             sx={{
               width: "fit-content",
-
               height: {
                 xs: "42px",
                 md: "46px",
               },
-
               mx: "auto",
-
               mb: {
                 xs: 3,
                 md: 3.5,
               },
-
               px: {
                 xs: 1.5,
                 md: 2,
               },
-
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-
               gap: 1,
-
               border: "1px solid #ff5a13",
-
               borderRadius: "30px",
-
               backgroundColor: "#fff0e9",
             }}
           >
@@ -939,12 +1024,10 @@ const ContactUs = () => {
                   xs: 20,
                   md: 22,
                 },
-
                 height: {
                   xs: 20,
                   md: 22,
                 },
-
                 color: "#111111",
               }}
             />
@@ -955,9 +1038,7 @@ const ContactUs = () => {
                   xs: "14px",
                   md: "16px",
                 },
-
                 fontWeight: 600,
-
                 color: "#111111",
               }}
             >
@@ -965,21 +1046,15 @@ const ContactUs = () => {
             </Typography>
           </Box>
 
-          {/* =================================================
-              FAQ HEADING
-          ================================================= */}
-
+          {/* FAQ HEADING */}
           <Box
             sx={{
               maxWidth: "800px",
-
               mx: "auto",
-
               mb: {
                 xs: 4,
                 md: 5,
               },
-
               textAlign: "center",
             }}
           >
@@ -991,13 +1066,9 @@ const ContactUs = () => {
                   sm: "30px",
                   md: "36px",
                 },
-
                 lineHeight: 1.2,
-
                 fontWeight: 400,
-
                 color: "#000000",
-
                 mb: {
                   xs: 1.5,
                   md: 2,
@@ -1010,17 +1081,13 @@ const ContactUs = () => {
             <Typography
               sx={{
                 maxWidth: "750px",
-
                 mx: "auto",
-
                 fontSize: {
                   xs: "14px",
                   sm: "16px",
                   md: "18px",
                 },
-
                 lineHeight: 1.5,
-
                 color: "#355777",
               }}
             >
@@ -1029,35 +1096,25 @@ const ContactUs = () => {
             </Typography>
           </Box>
 
-          {/* =================================================
-              FAQ ACCORDIONS
-          ================================================= */}
-
+          {/* FAQ ACCORDIONS */}
           <Box>
             {faqData.map((faq, index) => (
               <Accordion
                 key={index}
                 disableGutters
                 sx={{
-                  width: "75%",
-
+                  width: {
+                    xs: "100%",
+                    md: "75%",
+                  },
                   maxWidth: "850px",
-
                   mx: "auto",
-
                   mb: 1.5,
-
                   border: "1px solid #e0e1e4",
-
                   borderRadius: "14px !important",
-
                   backgroundColor: "#ffffff",
-
-                  boxShadow:
-                    "0 2px 6px rgba(0, 0, 0, 0.05)",
-
+                  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
                   overflow: "hidden",
-
                   "&::before": {
                     display: "none",
                   },
@@ -1071,12 +1128,10 @@ const ContactUs = () => {
                           xs: 22,
                           md: 24,
                         },
-
                         height: {
                           xs: 22,
                           md: 24,
                         },
-
                         color: "#526071",
                       }}
                     />
@@ -1086,12 +1141,10 @@ const ContactUs = () => {
                       xs: "58px !important",
                       md: "64px !important",
                     },
-
                     px: {
                       xs: 2,
                       md: 2.5,
                     },
-
                     "& .MuiAccordionSummary-content": {
                       margin: "0 !important",
                     },
@@ -1104,11 +1157,8 @@ const ContactUs = () => {
                         sm: "15px",
                         md: "17px",
                       },
-
                       lineHeight: 1.4,
-
                       fontWeight: 500,
-
                       color: "#071c38",
                     }}
                   >
@@ -1122,7 +1172,6 @@ const ContactUs = () => {
                       xs: 2,
                       md: 2.5,
                     },
-
                     pb: 2.5,
                   }}
                 >
@@ -1132,9 +1181,7 @@ const ContactUs = () => {
                         xs: "13px",
                         md: "15px",
                       },
-
                       lineHeight: 1.55,
-
                       color: "#526071",
                     }}
                   >
@@ -1146,6 +1193,35 @@ const ContactUs = () => {
           </Box>
         </Container>
       </Box>
+
+      {/* FORM STATUS MESSAGE */}
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={5000}
+        onClose={() =>
+          setSnackbar((previous) => ({
+            ...previous,
+            open: false,
+          }))
+        }
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+      >
+        <Alert
+          severity={snackbar.severity}
+          onClose={() =>
+            setSnackbar((previous) => ({
+              ...previous,
+              open: false,
+            }))
+          }
+          sx={{ width: "100%" }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
