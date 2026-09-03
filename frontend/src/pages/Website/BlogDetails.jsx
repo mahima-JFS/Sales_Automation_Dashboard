@@ -1504,100 +1504,14 @@ const BlogDetails = () => {
           WHATSAPP BUTTON
       ====================================================== */}
 
-      <Box
-        component="a"
-        href="https://wa.me/919999999999"
-        target="_blank"
-        rel="noopener noreferrer"
-        sx={{
-          position: "fixed",
-          left: {
-            xs: 12,
-            md: 20,
-          },
-          bottom: {
-            xs: 15,
-            md: 25,
-          },
-          width: {
-            xs: 58,
-            md: 64,
-          },
-          height: {
-            xs: 58,
-            md: 64,
-          },
-          borderRadius: "50%",
-          backgroundColor: "#00c853",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          zIndex: 1000,
-          boxShadow:
-            "0 5px 20px rgba(0,0,0,0.2)",
-          textDecoration: "none",
-
-          "&:hover": {
-            transform: "scale(1.05)",
-          },
-        }}
-      >
-        <WhatsApp
-          sx={{
-            color: "#fff",
-            fontSize: {
-              xs: 34,
-              md: 38,
-            },
-          }}
-        />
-      </Box>
+      
 
 
       {/* ======================================================
           CHAT BUTTON
       ====================================================== */}
 
-      <Box
-        sx={{
-          position: "fixed",
-          right: {
-            xs: 12,
-            md: 25,
-          },
-          bottom: {
-            xs: 15,
-            md: 25,
-          },
-          width: {
-            xs: 58,
-            md: 70,
-          },
-          height: {
-            xs: 58,
-            md: 70,
-          },
-          borderRadius: "18px",
-          backgroundColor: "#10b981",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          zIndex: 1000,
-          boxShadow:
-            "0 5px 20px rgba(0,0,0,0.18)",
-          cursor: "pointer",
-        }}
-      >
-        <ChatBubble
-          sx={{
-            color: "#06142c",
-            fontSize: {
-              xs: 30,
-              md: 36,
-            },
-          }}
-        />
-      </Box>
+      
 
     </Box>
   );
