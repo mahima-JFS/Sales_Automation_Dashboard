@@ -464,9 +464,9 @@ export default function Pricing() {
           justifyContent: "center",
 
           pt: {
-            xs: 8,
-            sm: 10,
-            md: 14,
+            xs: 3,
+            sm: 5,
+            md: 7,
           },
 
           px: {
@@ -551,9 +551,9 @@ export default function Pricing() {
             component="h1"
             sx={{
               fontSize: {
-                xs: "2.2rem",
-                sm: "3rem",
-                md: "3.5rem",
+                xs: "2rem",
+                sm: "2.5rem",
+                md: "3rem",
               },
               fontWeight: 700,
               lineHeight: 1.1,
@@ -593,8 +593,8 @@ export default function Pricing() {
               color: "#526071",
             }}
           >
-            Start free. Pay only for what you actually use — emails sent, WhatsApp conversations opened, and AI calling minutes consumed.
-
+            Start free. Pay only for what you actually use — emails sent,
+            WhatsApp conversations opened, and AI calling minutes consumed.
           </Typography>
 
           {/* BUTTON */}

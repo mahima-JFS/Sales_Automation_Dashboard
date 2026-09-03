@@ -184,8 +184,8 @@ const BookDemo = () => {
                   color: "#A19AAA",
                 }}
               >
-                Book a personalized demo of Rapid Sales and see how you can
-                automate WhatsApp, calls, and follow-ups.
+                Book a personalized demo of JFS and see how you can automate
+                WhatsApp, calls, and follow-ups.
               </Typography>
 
               {/* FEATURES */}

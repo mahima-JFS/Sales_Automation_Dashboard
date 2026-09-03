@@ -2,22 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 
+import { Box, Button, Container, Stack, Typography, Link } from "@mui/material";
 
-
-
-import {
-  Box,
-  Button,
-  Container,
-  Stack,
-  Typography,
-  Link,
-} from "@mui/material";
-
-import {
-  ArrowOutward,
-  Check,
-} from "@mui/icons-material";
+import { ArrowOutward, Check } from "@mui/icons-material";
 
 import FAQHome from "./FAQHome";
 
@@ -26,9 +13,7 @@ import FAQHome from "./FAQHome";
 ============================================================ */
 
 const comparisonSections = [
-  
   {
-    
     label: "WHATSAPP PLATFORMS",
 
     title: (
@@ -48,8 +33,8 @@ const comparisonSections = [
 
     description: (
       <>
-        India's WhatsApp tools automate one channel. See what changes when
-        email and AI voice calls join
+        India's WhatsApp tools automate one channel. See what changes when email
+        and AI voice calls join
         <br className="desktop-break" />
         the same sequence.
       </>
@@ -62,11 +47,12 @@ const comparisonSections = [
         category: "VS THE SUPPORT INBOX LEADER",
         title: "Automate Follow-Ups Over WhatsApp, the Compliant Way",
         description:
-        "Send official WhatsApp Business API messages, automate replies, and keep every conversation in one shared inbox — without risking your number. Sections to include: Template approval process · Campaign builder · Auto-replies · Conversation view · Compliance notes (opt-in, template rules)"      },
+          "Send official WhatsApp Business API messages, automate replies, and keep every conversation in one shared inbox — without risking your number. Sections to include: Template approval process · Campaign builder · Auto-replies · Conversation view · Compliance notes (opt-in, template rules)",
+      },
 
       {
         category: "VS THE BROADCAST FAVOURITE",
-        title: "Rapid Sales vs AiSensy",
+        title: "JFS vs AiSensy",
         description:
           "Marketing message pricing, chatbot flows, and response handling compared against a complete outbound workflow.",
         featured: true,
@@ -74,21 +60,21 @@ const comparisonSections = [
 
       {
         category: "VS JIO'S WHATSAPP SUITE",
-        title: "Rapid Sales vs Interakt",
+        title: "JFS vs Interakt",
         description:
           "Unlimited agents and Shopify flows versus AI calling and email automation in one platform.",
       },
 
       // {
       //   category: "VS THE MOBILE-FIRST INBOX",
-      //   title: "Rapid Sales vs DoubleTick",
+      //   title: "JFS vs DoubleTick",
       //   description:
       //     "WhatsApp inbox productivity compared with AI-powered sales execution.",
       // },
 
       // {
       //   category: "VS THE CLOSEST AI COMPETITOR",
-      //   title: "Rapid Sales vs Gallabox",
+      //   title: "JFS vs Gallabox",
       //   description:
       //     "Compare AI voice, WhatsApp automation, and outbound sales capabilities side-by-side.",
       // },
@@ -110,7 +96,6 @@ const comparisonSections = [
           Sales
         </Box>
         <br />
-
         <Box
           component="span"
           sx={{
@@ -132,25 +117,26 @@ const comparisonSections = [
         category: "VS THE COLD EMAIL VOLUME MACHINE",
         title: " Run Structured Email Campaigns That Scale ",
         description:
-        "Set up multi-step email drips, monitor opens and clicks, and stay on a prospect’s radar through slow-moving deals. Sections to include: Sequence builder · Deliverability & domain authentication · Templates · Scheduling · Reporting"      },
+          "Set up multi-step email drips, monitor opens and clicks, and stay on a prospect’s radar through slow-moving deals. Sections to include: Sequence builder · Deliverability & domain authentication · Templates · Scheduling · Reporting",
+      },
 
       {
         category: "VS THE AGENCY EMAIL INFRASTRUCTURE",
-        title: "Rapid Sales vs Smartlead",
+        title: "JFS vs Smartlead",
         description:
           "Email warmup and infrastructure versus AI calling + WhatsApp workflows.",
       },
 
       {
         category: "VS THE PER-USER MULTICHANNEL",
-        title: "Rapid Sales vs Reply.io",
+        title: "JFS vs Reply.io",
         description:
           "Email-first engagement versus WhatsApp-native sales automation.",
       },
 
       // {
       //   category: "VS THE LINKEDIN-FIRST OUTBOUND TOOL",
-      //   title: "Rapid Sales vs Lemlist",
+      //   title: "JFS vs Lemlist",
       //   description:
       //     "LinkedIn outreach and personalization compared against WhatsApp-led selling.",
       // },
@@ -184,18 +170,19 @@ const comparisonSections = [
         category: "VS THE AI VOICE PLATFORM",
         title: "Qualify and Book Meetings With AI Voice Calling ",
         description:
-        " Intro: Place inbound and outbound calls at scale with a voice agent that sounds natural, asks the right qualifying questions, and hands off hot leads instantly. Sections to include: How it works (3–4 steps) · Supported languages/accents · Sample call script walkthrough · Call outcomes & tagging · Recordings & transcripts · Integration with calendars · Pricing per minute"      },
+          " Intro: Place inbound and outbound calls at scale with a voice agent that sounds natural, asks the right qualifying questions, and hands off hot leads instantly. Sections to include: How it works (3–4 steps) · Supported languages/accents · Sample call script walkthrough · Call outcomes & tagging · Recordings & transcripts · Integration with calendars · Pricing per minute",
+      },
 
       {
         category: "VS THE DEVELOPER VOICE API",
-        title: "Rapid Sales vs Voice API",
+        title: "JFS vs Voice API",
         description:
           "Developer-first calling infrastructure versus ready-to-use WhatsApp, email and voice sales automation.",
       },
 
       {
         category: "VS THE CALLING OUTSOURCING MODEL",
-        title: "Rapid Sales vs Calling Teams",
+        title: "JFS vs Calling Teams",
         description:
           "Outsourced calling operations compared against automated sales engagement.",
       },
@@ -208,13 +195,13 @@ const comparisonSections = [
 ============================================================ */
 
 const Comparisons = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <Box
       sx={{
         width: "100%",
-       
+
         overflow: "hidden",
         backgroundColor: "#FFFFFF",
       }}
@@ -249,7 +236,7 @@ const Comparisons = () => {
             )
           `,
 
-          backgroundSize: "24px 24px",
+          backgroundSize: "20px 20px",
 
           boxSizing: "border-box",
         }}
@@ -282,13 +269,10 @@ const Comparisons = () => {
               alignItems: "center",
 
               textAlign: "center",
-              
-
               pt: {
-                xs: 2,
-                sm: 3,
-                md: 3,
-                lg: 3,
+                xs: 3,
+                sm: 5,
+                md: 7,
               },
 
               pb: {
@@ -312,10 +296,9 @@ const Comparisons = () => {
                 color: "#050505",
 
                 fontSize: {
-                  xs: "10px",
-                  sm: "20px",
-                  md: "30px",
-                  lg: "35px",
+                  xs: "1.2rem",
+                  sm: "2rem",
+                  md: "2.5rem",
                 },
 
                 lineHeight: {
@@ -327,8 +310,8 @@ const Comparisons = () => {
                 fontWeight: 600,
 
                 letterSpacing: {
-                  xs: "-0.7px",
-                  md: "-1.5px",
+                  xs: "-0.02px",
+                  md: "-0.02px",
                 },
 
                 textAlign: "center",
@@ -342,9 +325,8 @@ const Comparisons = () => {
                   fontWeight: 700,
                 }}
               >
-               It Compares to the 
+                It Compares to the
               </Box>
-              
               <br />
               Competition
             </Typography>
@@ -386,9 +368,9 @@ const Comparisons = () => {
                 textAlign: "center",
               }}
             >
-             Honest, side-by-side comparisons against other outreach and calling tools — so you can pick what actually fits how your buyers respond, whether that’s WhatsApp, email, or phone.
-
-             
+              Honest, side-by-side comparisons against other outreach and
+              calling tools — so you can pick what actually fits how your buyers
+              respond, whether that’s WhatsApp, email, or phone.
             </Typography>
 
             {/* ==================================================
@@ -422,9 +404,7 @@ const Comparisons = () => {
                 All pricing verified September 3, 2026
               </VerificationItem>
 
-              <VerificationItem>
-                Sources linked on every page
-              </VerificationItem>
+              <VerificationItem>Sources linked on every page</VerificationItem>
 
               <VerificationItem>
                 Updated as vendors change plans
@@ -463,8 +443,7 @@ const Comparisons = () => {
                 <Button
                   variant="contained"
                   endIcon={<ArrowOutward />}
-                    onClick={() => navigate("/book-a-demo")}
-
+                  onClick={() => navigate("/book-a-demo")}
                   sx={{
                     width: {
                       xs: "220px",
@@ -512,8 +491,7 @@ const Comparisons = () => {
 
                 <Button
                   variant="outlined"
-                                  onClick={() => navigate("/Pricing")}
-
+                  onClick={() => navigate("/Pricing")}
                   endIcon={<ArrowOutward />}
                   sx={{
                     width: {
@@ -555,7 +533,7 @@ const Comparisons = () => {
                     },
                   }}
                 >
-                  See Rapid Sales Pricing
+                  See JFS Pricing
                 </Button>
               </Stack>
             </Box>
@@ -652,10 +630,7 @@ const ComparisonSection = ({ section, index }) => {
           md: 6,
         },
 
-        borderTop:
-          index > 0
-            ? "1px solid rgba(220,224,230,0.35)"
-            : "none",
+        borderTop: index > 0 ? "1px solid rgba(220,224,230,0.35)" : "none",
       }}
     >
       <Container
@@ -837,10 +812,7 @@ const ComparisonSection = ({ section, index }) => {
           }}
         >
           {section.cards.map((card, cardIndex) => (
-            <ComparisonCard
-              key={`${card.title}-${cardIndex}`}
-              card={card}
-            />
+            <ComparisonCard key={`${card.title}-${cardIndex}`} card={card} />
           ))}
         </Box>
       </Container>
@@ -872,14 +844,11 @@ const ComparisonCard = ({ card }) => {
 
         borderRadius: "20px",
 
-        border: card.featured
-          ? "1px solid #F4510B"
-          : "1px solid #E0E3E8",
+        border: card.featured ? "1px solid #F4510B" : "1px solid #E0E3E8",
 
         backgroundColor: "#FFFFFF",
 
-        boxShadow:
-          "0 6px 14px rgba(0, 0, 0, 0.08)",
+        boxShadow: "0 6px 14px rgba(0, 0, 0, 0.08)",
 
         px: {
           xs: 2,
@@ -893,14 +862,12 @@ const ComparisonCard = ({ card }) => {
           md: 2.5,
         },
 
-        transition:
-          "transform 0.25s ease, box-shadow 0.25s ease",
+        transition: "transform 0.25s ease, box-shadow 0.25s ease",
 
         "&:hover": {
           transform: "translateY(-4px)",
 
-          boxShadow:
-            "0 12px 24px rgba(0, 0, 0, 0.11)",
+          boxShadow: "0 12px 24px rgba(0, 0, 0, 0.11)",
         },
       }}
     >
@@ -988,33 +955,31 @@ const ComparisonCard = ({ card }) => {
       {/* READ COMPARISON */}
 
       <Button
-  component={RouterLink}
-  to="/comparisons/rapid-sales-vs-wati"
-  disableRipple
-  sx={{
-    justifyContent: "flex-start",
-    alignSelf: "flex-start",
-    p: 0,
-    mt: 1,
-    color: "#F4510B",
-    fontSize: {
-      xs: "15px",
-      md: "17px",
-    },
-    fontWeight: 600,
-    textTransform: "none",
-    minWidth: 0,
+        component={RouterLink}
+        to="/comparisons/rapid-sales-vs-wati"
+        disableRipple
+        sx={{
+          justifyContent: "flex-start",
+          alignSelf: "flex-start",
+          p: 0,
+          mt: 1,
+          color: "#F4510B",
+          fontSize: {
+            xs: "15px",
+            md: "17px",
+          },
+          fontWeight: 600,
+          textTransform: "none",
+          minWidth: 0,
 
-    "&:hover": {
-      backgroundColor: "transparent",
-      color: "#D94105",
-    },
-  }}
->
-  Read the comparison →
-</Button>
-
-
+          "&:hover": {
+            backgroundColor: "transparent",
+            color: "#D94105",
+          },
+        }}
+      >
+        Read the comparison →
+      </Button>
     </Box>
   );
 };
@@ -1319,9 +1284,9 @@ const ComparisonGroundRules = () => {
                 }}
               >
                 {" "}
-                Wati&apos;s inbox is genuinely deeper. Interakt&apos;s
-                unlimited agents are genuinely rare. Instantly genuinely wins
-                on email volume. Pretending otherwise would waste your time.
+                Wati&apos;s inbox is genuinely deeper. Interakt&apos;s unlimited
+                agents are genuinely rare. Instantly genuinely wins on email
+                volume. Pretending otherwise would waste your time.
               </Typography>
             </Box>
 

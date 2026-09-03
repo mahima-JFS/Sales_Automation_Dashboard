@@ -91,7 +91,7 @@ const SALES_CALL_SLIDES = [
     image: CallLogOutcome,
     title: "Meta Config Support",
     description:
-      "Manage WhatsApp setup inside a workflow designed for business outreach, with Rapid Sales positioned around official API-based usage rather than informal sending methods.",
+      "Manage WhatsApp setup inside a workflow designed for business outreach, with JFS positioned around official API-based usage rather than informal sending methods.",
   },
   {
     image: HumanHandoff,
@@ -372,8 +372,8 @@ const WhatappAutomation = () => {
               color: "#526071",
             }}
           >
-            Rapid Sales helps you run structured WhatsApp outreach for sales
-            with templates, campaigns, inbox visibility, and sequence-based
+            JFS helps you run structured WhatsApp outreach for sales with
+            templates, campaigns, inbox visibility, and sequence-based
             follow-up.
           </Typography>
 

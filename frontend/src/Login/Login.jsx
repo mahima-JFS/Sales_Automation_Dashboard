@@ -285,7 +285,7 @@ const Login = () => {
             <Box
               component="img"
               src="/assets/images/logo-blue.png"
-              alt="Rapid Sales"
+              alt="JFS"
               sx={{
                 width: 80,
                 height: 65,

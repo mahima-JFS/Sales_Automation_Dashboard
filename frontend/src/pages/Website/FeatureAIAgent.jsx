@@ -87,7 +87,7 @@ const SALES_CALL_SLIDES = [
     image: QuickCall,
     title: "Quick & Bulk Calls",
     description:
-      "Need one immediate call or a larger outbound push? Rapid Sales supports both. Start a quick call for one lead or run bulk calling for broader outreach.",
+      "Need one immediate call or a larger outbound push? JFS supports both. Start a quick call for one lead or run bulk calling for broader outreach.",
   },
   {
     image: CallLogOutcome,
@@ -320,7 +320,7 @@ const FeatureAIAgent = () => {
               color: "#526071",
             }}
           >
-            Rapid Sales helps businesses automate outbound and inbound sales
+            JFS helps businesses automate outbound and inbound sales
             conversations with AI-powered calling agents. Engage leads
             instantly, qualify prospects, schedule appointments, and follow up
             at scale using human-like voice AI that works 24/7.

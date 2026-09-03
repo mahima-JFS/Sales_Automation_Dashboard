@@ -87,7 +87,7 @@ const SALES_CALL_SLIDES = [
     image: QuickCall,
     title: "Own Domain Sending",
     description:
-      "Rapid Sales positions email around sending from the customer's own domain, which is important for trust, brand control, and inbox performance.",
+      "JFS positions email around sending from the customer's own domain, which is important for trust, brand control, and inbox performance.",
   },
 
   {
@@ -100,7 +100,7 @@ const SALES_CALL_SLIDES = [
     image: CallLogOutcome,
     title: "Connected Outreach Workflow",
     description:
-      "Email works better when it is linked to WhatsApp, Al calling, contact data, and follow-up logic. Rapid Sales is built around that connected system.",
+      "Email works better when it is linked to WhatsApp, Al calling, contact data, and follow-up logic. JFS is built around that connected system.",
   },
   {
     image: FasterTemExecution,
@@ -379,9 +379,8 @@ const EmailOutreach = () => {
               color: "#526071",
             }}
           >
-            Rapid Sales helps you run sales email campaigns with better
-            structure, better follow-up, and stronger deliverability
-            foundations.
+            JFS helps you run sales email campaigns with better structure,
+            better follow-up, and stronger deliverability foundations.
           </Typography>
 
           {/* BUTTONS */}
