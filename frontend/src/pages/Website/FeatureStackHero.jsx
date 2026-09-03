@@ -396,6 +396,609 @@
 //   );
 // }
 
+// Cards UI
+// import { useEffect, useState } from "react";
+// import {
+//   Box,
+//   Container,
+//   Paper,
+//   Typography,
+//   useMediaQuery,
+// } from "@mui/material";
+
+// /* =========================================================
+//    ICONS
+// ========================================================= */
+
+// function IconUsers(props) {
+//   return (
+//     <svg
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       width="20"
+//       height="20"
+//       {...props}
+//     >
+//       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+//       <circle cx="9" cy="7" r="4" />
+//       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+//       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+//     </svg>
+//   );
+// }
+
+// function IconMail(props) {
+//   return (
+//     <svg
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       width="20"
+//       height="20"
+//       {...props}
+//     >
+//       <rect x="2" y="4" width="20" height="16" rx="2" />
+//       <path d="m22 6-10 7L2 6" />
+//     </svg>
+//   );
+// }
+
+// function IconWorkflow(props) {
+//   return (
+//     <svg
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       width="20"
+//       height="20"
+//       {...props}
+//     >
+//       <rect x="3" y="3" width="6" height="6" rx="1" />
+//       <rect x="15" y="15" width="6" height="6" rx="1" />
+//       <path d="M9 6h6a2 2 0 0 1 2 2v7" />
+//       <path d="M6 9v7a2 2 0 0 0 2 2h1" />
+//     </svg>
+//   );
+// }
+
+// function IconMessageCircle(props) {
+//   return (
+//     <svg
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       width="20"
+//       height="20"
+//       {...props}
+//     >
+//       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+//     </svg>
+//   );
+// }
+
+// function IconPhone(props) {
+//   return (
+//     <svg
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       width="20"
+//       height="20"
+//       {...props}
+//     >
+//       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+//     </svg>
+//   );
+// }
+
+// function IconBarChart(props) {
+//   return (
+//     <svg
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       width="20"
+//       height="20"
+//       {...props}
+//     >
+//       <line x1="12" y1="20" x2="12" y2="10" />
+//       <line x1="18" y1="20" x2="18" y2="4" />
+//       <line x1="6" y1="20" x2="6" y2="16" />
+//     </svg>
+//   );
+// }
+
+// /* =========================================================
+//    FEATURES
+// ========================================================= */
+
+// const FEATURES = [
+//   {
+//     label: "Import and organize your contact lists",
+//     icon: IconUsers,
+//     color: "#4F46E5",
+//   },
+//   {
+//     label: "Plan and schedule email campaigns",
+//     icon: IconMail,
+//     color: "#0EA5E9",
+//   },
+//   {
+//     label: "Build multi-touch outreach sequences",
+//     icon: IconWorkflow,
+//     color: "#F97316",
+//   },
+//   {
+//     label: "Send WhatsApp campaigns",
+//     icon: IconMessageCircle,
+//     color: "#10B981",
+//   },
+//   {
+//     label: "Run AI-powered voice calling campaigns",
+//     icon: IconPhone,
+//     color: "#EC4899",
+//   },
+//   {
+//     label: "Capture Leads From Every Source",
+//     icon: IconBarChart,
+//     color: "#8B5CF6",
+//   },
+// ];
+
+// function hexToRgba(hex, alpha) {
+//   const value = hex.replace("#", "");
+
+//   const r = parseInt(value.substring(0, 2), 16);
+//   const g = parseInt(value.substring(2, 4), 16);
+//   const b = parseInt(value.substring(4, 6), 16);
+
+//   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+// }
+
+// const ROTATE_MS = 2600;
+
+// /* =========================================================
+//    COMPONENT
+// ========================================================= */
+
+// export default function FeatureStackHero() {
+//   const [active, setActive] = useState(0);
+
+//   const isMobile = useMediaQuery("(max-width:600px)");
+
+//   useEffect(() => {
+//     const id = setInterval(() => {
+//       setActive((prev) => (prev + 1) % FEATURES.length);
+//     }, ROTATE_MS);
+
+//     return () => clearInterval(id);
+//   }, []);
+
+//   const activeFeature = FEATURES[active];
+//   const ActiveIcon = activeFeature.icon;
+
+//   return (
+//     <Box
+//       component="section"
+//       sx={{
+//         position: "relative",
+//         width: "100%",
+//         bgcolor: "#FAFAFA",
+//         py: {
+//           xs: 5,
+//           sm: 7,
+//           md: 8,
+//         },
+//         overflow: "hidden",
+//       }}
+//     >
+//       {/* =====================================================
+//           BACKGROUND GLOW
+//       ===================================================== */}
+
+//       <Box
+//         sx={{
+//           position: "absolute",
+//           width: 300,
+//           height: 300,
+//           borderRadius: "50%",
+//           bottom: "-20%",
+//           left: "-10%",
+//           background:
+//             "radial-gradient(circle, rgba(249,115,22,0.06), transparent 70%)",
+//           pointerEvents: "none",
+//         }}
+//       />
+
+//       <Container maxWidth="lg">
+//         <Box
+//           sx={{
+//             display: "flex",
+//             flexDirection: {
+//               xs: "column",
+//               lg: "row",
+//             },
+//             alignItems: "center",
+//             gap: {
+//               xs: 5,
+//               sm: 6,
+//               lg: 9,
+//             },
+//           }}
+//         >
+//           {/* =================================================
+//               LEFT CONTENT
+//           ================================================= */}
+
+//           <Box
+//             sx={{
+//               flex: "1 1 0",
+//               minWidth: 0,
+//               width: "100%",
+//             }}
+//           >
+//             {/* HEADING */}
+
+//             <Typography
+//               component="h2"
+//               sx={{
+//                 fontWeight: 700,
+//                 fontSize: {
+//                   xs: "1.75rem",
+//                   sm: "2.2rem",
+//                   md: "2.65rem",
+//                 },
+//                 lineHeight: 1.16,
+//                 letterSpacing: "-0.035em",
+//                 color: "#0F172A",
+//                 maxWidth: 540,
+//               }}
+//             >
+//               A{" "}
+//               <Box
+//                 component="span"
+//                 sx={{
+//                   color: "#4F46E5",
+//                 }}
+//               >
+//                 Complete Toolkit
+//               </Box>{" "}
+//               for Modern Outbound Teams
+//             </Typography>
+
+//             {/* DESCRIPTION */}
+
+//             <Typography
+//               sx={{
+//                 mt: {
+//                   xs: 2,
+//                   sm: 2.5,
+//                 },
+//                 fontSize: {
+//                   xs: 15,
+//                   sm: 17,
+//                   md: 18,
+//                 },
+//                 lineHeight: 1.7,
+//                 fontWeight: 400,
+//                 color: "#64748B",
+//                 maxWidth: 470,
+//               }}
+//             >
+//               Built for businesses that want faster follow-up, better
+//               consistency, and more conversations.
+//             </Typography>
+
+//             {/* MINI STATS */}
+
+//             <Box
+//               sx={{
+//                 display: "flex",
+//                 flexWrap: "wrap",
+//                 gap: 1,
+//                 mt: 3.5,
+//               }}
+//             >
+//               {["Email", "WhatsApp", "AI Calling", "Automation"].map((item) => (
+//                 <Box
+//                   key={item}
+//                   sx={{
+//                     px: 1.5,
+//                     py: 0.8,
+//                     borderRadius: "8px",
+//                     bgcolor: "#FFFFFF",
+//                     border: "1px solid #E5E7EB",
+//                     color: "#475569",
+//                     fontSize: 12.5,
+//                     fontWeight: 600,
+//                   }}
+//                 >
+//                   {item}
+//                 </Box>
+//               ))}
+//             </Box>
+//           </Box>
+
+//           {/* =================================================
+//               RIGHT FEATURE SHOWCASE
+//           ================================================= */}
+
+//           <Box
+//             sx={{
+//               flex: "1 1 0",
+//               minWidth: 0,
+//               width: "100%",
+//               display: "flex",
+//               justifyContent: "center",
+//             }}
+//           >
+//             <Box
+//               sx={{
+//                 position: "relative",
+//                 width: "100%",
+//                 maxWidth: {
+//                   xs: 360,
+//                   sm: 470,
+//                   md: 540,
+//                 },
+//                 height: {
+//                   xs: 330,
+//                   sm: 360,
+//                   md: 390,
+//                 },
+//               }}
+//             >
+//               {/* =================================================
+//                   DECORATIVE GRID
+//               ================================================= */}
+
+//               <Box
+//                 sx={{
+//                   position: "absolute",
+//                   top: {
+//                     xs: 5,
+//                     md: -15,
+//                   },
+//                   right: {
+//                     xs: 0,
+//                     md: -20,
+//                   },
+//                   width: {
+//                     xs: 100,
+//                     sm: 130,
+//                     md: 150,
+//                   },
+//                   height: {
+//                     xs: 100,
+//                     sm: 130,
+//                     md: 150,
+//                   },
+//                   opacity: 0.5,
+//                   backgroundImage:
+//                     "radial-gradient(#CBD5E1 1.2px, transparent 1.2px)",
+//                   backgroundSize: "9px 9px",
+//                   pointerEvents: "none",
+//                 }}
+//               />
+
+//               {/* =================================================
+//                   BACK CARDS
+//               ================================================= */}
+
+//               {[1, 2].map((depth) => {
+//                 const index = (active + depth) % FEATURES.length;
+
+//                 const feature = FEATURES[index];
+
+//                 return (
+//                   <Paper
+//                     key={`${feature.label}-${depth}`}
+//                     elevation={0}
+//                     sx={{
+//                       position: "absolute",
+//                       left: {
+//                         xs: `${depth * 4}%`,
+//                         sm: `${depth * 5}%`,
+//                       },
+//                       right: {
+//                         xs: `${depth * 4}%`,
+//                         sm: `${depth * 5}%`,
+//                       },
+//                       top: `${depth * 34}px`,
+//                       height: {
+//                         xs: 125,
+//                         sm: 140,
+//                       },
+//                       borderRadius: {
+//                         xs: "16px",
+//                         sm: "20px",
+//                       },
+//                       bgcolor: "#FFFFFF",
+//                       border: "1px solid #E7EAF0",
+//                       opacity: depth === 1 ? 0.55 : 0.28,
+//                       transform: `scale(${1 - depth * 0.035})`,
+//                       transformOrigin: "center top",
+//                       boxShadow: "0 12px 30px rgba(15,23,42,0.05)",
+//                       transition: "all 900ms cubic-bezier(0.22,1,0.36,1)",
+//                     }}
+//                   />
+//                 );
+//               })}
+
+//               {/* =================================================
+//                   ACTIVE CARD
+//               ================================================= */}
+
+//               <Paper
+//                 elevation={0}
+//                 sx={{
+//                   position: "absolute",
+//                   left: {
+//                     xs: "2%",
+//                     sm: "0%",
+//                   },
+//                   right: {
+//                     xs: "2%",
+//                     sm: "0%",
+//                   },
+//                   top: {
+//                     xs: 55,
+//                     sm: 50,
+//                     md: 45,
+//                   },
+//                   minHeight: {
+//                     xs: 205,
+//                     sm: 225,
+//                     md: 240,
+//                   },
+//                   display: "flex",
+//                   flexDirection: "column",
+//                   justifyContent: "center",
+//                   p: {
+//                     xs: 3,
+//                     sm: 4,
+//                     md: 4.5,
+//                   },
+//                   borderRadius: {
+//                     xs: "20px",
+//                     sm: "24px",
+//                   },
+//                   bgcolor: "#FFFFFF",
+//                   border: `1px solid ${hexToRgba(activeFeature.color, 0.28)}`,
+//                   boxShadow: `
+//                     0 24px 55px rgba(15,23,42,0.10),
+//                     0 8px 20px ${hexToRgba(activeFeature.color, 0.1)}
+//                   `,
+//                   transform: "translateY(0)",
+//                   animation: "featureFloat 4s ease-in-out infinite",
+//                   transition: "border-color 700ms ease, box-shadow 700ms ease",
+//                   zIndex: 5,
+
+//                   "@keyframes featureFloat": {
+//                     "0%, 100%": {
+//                       transform: "translateY(0px)",
+//                     },
+//                     "50%": {
+//                       transform: "translateY(-7px)",
+//                     },
+//                   },
+//                 }}
+//               >
+//                 {/* ICON */}
+
+//                 <Box
+//                   sx={{
+//                     width: {
+//                       xs: 48,
+//                       sm: 54,
+//                     },
+//                     height: {
+//                       xs: 48,
+//                       sm: 54,
+//                     },
+//                     borderRadius: "15px",
+//                     display: "flex",
+//                     alignItems: "center",
+//                     justifyContent: "center",
+//                     bgcolor: hexToRgba(activeFeature.color, 0.1),
+//                     color: activeFeature.color,
+//                     mb: 2.5,
+//                     boxShadow: `inset 0 0 0 1px ${hexToRgba(
+//                       activeFeature.color,
+//                       0.08,
+//                     )}`,
+//                     transition: "background 600ms ease, color 600ms ease",
+//                   }}
+//                 >
+//                   <ActiveIcon width={24} height={24} />
+//                 </Box>
+
+//                 {/* LABEL */}
+
+//                 <Typography
+//                   sx={{
+//                     fontSize: {
+//                       xs: 17,
+//                       sm: 19,
+//                       md: 21,
+//                     },
+//                     lineHeight: 1.35,
+//                     fontWeight: 700,
+//                     color: "#0F172A",
+//                     maxWidth: 410,
+//                   }}
+//                 >
+//                   {activeFeature.label}
+//                 </Typography>
+
+//                 {/* SMALL DESCRIPTION */}
+
+//                 <Typography
+//                   sx={{
+//                     mt: 1,
+//                     fontSize: {
+//                       xs: 12.5,
+//                       sm: 13.5,
+//                     },
+//                     lineHeight: 1.55,
+//                     color: "#94A3B8",
+//                   }}
+//                 >
+//                   Automate this step and keep your outreach moving.
+//                 </Typography>
+
+//                 {/* PROGRESS */}
+
+//                 <Box
+//                   sx={{
+//                     mt: 2.5,
+//                     display: "flex",
+//                     alignItems: "center",
+//                     gap: 1,
+//                   }}
+//                 >
+//                   {FEATURES.map((item, index) => (
+//                     <Box
+//                       key={item.label}
+//                       sx={{
+//                         width: index === active ? 26 : 6,
+//                         height: 5,
+//                         borderRadius: "999px",
+//                         bgcolor:
+//                           index === active ? activeFeature.color : "#E2E8F0",
+//                         transition: "all 500ms cubic-bezier(0.22,1,0.36,1)",
+//                       }}
+//                     />
+//                   ))}
+//                 </Box>
+//               </Paper>
+//             </Box>
+//           </Box>
+//         </Box>
+//       </Container>
+//     </Box>
+//   );
+// }
+
 import { useEffect, useState } from "react";
 import {
   Box,
@@ -405,9 +1008,25 @@ import {
   useMediaQuery,
 } from "@mui/material";
 
-/* =========================================================
-   ICONS
-========================================================= */
+function IconTarget(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      width="20"
+      height="20"
+      {...props}
+    >
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1" />
+    </svg>
+  );
+}
 
 function IconUsers(props) {
   return (
@@ -430,25 +1049,6 @@ function IconUsers(props) {
   );
 }
 
-function IconMail(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      width="20"
-      height="20"
-      {...props}
-    >
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-      <path d="m22 6-10 7L2 6" />
-    </svg>
-  );
-}
-
 function IconWorkflow(props) {
   return (
     <svg
@@ -466,6 +1066,25 @@ function IconWorkflow(props) {
       <rect x="15" y="15" width="6" height="6" rx="1" />
       <path d="M9 6h6a2 2 0 0 1 2 2v7" />
       <path d="M6 9v7a2 2 0 0 0 2 2h1" />
+    </svg>
+  );
+}
+
+function IconMail(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      width="20"
+      height="20"
+      {...props}
+    >
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m22 6-10 7L2 6" />
     </svg>
   );
 }
@@ -506,494 +1125,473 @@ function IconPhone(props) {
   );
 }
 
-function IconBarChart(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      width="20"
-      height="20"
-      {...props}
-    >
-      <line x1="12" y1="20" x2="12" y2="10" />
-      <line x1="18" y1="20" x2="18" y2="4" />
-      <line x1="6" y1="20" x2="6" y2="16" />
-    </svg>
-  );
-}
-
 /* =========================================================
-   FEATURES
+   TOKENS
 ========================================================= */
 
-const FEATURES = [
+const INK = "#151821";
+const SLATE = "#6B7280";
+const LINE = "#DEE1E6";
+const PAPER = "#F6F6F3";
+const ROTATE_MS = 3200;
+
+/* =========================================================
+   CONTENT — order follows how a lead actually moves through the system
+========================================================= */
+
+const STAGES = [
   {
-    label: "Import and organize your contact lists",
+    step: "Capture",
+    label: "Pull leads in from every source",
+    description:
+      "Forms, spreadsheets, ad campaigns and referrals land in one place automatically.",
+    icon: IconTarget,
+    color: "#2F6FED",
+  },
+  {
+    step: "Organize",
+    label: "Clean and group your contacts",
+    description:
+      "Every lead is sorted, de-duplicated and tagged the moment it arrives.",
     icon: IconUsers,
-    color: "#4F46E5",
+    color: "#6D5DF6",
   },
   {
-    label: "Plan and schedule email campaigns",
-    icon: IconMail,
-    color: "#0EA5E9",
-  },
-  {
-    label: "Build multi-touch outreach sequences",
+    step: "Sequence",
+    label: "Build a multi-touch outreach plan",
+    description:
+      "Set the order and timing once — follow-ups fire on their own from there.",
     icon: IconWorkflow,
-    color: "#F97316",
+    color: "#1F9C8B",
   },
   {
-    label: "Send WhatsApp campaigns",
+    step: "Email",
+    label: "Send scheduled email campaigns",
+    description:
+      "Sequences reach inboxes at the right hour for each recipient.",
+    icon: IconMail,
+    color: "#D69A00",
+  },
+  {
+    step: "WhatsApp",
+    label: "Reach leads on WhatsApp",
+    description:
+      "The same sequence hands off to WhatsApp for leads who reply faster there.",
     icon: IconMessageCircle,
-    color: "#10B981",
+    color: "#2E9E5B",
   },
   {
-    label: "Run AI-powered voice calling campaigns",
+    step: "Calling",
+    label: "Let AI place the outbound call",
+    description:
+      "AI calling qualifies leads and books time on the calendar automatically.",
     icon: IconPhone,
-    color: "#EC4899",
-  },
-  {
-    label: "Capture Leads From Every Source",
-    icon: IconBarChart,
-    color: "#8B5CF6",
+    color: "#D6486B",
   },
 ];
-
-function hexToRgba(hex, alpha) {
-  const value = hex.replace("#", "");
-
-  const r = parseInt(value.substring(0, 2), 16);
-  const g = parseInt(value.substring(2, 4), 16);
-  const b = parseInt(value.substring(4, 6), 16);
-
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
-
-const ROTATE_MS = 2600;
-
-/* =========================================================
-   COMPONENT
-========================================================= */
 
 export default function FeatureStackHero() {
   const [active, setActive] = useState(0);
 
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isXs = useMediaQuery("(max-width:480px)");
+  const isSm = useMediaQuery("(max-width:900px)");
 
+  const containerSize = isXs ? 280 : isSm ? 360 : 440;
+  const centerD = Math.round(containerSize * 0.42);
+  const satD = Math.round(containerSize * 0.165);
+  const orbitR = containerSize / 2 - satD / 2 - 6;
+  const cx = containerSize / 2;
+  const cy = containerSize / 2;
+
+  // auto-advance, respecting reduced-motion preference; restarts (and
+  // the progress ring resets) whenever `active` changes, including
+  // from a manual click
   useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return undefined;
+    }
     const id = setInterval(() => {
-      setActive((prev) => (prev + 1) % FEATURES.length);
+      setActive((prev) => (prev + 1) % STAGES.length);
     }, ROTATE_MS);
-
     return () => clearInterval(id);
-  }, []);
+  }, [active]);
 
-  const activeFeature = FEATURES[active];
-  const ActiveIcon = activeFeature.icon;
+  const activeStage = STAGES[active];
+  const ActiveIcon = activeStage.icon;
+
+  const strokeWidth = 3;
+  const ringR = centerD / 2 - strokeWidth / 2 - 3;
+  const circumference = 2 * Math.PI * ringR;
 
   return (
-    <Box
-      component="section"
-      sx={{
-        position: "relative",
-        width: "100%",
-        bgcolor: "#FAFAFA",
-        py: {
-          xs: 5,
-          sm: 7,
-          md: 8,
-        },
-        overflow: "hidden",
-      }}
-    >
-      {/* =====================================================
+    <>
+      <Box
+        component="section"
+        sx={{
+          position: "relative",
+          width: "100%",
+          bgcolor: "#FAFAFA",
+          py: {
+            xs: 5,
+            sm: 7,
+            md: 8,
+          },
+          overflow: "hidden",
+        }}
+      >
+        {/* =====================================================
           BACKGROUND GLOW
       ===================================================== */}
 
-      <Box
-        sx={{
-          position: "absolute",
-          width: 300,
-          height: 300,
-          borderRadius: "50%",
-          bottom: "-20%",
-          left: "-10%",
-          background:
-            "radial-gradient(circle, rgba(249,115,22,0.06), transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <Container maxWidth="lg">
         <Box
           sx={{
-            display: "flex",
-            flexDirection: {
-              xs: "column",
-              lg: "row",
-            },
-            alignItems: "center",
-            gap: {
-              xs: 5,
-              sm: 6,
-              lg: 9,
-            },
+            position: "absolute",
+            width: 300,
+            height: 300,
+            borderRadius: "50%",
+            bottom: "-20%",
+            left: "-10%",
+            background:
+              "radial-gradient(circle, rgba(249,115,22,0.06), transparent 70%)",
+            pointerEvents: "none",
           }}
-        >
-          {/* =================================================
+        />
+
+        <Container maxWidth="lg">
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: {
+                xs: "column",
+                lg: "row",
+              },
+              alignItems: "center",
+              gap: {
+                xs: 5,
+                sm: 6,
+                lg: 9,
+              },
+            }}
+          >
+            {/* =================================================
               LEFT CONTENT
           ================================================= */}
 
-          <Box
-            sx={{
-              flex: "1 1 0",
-              minWidth: 0,
-              width: "100%",
-            }}
-          >
-            {/* HEADING */}
-
-            <Typography
-              component="h2"
-              sx={{
-                fontWeight: 700,
-                fontSize: {
-                  xs: "1.75rem",
-                  sm: "2.2rem",
-                  md: "2.65rem",
-                },
-                lineHeight: 1.16,
-                letterSpacing: "-0.035em",
-                color: "#0F172A",
-                maxWidth: 540,
-              }}
-            >
-              A{" "}
-              <Box
-                component="span"
-                sx={{
-                  color: "#4F46E5",
-                }}
-              >
-                Complete Toolkit
-              </Box>{" "}
-              for Modern Outbound Teams
-            </Typography>
-
-            {/* DESCRIPTION */}
-
-            <Typography
-              sx={{
-                mt: {
-                  xs: 2,
-                  sm: 2.5,
-                },
-                fontSize: {
-                  xs: 15,
-                  sm: 17,
-                  md: 18,
-                },
-                lineHeight: 1.7,
-                fontWeight: 400,
-                color: "#64748B",
-                maxWidth: 470,
-              }}
-            >
-              Built for businesses that want faster follow-up, better
-              consistency, and more conversations.
-            </Typography>
-
-            {/* MINI STATS */}
-
             <Box
               sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 1,
-                mt: 3.5,
+                flex: "1 1 0",
+                minWidth: 0,
+                width: "100%",
               }}
             >
-              {["Email", "WhatsApp", "AI Calling", "Automation"].map((item) => (
+              {/* HEADING */}
+
+              <Typography
+                component="h2"
+                sx={{
+                  fontWeight: 700,
+                  fontSize: {
+                    xs: "1.75rem",
+                    sm: "2.2rem",
+                    md: "2.65rem",
+                  },
+                  lineHeight: 1.16,
+                  letterSpacing: "-0.035em",
+                  color: "#0F172A",
+                  maxWidth: 540,
+                }}
+              >
+                A{" "}
                 <Box
-                  key={item}
+                  component="span"
                   sx={{
-                    px: 1.5,
-                    py: 0.8,
-                    borderRadius: "8px",
-                    bgcolor: "#FFFFFF",
-                    border: "1px solid #E5E7EB",
-                    color: "#475569",
-                    fontSize: 12.5,
-                    fontWeight: 600,
+                    color: "#4F46E5",
                   }}
                 >
-                  {item}
-                </Box>
-              ))}
-            </Box>
-          </Box>
+                  Complete Toolkit
+                </Box>{" "}
+                for Modern Outbound Teams
+              </Typography>
 
-          {/* =================================================
+              {/* DESCRIPTION */}
+
+              <Typography
+                sx={{
+                  mt: {
+                    xs: 2,
+                    sm: 2.5,
+                  },
+                  fontSize: {
+                    xs: 15,
+                    sm: 17,
+                    md: 18,
+                  },
+                  lineHeight: 1.7,
+                  fontWeight: 400,
+                  color: "#64748B",
+                  maxWidth: 470,
+                }}
+              >
+                Built for businesses that want faster follow-up, better
+                consistency, and more conversations.
+              </Typography>
+
+              {/* MINI STATS */}
+
+              <Box
+                key={active}
+                sx={{
+                  mt: 4,
+                  pt: 3,
+                  borderTop: `1px solid ${LINE}`,
+                  animation: "captionFade 380ms ease",
+                  "@keyframes captionFade": {
+                    from: { opacity: 0, transform: "translateY(4px)" },
+                    to: { opacity: 1, transform: "translateY(0)" },
+                  },
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: 18,
+                    fontWeight: 700,
+                    color: activeStage.color,
+                    mb: 0.5,
+                  }}
+                >
+                  {/* {String(active + 1).padStart(2, "0")} —  */}
+                  {activeStage.step}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: 13.5,
+                    lineHeight: 1.6,
+                    color: SLATE,
+                    maxWidth: 360,
+                  }}
+                >
+                  {activeStage.description}
+                </Typography>
+              </Box>
+            </Box>
+
+            {/* =================================================
               RIGHT FEATURE SHOWCASE
           ================================================= */}
 
-          <Box
-            sx={{
-              flex: "1 1 0",
-              minWidth: 0,
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <Box
-              sx={{
-                position: "relative",
-                width: "100%",
-                maxWidth: {
-                  xs: 360,
-                  sm: 470,
-                  md: 540,
-                },
-                height: {
-                  xs: 330,
-                  sm: 360,
-                  md: 390,
-                },
-              }}
-            >
-              {/* =================================================
-                  DECORATIVE GRID
-              ================================================= */}
-
+            <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
               <Box
                 sx={{
-                  position: "absolute",
-                  top: {
-                    xs: 5,
-                    md: -15,
-                  },
-                  right: {
-                    xs: 0,
-                    md: -20,
-                  },
-                  width: {
-                    xs: 100,
-                    sm: 130,
-                    md: 150,
-                  },
-                  height: {
-                    xs: 100,
-                    sm: 130,
-                    md: 150,
-                  },
-                  opacity: 0.5,
-                  backgroundImage:
-                    "radial-gradient(#CBD5E1 1.2px, transparent 1.2px)",
-                  backgroundSize: "9px 9px",
-                  pointerEvents: "none",
-                }}
-              />
-
-              {/* =================================================
-                  BACK CARDS
-              ================================================= */}
-
-              {[1, 2].map((depth) => {
-                const index = (active + depth) % FEATURES.length;
-
-                const feature = FEATURES[index];
-
-                return (
-                  <Paper
-                    key={`${feature.label}-${depth}`}
-                    elevation={0}
-                    sx={{
-                      position: "absolute",
-                      left: {
-                        xs: `${depth * 4}%`,
-                        sm: `${depth * 5}%`,
-                      },
-                      right: {
-                        xs: `${depth * 4}%`,
-                        sm: `${depth * 5}%`,
-                      },
-                      top: `${depth * 34}px`,
-                      height: {
-                        xs: 125,
-                        sm: 140,
-                      },
-                      borderRadius: {
-                        xs: "16px",
-                        sm: "20px",
-                      },
-                      bgcolor: "#FFFFFF",
-                      border: "1px solid #E7EAF0",
-                      opacity: depth === 1 ? 0.55 : 0.28,
-                      transform: `scale(${1 - depth * 0.035})`,
-                      transformOrigin: "center top",
-                      boxShadow: "0 12px 30px rgba(15,23,42,0.05)",
-                      transition: "all 900ms cubic-bezier(0.22,1,0.36,1)",
-                    }}
-                  />
-                );
-              })}
-
-              {/* =================================================
-                  ACTIVE CARD
-              ================================================= */}
-
-              <Paper
-                elevation={0}
-                sx={{
-                  position: "absolute",
-                  left: {
-                    xs: "2%",
-                    sm: "0%",
-                  },
-                  right: {
-                    xs: "2%",
-                    sm: "0%",
-                  },
-                  top: {
-                    xs: 55,
-                    sm: 50,
-                    md: 45,
-                  },
-                  minHeight: {
-                    xs: 205,
-                    sm: 225,
-                    md: 240,
-                  },
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  p: {
-                    xs: 3,
-                    sm: 4,
-                    md: 4.5,
-                  },
-                  borderRadius: {
-                    xs: "20px",
-                    sm: "24px",
-                  },
-                  bgcolor: "#FFFFFF",
-                  border: `1px solid ${hexToRgba(activeFeature.color, 0.28)}`,
-                  boxShadow: `
-                    0 24px 55px rgba(15,23,42,0.10),
-                    0 8px 20px ${hexToRgba(activeFeature.color, 0.1)}
-                  `,
-                  transform: "translateY(0)",
-                  animation: "featureFloat 4s ease-in-out infinite",
-                  transition: "border-color 700ms ease, box-shadow 700ms ease",
-                  zIndex: 5,
-
-                  "@keyframes featureFloat": {
-                    "0%, 100%": {
-                      transform: "translateY(0px)",
-                    },
-                    "50%": {
-                      transform: "translateY(-7px)",
-                    },
-                  },
+                  position: "relative",
+                  width: `${containerSize}px`,
+                  height: `${containerSize}px`,
                 }}
               >
-                {/* ICON */}
-
+                {/* connecting spokes */}
                 <Box
+                  component="svg"
+                  viewBox={`0 0 ${containerSize} ${containerSize}`}
                   sx={{
-                    width: {
-                      xs: 48,
-                      sm: 54,
-                    },
-                    height: {
-                      xs: 48,
-                      sm: 54,
-                    },
-                    borderRadius: "15px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    bgcolor: hexToRgba(activeFeature.color, 0.1),
-                    color: activeFeature.color,
-                    mb: 2.5,
-                    boxShadow: `inset 0 0 0 1px ${hexToRgba(
-                      activeFeature.color,
-                      0.08,
-                    )}`,
-                    transition: "background 600ms ease, color 600ms ease",
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
                   }}
                 >
-                  <ActiveIcon width={24} height={24} />
+                  {STAGES.map((stage, i) => {
+                    const angle =
+                      (-90 + i * (360 / STAGES.length)) * (Math.PI / 180);
+                    const x = cx + orbitR * Math.cos(angle);
+                    const y = cy + orbitR * Math.sin(angle);
+                    const isActive = i === active;
+                    return (
+                      <line
+                        key={stage.label}
+                        x1={cx}
+                        y1={cy}
+                        x2={x}
+                        y2={y}
+                        stroke={isActive ? stage.color : LINE}
+                        strokeWidth={isActive ? 2 : 1}
+                        opacity={isActive ? 0.85 : 0.7}
+                        style={{
+                          transition: "stroke 300ms ease, opacity 300ms ease",
+                        }}
+                      />
+                    );
+                  })}
                 </Box>
 
-                {/* LABEL */}
+                {/* satellite nodes */}
+                {STAGES.map((stage, i) => {
+                  const angle =
+                    (-90 + i * (360 / STAGES.length)) * (Math.PI / 180);
+                  const x = cx + orbitR * Math.cos(angle);
+                  const y = cy + orbitR * Math.sin(angle);
+                  const isActive = i === active;
+                  const SatIcon = stage.icon;
 
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: 17,
-                      sm: 19,
-                      md: 21,
-                    },
-                    lineHeight: 1.35,
-                    fontWeight: 700,
-                    color: "#0F172A",
-                    maxWidth: 410,
-                  }}
-                >
-                  {activeFeature.label}
-                </Typography>
+                  return (
+                    <Box
+                      key={stage.label}
+                      component="button"
+                      onClick={() => setActive(i)}
+                      aria-label={stage.label}
+                      aria-pressed={isActive}
+                      sx={{
+                        position: "absolute",
+                        top: `${y - satD / 2}px`,
+                        left: `${x - satD / 2}px`,
+                        width: satD,
+                        height: satD,
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        cursor: "pointer",
+                        p: 0,
+                        bgcolor: isActive ? stage.color : "#FFFFFF",
+                        border: isActive
+                          ? `1px solid ${stage.color}`
+                          : `1.5px solid ${stage.color}33`,
+                        color: isActive ? "#FFFFFF" : stage.color,
+                        boxShadow: isActive
+                          ? `0 8px 20px ${stage.color}66`
+                          : `0 5px 14px ${stage.color}33`,
+                        transition:
+                          "background-color 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease",
+                        transform: isActive ? "scale(1.08)" : "scale(1)",
+                        "&:focus-visible": {
+                          outline: `2px solid ${stage.color}`,
+                          outlineOffset: 2,
+                        },
+                      }}
+                    >
+                      <SatIcon width={isXs ? 15 : 18} height={isXs ? 15 : 18} />
+                    </Box>
+                  );
+                })}
 
-                {/* SMALL DESCRIPTION */}
-
-                <Typography
-                  sx={{
-                    mt: 1,
-                    fontSize: {
-                      xs: 12.5,
-                      sm: 13.5,
-                    },
-                    lineHeight: 1.55,
-                    color: "#94A3B8",
-                  }}
-                >
-                  Automate this step and keep your outreach moving.
-                </Typography>
-
-                {/* PROGRESS */}
-
+                {/* center hub */}
                 <Box
                   sx={{
-                    mt: 2.5,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: centerD,
+                    height: centerD,
                   }}
                 >
-                  {FEATURES.map((item, index) => (
+                  {/* progress ring — remounts (and restarts) each cycle via key */}
+                  <Box
+                    key={active}
+                    component="svg"
+                    viewBox={`0 0 ${centerD} ${centerD}`}
+                    sx={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      transform: "rotate(-90deg)",
+                    }}
+                  >
+                    <circle
+                      cx={centerD / 2}
+                      cy={centerD / 2}
+                      r={ringR}
+                      fill="none"
+                      stroke={LINE}
+                      strokeWidth={strokeWidth}
+                    />
                     <Box
-                      key={item.label}
+                      component="circle"
+                      cx={centerD / 2}
+                      cy={centerD / 2}
+                      r={ringR}
+                      fill="none"
+                      stroke={activeStage.color}
+                      strokeWidth={strokeWidth}
+                      strokeLinecap="round"
+                      strokeDasharray={circumference}
                       sx={{
-                        width: index === active ? 26 : 6,
-                        height: 5,
-                        borderRadius: "999px",
-                        bgcolor:
-                          index === active ? activeFeature.color : "#E2E8F0",
-                        transition: "all 500ms cubic-bezier(0.22,1,0.36,1)",
+                        animation: `ringProgress ${ROTATE_MS}ms linear forwards`,
+                        "@keyframes ringProgress": {
+                          from: { strokeDashoffset: circumference },
+                          to: { strokeDashoffset: 0 },
+                        },
                       }}
                     />
-                  ))}
+                  </Box>
+
+                  {/* active icon + title */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      inset: 0,
+                      borderRadius: "50%",
+                      bgcolor: "#FFFFFF",
+                      boxShadow: "0 12px 30px rgba(15,23,42,0.08)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Box
+                      key={active}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        textAlign: "center",
+                        px: 2,
+                        animation: "hubFade 380ms ease",
+                        "@keyframes hubFade": {
+                          from: { opacity: 0, transform: "scale(0.9)" },
+                          to: { opacity: 1, transform: "scale(1)" },
+                        },
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: isXs ? 34 : 42,
+                          height: isXs ? 34 : 42,
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          bgcolor: `${activeStage.color}1A`,
+                          color: activeStage.color,
+                          mb: 1,
+                        }}
+                      >
+                        <ActiveIcon
+                          width={isXs ? 18 : 22}
+                          height={isXs ? 18 : 22}
+                        />
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontSize: isXs ? 12.5 : 14,
+                          fontWeight: 700,
+                          lineHeight: 1.3,
+                          color: INK,
+                          maxWidth: centerD - 40,
+                        }}
+                      >
+                        {activeStage.label}
+                      </Typography>
+                    </Box>
+                  </Box>
                 </Box>
-              </Paper>
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    </>
   );
 }

@@ -161,11 +161,11 @@ export default function StatsSection() {
                 border: "1px solid rgba(255, 104, 17, 0.18)",
 
                 // LIGHT ORANGE 3D SHADOW
-                boxShadow: `
-      0px 8px 18px rgba(255, 104, 17, 0.10),
-      0px 18px 35px rgba(255, 104, 17, 0.12),
-      inset 0px 1px 0px rgba(255, 255, 255, 0.9)
-    `,
+                //             boxShadow: `
+                //   0px 8px 18px rgba(255, 104, 17, 0.10),
+                //   0px 18px 35px rgba(255, 104, 17, 0.12),
+                //   inset 0px 1px 0px rgba(255, 255, 255, 0.9)
+                // `,
 
                 transition: "all 0.3s ease",
 
@@ -199,7 +199,7 @@ export default function StatsSection() {
 
                   borderRadius: "0 0 10px 10px",
 
-                  background: "linear-gradient(90deg, #ff823a, #fcb47a)",
+                  background: "linear-gradient(90deg, #FF6811, #FB923C)",
                 },
 
                 "&:hover": {

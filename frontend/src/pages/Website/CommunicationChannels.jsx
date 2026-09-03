@@ -11,24 +11,23 @@ const channels = [
   {
     title: (
       <>
-        AI Calling for faster lead
+        Qualify Leads Faster With
         <br />
-        qualification
+        AI Calling Body
       </>
     ),
     description:
-      "Use AI-powered voice calls to reach larger lead lists, ask qualification questions, and capture clear call outcomes.",
+      " Reach large calling lists automatically, ask qualifying questions, and get clean, structured outcomes from every conversation.",
     color: "#4F46E5",
     icon: <CallOutlinedIcon />,
     features: [
-      "AI appointment booking",
-      "Inbound & outbound AI calling",
-      "Bulk AI calling",
-      "Lead qualification",
-      "Call outcomes",
-      "Call recordings & transcripts",
-      "Custom AI scripts",
-      "Multi-language calling",
+      "Inbound & outbound calling",
+      " Multi-language suppor",
+      " Custom call scripts",
+      "Bulk dialing",
+      "Auto-scheduled callbacks",
+      "Lead scoring questions",
+      " Recordings & transcripts",
     ],
     learn: "/feature/ai-calling-agent",
   },
@@ -36,24 +35,24 @@ const channels = [
   {
     title: (
       <>
-        WhatsApp Outreach for faster
+        Faster Follow-Ups Over
         <br />
-        follow-ups
+        WhatsApp Body
       </>
     ),
     description:
-      "Use WhatsApp to send sales messages, follow-ups, and campaign updates through approved business templates.",
+      "Send approved WhatsApp Business messages for outreach, nudges, and campaign updates — all tracked in one inbox. ",
     color: "#0fcc7d",
     icon: <WhatsAppIcon />,
     features: [
-      "AI template generator",
-      "Follow-up messages",
+      "Official WhatsApp Business API",
+      "Pre-approved templates",
       "Business API support",
-      "WhatsApp campaigns",
-      "Template status tracking",
-      "WhatsApp conversation view",
-      "Approved message templates",
-      "AI auto replies",
+      "Broadcast campaigns ",
+      "Shared conversation view",
+      "AI-generated message drafts ",
+      "Template approval tracking",
+      "Automated follow-ups",
     ],
     learn: "/feature/whatsapp-automation",
   },
@@ -61,22 +60,22 @@ const channels = [
   {
     title: (
       <>
-        Email Automation for scalable
+        Scalable Prospecting
         <br />
-        prospecting
+        by Email Body
       </>
     ),
     description:
-      "Use email to run structured outreach campaigns, nurture prospects, and stay visible across longer sales cycles.",
+      " Run structured email campaigns, nurture longer sales cycles, and stay top-of-mind with prospects who aren’t ready yet.",
     color: "#ed732d",
     icon: <EmailOutlinedIcon />,
     features: [
-      "Click tracking",
+      "Multi-step campaigns",
+      "Reusable templates",
+      "Scheduled sends",
       "Open tracking",
-      "Follow-up emails",
-      "Email templates",
-      "Email campaigns",
-      "Scheduled emails",
+      "Click tracking",
+      "Automated follow-ups",
       "Email Automation",
     ],
     learn: "/feature/email-outreach",
