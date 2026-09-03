@@ -1,10 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import MainLayout from "../layouts/MainLayout";
-
-// Pages
-import Dashboard from "../pages/Dashboard/Dashboard";
-import Leads from "../pages/Leads/Leads";
+// Website Pages
 import Home from "../pages/Website/Home";
 import ContactUs from "../pages/Website/ContactUs";
 import Blog from "../pages/Website/Blog";
@@ -15,8 +11,10 @@ import BookDemo from "../pages/Website/BookDemo";
 import FeatureAIAgent from "../pages/Website/FeatureAIAgent";
 import WhatappAutomation from "../pages/Website/WhatappAutomation";
 import EmailOutreach from "../pages/Website/EmailOutreach";
-
 import BlogDetails from "../pages/Website/BlogDetails";
+
+// Auth
+import Login from "../Login/Login";
 import ComparisonsDetails from "../pages/Website/ComparisonsDetails";
 
 // import LeadSources from "../pages/LeadSources/LeadSources";
@@ -31,6 +29,28 @@ import ComparisonsDetails from "../pages/Website/ComparisonsDetails";
 const AppRoutes = () => {
   return (
     <Routes>
+      {/* LOGIN - NO HEADER / FOOTER */}
+      <Route path="/login" element={<Login />} />
+
+      {/* WEBSITE PAGES */}
+      <Route path="/" element={<Home />} />
+      <Route path="/contact" element={<ContactUs />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/features" element={<Features />} />
+      <Route path="/comparisons" element={<Comparisons />} />
+      <Route path="/book-a-demo" element={<BookDemo />} />
+
+      <Route path="/feature/ai-calling-agent" element={<FeatureAIAgent />} />
+
+      <Route
+        path="/feature/whatsapp-automation"
+        element={<WhatappAutomation />}
+      />
+
+      <Route path="/feature/email-outreach" element={<EmailOutreach />} />
+
+      <Route path="/blog/:slug" element={<BlogDetails />} />
       <Route>
         <Route index element={<Home />} />
         <Route path="/contact" element={<ContactUs />} />
@@ -66,5 +86,3 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-
-// sora sora fallback

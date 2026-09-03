@@ -5,7 +5,6 @@ import AppRoutes from "./routes/AppRoutes";
 import Footer from "./components/Footer";
 import Header from "./pages/Website/Header";
 
-// Automatically scroll to top whenever route changes
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
@@ -16,18 +15,34 @@ const ScrollToTop = () => {
   return null;
 };
 
-function App() {
+const AppContent = () => {
+  const { pathname } = useLocation();
+
+  // Pages without Header and Footer
+  const isAuthPage = pathname === "/login";
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
 
       <div id="top">
-        <Header />
+        {/* WEBSITE HEADER */}
+        {!isAuthPage && <Header />}
 
+        {/* ALL ROUTES */}
         <AppRoutes />
 
-        <Footer />
+        {/* WEBSITE FOOTER */}
+        {!isAuthPage && <Footer />}
       </div>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }

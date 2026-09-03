@@ -16,494 +16,317 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
 
 import { Link as RouterLink } from "react-router-dom";
+import LogoBlue from "../assets/images/JFSpx.png";
 
 const Footer = () => {
   return (
     <>
-      {/* =====================================================
-          FOOTER
-      ===================================================== */}
-
       <Box
-        component="footer"
         sx={{
-          width: "100%",
-          backgroundColor: "#ffffff",
-          color: "#000000",
-          borderTop: "1px solid #e5e7eb",
-          overflow: "hidden",
+          pt: {
+            xs: 4,
+            sm: 5,
+            md: 7,
+          },
+
+          pb: {
+            xs: 2,
+            sm: 2,
+            md: 3,
+          },
+          px: {
+            xs: 2,
+            sm: 2,
+            md: 3,
+          },
         }}
       >
-        <Container
-          maxWidth="xl"
+        {/* LOGO + BRAND */}
+
+        <Box
           sx={{
-            width: "100%",
-            px: {
+            display: "flex",
+            alignItems: "center",
+
+            flexDirection: {
+              xs: "column",
+              sm: "row",
+            },
+
+            justifyContent: {
+              xs: "center",
+              sm: "flex-start",
+            },
+
+            textAlign: {
+              xs: "center",
+              sm: "left",
+            },
+
+            gap: {
               xs: 2,
-              sm: 3,
-              md: 5,
-              lg: 6,
+              sm: 2.5,
             },
           }}
         >
-          {/* =================================================
-              FOOTER TOP / BRAND
-          ================================================= */}
+          {/* ACTUAL LOGO */}
 
           <Box
+            component={RouterLink}
+            to="/"
             sx={{
-              pt: {
-                xs: 4,
-                sm: 5,
-                md: 7,
+              width: {
+                xs: 58,
+                sm: 66,
+                md: 76,
               },
 
-              pb: {
-                xs: 4,
-                sm: 5,
-                md: 7,
+              height: {
+                xs: 58,
+                sm: 66,
+                md: 76,
               },
-            }}
-          >
-            {/* LOGO + BRAND NAME */}
 
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-
-                flexDirection: {
-                  xs: "column",
-                  sm: "row",
-                },
-
-                justifyContent: {
-                  xs: "center",
-                  sm: "flex-start",
-                },
-
-                textAlign: {
-                  xs: "center",
-                  sm: "left",
-                },
-
-                gap: {
-                  xs: 0.5,
-                  sm: 1.5,
-                },
-
-                mb: {
-                  xs: 3,
-                  md: 5,
-                },
-              }}
-            >
-              {/* LOGO */}
-
-              <Box
-                sx={{
-                  width: {
-                    xs: "70px",
-                    sm: "90px",
-                    md: "105px",
-                  },
-
-                  height: {
-                    xs: "60px",
-                    sm: "70px",
-                    md: "78px",
-                  },
-
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    position: "relative",
-
-                    width: {
-                      xs: "60px",
-                      md: "72px",
-                    },
-
-                    height: {
-                      xs: "60px",
-                      md: "72px",
-                    },
-                  }}
-                >
-                  {/* ORANGE SHAPE */}
-
-                  <Box
-                    sx={{
-                      position: "absolute",
-
-                      width: {
-                        xs: "46px",
-                        md: "55px",
-                      },
-
-                      height: {
-                        xs: "65px",
-                        md: "78px",
-                      },
-
-                      left: {
-                        xs: "7px",
-                        md: "8px",
-                      },
-
-                      top: "-2px",
-
-                      borderRadius: "55% 45% 45% 55%",
-
-                      backgroundColor: "#e86b00",
-
-                      transform: "rotate(-12deg)",
-                    }}
-                  />
-
-                  {/* WHITE INNER SHAPE */}
-
-                  <Box
-                    sx={{
-                      position: "absolute",
-
-                      width: {
-                        xs: "29px",
-                        md: "35px",
-                      },
-
-                      height: {
-                        xs: "45px",
-                        md: "54px",
-                      },
-
-                      left: {
-                        xs: "21px",
-                        md: "25px",
-                      },
-
-                      top: {
-                        xs: "6px",
-                        md: "7px",
-                      },
-
-                      backgroundColor: "#ffffff",
-
-                      borderRadius: "50%",
-
-                      transform: "rotate(-12deg)",
-                    }}
-                  />
-                </Box>
-              </Box>
-
-              {/* BRAND NAME */}
-
-              <Typography
-                sx={{
-                  fontSize: {
-                    xs: "24px",
-                    sm: "27px",
-                    md: "30px",
-                  },
-
-                  fontWeight: 400,
-
-                  color: "#111111",
-
-                  whiteSpace: "normal",
-
-                  lineHeight: 1.2,
-
-                  wordBreak: "break-word",
-                }}
-              >
-                JFS Technologies
-              </Typography>
-            </Box>
-
-            {/* MAIN TAGLINE */}
-
-            <Typography
-              component="h2"
-              sx={{
-                maxWidth: "850px",
-
-                textAlign: {
-                  xs: "center",
-                  sm: "left",
-                },
-
-                fontSize: {
-                  xs: "25px",
-                  sm: "28px",
-                  md: "32px",
-                  lg: "35px",
-                },
-
-                lineHeight: {
-                  xs: 1.25,
-                  md: 1.2,
-                },
-
-                fontWeight: 400,
-
-                color: "#050505",
-
-                mb: 0,
-              }}
-            >
-              The platform to build AI agents
-              <br />
-              that sell like humans
-            </Typography>
-          </Box>
-
-          {/* DIVIDER */}
-
-          <Box
-            sx={{
-              width: "100%",
-              height: "1px",
-              backgroundColor: "#d9dce1",
-            }}
-          />
-
-          {/* =================================================
-              FOOTER LINKS
-          ================================================= */}
-
-          <Box
-            sx={{
-              py: {
-                xs: 4,
-                sm: 5,
-                md: 6,
-              },
-            }}
-          >
-            <Grid
-              container
-              rowSpacing={{
-                xs: 4,
-                sm: 5,
-                md: 3,
-              }}
-              columnSpacing={{
-                xs: 2,
-                sm: 4,
-                md: 3,
-              }}
-            >
-              {/* RESOURCES */}
-
-              <Grid
-                size={{
-                  xs: 6,
-                  sm: 6,
-                  md: 3,
-                }}
-              >
-                <FooterColumn title="Resources">
-                  <FooterLink to="/features">Features</FooterLink>
-
-                  <FooterLink to="/comparisons">Comparisons</FooterLink>
-
-                  <FooterLink to="/pricing">Pricing</FooterLink>
-
-                  <FooterLink to="/blog">Blog</FooterLink>
-
-                  <FooterLink to="/contact-us">Contact Us</FooterLink>
-                </FooterColumn>
-              </Grid>
-
-              {/* LEGAL */}
-
-              <Grid
-                size={{
-                  xs: 6,
-                  sm: 6,
-                  md: 3,
-                }}
-              >
-                <FooterColumn title="Legal">
-                  <FooterLink to="/terms">Terms & Conditions</FooterLink>
-
-                  <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
-                </FooterColumn>
-              </Grid>
-
-              {/* SITE */}
-
-              <Grid
-                size={{
-                  xs: 6,
-                  sm: 6,
-                  md: 3,
-                }}
-              >
-                <FooterColumn title="Site">
-                  <Link href="#top" underline="none" sx={linkStyle}>
-                    Back to Top
-                  </Link>
-                </FooterColumn>
-              </Grid>
-
-              {/* CONTACT */}
-
-              <Grid
-                size={{
-                  xs: 6,
-                  sm: 6,
-                  md: 3,
-                }}
-              >
-                <FooterColumn title="Contact">
-                  <Link
-                    href="mailto:contact@jfshome.com"
-                    underline="none"
-                    sx={linkStyle}
-                  >
-                    contact@jfshome.com
-                  </Link>
-
-                  <Link
-                    href="tel:+919876543210"
-                    underline="none"
-                    sx={linkStyle}
-                  >
-                    +91 98765 43210
-                  </Link>
-
-                  <Typography
-                    sx={{
-                      color: "#050505",
-
-                      fontSize: {
-                        xs: "13px",
-                        sm: "15px",
-                        md: "17px",
-                      },
-
-                      lineHeight: 1.55,
-
-                      wordBreak: "break-word",
-
-                      maxWidth: "100%",
-                    }}
-                  >
-                    Office no: 423,
-                    <br />
-                    Sterling Center,
-                    <br />
-                    MG Road, Camp,
-                    <br />
-                    Pune, Maharashtra 411001
-                  </Typography>
-                </FooterColumn>
-              </Grid>
-            </Grid>
-          </Box>
-
-          {/* =================================================
-              BOTTOM FOOTER
-          ================================================= */}
-
-          <Box
-            sx={{
-              borderTop: "1px solid #e5e7eb",
-
-              py: {
-                xs: 2.5,
-                md: 3,
+              borderRadius: {
+                xs: "16px",
+                md: "20px",
               },
 
               display: "flex",
-
-              flexDirection: {
-                xs: "column",
-                sm: "row",
-              },
-
               alignItems: "center",
+              justifyContent: "center",
 
-              justifyContent: {
-                xs: "center",
-                sm: "space-between",
-              },
+              // background: "linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 100%)",
+              bgcolor: "#FFF7ED",
 
-              textAlign: {
-                xs: "center",
-                sm: "left",
-              },
+              border: "1px solid rgba(79, 70, 229, 0.12)",
 
-              gap: {
-                xs: 1.5,
-                sm: 1,
+              boxShadow: "0 10px 30px rgba(79, 70, 229, 0.12)",
+
+              textDecoration: "none",
+
+              overflow: "hidden",
+
+              flexShrink: 0,
+
+              transition: "all 0.25s ease",
+
+              "&:hover": {
+                transform: "translateY(-3px)",
+                boxShadow: "0 14px 35px rgba(79, 70, 229, 0.2)",
               },
             }}
           >
-            {/* COPYRIGHT */}
+            <Box
+              component="img"
+              src={LogoBlue}
+              alt="Sales Automation"
+              sx={{
+                width: "75%",
+                height: "75%",
+                objectFit: "contain",
+                display: "block",
+              }}
+            />
+          </Box>
 
+          {/* BRAND CONTENT */}
+
+          <Box>
             <Typography
+              component="div"
               sx={{
                 fontSize: {
-                  xs: "14px",
-                  md: "16px",
+                  xs: "25px",
+                  sm: "29px",
+                  md: "34px",
                 },
 
-                color: "#111111",
+                fontWeight: 700,
+
+                letterSpacing: "-1px",
+
+                lineHeight: 1.15,
+
+                color: "#0F172A",
               }}
             >
-              © 2026 JFS Technologies
+              Sales{" "}
+              <Box
+                component="span"
+                sx={{
+                  color: "#4F46E5",
+                }}
+              >
+                Automation
+              </Box>
             </Typography>
 
-            {/* SOCIAL ICONS */}
-
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 0.5,
-              }}
-            >
-              <SocialButton icon={<FacebookIcon />} href="#" />
-
-              <SocialButton icon={<InstagramIcon />} href="#" />
-
-              <SocialButton
-                icon={<AlternateEmailIcon />}
-                href="mailto:contact@jfshome.com"
-              />
-            </Box>
-
-            {/* POWERED BY */}
-
             <Typography
               sx={{
+                mt: 0.8,
+
                 fontSize: {
                   xs: "14px",
                   md: "16px",
                 },
 
-                color: "#111111",
+                lineHeight: 1.5,
+
+                color: "#64748B",
+
+                maxWidth: "550px",
               }}
             >
-              Powered by LIT AI Labs
+              AI-powered automation to help your business connect, engage, and
+              convert more customers.
             </Typography>
           </Box>
-        </Container>
+        </Box>
       </Box>
 
-      {/* =====================================================
-          FLOATING WHATSAPP BUTTON
-      ===================================================== */}
+      {/* =================================================
+    FOOTER NAVIGATION
+================================================= */}
 
+      <Box
+        sx={{
+          pt: {
+            xs: 2,
+            sm: 2.5,
+            md: 3,
+          },
+
+          pb: {
+            xs: 4,
+            sm: 5,
+            md: 6,
+          },
+          px: {
+            xs: 2,
+            sm: 2,
+            md: 3,
+          },
+        }}
+      >
+        <Grid
+          container
+          rowSpacing={{
+            xs: 4,
+            sm: 5,
+            md: 3,
+          }}
+          columnSpacing={{
+            xs: 2,
+            sm: 4,
+            md: 3,
+          }}
+        >
+          {/* RESOURCES */}
+
+          <Grid
+            size={{
+              xs: 6,
+              sm: 6,
+              md: 3,
+            }}
+          >
+            <FooterColumn title="Resources">
+              <FooterLink to="/features">Features</FooterLink>
+
+              <FooterLink to="/comparisons">Comparisons</FooterLink>
+
+              <FooterLink to="/pricing">Pricing</FooterLink>
+
+              <FooterLink to="/blog">Blog</FooterLink>
+
+              <FooterLink to="/contact">Contact Us</FooterLink>
+            </FooterColumn>
+          </Grid>
+
+          {/* LEGAL */}
+
+          <Grid
+            size={{
+              xs: 6,
+              sm: 6,
+              md: 3,
+            }}
+          >
+            <FooterColumn title="Legal">
+              <FooterLink to="/terms">Terms & Conditions</FooterLink>
+
+              <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
+            </FooterColumn>
+          </Grid>
+
+          {/* SITE */}
+
+          <Grid
+            size={{
+              xs: 6,
+              sm: 6,
+              md: 3,
+            }}
+          >
+            <FooterColumn title="Site">
+              <Link href="#top" underline="none" sx={linkStyle}>
+                Back to Top
+              </Link>
+            </FooterColumn>
+          </Grid>
+
+          {/* CONTACT */}
+
+          <Grid
+            size={{
+              xs: 6,
+              sm: 6,
+              md: 3,
+            }}
+          >
+            <FooterColumn title="Contact">
+              <Link
+                href="mailto:contact@jfshome.com"
+                underline="none"
+                sx={linkStyle}
+              >
+                contact@jfstechnologies.com
+              </Link>
+
+              <Link href="tel:+919876543210" underline="none" sx={linkStyle}>
+                +91 98765 43210
+              </Link>
+
+              <Typography
+                sx={{
+                  color: "#050505",
+
+                  fontSize: {
+                    xs: "13px",
+                    sm: "15px",
+                    md: "17px",
+                  },
+
+                  lineHeight: 1.55,
+
+                  wordBreak: "break-word",
+
+                  maxWidth: "100%",
+                }}
+              >
+                Office no: 423,
+                <br />
+                Sterling Center,
+                <br />
+                MG Road, Camp,
+                <br />
+                Pune, Maharashtra 411001
+              </Typography>
+            </FooterColumn>
+          </Grid>
+        </Grid>
+      </Box>
       <Box
         component="a"
         href="https://wa.me/919213015559"
@@ -571,10 +394,6 @@ const Footer = () => {
           }}
         />
       </Box>
-
-      {/* =====================================================
-          FLOATING CHAT BUTTON
-      ===================================================== */}
 
       <Box
         role="button"

@@ -40,6 +40,14 @@ const floatingItems = [
   },
 ];
 
+const TONES = {
+  coral: { bg: "#FFF1EA", border: "#F35B0B", text: "#B03D0A" },
+  indigo: { bg: "#EEF0FF", border: "#4F46E5", text: "#3730A3" },
+  teal: { bg: "#E8FBF6", border: "#0D9488", text: "#0F766E" },
+};
+
+const ROTATIONS = [-6, 4, -3, 5, -4, 3];
+
 // =====================================================
 // COMPONENT
 // =====================================================
@@ -90,10 +98,6 @@ const OutreachBuiltIn = () => {
           "radial-gradient(circle at 50% 60%, rgba(99, 78, 190, 0.14), transparent 35%), radial-gradient(circle at 25% 65%, rgba(255,255,255,0.9), transparent 35%), #f8f8f8",
       }}
     >
-      {/* =====================================================
-          TOP SECTION
-      ===================================================== */}
-
       <Box
         sx={{
           position: "relative",
@@ -101,14 +105,6 @@ const OutreachBuiltIn = () => {
           maxWidth: 1720,
           mx: "auto",
 
-          /*
-            FIX: this box previously had no real height because the
-            heading and cards inside it are position:absolute on
-            desktop, so they didn't push the box's height down.
-            That's what created the big empty gap before the image.
-            Giving it a height that just hugs the lowest card
-            (top: 130 + card height + pointer) closes that gap.
-          */
           minHeight: {
             xs: "auto",
             md: 220,
@@ -116,10 +112,6 @@ const OutreachBuiltIn = () => {
           },
         }}
       >
-        {/* =====================================================
-            HEADING
-        ===================================================== */}
-
         <Typography
           component="h1"
           sx={{
@@ -127,10 +119,6 @@ const OutreachBuiltIn = () => {
               xs: "relative",
               md: "absolute",
             },
-
-            // top: {
-            //   md: 20,
-            // },
 
             left: {
               md: "50%",
@@ -181,10 +169,6 @@ const OutreachBuiltIn = () => {
           </Box>
         </Typography>
 
-        {/* =====================================================
-            FLOATING FEATURE CARDS
-        ===================================================== */}
-
         <Box
           sx={{
             /*
@@ -210,9 +194,6 @@ const OutreachBuiltIn = () => {
               sm: 3,
             },
 
-            /*
-              Space between heading and cards on mobile
-            */
             mt: {
               xs: 1.5,
               sm: 2,
@@ -307,8 +288,6 @@ const OutreachBuiltIn = () => {
                   },
                 }}
               >
-                {/* CARD TEXT */}
-
                 <Typography
                   sx={{
                     fontSize: {

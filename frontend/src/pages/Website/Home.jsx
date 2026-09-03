@@ -33,6 +33,7 @@ import dashboardImage from "../../assets/images/dashboard.webp";
 import aiCallingImage from "../../assets/images/aicallingdashboard.webp";
 import emailImage from "../../assets/images/emailsequence.webp";
 import whatsappImage from "../../assets/images/video2.png";
+import NorthEastIcon from "@mui/icons-material/NorthEastOutlined";
 
 const FEATURES = [
   {
@@ -117,288 +118,405 @@ const Home = () => {
       }}
     >
       <Box
-        component="main"
+        component="section"
         sx={{
+          width: "100%",
           position: "relative",
           overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          // DECREASED TOP SPACE
+          pt: {
+            xs: 3,
+            sm: 5,
+            md: 7,
+          },
+
+          px: {
+            xs: 2,
+            sm: 3,
+          },
+
+          pb: {
+            xs: 2,
+            sm: 3,
+            md: 3,
+          },
+
+          backgroundColor: "#FFFFFF",
 
           backgroundImage: `
-            linear-gradient(to right, #F1F1F4 1px, transparent 1px),
-            linear-gradient(to bottom, #F1F1F4 1px, transparent 1px)
-          `,
+      linear-gradient(
+        rgba(110, 110, 110, 0.07) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(110, 110, 110, 0.07) 1px,
+        transparent 1px
+      )
+    `,
 
           backgroundSize: "20px 20px",
         }}
       >
-        <Container
-          maxWidth="md"
+        {/* BACKGROUND GLOW */}
+
+        <Box
+          sx={{
+            position: "absolute",
+            top: "10%",
+            left: "50%",
+            transform: "translateX(-50%)",
+
+            width: {
+              xs: "100%",
+              md: "900px",
+            },
+
+            height: {
+              xs: "500px",
+              md: "600px",
+            },
+
+            background:
+              "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.80) 45%, rgba(255,255,255,0) 75%)",
+
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
+        {/* HERO CONTENT */}
+
+        <Box
           sx={{
             position: "relative",
             zIndex: 1,
+            width: "100%",
+            maxWidth: "1050px",
+            mx: "auto",
             textAlign: "center",
-            pt: {
-              xs: 8,
-              sm: 10,
-              md: 12,
-            },
-            pb: 6,
           }}
         >
-          {/* HEADING */}
+          {/* HERO TEXT */}
 
-          <Typography
-            component="h1"
+          <Container
+            maxWidth="md"
             sx={{
-              fontSize: {
-                xs: "2.2rem",
-                sm: "3rem",
-                md: "2.5rem",
-              },
+              position: "relative",
+              zIndex: 1,
+              textAlign: "center",
 
-              fontWeight: 700,
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              color: "#0F172A",
+              // REMOVED EXTRA TOP SPACE
+              pt: 0,
+
+              pb: 6,
             }}
           >
-            Automate{" "}
+            {/* HEADING */}
+
+            <Typography
+              component="h1"
+              sx={{
+                fontSize: {
+                  xs: "2.2rem",
+                  sm: "3rem",
+                  md: "2.5rem",
+                },
+
+                fontWeight: 700,
+
+                lineHeight: 1.3,
+
+                letterSpacing: "-0.02em",
+
+                color: "#0F172A",
+              }}
+            >
+              Automate{" "}
+              <Box
+                component="span"
+                sx={{
+                  color: "#4F46E5",
+                }}
+              >
+                Email, WhatsApp,
+                <br />
+                and AI Calls
+              </Box>{" "}
+              From One Sales Dashboard
+            </Typography>
+
+            {/* SUBTEXT */}
+
+            <Typography
+              sx={{
+                maxWidth: 680,
+                mx: "auto",
+                mt: 3,
+
+                fontSize: {
+                  xs: 16,
+                  sm: 18,
+                },
+
+                lineHeight: 1.7,
+
+                color: "#64748B",
+              }}
+            >
+              Built for Indian SMEs, D2C brands, exporters, and agencies that
+              sell through WhatsApp, email, and AI calls.
+            </Typography>
+
+            {/* BUTTONS */}
+
             <Box
-              component="span"
               sx={{
-                color: "#4F46E5",
+                mt: "42px",
+
+                display: "flex",
+
+                justifyContent: "center",
+
+                alignItems: "center",
+
+                gap: {
+                  xs: "16px",
+                  sm: "18px",
+                },
+
+                flexDirection: {
+                  xs: "column",
+                  sm: "row",
+                },
               }}
             >
-              Email, WhatsApp,
-              <br />
-              and AI Calls
-            </Box>{" "}
-            From One Sales Dashboard
-          </Typography>
+              {/* BOOK A DEMO */}
 
-          {/* SUBTEXT */}
+              <Button
+                disableElevation
+                disableRipple
+                endIcon={<ArrowOutwardIcon />}
+                onClick={() => navigate("/book-a-demo")}
+                sx={{
+                  width: {
+                    xs: "100%",
+                    sm: "228px",
+                  },
 
-          <Typography
-            sx={{
-              maxWidth: 680,
-              mx: "auto",
-              mt: 3,
+                  maxWidth: "228px",
 
-              fontSize: {
-                xs: 16,
-                sm: 18,
-              },
+                  height: "50px",
 
-              lineHeight: 1.7,
-              color: "#64748B",
-            }}
-          >
-            Built for Indian SMEs, D2C brands, exporters, and agencies that sell
-            through WhatsApp, email, and AI calls.
-          </Typography>
+                  minHeight: "50px",
 
-          {/* BUTTONS */}
+                  minWidth: 0,
 
-          <Box
-            sx={{
-              mt: "42px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: {
-                xs: "16px",
-                sm: "18px",
-              },
-              flexDirection: {
-                xs: "column",
-                sm: "row",
-              },
-            }}
-          >
-            {/* BOOK A DEMO */}
+                  padding: "0 12px",
 
-            <Button
-              disableElevation
-              disableRipple
-              endIcon={<ArrowOutwardIcon />}
-              onClick={() => navigate("/book-a-demo")}
-              sx={{
-                width: {
-                  xs: "100%",
-                  sm: "228px",
-                },
-                maxWidth: "228px",
-                height: "50px",
-                minHeight: "50px",
-                minWidth: 0,
-                padding: "0 12px",
-                borderRadius: "12px",
-                backgroundColor: "#FF6811",
-                color: "#FFFFFF",
-                fontSize: "18px",
-                fontWeight: 700,
-                lineHeight: 1,
-                textTransform: "none",
-                whiteSpace: "nowrap",
+                  borderRadius: "12px",
 
-                boxShadow: "0px 10px 24px rgba(255, 104, 17, 0.25)",
-
-                "& .MuiButton-endIcon": {
-                  marginLeft: "10px",
-                  marginRight: 0,
-                },
-
-                "& .MuiSvgIcon-root": {
-                  fontSize: "21px",
-                },
-
-                "&:hover": {
                   backgroundColor: "#FF6811",
+
+                  color: "#FFFFFF",
+
+                  fontSize: "18px",
+
+                  fontWeight: 700,
+
+                  lineHeight: 1,
+
+                  textTransform: "none",
+
+                  whiteSpace: "nowrap",
+
                   boxShadow: "0px 10px 24px rgba(255, 104, 17, 0.25)",
-                },
-              }}
-            >
-              Book a Demo
-            </Button>
 
-            {/* SEE IT IN ACTION */}
+                  "& .MuiButton-endIcon": {
+                    marginLeft: "10px",
+                    marginRight: 0,
+                  },
 
-            <Button
-              variant="outlined"
-              disableRipple
-              endIcon={<ArrowOutwardIcon />}
-              sx={{
-                width: {
-                  xs: "100%",
-                  sm: "248px",
-                },
-                maxWidth: "248px",
-                height: "50px",
-                minHeight: "50px",
+                  "& .MuiSvgIcon-root": {
+                    fontSize: "21px",
+                  },
 
-                minWidth: 0,
+                  "&:hover": {
+                    backgroundColor: "#FF6811",
+                    boxShadow: "0px 10px 24px rgba(255, 104, 17, 0.25)",
+                  },
+                }}
+              >
+                Book a Demo
+              </Button>
 
-                padding: "0 12px",
+              {/* SEE IT IN ACTION */}
 
-                borderRadius: "12px",
+              <Button
+                variant="outlined"
+                disableRipple
+                endIcon={<ArrowOutwardIcon />}
+                sx={{
+                  width: {
+                    xs: "100%",
+                    sm: "248px",
+                  },
 
-                border: "1px solid #E9C7A8",
+                  maxWidth: "248px",
 
-                backgroundColor: "transparent",
+                  height: "50px",
 
-                color: "#C95D16",
+                  minHeight: "50px",
 
-                fontSize: "18px",
-                fontWeight: 700,
+                  minWidth: 0,
 
-                lineHeight: 1,
+                  padding: "0 12px",
 
-                textTransform: "none",
-                whiteSpace: "nowrap",
+                  borderRadius: "12px",
 
-                boxShadow: "none",
-
-                "& .MuiButton-endIcon": {
-                  marginLeft: "10px",
-                  marginRight: 0,
-                },
-
-                "& .MuiSvgIcon-root": {
-                  fontSize: "21px",
-                },
-
-                "&:hover": {
                   border: "1px solid #E9C7A8",
+
                   backgroundColor: "transparent",
-                },
+
+                  color: "#C95D16",
+
+                  fontSize: "18px",
+
+                  fontWeight: 700,
+
+                  lineHeight: 1,
+
+                  textTransform: "none",
+
+                  whiteSpace: "nowrap",
+
+                  boxShadow: "none",
+
+                  "& .MuiButton-endIcon": {
+                    marginLeft: "10px",
+                    marginRight: 0,
+                  },
+
+                  "& .MuiSvgIcon-root": {
+                    fontSize: "21px",
+                  },
+
+                  "&:hover": {
+                    border: "1px solid #E9C7A8",
+                    backgroundColor: "transparent",
+                  },
+                }}
+              >
+                See It In Action
+              </Button>
+            </Box>
+
+            {/* PRICING PILL */}
+
+            <Box
+              sx={{
+                mt: 4,
+
+                display: "inline-block",
+
+                bgcolor: "#FFF7ED",
+
+                borderRadius: 10,
+
+                px: 2.5,
+
+                py: 1,
               }}
             >
-              See It In Action
-            </Button>
-          </Box>
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: 14,
 
-          {/* PRICING PILL */}
+                  color: "#475569",
+                }}
+              >
+                Plan Starts at{" "}
+              </Typography>
 
-          <Box
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: 14,
+
+                  fontWeight: 700,
+
+                  color: "#4F46E5",
+                }}
+              >
+                ₹3,000/month
+              </Typography>
+            </Box>
+          </Container>
+
+          {/* FEATURES */}
+
+          <Container
+            maxWidth="lg"
             sx={{
-              mt: 4,
-              display: "inline-block",
-              bgcolor: "#FFF7ED",
-              borderRadius: 10,
-              px: 2.5,
-              py: 1,
+              position: "relative",
+
+              zIndex: 1,
+
+              pb: {
+                xs: 6,
+                md: 10,
+              },
             }}
           >
-            <Typography
-              component="span"
-              sx={{
-                fontSize: 14,
-                color: "#475569",
-              }}
-            >
-              Plan Starts at{" "}
-            </Typography>
+            <Grid container spacing={4}>
+              {FEATURES.map((feature) => (
+                <Grid
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 3,
+                  }}
+                  key={feature.title}
+                >
+                  <Stack spacing={1}>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <AutoAwesomeIcon
+                        sx={{
+                          color: "#FB923C",
+                          fontSize: 18,
+                        }}
+                      />
 
-            <Typography
-              component="span"
-              sx={{
-                fontSize: 14,
-                fontWeight: 700,
-                color: "#4F46E5",
-              }}
-            >
-              ₹3,000/month
-            </Typography>
-          </Box>
-        </Container>
-
-        <Container
-          maxWidth="lg"
-          sx={{
-            position: "relative",
-            zIndex: 1,
-            pb: {
-              xs: 6,
-              md: 10,
-            },
-          }}
-        >
-          <Grid container spacing={4}>
-            {FEATURES.map((feature) => (
-              <Grid item xs={12} sm={6} md={3} key={feature.title}>
-                <Stack spacing={1}>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <AutoAwesomeIcon
-                      sx={{
-                        color: "#FB923C",
-                        fontSize: 18,
-                      }}
-                    />
+                      <Typography
+                        sx={{
+                          fontSize: 15,
+                          fontWeight: 700,
+                          color: "#0F172A",
+                        }}
+                      >
+                        {feature.title}
+                      </Typography>
+                    </Stack>
 
                     <Typography
                       sx={{
-                        fontSize: 15,
-                        fontWeight: 700,
-                        color: "#0F172A",
+                        fontSize: 14,
+                        lineHeight: 1.7,
+                        color: "#64748B",
                       }}
                     >
-                      {feature.title}
+                      {feature.description}
                     </Typography>
                   </Stack>
-
-                  <Typography
-                    sx={{
-                      fontSize: 14,
-                      lineHeight: 1.7,
-                      color: "#64748B",
-                    }}
-                  >
-                    {feature.description}
-                  </Typography>
-                </Stack>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </Box>
       </Box>
 
       {/* =====================================================
