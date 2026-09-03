@@ -37,20 +37,20 @@ import NorthEastIcon from "@mui/icons-material/NorthEastOutlined";
 
 const FEATURES = [
   {
-    title: "Tri-Channel Outreach",
-    description: "Sync Email, WhatsApp & AI calls in one flow.",
+    title: "Unified Outreach ",
+    description: "Run Email, WhatsApp & Voice together",
   },
   {
-    title: "Human-Like AI Voice",
-    description: "Calls that sound natural and human-like.",
+    title: "Natural-Sounding AI Calls",
+    description: "Conversations that feel human",
   },
   {
-    title: "Smart Handoff",
-    description: "Transfers hot leads to your sales reps instantly.",
+    title: "Instant Lead Routing",
+    description: "Hot leads reach your reps in seconds",
   },
   {
-    title: "Unified Timeline",
-    description: "Every interaction in one view.",
+    title: "Single Activity View",
+    description: "Every touchpoint, one screen",
   },
 ];
 
@@ -235,18 +235,18 @@ const Home = () => {
                 color: "#0F172A",
               }}
             >
-              Automate{" "}
+              Run{" "}
               <Box
                 component="span"
                 sx={{
                   color: "#4F46E5",
                 }}
               >
-                Email, WhatsApp,
+                WhatsApp, Email &
                 <br />
-                and AI Calls
+                AI Voice Outreach
               </Box>{" "}
-              From One Sales Dashboard
+              From a Single Dashboard
             </Typography>
 
             {/* SUBTEXT */}
@@ -267,8 +267,9 @@ const Home = () => {
                 color: "#64748B",
               }}
             >
-              Built for Indian SMEs, D2C brands, exporters, and agencies that
-              sell through WhatsApp, email, and AI calls.
+              Made for growing Indian businesses - D2C brands, exporters,
+              agencies, and sales teams who sell across WhatsApp, email, and
+              phone calls.
             </Typography>
 
             {/* BUTTONS */}
@@ -452,7 +453,7 @@ const Home = () => {
                   color: "#4F46E5",
                 }}
               >
-                ₹3,000/month
+                ₹ 2,499/month
               </Typography>
             </Box>
           </Container>
@@ -527,9 +528,9 @@ const Home = () => {
         sx={{
           position: "relative",
           py: {
-            xs: 5,
-            sm: 6,
-            md: 10,
+            xs: 2,
+            sm: 4,
+            md: 8,
           },
           px: {
             xs: 2,
@@ -548,7 +549,7 @@ const Home = () => {
           <Typography
             align="center"
             sx={{
-              maxWidth: 850,
+              maxWidth: 900,
               mx: "auto",
               mb: {
                 xs: 3,
@@ -569,13 +570,12 @@ const Home = () => {
               color: "#1E293B",
             }}
           >
+            Everything You Need in One Place.
+            <br />
             <Box component="span" sx={{ color: "#4F46E5" }}>
-              70% of sales time gets lost
-            </Box>{" "}
-            when teams manage the same lead across{" "}
-            <Box component="span" sx={{ color: "#4F46E5" }}>
-              separate platforms.
+              More Time to Sell
             </Box>
+            , Less Time Switching.
           </Typography>
 
           {/* SHOWCASE */}
@@ -838,7 +838,7 @@ const Home = () => {
             }}
           >
             <Box component="span" sx={{ color: "#4F46E5" }}>
-              Rapid Sales
+              Sales Automation
             </Box>{" "}
             brings your outreach together.{" "}
             <Box component="span" sx={{ color: "#4F46E5" }}>

@@ -191,7 +191,7 @@ const FAQHome = () => {
                   md: "16px",
                 },
 
-                fontWeight: 600,
+                fontWeight: 700,
 
                 color: "#111111",
               }}
@@ -231,9 +231,9 @@ const FAQHome = () => {
               component="h2"
               sx={{
                 fontSize: {
-                  xs: "24px",
-                  sm: "30px",
-                  md: "36px",
+                  xs: 24,
+                  sm: 28,
+                  md: 32,
                 },
 
                 lineHeight: {
@@ -241,7 +241,7 @@ const FAQHome = () => {
                   md: 1.2,
                 },
 
-                fontWeight: 400,
+                fontWeight: 700,
 
                 color: "#000000",
 
@@ -262,9 +262,9 @@ const FAQHome = () => {
                 mx: "auto",
 
                 fontSize: {
-                  xs: "13px",
-                  sm: "16px",
-                  md: "18px",
+                  xs: 15,
+                  sm: 17,
+                  md: 18,
                 },
 
                 lineHeight: {

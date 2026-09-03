@@ -38,8 +38,7 @@ export const blogData = [
     date: "2026-07-06",
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "How to Convert COD Orders to Prepaid with AI Voice...",
+    title: "How to Convert COD Orders to Prepaid with AI Voice...",
     description:
       "To convert COD orders to prepaid automatically, D2C brands use AI voice...",
   },
@@ -49,8 +48,7 @@ export const blogData = [
     date: "2026-07-02",
     image:
       "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "The Best Real Estate CRM Features for High-Volume Developers...",
+    title: "The Best Real Estate CRM Features for High-Volume Developers...",
     description:
       "The best real estate CRM features for high-volume developers include native Meta ad...",
   },
@@ -70,8 +68,7 @@ export const blogData = [
     date: "2026-06-30",
     image:
       "https://images.unsplash.com/photo-1611944212129-29977ae1398c?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "WhatsApp Automation vs. Email Marketing: Which is...",
+    title: "WhatsApp Automation vs. Email Marketing: Which is...",
     description:
       "When comparing WhatsApp automation vs email marketing for sales, the answer is not...",
   },
@@ -81,8 +78,7 @@ export const blogData = [
     date: "2026-06-27",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "How to Track Sales Campaign ROI Across...",
+    title: "How to Track Sales Campaign ROI Across...",
     description:
       "To accurately track sales campaign ROI across WhatsApp and email, businesses...",
   },
@@ -92,8 +88,7 @@ export const blogData = [
     date: "2026-06-26",
     image:
       "https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "Combining WhatsApp, Email, and Voice for the...",
+    title: "Combining WhatsApp, Email, and Voice for the...",
     description:
       "A multi-channel sales sequence is an automated outreach strategy that engages...",
   },
@@ -103,8 +98,7 @@ export const blogData = [
     date: "2026-06-26",
     image:
       "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "WhatsApp Business Automation: A Blueprint fo...",
+    title: "WhatsApp Business Automation: A Blueprint fo...",
     description:
       "Leads from your favorite platforms. Conversations on autopilot.",
   },
@@ -114,8 +108,7 @@ export const blogData = [
     date: "2026-06-25",
     image:
       "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "Follow-Up Automation for High-Ticket Sales:...",
+    title: "Follow-Up Automation for High-Ticket Sales:...",
     description:
       "High-ticket sales follow-up requires a multi-channel automated strategy...",
   },
@@ -125,8 +118,7 @@ export const blogData = [
     date: "2026-06-24",
     image:
       "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "Stop Tool Sprawl: How to Consolidate Your Sales Tec...",
+    title: "Stop Tool Sprawl: How to Consolidate Your Sales Tec...",
     description:
       "To consolidate your sales tech stack, bring your communication and automation...",
   },
@@ -136,8 +128,7 @@ export const blogData = [
     date: "2026-06-24",
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "Why Fast-Growing Teams Are Replacing 3 Tools with...",
+    title: "Why Fast-Growing Teams Are Replacing 3 Tools with...",
     description:
       "Fast-growing teams are replacing multiple sales tools with one unified platform to...",
   },
@@ -147,8 +138,7 @@ export const blogData = [
     date: "2026-06-23",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "Sales Automation ROI Calculator: How Much Can...",
+    title: "Sales Automation ROI Calculator: How Much Can...",
     description:
       "To calculate the ROI of sales automation, subtract the total cost of automation...",
   },
@@ -158,8 +148,7 @@ export const blogData = [
     date: "2026-06-23",
     image:
       "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
-    title:
-      "Traditional CRM vs. Automated Sales...",
+    title: "Traditional CRM vs. Automated Sales...",
     description:
       "The primary difference between a traditional CRM and an automated sales communication...",
   },
@@ -170,9 +159,7 @@ export const blogData = [
 ========================================================= */
 
 const Blog = () => {
-    const navigate = useNavigate();
-
-
+  const navigate = useNavigate();
 
   /* =======================================================
      CONTACT FORM STATE
@@ -295,10 +282,7 @@ const Blog = () => {
     const newErrors = validateForm();
 
     if (Object.keys(newErrors).length > 0) {
-      showMessage(
-        "Please fill all required fields correctly.",
-        "error"
-      );
+      showMessage("Please fill all required fields correctly.", "error");
 
       return;
     }
@@ -319,10 +303,7 @@ const Blog = () => {
 
       console.log("Contact Form Data:", formData);
 
-      showMessage(
-        "Your message has been sent successfully!",
-        "success"
-      );
+      showMessage("Your message has been sent successfully!", "success");
 
       setFormData({
         fullName: "",
@@ -338,10 +319,7 @@ const Blog = () => {
     } catch (error) {
       console.error("Contact form error:", error);
 
-      showMessage(
-        "Something went wrong. Please try again.",
-        "error"
-      );
+      showMessage("Something went wrong. Please try again.", "error");
     } finally {
       setLoading(false);
     }
@@ -371,33 +349,20 @@ const Blog = () => {
     },
 
     "& .MuiOutlinedInput-notchedOutline": {
-      borderColor:
-        submitted && errors[fieldName]
-          ? "#ff1f1f"
-          : "#111111",
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
 
-      borderWidth:
-        submitted && errors[fieldName]
-          ? "2px"
-          : "1px",
+      borderWidth: submitted && errors[fieldName] ? "2px" : "1px",
     },
 
     "&:hover .MuiOutlinedInput-notchedOutline": {
-      borderColor:
-        submitted && errors[fieldName]
-          ? "#ff1f1f"
-          : "#111111",
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
     },
 
-    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-      {
-        borderColor:
-          submitted && errors[fieldName]
-            ? "#ff1f1f"
-            : "#4b36df",
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#4b36df",
 
-        borderWidth: "2px",
-      },
+      borderWidth: "2px",
+    },
 
     "& input::placeholder": {
       color: "#718096",
@@ -486,9 +451,9 @@ const Blog = () => {
           backgroundColor: "#ffffff",
 
           pt: {
-            xs: 6,
-            sm: 8,
-            md: 10,
+            xs: 3,
+            sm: 5,
+            md: 7,
           },
 
           pb: {
@@ -520,13 +485,13 @@ const Blog = () => {
               component="h1"
               sx={{
                 fontSize: {
-                  xs: "30px",
-                  sm: "25px",
-                  md: "30px",
+                  xs: "2.2rem",
+                  sm: "3rem",
+                  md: "2.5rem",
                 },
 
                 lineHeight: 1.15,
-                fontWeight: 400,
+                fontWeight: 700,
                 color: "#000000",
 
                 mb: {
@@ -540,7 +505,7 @@ const Blog = () => {
                 component="span"
                 sx={{
                   color: "#4b36df",
-                  fontWeight: 500,
+                  fontWeight: 700,
                 }}
               >
                 Blogs
@@ -563,9 +528,8 @@ const Blog = () => {
                 color: "#526b8a",
               }}
             >
-              Insights, guides, and growth strategies to help
-              you scale your business faster using automation
-              and AI.
+              Insights, guides, and growth strategies to help you scale your
+              business faster using automation and AI.
             </Typography>
           </Box>
         </Container>
@@ -630,16 +594,14 @@ const Blog = () => {
 
                   overflow: "hidden",
 
-                  boxShadow:
-                    "0 10px 25px rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.08)",
 
                   transition: "all 0.3s ease",
 
                   "&:hover": {
                     transform: "translateY(-5px)",
 
-                    boxShadow:
-                      "0 16px 35px rgba(0, 0, 0, 0.12)",
+                    boxShadow: "0 16px 35px rgba(0, 0, 0, 0.12)",
                   },
                 }}
               >
@@ -683,8 +645,7 @@ const Blog = () => {
 
                         objectFit: "cover",
 
-                        transition:
-                          "transform 0.4s ease",
+                        transition: "transform 0.4s ease",
 
                         "&:hover": {
                           transform: "scale(1.03)",
@@ -828,9 +789,7 @@ const Blog = () => {
                     >
                       <Button
                         component={Link}
-                        to={`/blog/${createSlug(
-                          blog.title
-                        )}`}
+                        to={`/blog/${createSlug(blog.title)}`}
                         variant="text"
                         endIcon={
                           <Box
@@ -859,8 +818,7 @@ const Blog = () => {
                           textTransform: "none",
 
                           "&:hover": {
-                            backgroundColor:
-                              "transparent",
+                            backgroundColor: "transparent",
 
                             color: "#d83e08",
                           },
@@ -1000,49 +958,48 @@ const Blog = () => {
               mb: 5,
             }}
           >
-            Automate your entire outreach across Email,
-            WhatsApp, and AI Calls, all from one dashboard.
+            Automate your entire outreach across Email, WhatsApp, and AI Calls,
+            all from one dashboard.
           </Typography>
 
           {/* CTA BUTTON */}
 
           <Button
-  variant="contained"
-  onClick={() => navigate("/book-a-demo")}
-  sx={{
-    minWidth: {
-      xs: "170px",
-      sm: "190px",
-    },
-    height: {
-      xs: "46px",
-      md: "52px",
-    },
-    borderRadius: "12px",
-    backgroundColor: "#ffffff",
-    color: "#000000",
-    fontSize: {
-      xs: "15px",
-      md: "20px",
-    },
-    fontWeight: 500,
-    textTransform: "none",
-    boxShadow: "none",
-    "&:hover": {
-      backgroundColor: "#f5f5f5",
-      boxShadow: "none",
-    },
-  }}
->
-  Book a Demo →
-</Button>
+            variant="contained"
+            onClick={() => navigate("/book-a-demo")}
+            sx={{
+              minWidth: {
+                xs: "170px",
+                sm: "190px",
+              },
+              height: {
+                xs: "46px",
+                md: "52px",
+              },
+              borderRadius: "12px",
+              backgroundColor: "#ffffff",
+              color: "#000000",
+              fontSize: {
+                xs: "15px",
+                md: "20px",
+              },
+              fontWeight: 500,
+              textTransform: "none",
+              boxShadow: "none",
+              "&:hover": {
+                backgroundColor: "#f5f5f5",
+                boxShadow: "none",
+              },
+            }}
+          >
+            Book a Demo →
+          </Button>
         </Box>
       </Box>
 
       {/* ===================================================
           BOOK DEMO
       =================================================== */}
-
 
       {/* ===================================================
           CONTACT US SECTION
@@ -1176,9 +1133,8 @@ const Blog = () => {
                 color: "#526b8a",
               }}
             >
-              Tell us about your outreach goals. Our team
-              will help you automate conversations and scale
-              faster.
+              Tell us about your outreach goals. Our team will help you automate
+              conversations and scale faster.
             </Typography>
           </Box>
 
