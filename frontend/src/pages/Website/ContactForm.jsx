@@ -81,9 +81,7 @@ const ContactForm = () => {
     // Email
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())
-    ) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = "Valid email required";
     }
 
@@ -120,10 +118,7 @@ const ContactForm = () => {
     const newErrors = validateForm();
 
     if (Object.keys(newErrors).length > 0) {
-      showMessage(
-        "Please fill all required fields correctly.",
-        "error"
-      );
+      showMessage("Please fill all required fields correctly.", "error");
       return;
     }
 
@@ -134,10 +129,7 @@ const ContactForm = () => {
       // Add your Laravel API request here later.
       await new Promise((resolve) => setTimeout(resolve, 800));
 
-      showMessage(
-        "Your message has been sent successfully!",
-        "success"
-      );
+      showMessage("Your message has been sent successfully!", "success");
 
       setFormData({
         fullName: "",
@@ -153,10 +145,7 @@ const ContactForm = () => {
     } catch (error) {
       console.error("Contact form error:", error);
 
-      showMessage(
-        "Something went wrong. Please try again.",
-        "error"
-      );
+      showMessage("Something went wrong. Please try again.", "error");
     } finally {
       setLoading(false);
     }
@@ -186,33 +175,20 @@ const ContactForm = () => {
     },
 
     "& .MuiOutlinedInput-notchedOutline": {
-      borderColor:
-        submitted && errors[fieldName]
-          ? "#ff1f1f"
-          : "#111111",
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
 
-      borderWidth:
-        submitted && errors[fieldName]
-          ? "2px"
-          : "1px",
+      borderWidth: submitted && errors[fieldName] ? "2px" : "1px",
     },
 
     "&:hover .MuiOutlinedInput-notchedOutline": {
-      borderColor:
-        submitted && errors[fieldName]
-          ? "#ff1f1f"
-          : "#111111",
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
     },
 
-    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-      {
-        borderColor:
-          submitted && errors[fieldName]
-            ? "#ff1f1f"
-            : "#111111",
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
 
-        borderWidth: "2px",
-      },
+      borderWidth: "2px",
+    },
 
     "& input": {
       paddingLeft: {
@@ -315,8 +291,7 @@ const ContactForm = () => {
                 md: 3,
               },
 
-              boxShadow:
-                "0 5px 20px rgba(91, 65, 255, 0.05)",
+              boxShadow: "0 5px 20px rgba(91, 65, 255, 0.05)",
             }}
           >
             <Box
@@ -365,12 +340,8 @@ const ContactForm = () => {
                   onChange={handleChange}
                   placeholder="John Doe"
                   variant="outlined"
-                  error={
-                    submitted && Boolean(errors.fullName)
-                  }
-                  helperText={
-                    submitted ? errors.fullName : ""
-                  }
+                  error={submitted && Boolean(errors.fullName)}
+                  helperText={submitted ? errors.fullName : ""}
                   sx={fieldSx("fullName")}
                 />
               </Box>
@@ -401,12 +372,8 @@ const ContactForm = () => {
                   onChange={handleChange}
                   placeholder="john@email.com"
                   variant="outlined"
-                  error={
-                    submitted && Boolean(errors.email)
-                  }
-                  helperText={
-                    submitted ? errors.email : ""
-                  }
+                  error={submitted && Boolean(errors.email)}
+                  helperText={submitted ? errors.email : ""}
                   sx={fieldSx("email")}
                 />
               </Box>
@@ -442,12 +409,8 @@ const ContactForm = () => {
                   placeholder="Enter your phone number"
                   variant="outlined"
                   type="tel"
-                  error={
-                    submitted && Boolean(errors.phone)
-                  }
-                  helperText={
-                    submitted ? errors.phone : ""
-                  }
+                  error={submitted && Boolean(errors.phone)}
+                  helperText={submitted ? errors.phone : ""}
                   inputProps={{
                     maxLength: 10,
                     inputMode: "numeric",
@@ -479,12 +442,8 @@ const ContactForm = () => {
                   onChange={handleChange}
                   placeholder="Enter your company name"
                   variant="outlined"
-                  error={
-                    submitted && Boolean(errors.company)
-                  }
-                  helperText={
-                    submitted ? errors.company : ""
-                  }
+                  error={submitted && Boolean(errors.company)}
+                  helperText={submitted ? errors.company : ""}
                   sx={fieldSx("company")}
                 />
               </Box>
@@ -507,9 +466,7 @@ const ContactForm = () => {
 
                 <FormControl
                   fullWidth
-                  error={
-                    submitted && Boolean(errors.teamSize)
-                  }
+                  error={submitted && Boolean(errors.teamSize)}
                 >
                   <Select
                     name="teamSize"
@@ -531,33 +488,23 @@ const ContactForm = () => {
 
                       "& .MuiOutlinedInput-notchedOutline": {
                         borderColor:
-                          submitted && errors.teamSize
-                            ? "#ff1f1f"
-                            : "#111111",
+                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
 
                         borderWidth:
-                          submitted && errors.teamSize
-                            ? "2px"
-                            : "1px",
+                          submitted && errors.teamSize ? "2px" : "1px",
                       },
 
-                      "&:hover .MuiOutlinedInput-notchedOutline":
-                        {
-                          borderColor:
-                            submitted && errors.teamSize
-                              ? "#ff1f1f"
-                              : "#111111",
-                        },
+                      "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor:
+                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
+                      },
 
-                      "&.Mui-focused .MuiOutlinedInput-notchedOutline":
-                        {
-                          borderColor:
-                            submitted && errors.teamSize
-                              ? "#ff1f1f"
-                              : "#111111",
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor:
+                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
 
-                          borderWidth: "2px",
-                        },
+                        borderWidth: "2px",
+                      },
 
                       "& .MuiSelect-select": {
                         display: "flex",
@@ -574,29 +521,17 @@ const ContactForm = () => {
                       Select team size
                     </MenuItem>
 
-                    <MenuItem value="1-5">
-                      1 - 5
-                    </MenuItem>
+                    <MenuItem value="1-5">1 - 5</MenuItem>
 
-                    <MenuItem value="6-10">
-                      6 - 10
-                    </MenuItem>
+                    <MenuItem value="6-10">6 - 10</MenuItem>
 
-                    <MenuItem value="11-25">
-                      11 - 25
-                    </MenuItem>
+                    <MenuItem value="11-25">11 - 25</MenuItem>
 
-                    <MenuItem value="26-50">
-                      26 - 50
-                    </MenuItem>
+                    <MenuItem value="26-50">26 - 50</MenuItem>
 
-                    <MenuItem value="51-100">
-                      51 - 100
-                    </MenuItem>
+                    <MenuItem value="51-100">51 - 100</MenuItem>
 
-                    <MenuItem value="100+">
-                      100+
-                    </MenuItem>
+                    <MenuItem value="100+">100+</MenuItem>
                   </Select>
 
                   {submitted && errors.teamSize && (
@@ -666,10 +601,9 @@ const ContactForm = () => {
                       borderColor: "#111111",
                     },
 
-                    "&:hover .MuiOutlinedInput-notchedOutline":
-                      {
-                        borderColor: "#111111",
-                      },
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "#111111",
+                    },
 
                     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
                       {
@@ -738,14 +672,12 @@ const ContactForm = () => {
                   fontWeight: 600,
                   textTransform: "none",
 
-                  boxShadow:
-                    "0 8px 18px rgba(75, 54, 223, 0.20)",
+                  boxShadow: "0 8px 18px rgba(75, 54, 223, 0.20)",
 
                   "&:hover": {
                     backgroundColor: "#3d2ac5",
 
-                    boxShadow:
-                      "0 10px 22px rgba(75, 54, 223, 0.26)",
+                    boxShadow: "0 10px 22px rgba(75, 54, 223, 0.26)",
                   },
 
                   "&.Mui-disabled": {
@@ -767,7 +699,7 @@ const ContactForm = () => {
         autoHideDuration={5000}
         onClose={handleCloseSnackbar}
         anchorOrigin={{
-          vertical: "bottom",
+          vertical: "top",
           horizontal: "center",
         }}
       >

@@ -83,17 +83,32 @@ const Header = () => {
       </Box>
 
       <Typography
+        component="div"
         sx={{
           fontSize: {
             xs: 17,
             sm: 19,
+            md: 25,
           },
+
           fontWeight: 700,
-          letterSpacing: "-0.4px",
-          whiteSpace: "nowrap",
+
+          letterSpacing: "0.5px",
+
+          lineHeight: 1.15,
+
+          color: "#0F172A",
         }}
       >
-        Sales Automation
+        Sales{" "}
+        <Box
+          component="span"
+          sx={{
+            color: "#4F46E5",
+          }}
+        >
+          Automation
+        </Box>
       </Typography>
     </Stack>
   );

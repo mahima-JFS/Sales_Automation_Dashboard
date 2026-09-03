@@ -10,7 +10,7 @@ const SequenceAutomation = () => {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        // minHeight: "100vh",
         width: "100%",
         overflow: "hidden",
         position: "relative",
@@ -36,7 +36,7 @@ const SequenceAutomation = () => {
       <Box
         sx={{
           width: "100%",
-          maxWidth: "1160px",
+          maxWidth: "1300px",
           mx: "auto",
           px: {
             xs: 2.5,
@@ -71,6 +71,7 @@ const SequenceAutomation = () => {
             sx={{
               position: "relative",
               zIndex: 2,
+              width: "100%",
             }}
           >
             {/* HEADING */}
@@ -86,39 +87,60 @@ const SequenceAutomation = () => {
                   xs: 1.28,
                   md: 1.22,
                 },
-                fontWeight: 400,
+                fontWeight: 600,
                 color: "#192230",
                 letterSpacing: "0.3px",
-                maxWidth: 650,
-                mb: 3,
+                maxWidth: 850,
+                mb: {
+                  xs: 2.5,
+                  md: 3,
+                },
               }}
             >
               Create follow-up{" "}
               <Box
                 component="span"
                 sx={{
-                  color: "#4b4ca3",
+                  color: "#4F46E5",
                 }}
               >
                 sequences
               </Box>{" "}
-              across
-              <br />
-              Email, WhatsApp, and AI Calling
+              across{" "}
+              <Box
+                component="span"
+                sx={{
+                  display: {
+                    xs: "inline",
+                    sm: "inline",
+                    md: "block",
+                  },
+                }}
+              >
+                Email, WhatsApp, and AI Calling
+              </Box>
             </Typography>
 
             {/* DESCRIPTION */}
             <Typography
               sx={{
+                width: "100%",
                 maxWidth: 620,
                 fontSize: {
-                  xs: "16px",
+                  xs: "15px",
+                  sm: "16px",
                   md: "18px",
                 },
-                lineHeight: 1.65,
+                lineHeight: {
+                  xs: 1.6,
+                  md: 1.65,
+                },
                 color: "#5a6675",
-                letterSpacing: "0.3px",
-                mb: 4.5,
+                letterSpacing: "0.2px",
+                mb: {
+                  xs: 3,
+                  md: 4.5,
+                },
               }}
             >
               Turn every lead journey into a structured flow, from first touch
@@ -133,6 +155,9 @@ const SequenceAutomation = () => {
                 sm: "row",
               }}
               spacing={1.5}
+              sx={{
+                width: "100%",
+              }}
             >
               {/* PRIMARY BUTTON */}
               <Button
@@ -140,6 +165,10 @@ const SequenceAutomation = () => {
                 onClick={() => navigate("/features")}
                 sx={{
                   height: 48,
+                  width: {
+                    xs: "100%",
+                    sm: "auto",
+                  },
                   minWidth: {
                     xs: "100%",
                     sm: 320,
@@ -151,6 +180,7 @@ const SequenceAutomation = () => {
                   fontWeight: 600,
                   bgcolor: "#f65308",
                   boxShadow: "none",
+                  whiteSpace: "nowrap",
 
                   "&:hover": {
                     bgcolor: "#df4903",
@@ -176,6 +206,10 @@ const SequenceAutomation = () => {
                 variant="outlined"
                 sx={{
                   height: 48,
+                  width: {
+                    xs: "100%",
+                    sm: "auto",
+                  },
                   minWidth: {
                     xs: "100%",
                     sm: 230,
@@ -188,6 +222,7 @@ const SequenceAutomation = () => {
                   color: "#c65b20",
                   borderColor: "#e7793e",
                   bgcolor: "rgba(255,255,255,0.18)",
+                  whiteSpace: "nowrap",
 
                   "&:hover": {
                     borderColor: "#d96326",
@@ -209,7 +244,6 @@ const SequenceAutomation = () => {
               </Button>
             </Stack>
           </Box>
-
           {/* ================= RIGHT SECTION ================= */}
           <Box
             sx={{

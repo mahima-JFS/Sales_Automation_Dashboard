@@ -127,7 +127,7 @@ const CommunicationChannels = () => {
               md: "34px",
             },
             lineHeight: 1.08,
-            fontWeight: 500,
+            fontWeight: 700,
             color: "#1d2632",
             letterSpacing: "0.4px",
             mb: {

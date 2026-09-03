@@ -14,6 +14,8 @@ import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBullet
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import CheckCircleIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
+import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 
 import { useNavigate } from "react-router-dom";
 
@@ -84,36 +86,536 @@ const leadRows = [
   },
 ];
 
+const sourceCards = [
+  {
+    title: "Meta Lead Forms",
+    icon: <FormatListBulletedOutlinedIcon fontSize="small" />,
+  },
+  {
+    title: "Google Sheets",
+    icon: <DescriptionOutlinedIcon fontSize="small" />,
+  },
+  {
+    title: "Web Forms",
+    icon: <LanguageOutlinedIcon fontSize="small" />,
+  },
+  {
+    title: "CSV Upload",
+    icon: <UploadFileOutlinedIcon fontSize="small" />,
+  },
+];
+
+const supportingBullets = [
+  "Auto-sorted into the correct list on arrival",
+  "Kicks off workflows in real time",
+  "Zero manual data entry",
+  "Always in sync, no delays",
+];
+
+const LeadInboxPreview = () => {
+  return (
+    <Paper
+      elevation={0}
+      sx={{
+        width: "100%",
+        maxWidth: {
+          xs: 560,
+          md: 575,
+        },
+        height: {
+          xs: 300,
+          sm: 325,
+          md: 340,
+        },
+        overflow: "hidden",
+        borderRadius: "20px",
+        bgcolor: "rgba(255,255,255,0.78)",
+        border: "1px solid #d4dbe3",
+        boxShadow:
+          "0 28px 55px rgba(65, 48, 28, 0.15), 0 8px 20px rgba(15,23,42,0.06)",
+        backdropFilter: "blur(8px)",
+      }}
+    >
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
+
+      <Box
+        sx={{
+          px: {
+            xs: 1.5,
+            sm: 1.8,
+          },
+          pt: 1.2,
+          pb: 1,
+          borderBottom: "1px solid #e5e8ec",
+        }}
+      >
+        <Stack direction="row" spacing={0.7} alignItems="center">
+          <PersonAddAltOutlinedIcon
+            sx={{
+              fontSize: 14,
+              color: "#e87331",
+            }}
+          />
+
+          <Typography
+            sx={{
+              fontSize: 11,
+              fontWeight: 700,
+              color: "#354250",
+            }}
+          >
+            Lead Inbox
+          </Typography>
+        </Stack>
+
+        <Typography
+          sx={{
+            fontSize: 6.5,
+            color: "#7c8793",
+            mt: 0.25,
+          }}
+        >
+          All your leads from Meta Lead Ad forms, ready to review and segment
+        </Typography>
+      </Box>
+
+      {/* =====================================================
+          FILTERS
+      ===================================================== */}
+
+      <Box
+        sx={{
+          px: 1.2,
+          py: 0.9,
+          display: "flex",
+          gap: 0.7,
+          borderBottom: "1px solid #e8ebef",
+        }}
+      >
+        <Paper
+          variant="outlined"
+          sx={{
+            height: 24,
+            flex: 1,
+            px: 0.8,
+            display: "flex",
+            alignItems: "center",
+            borderRadius: "5px",
+            borderColor: "#dce1e7",
+            boxShadow: "none",
+            minWidth: 0,
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: 6,
+              color: "#a0a7b0",
+              whiteSpace: "nowrap",
+            }}
+          >
+            🔍 Search ads / leads...
+          </Typography>
+        </Paper>
+
+        <Paper
+          variant="outlined"
+          sx={{
+            width: 62,
+            height: 24,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "5px",
+            borderColor: "#dce1e7",
+            flexShrink: 0,
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: 6,
+              color: "#596574",
+            }}
+          >
+            All platforms⌄
+          </Typography>
+        </Paper>
+
+        <Paper
+          variant="outlined"
+          sx={{
+            width: 65,
+            height: 24,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "5px",
+            borderColor: "#dce1e7",
+            flexShrink: 0,
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: 6,
+              color: "#596574",
+            }}
+          >
+            dd-mm-yyyy
+          </Typography>
+        </Paper>
+
+        <Paper
+          variant="outlined"
+          sx={{
+            width: 65,
+            height: 24,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "5px",
+            borderColor: "#dce1e7",
+            flexShrink: 0,
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: 6,
+              color: "#596574",
+            }}
+          >
+            dd-mm-yyyy
+          </Typography>
+        </Paper>
+      </Box>
+
+      {/* =====================================================
+          TABLE HEADER
+      ===================================================== */}
+
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "18px 1.4fr 0.75fr 1.4fr 0.55fr 0.55fr 2fr 35px",
+          alignItems: "center",
+          px: 1.2,
+          py: 0.65,
+          bgcolor: "#f6f7f8",
+          borderBottom: "1px solid #e7eaee",
+        }}
+      >
+        {["", "AD", "CHANNEL", "DATE", "LEADS", "LANDED", "SEGMENT", ""].map(
+          (item, index) => (
+            <Typography
+              key={index}
+              sx={{
+                fontSize: 5.5,
+                fontWeight: 700,
+                color: "#7c8793",
+              }}
+            >
+              {item}
+            </Typography>
+          ),
+        )}
+      </Box>
+
+      {/* =====================================================
+          TABLE ROWS
+      ===================================================== */}
+
+      <Box>
+        {leadRows.map((row, index) => (
+          <Box
+            key={index}
+            sx={{
+              height: 22,
+              display: "grid",
+              gridTemplateColumns:
+                "18px 1.4fr 0.75fr 1.4fr 0.55fr 0.55fr 2fr 35px",
+              alignItems: "center",
+              px: 1.2,
+              borderBottom: "1px solid #edf0f2",
+            }}
+          >
+            {/* Checkbox */}
+
+            <Box
+              sx={{
+                width: 7,
+                height: 7,
+                border: "1px solid #cfd6dd",
+                borderRadius: "2px",
+              }}
+            />
+
+            {/* Name */}
+
+            <Typography
+              sx={{
+                fontSize: 6,
+                color: "#475462",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {row.name}
+            </Typography>
+
+            {/* Channel */}
+
+            <Chip
+              label={row.channel}
+              size="small"
+              sx={{
+                justifySelf: "start",
+                height: 11,
+                minWidth: 20,
+                fontSize: 4.5,
+
+                bgcolor:
+                  row.channel === "G"
+                    ? "#fff0f0"
+                    : row.channel === "FB"
+                      ? "#eef4ff"
+                      : "#eef7ff",
+
+                color:
+                  row.channel === "G"
+                    ? "#d55b62"
+                    : row.channel === "FB"
+                      ? "#4776c7"
+                      : "#4e87b7",
+
+                "& .MuiChip-label": {
+                  px: 0.5,
+                },
+              }}
+            />
+
+            {/* Date */}
+
+            <Typography
+              sx={{
+                fontSize: 5.5,
+                color: "#697583",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {row.date}
+            </Typography>
+
+            {/* Leads */}
+
+            <Typography
+              sx={{
+                fontSize: 6,
+                color: "#56626f",
+              }}
+            >
+              {row.leads}
+            </Typography>
+
+            {/* Landed */}
+
+            <Typography
+              sx={{
+                fontSize: 6,
+                color: "#40a27a",
+              }}
+            >
+              {row.landed}
+            </Typography>
+
+            {/* Segment */}
+
+            <Box
+              sx={{
+                maxWidth: "95%",
+                px: 0.7,
+                py: 0.2,
+                borderRadius: "10px",
+                bgcolor: row.segment === "-" ? "transparent" : "#f0effd",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: 5,
+                  color: "#756ac4",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {row.segment}
+              </Typography>
+            </Box>
+
+            {/* View */}
+
+            <Typography
+              sx={{
+                fontSize: 5.5,
+                color: "#4f78b4",
+                fontWeight: 600,
+              }}
+            >
+              View ›
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    </Paper>
+  );
+};
+
+const SourceCard = ({ title, icon }) => {
+  return (
+    <Paper
+      elevation={0}
+      sx={{
+        minHeight: {
+          xs: 62,
+          sm: 66,
+        },
+
+        display: "flex",
+        alignItems: "center",
+
+        gap: 1.2,
+
+        px: {
+          xs: 1.5,
+          sm: 1.7,
+        },
+
+        borderRadius: "14px",
+
+        bgcolor: "#FFFFFF",
+
+        border: "1px solid #E0E4E9",
+
+        boxShadow:
+          "0 6px 16px rgba(20,30,50,0.05), inset 0 1px 0 rgba(255,255,255,0.9)",
+
+        transition: "all 0.25s ease",
+
+        "&:hover": {
+          transform: "translateY(-3px)",
+          borderColor: "#e7c1a8",
+          boxShadow: "0 12px 24px rgba(20,30,50,0.08)",
+        },
+      }}
+    >
+      <Avatar
+        sx={{
+          width: 35,
+          height: 35,
+          bgcolor: "#f8eee8",
+          color: "#e37131",
+          flexShrink: 0,
+        }}
+      >
+        {icon}
+      </Avatar>
+
+      <Typography
+        sx={{
+          fontSize: {
+            xs: 14,
+            sm: 14.5,
+          },
+          fontWeight: 600,
+          color: "#18212c",
+          lineHeight: 1.3,
+        }}
+      >
+        {title}
+      </Typography>
+    </Paper>
+  );
+};
+
 const LeadCapture = () => {
   const navigate = useNavigate();
 
   return (
     <Box
+      component="section"
       sx={{
-        minHeight: "100vh",
+        position: "relative",
         width: "100%",
         overflow: "hidden",
-        position: "relative",
-        py: { xs: 5, md: 6 },
+
+        py: {
+          xs: 7,
+          sm: 9,
+          md: 11,
+        },
+
         background: `
           radial-gradient(
-            circle at 47% 47%,
-            rgba(235, 139, 53, 0.16),
-            transparent 26%
+            circle at 42% 45%,
+            rgba(235, 139, 53, 0.10),
+            transparent 28%
           ),
           radial-gradient(
-            circle at 72% 25%,
-            rgba(255,255,255,0.9),
-            transparent 35%
+            circle at 82% 20%,
+            rgba(79,70,229,0.045),
+            transparent 30%
           ),
           #f8f8f8
         `,
       }}
     >
+      {/* =====================================================
+          DECORATIVE GLOW
+      ===================================================== */}
+
       <Box
         sx={{
+          position: "absolute",
+          width: 420,
+          height: 420,
+          borderRadius: "50%",
+          left: -250,
+          bottom: -250,
+          background:
+            "radial-gradient(circle, rgba(245,91,11,0.06), transparent 70%)",
+          filter: "blur(20px)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Box
+        sx={{
+          position: "absolute",
+          width: 450,
+          height: 450,
+          borderRadius: "50%",
+          right: -260,
+          top: -260,
+          background:
+            "radial-gradient(circle, rgba(79,70,229,0.06), transparent 70%)",
+          filter: "blur(20px)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* =====================================================
+          MAIN CONTAINER
+      ===================================================== */}
+
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 2,
+
           maxWidth: 1280,
+
           mx: "auto",
+
           px: {
             xs: 2.5,
             sm: 4,
@@ -121,350 +623,98 @@ const LeadCapture = () => {
           },
         }}
       >
-        {/* MAIN SECTION */}
+        {/* ===================================================
+            MAIN TWO COLUMN LAYOUT
+        =================================================== */}
+
         <Box
           sx={{
             display: "grid",
+
             gridTemplateColumns: {
               xs: "1fr",
-              md: "1fr 1.08fr",
+              md: "0.95fr 1.05fr",
             },
+
             alignItems: "center",
+
             gap: {
               xs: 6,
-              md: 4,
-              lg: 4,
+              sm: 7,
+              md: 7,
+              lg: 9,
             },
           }}
         >
-          {/* ================= LEFT LEAD INBOX ================= */}
+          {/* =================================================
+              LEFT — LEAD INBOX
+          ================================================= */}
+
           <Box
             sx={{
+              order: {
+                xs: 2,
+                md: 1,
+              },
+
               display: "flex",
-              alignItems: "center",
+
               justifyContent: {
                 xs: "center",
                 md: "flex-start",
               },
-            }}
-          >
-            <Paper
-              elevation={0}
-              sx={{
-                width: "100%",
-                maxWidth: 570,
-                height: 325,
-                overflow: "hidden",
-                borderRadius: "18px",
-                bgcolor: "rgba(255,255,255,0.68)",
-                border: "1px solid #cfd7e0",
-                boxShadow: "0 25px 38px rgba(65, 48, 28, 0.22)",
-              }}
-            >
-              {/* Dashboard Header */}
-              <Box
-                sx={{
-                  px: 1.4,
-                  pt: 1,
-                  pb: 0.8,
-                  borderBottom: "1px solid #e5e8ec",
-                }}
-              >
-                <Stack direction="row" spacing={0.6} alignItems="center">
-                  <PersonAddAltOutlinedIcon
-                    sx={{
-                      fontSize: 13,
-                      color: "#e87331",
-                    }}
-                  />
 
-                  <Typography
-                    sx={{
-                      fontSize: 11,
-                      fontWeight: 700,
-                      color: "#354250",
-                    }}
-                  >
-                    Lead Inbox
-                  </Typography>
-                </Stack>
-
-                <Typography
-                  sx={{
-                    fontSize: 6.5,
-                    color: "#7c8793",
-                    mt: 0.2,
-                  }}
-                >
-                  All your leads from Meta Lead Ad forms, ready to review and
-                  segment
-                </Typography>
-              </Box>
-
-              {/* Filters */}
-              <Box
-                sx={{
-                  px: 1.2,
-                  py: 0.9,
-                  display: "flex",
-                  gap: 0.7,
-                  borderBottom: "1px solid #e8ebef",
-                }}
-              >
-                <Paper
-                  variant="outlined"
-                  sx={{
-                    height: 24,
-                    flex: 1.4,
-                    px: 0.8,
-                    display: "flex",
-                    alignItems: "center",
-                    borderRadius: "4px",
-                    borderColor: "#dce1e7",
-                    boxShadow: "none",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: 6,
-                      color: "#a0a7b0",
-                    }}
-                  >
-                    🔍 Search ads / leads...
-                  </Typography>
-                </Paper>
-
-                <Paper
-                  variant="outlined"
-                  sx={{
-                    width: 52,
-                    height: 24,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "4px",
-                    borderColor: "#dce1e7",
-                  }}
-                >
-                  <Typography sx={{ fontSize: 6, color: "#596574" }}>
-                    All platforms⌄
-                  </Typography>
-                </Paper>
-
-                <Paper
-                  variant="outlined"
-                  sx={{
-                    width: 62,
-                    height: 24,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "4px",
-                    borderColor: "#dce1e7",
-                  }}
-                >
-                  <Typography sx={{ fontSize: 6, color: "#596574" }}>
-                    dd-mm-yyyy
-                  </Typography>
-                </Paper>
-
-                <Paper
-                  variant="outlined"
-                  sx={{
-                    width: 62,
-                    height: 24,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "4px",
-                    borderColor: "#dce1e7",
-                  }}
-                >
-                  <Typography sx={{ fontSize: 6, color: "#596574" }}>
-                    dd-mm-yyyy
-                  </Typography>
-                </Paper>
-              </Box>
-
-              {/* Table Header */}
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns:
-                    "18px 1.4fr 0.75fr 1.4fr 0.55fr 0.55fr 2fr 35px",
-                  alignItems: "center",
-                  px: 1.2,
-                  py: 0.65,
-                  bgcolor: "#f6f7f8",
-                  borderBottom: "1px solid #e7eaee",
-                }}
-              >
-                {[
-                  "",
-                  "AD",
-                  "CHANNEL",
-                  "DATE",
-                  "LEADS",
-                  "LANDED",
-                  "SEGMENT",
-                  "",
-                ].map((item, index) => (
-                  <Typography
-                    key={index}
-                    sx={{
-                      fontSize: 5.5,
-                      fontWeight: 700,
-                      color: "#7c8793",
-                    }}
-                  >
-                    {item}
-                  </Typography>
-                ))}
-              </Box>
-
-              {/* Table Rows */}
-              <Box>
-                {leadRows.map((row, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      height: 22,
-                      display: "grid",
-                      gridTemplateColumns:
-                        "18px 1.4fr 0.75fr 1.4fr 0.55fr 0.55fr 2fr 35px",
-                      alignItems: "center",
-                      px: 1.2,
-                      borderBottom: "1px solid #edf0f2",
-                    }}
-                  >
-                    {/* Checkbox */}
-                    <Box
-                      sx={{
-                        width: 7,
-                        height: 7,
-                        border: "1px solid #cfd6dd",
-                        borderRadius: "2px",
-                      }}
-                    />
-
-                    {/* Name */}
-                    <Typography
-                      sx={{
-                        fontSize: 6,
-                        color: "#475462",
-                        whiteSpace: "nowrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                    >
-                      {row.name}
-                    </Typography>
-
-                    {/* Channel */}
-                    <Chip
-                      label={row.channel}
-                      size="small"
-                      sx={{
-                        justifySelf: "start",
-                        height: 11,
-                        minWidth: 20,
-                        fontSize: 4.5,
-                        bgcolor:
-                          row.channel === "G"
-                            ? "#fff0f0"
-                            : row.channel === "FB"
-                              ? "#eef4ff"
-                              : "#eef7ff",
-                        color:
-                          row.channel === "G"
-                            ? "#d55b62"
-                            : row.channel === "FB"
-                              ? "#4776c7"
-                              : "#4e87b7",
-                        "& .MuiChip-label": {
-                          px: 0.5,
-                        },
-                      }}
-                    />
-
-                    {/* Date */}
-                    <Typography
-                      sx={{
-                        fontSize: 5.5,
-                        color: "#697583",
-                      }}
-                    >
-                      {row.date}
-                    </Typography>
-
-                    {/* Leads */}
-                    <Typography
-                      sx={{
-                        fontSize: 6,
-                        color: "#56626f",
-                      }}
-                    >
-                      {row.leads}
-                    </Typography>
-
-                    {/* Landed */}
-                    <Typography
-                      sx={{
-                        fontSize: 6,
-                        color: "#40a27a",
-                      }}
-                    >
-                      {row.landed}
-                    </Typography>
-
-                    {/* Segment */}
-                    <Box
-                      sx={{
-                        maxWidth: "95%",
-                        px: 0.7,
-                        py: 0.2,
-                        borderRadius: "10px",
-                        bgcolor:
-                          row.segment === "-" ? "transparent" : "#f0effd",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          fontSize: 5,
-                          color: "#756ac4",
-                          whiteSpace: "nowrap",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                        }}
-                      >
-                        {row.segment}
-                      </Typography>
-                    </Box>
-
-                    {/* View */}
-                    <Typography
-                      sx={{
-                        fontSize: 5.5,
-                        color: "#4f78b4",
-                        fontWeight: 600,
-                      }}
-                    >
-                      View ›
-                    </Typography>
-                  </Box>
-                ))}
-              </Box>
-            </Paper>
-          </Box>
-
-          {/* ================= RIGHT CONTENT ================= */}
-          <Box
-            sx={{
-              maxWidth: 620,
               width: "100%",
             }}
           >
-            {/* Badge */}
+            <Box
+              sx={{
+                width: "100%",
+
+                display: "flex",
+
+                justifyContent: {
+                  xs: "center",
+                  md: "flex-start",
+                },
+
+                transform: {
+                  md: "translateX(-10px)",
+                },
+              }}
+            >
+              <LeadInboxPreview />
+            </Box>
+          </Box>
+
+          {/* =================================================
+              RIGHT — CONTENT
+          ================================================= */}
+
+          <Box
+            sx={{
+              order: {
+                xs: 1,
+                md: 2,
+              },
+
+              width: "100%",
+
+              maxWidth: {
+                xs: 620,
+                md: 600,
+              },
+
+              mx: {
+                xs: "auto",
+                md: 0,
+              },
+            }}
+          >
+            {/* =================================================
+                BADGE
+            ================================================= */}
+
             <Chip
               icon={
                 <PersonAddAltOutlinedIcon
@@ -474,183 +724,174 @@ const LeadCapture = () => {
                   }}
                 />
               }
-              label="Platform Lead Capture"
+              label="Automatic Intake"
               sx={{
                 height: 40,
                 px: 1,
-                mb: 2.3,
+
+                mb: {
+                  xs: 2,
+                  md: 2.2,
+                },
+
                 borderRadius: "30px",
+
                 bgcolor: "rgba(244, 226, 215, 0.85)",
+
                 color: "#bd5e28",
+
                 fontSize: 15,
+
                 fontWeight: 500,
+
+                "& .MuiChip-icon": {
+                  ml: 1,
+                },
+
+                "& .MuiChip-label": {
+                  px: 1,
+                },
               }}
             />
 
-            {/* Heading */}
+            {/* =================================================
+                HEADING
+            ================================================= */}
+
             <Typography
               component="h1"
               sx={{
                 fontSize: {
-                  xs: 28,
-                  sm: 34,
-                  lg: 35,
+                  xs: 29,
+                  sm: 35,
+                  md: 39,
+                  lg: 42,
                 },
-                lineHeight: 1.22,
-                fontWeight: 500,
+
+                lineHeight: 1.15,
+
+                fontWeight: 600,
+
                 color: "#171d27",
-                letterSpacing: "0.3px",
-                mb: 2.3,
+
+                letterSpacing: "-0.02em",
+
+                mb: {
+                  xs: 2,
+                  md: 2.2,
+                },
               }}
             >
-              Capture Leads From{" "}
+              Pull Leads In From{" "}
               <Box
                 component="span"
                 sx={{
-                  color: "#4b46a7",
+                  color: "#4F46E5",
+                  fontWeight: 600,
                 }}
               >
-                Every Source
+                Every Channel,{" "}
               </Box>
-              <br />
               Automatically
             </Typography>
 
-            {/* Description */}
+            {/* =================================================
+                DESCRIPTION
+            ================================================= */}
+
             <Typography
               sx={{
                 color: "#4c5969",
+
                 fontSize: {
                   xs: 15,
-                  md: 17,
+                  sm: 16,
+                  md: 16.5,
                 },
-                lineHeight: 1.55,
-                letterSpacing: "0.35px",
-                mb: 3.5,
+
+                lineHeight: 1.65,
+
+                letterSpacing: "0.05px",
+
+                maxWidth: 590,
+
+                mb: {
+                  xs: 3,
+                  md: 3.2,
+                },
               }}
             >
-              Connect Meta Lead Ads, Google Sheets, forms, and CSV imports.
-              Every new lead is automatically organized into the right segment
-              and can instantly trigger AI Calling, WhatsApp, Email, or
-              Automation workflows.
+              Connect your Meta ad forms, spreadsheets, website forms, and CSV
+              uploads. New leads are sorted into the right list the moment they
+              arrive and can kick off a call, WhatsApp message, email, or
+              automation instantly — no manual work required.
             </Typography>
 
-            {/* Source Cards */}
+            {/* =================================================
+                SOURCE CARDS
+            ================================================= */}
+
             <Box
               sx={{
                 display: "grid",
+
                 gridTemplateColumns: {
                   xs: "1fr",
                   sm: "repeat(2, 1fr)",
                 },
-                gap: 2,
-                mb: 3.6,
+
+                gap: {
+                  xs: 1.4,
+                  sm: 1.6,
+                },
+
+                mb: {
+                  xs: 3,
+                  md: 3.2,
+                },
               }}
             >
-              {/* Meta Lead Ads */}
-              <Paper
-                elevation={0}
-                sx={{
-                  height: 66,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1.4,
-                  px: 1.8,
-                  borderRadius: "15px",
-                  bgcolor: "rgba(255,255,255,0.58)",
-                  border: "1px solid #d3d9e0",
-                  boxShadow: "0 3px 7px rgba(20, 30, 50, 0.08)",
-                }}
-              >
-                <Avatar
-                  sx={{
-                    width: 34,
-                    height: 34,
-                    bgcolor: "#f8eee8",
-                    color: "#e37131",
-                  }}
-                >
-                  <FormatListBulletedOutlinedIcon fontSize="small" />
-                </Avatar>
-
-                <Typography
-                  sx={{
-                    fontSize: 16,
-                    fontWeight: 500,
-                    color: "#18212c",
-                  }}
-                >
-                  Meta Lead Ads
-                </Typography>
-              </Paper>
-
-              {/* Google Sheets */}
-              <Paper
-                elevation={0}
-                sx={{
-                  height: 66,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1.4,
-                  px: 1.8,
-                  borderRadius: "15px",
-                  bgcolor: "rgba(255,255,255,0.58)",
-                  border: "1px solid #d3d9e0",
-                  boxShadow: "0 3px 7px rgba(20, 30, 50, 0.08)",
-                }}
-              >
-                <Avatar
-                  sx={{
-                    width: 34,
-                    height: 34,
-                    bgcolor: "#f8eee8",
-                    color: "#e37131",
-                  }}
-                >
-                  <DescriptionOutlinedIcon fontSize="small" />
-                </Avatar>
-
-                <Typography
-                  sx={{
-                    fontSize: 16,
-                    fontWeight: 500,
-                    color: "#18212c",
-                  }}
-                >
-                  Google Sheets
-                </Typography>
-              </Paper>
+              {sourceCards.map((source) => (
+                <SourceCard
+                  key={source.title}
+                  title={source.title}
+                  icon={source.icon}
+                />
+              ))}
             </Box>
 
-            {/* Checklist */}
-            <Stack spacing={1.9}>
-              {[
-                "Automatically segment new leads",
-                "Trigger AI workflows instantly",
-                "No manual imports required",
-                "Real-time lead synchronization",
-              ].map((item) => (
+            {/* =================================================
+                SUPPORTING BULLETS
+            ================================================= */}
+
+            <Stack spacing={1.45}>
+              {supportingBullets.map((item) => (
                 <Stack
                   key={item}
                   direction="row"
-                  spacing={1.4}
+                  spacing={1.2}
                   alignItems="center"
                 >
                   <CheckCircleIcon
                     sx={{
                       fontSize: 20,
                       color: "#329967",
+                      flexShrink: 0,
                     }}
                   />
 
                   <Typography
                     sx={{
                       fontSize: {
-                        xs: 15,
-                        md: 16,
+                        xs: 14.5,
+                        md: 15.5,
                       },
+
                       color: "#1f2935",
+
                       fontWeight: 400,
+
+                      lineHeight: 1.45,
                     }}
                   >
                     {item}
@@ -659,21 +900,33 @@ const LeadCapture = () => {
               ))}
             </Stack>
 
-            {/* Button */}
+            {/* =================================================
+                CTA
+            ================================================= */}
+
             <Button
               variant="contained"
               endIcon={<ArrowOutwardIcon />}
               onClick={() => navigate("/book-a-demo")}
               sx={{
                 mt: 3,
+
                 width: 186,
+
                 height: 48,
+
                 borderRadius: "9px",
+
                 textTransform: "none",
+
                 bgcolor: "#f85b08",
+
                 fontSize: 16,
+
                 fontWeight: 700,
+
                 boxShadow: "none",
+
                 "&:hover": {
                   bgcolor: "#df4f03",
                   boxShadow: "none",

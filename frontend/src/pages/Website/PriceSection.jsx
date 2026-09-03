@@ -558,7 +558,11 @@ const PricingSection = () => {
           sx={{
             textAlign: "center",
             fontWeight: 700,
-            fontSize: { xs: 24, sm: 28, md: 30 },
+            fontSize: {
+              xs: 24,
+              sm: 28,
+              md: 32,
+            },
             m: 0,
           }}
         >
@@ -573,10 +577,15 @@ const PricingSection = () => {
         <Typography
           sx={{
             textAlign: "center",
-            fontSize: { xs: 13, sm: 14 },
+
+            fontSize: {
+              xs: 15,
+              sm: 17,
+              md: 18,
+            },
             lineHeight: 1.6,
             color: "#6b7280",
-            maxWidth: 560,
+            maxWidth: 850,
             mt: 1,
           }}
         >
@@ -599,7 +608,7 @@ const PricingSection = () => {
           justifyContent: "flex-end",
           alignItems: "flex-end",
 
-          mb: "44px",
+          mb: "10px",
 
           pr: {
             xs: 0,
@@ -614,7 +623,7 @@ const PricingSection = () => {
               color: "#5138dc",
               fontFamily: "Arial, sans-serif",
               fontSize: "15px",
-              mb: "57px",
+              mb: "20px",
               mr: "20px",
               position: "relative",
 
@@ -624,7 +633,7 @@ const PricingSection = () => {
                 right: "52px",
                 top: "27px",
                 width: "2px",
-                height: "48px",
+                height: "25px",
                 background: "#6047e1",
                 transform: "rotate(-12deg)",
                 borderRadius: "2px",

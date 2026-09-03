@@ -24,7 +24,7 @@ const LogoIcon = ({ size = 68 }) => (
 const categories = [
   {
     title: "Real Estate Teams",
-    angle: 120,
+    angle: 140,
     segments: [
       {
         text: "For teams that need immediate lead response and ",
@@ -38,7 +38,7 @@ const categories = [
 
   {
     title: "Education and Enrollment Teams",
-    angle: 60,
+    angle: 40,
     segments: [
       {
         text: "For businesses that need consistent outreach to inquiries and ",
@@ -66,7 +66,7 @@ const categories = [
 
   {
     title: "Agencies",
-    angle: 300,
+    angle: 320,
     segments: [
       {
         text: "For teams managing outreach across clients and looking for a ",
@@ -80,7 +80,7 @@ const categories = [
 
   {
     title: "SaaS Companies",
-    angle: 240,
+    angle: 220,
     segments: [
       {
         text: "For teams running demos, trials, qualification, and ",
@@ -232,23 +232,6 @@ const BuiltForTeams = () => {
             lg: -15,
           },
 
-          /*
-            FIX: the desktop circle box below is forced to a
-            perfect square (aspectRatio: "1/1") so the rings
-            render as true circles. But the actual content
-            (rings + text) only fills the middle portion of
-            that square — the bottom row of text (SaaS Companies
-            / Agencies) sits at roughly 80-85% down the square,
-            leaving 15-20% of pure empty space below it before
-            the next section starts. That's the white space you
-            were seeing.
-
-            Mirroring the negative top margin above with a
-            matching negative bottom margin pulls whatever comes
-            after this section up to close that gap — without
-            touching the square's aspect ratio, so the circles
-            stay perfectly round.
-          */
           mb: {
             xs: 0,
             sm: 0,
@@ -382,8 +365,8 @@ const BuiltForTeams = () => {
                     fontWeight: 700,
 
                     fontSize: {
-                      md: 17,
-                      lg: 17,
+                      md: 18,
+                      lg: 18,
                     },
 
                     color: "#f35b0b",
@@ -398,8 +381,8 @@ const BuiltForTeams = () => {
                 <Typography
                   sx={{
                     fontSize: {
-                      md: 13,
-                      lg: 13,
+                      md: 15,
+                      lg: 15,
                     },
 
                     lineHeight: 1.5,

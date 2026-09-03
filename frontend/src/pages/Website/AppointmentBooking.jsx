@@ -159,7 +159,7 @@ const AppointmentBooking = () => {
                 },
               }}
             >
-              {/* Badge */}
+              {/* EYEBROW TAG */}
 
               <Chip
                 icon={
@@ -170,7 +170,7 @@ const AppointmentBooking = () => {
                     }}
                   />
                 }
-                label="AI Appointment Booking"
+                label="Smart Scheduling"
                 sx={{
                   height: 42,
                   px: 1,
@@ -184,58 +184,60 @@ const AppointmentBooking = () => {
                 }}
               />
 
-              {/* Heading */}
+              {/* HEADING */}
 
               <Typography
-                component="h1"
+                component="h2"
                 sx={{
                   fontSize: {
-                    xs: "20px",
-                    sm: "30px",
-                    lg: "35px",
+                    xs: "26px",
+                    sm: "32px",
+                    lg: "42px",
                   },
-                  lineHeight: 1.2,
-                  fontWeight: 500,
+
+                  lineHeight: 1.18,
+                  fontWeight: 600,
                   color: "#151b28",
-                  letterSpacing: "0.3px",
-                  maxWidth: 690,
+                  letterSpacing: "-0.5px",
+                  maxWidth: 700,
                   mb: 2.5,
                 }}
               >
-                Let AI Handle Your{" "}
+                Your AI Agent Books Meetings{" "}
                 <Box
                   component="span"
                   sx={{
                     color: "#4F46E5",
                   }}
                 >
-                  Meeting
-                  <br />
-                  Bookings
+                  While You Sleep
                 </Box>
               </Typography>
 
-              {/* Description */}
+              {/* DESCRIPTION */}
 
               <Typography
                 sx={{
                   maxWidth: 710,
                   color: "#485568",
+
                   fontSize: {
                     xs: "15px",
                     md: "18px",
                   },
-                  lineHeight: 1.55,
-                  letterSpacing: "0.5px",
-                  mb: 4,
+
+                  lineHeight: 1.65,
+                  letterSpacing: "0.2px",
+                  mb: 2,
                 }}
               >
-                Your AI Voice Agent automatically qualifies prospects, answers
-                common questions, schedules meetings, and sends confirmations —
-                ensuring every lead gets an instant response.
+                An always-on voice assistant greets prospects, answers routine
+                questions, checks calendar availability, and locks in the
+                meeting — then follows up automatically so no booking gets
+                missed.
               </Typography>
 
-              {/* Feature Cards */}
+              {/* CHECKLIST */}
 
               <Box
                 sx={{
@@ -247,21 +249,28 @@ const AppointmentBooking = () => {
                   },
 
                   gap: {
-                    xs: 2,
-                    md: "20px 22px",
+                    xs: 1.2,
+                    md: "12px 16px",
                   },
 
                   width: "100%",
                 }}
               >
-                {features.map((feature) => (
+                {[
+                  "Qualifies prospects on the call",
+                  "Finds and books open calendar slots",
+                  "Sends instant confirmation",
+                  "Reminds via WhatsApp",
+                  "Reminds via email",
+                  "Answers calls day or night",
+                ].map((feature) => (
                   <Paper
                     key={feature}
                     elevation={0}
                     sx={{
-                      height: {
-                        xs: 48,
-                        md: 60,
+                      minHeight: {
+                        xs: 44,
+                        md: 50,
                       },
 
                       width: "100%",
@@ -270,43 +279,56 @@ const AppointmentBooking = () => {
                       alignItems: "center",
 
                       gap: {
-                        xs: 1.5,
-                        md: 2,
+                        xs: 1,
+                        md: 1.4,
                       },
 
                       px: {
-                        xs: 1.5,
-                        md: 2.5,
+                        xs: 1.2,
+                        md: 1.8,
                       },
 
-                      borderRadius: "16px",
+                      borderRadius: "12px",
 
-                      bgcolor: "rgba(255,255,255,0.55)",
+                      bgcolor: "rgba(255,255,255,0.72)",
 
-                      border: "1px solid #d6dbe1",
+                      border: "1px solid #e0e3e7",
 
-                      boxShadow: "0 3px 7px rgba(20, 30, 50, 0.08)",
+                      boxShadow: `
+          0 3px 8px rgba(20, 30, 50, 0.04),
+          0 6px 15px rgba(255, 104, 17, 0.035)
+        `,
 
                       boxSizing: "border-box",
+
+                      transition: "all 0.25s ease",
+
+                      "&:hover": {
+                        transform: "translateY(-2px)",
+
+                        borderColor: "rgba(248, 91, 8, 0.28)",
+
+                        boxShadow: "0 8px 18px rgba(255, 104, 17, 0.10)",
+                      },
                     }}
                   >
-                    {/* Check Circle */}
+                    {/* CHECK ICON */}
 
                     <Box
                       sx={{
                         width: {
-                          xs: 28,
-                          md: 35,
+                          xs: 24,
+                          md: 28,
                         },
 
                         height: {
-                          xs: 28,
-                          md: 35,
+                          xs: 24,
+                          md: 28,
                         },
 
                         minWidth: {
-                          xs: 28,
-                          md: 35,
+                          xs: 24,
+                          md: 28,
                         },
 
                         borderRadius: "50%",
@@ -315,18 +337,20 @@ const AppointmentBooking = () => {
                         alignItems: "center",
                         justifyContent: "center",
 
-                        bgcolor: "#f6eee9",
+                        bgcolor: "#fff3ec",
                       }}
                     >
                       <Typography
                         component="span"
                         sx={{
                           color: "#e87532",
+
                           fontSize: {
-                            xs: 17,
-                            md: 20,
+                            xs: 14,
+                            md: 16,
                           },
-                          fontWeight: 600,
+
+                          fontWeight: 700,
                           lineHeight: 1,
                           fontFamily: "Arial, sans-serif",
                         }}
@@ -335,22 +359,20 @@ const AppointmentBooking = () => {
                       </Typography>
                     </Box>
 
+                    {/* FEATURE TEXT */}
+
                     <Typography
                       sx={{
                         fontSize: {
-                          xs: 13,
-                          md: 16,
+                          xs: 12,
+                          md: 13.5,
                         },
 
                         color: "#17202d",
 
                         fontWeight: 500,
 
-                        whiteSpace: "nowrap",
-
-                        overflow: "hidden",
-
-                        textOverflow: "ellipsis",
+                        lineHeight: 1.3,
                       }}
                     >
                       {feature}
@@ -359,7 +381,7 @@ const AppointmentBooking = () => {
                 ))}
               </Box>
 
-              {/* Button */}
+              {/* BUTTON */}
 
               <Button
                 variant="contained"
@@ -368,7 +390,12 @@ const AppointmentBooking = () => {
                 sx={{
                   mt: 3.5,
 
-                  width: 218,
+                  width: {
+                    xs: "100%",
+                    sm: 218,
+                  },
+
+                  maxWidth: 218,
 
                   height: 56,
 
@@ -382,11 +409,12 @@ const AppointmentBooking = () => {
 
                   fontWeight: 700,
 
-                  boxShadow: "none",
+                  boxShadow: "0 10px 24px rgba(248, 91, 8, 0.2)",
 
                   "&:hover": {
                     bgcolor: "#df4f03",
-                    boxShadow: "none",
+
+                    boxShadow: "0 12px 28px rgba(248, 91, 8, 0.28)",
                   },
                 }}
               >
