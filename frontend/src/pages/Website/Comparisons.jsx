@@ -217,7 +217,7 @@ const Comparisons = () => {
     <Box
       sx={{
         width: "100%",
-        minHeight: "100vh",
+       
         overflow: "hidden",
         backgroundColor: "#FFFFFF",
       }}
@@ -230,7 +230,7 @@ const Comparisons = () => {
         component="section"
         sx={{
           width: "100%",
-          minHeight: "auto",
+          minHeight: "500px",
 
           display: "flex",
           justifyContent: "center",
@@ -267,7 +267,7 @@ const Comparisons = () => {
 
             px: {
               xs: 2,
-              sm: 3,
+              sm: 2,
               md: 5,
               lg: 7,
             },
@@ -285,17 +285,18 @@ const Comparisons = () => {
               alignItems: "center",
 
               textAlign: "center",
+              
 
               pt: {
-                xs: 5,
-                sm: 6,
-                md: 7,
-                lg: 8,
+                xs: 2,
+                sm: 3,
+                md: 3,
+                lg: 3,
               },
 
               pb: {
-                xs: 4,
-                md: 5,
+                xs: 2,
+                md: 2,
               },
             }}
           >
@@ -423,7 +424,7 @@ const Comparisons = () => {
               }}
             >
               <VerificationItem>
-                All pricing verified June 10, 2026
+                All pricing verified September 3, 2026
               </VerificationItem>
 
               <VerificationItem>

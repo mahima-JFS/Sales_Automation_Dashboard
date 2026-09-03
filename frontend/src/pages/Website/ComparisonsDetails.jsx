@@ -266,7 +266,7 @@ const ComparisonBox = ({ type, children }) => {
         component="span"
         sx={{
           color: "#111",
-          fontSize: { xs: 17, md: 19 },
+          fontSize: { xs: 17, md: 16 },
           lineHeight: 1.7,
         }}
       >
@@ -315,7 +315,9 @@ const PlatformCard = ({
 
       <Typography
         sx={{
-          fontSize: { xs: 27, md: 34 },
+          fontSize: { xs: 18, md: 22
+
+           },
           fontWeight: 800,
           color: COLORS.black,
           mb: 2,
@@ -388,7 +390,7 @@ const PricingPlan = ({
         <Box>
           <Typography
             sx={{
-              fontSize: { xs: 20, md: 24 },
+              fontSize: { xs: 10, md: 20},
               fontWeight: 800,
               color: COLORS.black,
               mb: 1,
@@ -400,7 +402,7 @@ const PricingPlan = ({
           <Typography
             sx={{
               color: COLORS.lightBlue,
-              fontSize: { xs: 15, md: 17 },
+              fontSize: { xs: 15, md: 15 },
               lineHeight: 1.6,
             }}
           >
@@ -419,7 +421,7 @@ const PricingPlan = ({
         >
           <Typography
             sx={{
-              fontSize: { xs: 23, md: 27 },
+              fontSize: { xs: 23, md: 18 },
               fontWeight: 800,
               color: COLORS.black,
               whiteSpace: "nowrap",
@@ -475,7 +477,7 @@ const RateCard = ({
       >
         <Typography
           sx={{
-            fontSize: { xs: 20, md: 24 },
+            fontSize: { xs: 20, md: 20 },
             fontWeight: 800,
             color: COLORS.black,
           }}
@@ -498,7 +500,7 @@ const RateCard = ({
         sx={{
           mt: 3,
           mb: 2,
-          fontSize: { xs: 30, md: 36 },
+          fontSize: { xs: 30, md: 25 },
           fontWeight: 700,
           color: free ? "#0aa84f" : COLORS.purple,
         }}
@@ -509,7 +511,7 @@ const RateCard = ({
       <Typography
         sx={{
           color: COLORS.lightBlue,
-          fontSize: { xs: 15, md: 17 },
+          fontSize: { xs: 15, md: 14 },
           lineHeight: 1.6,
         }}
       >
@@ -607,11 +609,11 @@ export default function ComparisonsDetails() {
                 fontWeight: 700,
               }}
             >
-              Wati
+              Aisensy
             </Box>
-            : Which Fits Your
+            : Broadcasts
             <br />
-            Sales Team in 2026?
+            Alone, or a Full Outbound Engine 
           </Typography>
 
           {/* Description */}
@@ -624,16 +626,13 @@ export default function ComparisonsDetails() {
               textAlign: "center",
               color: COLORS.lightBlue,
               fontSize: {
-                xs: 18,
-                md: 24,
+                xs: 17,
+                md: 20,
               },
               lineHeight: 1.8,
             }}
           >
-            One is a WhatsApp marketing and support inbox. The other
-            runs Email, WhatsApp, and AI voice calls from a single
-            outbound engine. Here is the honest breakdown, with
-            current pricing for both.
+           AiSensy made WhatsApp broadcasting cheap. Rapid Sales makes WhatsApp one of three channels — alongside Email and AI voice calls — in a single sales sequence. Here's the honest comparison with current pricing.
           </Typography>
 
           {/* Verification */}
@@ -642,47 +641,65 @@ export default function ComparisonsDetails() {
   container
   justifyContent="center"
   alignItems="center"
-  spacing={4}
   sx={{
     mt: 4,
     mb: 5,
+    width: "100%",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    columnGap: 4,
+    rowGap: 2,
   }}
 >
   {[
-    "Last updated: June 10, 2026",
+    "Last updated: September 3, 2026",
     "Pricing verified on both official pricing pages",
     "Written for Indian SMEs, D2C brands & agencies",
   ].map((text, index) => (
     <Grid item key={index}>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
-          color: "#385779",
-          fontSize: {
-            xs: 10,
-            md: 15,
-          },
-          whiteSpace: "nowrap",
-        }}
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        spacing={0.5}
       >
         <Typography
           component="span"
           sx={{
             color: COLORS.green,
-            fontSize: 20,
+            fontSize: {
+              xs: 18,
+              md: 19,
+            },
             lineHeight: 1,
           }}
         >
           ✓
         </Typography>
 
-        {text}
-      </Box>
+        <Typography
+          component="span"
+          sx={{
+            color: "#385779",
+            fontSize: {
+              xs: "10px",
+              sm: "12px",
+              md: "15px",
+            },
+            fontWeight: 400,
+            whiteSpace: "nowrap",
+            textAlign: "center",
+          }}
+        >
+          {text}
+        </Typography>
+      </Stack>
     </Grid>
   ))}
 </Grid>
+
 
 
           {/* Buttons */}
@@ -1198,7 +1215,7 @@ export default function ComparisonsDetails() {
 
      <Box
   sx={{
-    py: { xs: 8, md: 12 },
+    py: { xs: 8, md: 12,},
     bgcolor: COLORS.background,
   }}
 >
@@ -1211,6 +1228,7 @@ export default function ComparisonsDetails() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        mt:-15,
       }}
     >
       <SectionLabel icon={<AutoAwesome fontSize="small" />}>
@@ -1220,16 +1238,16 @@ export default function ComparisonsDetails() {
       <Typography
         component="h2"
         sx={{
-          mt: 3,
+          mt: 2,
           width: "100%",
           textAlign: "center",
           fontSize: {
-            xs: "20px",
-            sm: "30px",
-            md: "40px",
+            xs: "25px",
+            sm: "18px",
+            md: "25px",
           },
           lineHeight: 1.2,
-          fontWeight: 500,
+          fontWeight: 600,
           color: COLORS.black,
         }}
       >
@@ -1245,7 +1263,7 @@ export default function ComparisonsDetails() {
           textAlign: "center",
           fontSize: {
             xs: "16px",
-            sm: "18px",
+            sm: "20px",
             md: "20px",
           },
           lineHeight: 1.6,
@@ -1254,16 +1272,17 @@ export default function ComparisonsDetails() {
       >
        AiSensy and Rapid Sales overlap on exactly one channel. What happens around that channel is where they part ways.
       </Typography>
+      
     </Box>
 
     {/* PLATFORM CARDS */}
     <Box
       sx={{
         width: {
-          xs: "95%",
-          sm: "90%",
-          md: "85%",
-          lg: "80%",
+          xs: "80%",
+          sm: "50%",
+          md: "30%",
+          lg: "90%",
         },
         maxWidth: "1100px",
         mx: "auto",
@@ -1287,6 +1306,7 @@ export default function ComparisonsDetails() {
       {/* WATI */}
       <Box
         sx={{
+          
           width: "100%",
           minWidth: 0,
         }}
@@ -1306,9 +1326,9 @@ export default function ComparisonsDetails() {
           tags, routing, no-code chatbots and broadcast
           campaigns to handle the incoming conversations.
         </PlatformCard>
+
       </Box>
 
-      {/* RAPID SALES */}
       <Box
         sx={{
           width: "100%",
@@ -1333,6 +1353,7 @@ export default function ComparisonsDetails() {
         </PlatformCard>
       </Box>
     </Box>
+    
   </Container>
 </Box>
       {/* =====================================================
@@ -1359,6 +1380,8 @@ export default function ComparisonsDetails() {
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+            mt:-13,
+
   }}
 >
       <SectionLabel icon={<AutoAwesome fontSize="small" />}>
@@ -1374,7 +1397,7 @@ export default function ComparisonsDetails() {
           fontSize: {
             xs: 28,
             sm: 34,
-            md: 44,
+            md: 35,
           },
           lineHeight: 1.2,
           fontWeight: 500,
@@ -1428,7 +1451,7 @@ export default function ComparisonsDetails() {
           fontSize: {
             xs: 18,
             sm: 21,
-            md: 25,
+            md: 22,
           },
           fontWeight: 700,
           mb: 2.5,
@@ -1476,7 +1499,7 @@ export default function ComparisonsDetails() {
           fontSize: {
             xs: 18,
             sm: 21,
-            md: 25,
+            md: 22,
           },
           fontWeight: 700,
           mb: 2.5,
@@ -1527,7 +1550,7 @@ export default function ComparisonsDetails() {
           fontSize: {
             xs: 18,
             sm: 21,
-            md: 25,
+            md: 22,
           },
           fontWeight: 700,
           mb: 2.5,
@@ -1575,7 +1598,7 @@ export default function ComparisonsDetails() {
           fontSize: {
             xs: 18,
             sm: 21,
-            md: 25,
+            md: 22,
           },
           fontWeight: 700,
           mb: 2.5,
@@ -1655,6 +1678,8 @@ export default function ComparisonsDetails() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+                  mt:-13,
+
         }}
       >
         <SectionLabel icon={<Paid sx={{ fontSize: 15 }} />}>
@@ -1770,8 +1795,8 @@ export default function ComparisonsDetails() {
           <Typography
             sx={{
               fontSize: {
-                xs: 20,
-                md: 23,
+                xs: 10,
+                md: 22,
               },
               fontWeight: 800,
               color: COLORS.navy,
@@ -1930,13 +1955,16 @@ pt: { xs: 3, md: 5 },
           fontSize: {
             xs: 5,
             sm: 20,
-            md: 25,
+            md: 23,
+
           },
           fontWeight: 800,
           color: COLORS.black,
           textAlign: "center",
           width: "100%",
           lineHeight: 1.2,
+                      mt:-5,
+
         }}
       >
         Rapid Sales WhatsApp conversation rates (India)
@@ -1949,7 +1977,7 @@ pt: { xs: 3, md: 5 },
           fontSize: {
             xs: 10,
             sm: 10,
-            md: 18,
+            md: 15,
           },
           textAlign: "center",
           width: "100%",
@@ -2144,7 +2172,7 @@ pt: { xs: 3, md: 5 },
           fontSize: {
             xs: 25,
             sm: 30,
-            md: 40,
+            md: 35,
           },
           fontWeight: 500,
           color: COLORS.black,
@@ -2195,6 +2223,7 @@ pt: { xs: 3, md: 5 },
             color: COLORS.black,
             lineHeight: 1.2,
             textAlign: "center",
+            mt:-3,
           }}
         >
           Choose Wati if...
@@ -2363,6 +2392,8 @@ pt: { xs: 3, md: 5 },
             color: COLORS.black,
             lineHeight: 1.2,
             textAlign: "center",
+                        mt:-3,
+
           }}
         >
           Choose Rapid Sales if...
