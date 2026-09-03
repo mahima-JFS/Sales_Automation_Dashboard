@@ -39,42 +39,72 @@ const FAQHome = () => {
 
   const faqData = [
     {
-      question: "What is Rapid Sales?",
+      question: " What exactly does [YourBrand] do? ",
       answer:
         "Rapid Sales is a smart AI sales assistant that automates multi-channel outbound outreach. It combines Email, WhatsApp, and AI Voice calls into a single workflow to engage prospects, qualify leads, and automatically hand over only high-intent, genuine buyers to your human sales team.",
     },
     {
-      question: "How can RapidSales help my sales team?",
+      question: "What does it cost?",
       answer:
         "RapidSales automates repetitive sales activities such as lead engagement, follow-ups, appointment booking, and customer nurturing. This allows sales teams to focus on closing deals while the platform handles outreach and lead qualification.",
     },
     {
-      question: "Does RapidSales support WhatsApp automation?",
+      question: "Do I need coding skills to set up a campaign?",
       answer:
         "Yes. RapidSales enables businesses to automate WhatsApp conversations, send personalized messages, schedule follow-ups, and engage leads at scale while maintaining a human-like communication experience.",
     },
     {
-      question: "Can I automate email outreach with RapidSales?",
+      question: "Can I send from my own company email domain? ",
       answer:
         "Absolutely. RapidSales helps businesses create automated email campaigns, nurture leads, schedule follow-ups, and track engagement metrics to improve conversion rates.",
     },
     {
-      question: "What industries can use RapidSales?",
+      question: " Can my team see a lead’s full interaction history?",
       answer:
         "RapidSales can be used by agencies, real estate companies, SaaS businesses, e-commerce companies, service providers, and many other industries.",
     },
     {
-      question: "Does RapidSales offer AI voice calling?",
+      question: " Do you supply lead lists or contact data? ",
       answer:
         "Yes. RapidSales provides AI-powered voice calling capabilities to automate customer conversations and sales outreach.",
     },
     {
-      question: "Can RapidSales integrate with my CRM?",
+      question: " How does the system know when to stop messaging a lead? ",
       answer:
         "RapidSales can integrate with CRM systems to help synchronize customer information, leads, and sales activities.",
     },
     {
-      question: "Will my WhatsApp number get banned for cold outreach?",
+      question: " Can it handle high-volume B2B qualification?",
+      answer:
+        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+    },
+    {
+      question: " Will using this get my WhatsApp number banned? ",
+      answer:
+        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+    },
+    {
+      question: "  What languages does the AI voice agent support? ",
+      answer:
+        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+    },
+    {
+      question: "Do the AI voice calls sound robotic?  ",
+      answer:
+        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+    },
+     {
+      question: " Can it recover abandoned online carts?  ",
+      answer:
+        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+    },
+     {
+      question: " How does this help reduce COD return-to-origin rates? ",
+      answer:
+        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+    },
+     {
+      question: " How does this help exporters sell internationally? ",
       answer:
         "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
     },

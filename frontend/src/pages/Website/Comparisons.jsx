@@ -60,10 +60,9 @@ const comparisonSections = [
     cards: [
       {
         category: "VS THE SUPPORT INBOX LEADER",
-        title: "Rapid Sales vs Wati",
+        title: "Automate Follow-Ups Over WhatsApp, the Compliant Way",
         description:
-          "Wati's omnichannel support inbox competes against a tri-channel sales engine. Per-user fees and trigger add-ons vs flat plans.",
-      },
+        "Send official WhatsApp Business API messages, automate replies, and keep every conversation in one shared inbox — without risking your number. Sections to include: Template approval process · Campaign builder · Auto-replies · Conversation view · Compliance notes (opt-in, template rules)"      },
 
       {
         category: "VS THE BROADCAST FAVOURITE",
@@ -80,19 +79,19 @@ const comparisonSections = [
           "Unlimited agents and Shopify flows versus AI calling and email automation in one platform.",
       },
 
-      {
-        category: "VS THE MOBILE-FIRST INBOX",
-        title: "Rapid Sales vs DoubleTick",
-        description:
-          "WhatsApp inbox productivity compared with AI-powered sales execution.",
-      },
+      // {
+      //   category: "VS THE MOBILE-FIRST INBOX",
+      //   title: "Rapid Sales vs DoubleTick",
+      //   description:
+      //     "WhatsApp inbox productivity compared with AI-powered sales execution.",
+      // },
 
-      {
-        category: "VS THE CLOSEST AI COMPETITOR",
-        title: "Rapid Sales vs Gallabox",
-        description:
-          "Compare AI voice, WhatsApp automation, and outbound sales capabilities side-by-side.",
-      },
+      // {
+      //   category: "VS THE CLOSEST AI COMPETITOR",
+      //   title: "Rapid Sales vs Gallabox",
+      //   description:
+      //     "Compare AI voice, WhatsApp automation, and outbound sales capabilities side-by-side.",
+      // },
     ],
   },
 
@@ -131,10 +130,9 @@ const comparisonSections = [
     cards: [
       {
         category: "VS THE COLD EMAIL VOLUME MACHINE",
-        title: "Rapid Sales vs Instantly",
+        title: " Run Structured Email Campaigns That Scale ",
         description:
-          "Unlimited mailboxes and sending volume compared against multi-channel outbound.",
-      },
+        "Set up multi-step email drips, monitor opens and clicks, and stay on a prospect’s radar through slow-moving deals. Sections to include: Sequence builder · Deliverability & domain authentication · Templates · Scheduling · Reporting"      },
 
       {
         category: "VS THE AGENCY EMAIL INFRASTRUCTURE",
@@ -150,12 +148,12 @@ const comparisonSections = [
           "Email-first engagement versus WhatsApp-native sales automation.",
       },
 
-      {
-        category: "VS THE LINKEDIN-FIRST OUTBOUND TOOL",
-        title: "Rapid Sales vs Lemlist",
-        description:
-          "LinkedIn outreach and personalization compared against WhatsApp-led selling.",
-      },
+      // {
+      //   category: "VS THE LINKEDIN-FIRST OUTBOUND TOOL",
+      //   title: "Rapid Sales vs Lemlist",
+      //   description:
+      //     "LinkedIn outreach and personalization compared against WhatsApp-led selling.",
+      // },
     ],
   },
 
@@ -184,10 +182,9 @@ const comparisonSections = [
     cards: [
       {
         category: "VS THE AI VOICE PLATFORM",
-        title: "Rapid Sales vs AI Voice",
+        title: "Qualify and Book Meetings With AI Voice Calling ",
         description:
-          "AI-powered voice conversations compared against a complete multi-channel sales workflow.",
-      },
+        " Intro: Place inbound and outbound calls at scale with a voice agent that sounds natural, asks the right qualifying questions, and hands off hot leads instantly. Sections to include: How it works (3–4 steps) · Supported languages/accents · Sample call script walkthrough · Call outcomes & tagging · Recordings & transcripts · Integration with calendars · Pricing per minute"      },
 
       {
         category: "VS THE DEVELOPER VOICE API",
@@ -337,7 +334,7 @@ const Comparisons = () => {
                 textAlign: "center",
               }}
             >
-              Rapid Sales vs{" "}
+              How{" "}
               <Box
                 component="span"
                 sx={{
@@ -345,11 +342,11 @@ const Comparisons = () => {
                   fontWeight: 700,
                 }}
               >
-                Everyone
+               It Compares to the 
               </Box>
-              : Pick Your
+              
               <br />
-              Comparison
+              Competition
             </Typography>
 
             {/* ==================================================
@@ -389,11 +386,9 @@ const Comparisons = () => {
                 textAlign: "center",
               }}
             >
-              Honest, fact-checked comparisons against every major WhatsApp
-              and email outreach platform —
-              <br />
-              every price verified on the vendor's own pricing page, every
-              strength they have acknowledged.
+             Honest, side-by-side comparisons against other outreach and calling tools — so you can pick what actually fits how your buyers respond, whether that’s WhatsApp, email, or phone.
+
+             
             </Typography>
 
             {/* ==================================================
@@ -1390,7 +1385,7 @@ const ComparisonGroundRules = () => {
                 {" "}
                 Email{" "}
                 <Link
-                  href="mailto:help@rapidsales.ai"
+                  href="mailto:contact@jfstechnologies.com"
                   underline="always"
                   sx={{
                     color: "#345477",
@@ -1403,7 +1398,7 @@ const ComparisonGroundRules = () => {
                     },
                   }}
                 >
-                  help@rapidsales.ai
+                  contact@jfstechnologies.com
                 </Link>{" "}
                 and we&apos;ll fix it.
               </Typography>
