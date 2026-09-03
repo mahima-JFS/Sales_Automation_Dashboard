@@ -14,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import ContactForm from "./ContactForm";
+import ContactUs from "./ContactUs";
 
 /* =========================================================
    CREATE SLUG
@@ -38,20 +38,20 @@ export const blogData = [
     date: "2026-07-06",
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
-    title: "How to Convert COD Orders to Prepaid with AI Voice...",
+    title: "AI Calling",
     description:
-      "To convert COD orders to prepaid automatically, D2C brands use AI voice...",
+      "How AI voice calls help D2C brands cut COD return-to-origin rates - A real estate team’s guide to instant lead response - How higher-ed admissions teams qualify applicants faster with AI calling - WhatsApp Business API compliance: what outbound teams need to know - Building your first cross-channel outreach sequence",
   },
 
-  {
-    id: 2,
-    date: "2026-07-02",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
-    title: "The Best Real Estate CRM Features for High-Volume Developers...",
-    description:
-      "The best real estate CRM features for high-volume developers include native Meta ad...",
-  },
+  // {
+  //   id: 2,
+  //   date: "2026-07-02",
+  //   image:
+  //     "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
+  //   title: "The Best Real Estate CRM Features for High-Volume Developers...",
+  //   description:
+  //     "The best real estate CRM features for high-volume developers include native Meta ad...",
+  // },
 
   {
     id: 3,
@@ -73,85 +73,85 @@ export const blogData = [
       "When comparing WhatsApp automation vs email marketing for sales, the answer is not...",
   },
 
-  {
-    id: 5,
-    date: "2026-06-27",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-    title: "How to Track Sales Campaign ROI Across...",
-    description:
-      "To accurately track sales campaign ROI across WhatsApp and email, businesses...",
-  },
+  // {
+  //   id: 5,
+  //   date: "2026-06-27",
+  //   image:
+  //     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+  //   title: "How to Track Sales Campaign ROI Across...",
+  //   description:
+  //     "To accurately track sales campaign ROI across WhatsApp and email, businesses...",
+  // },
 
-  {
-    id: 6,
-    date: "2026-06-26",
-    image:
-      "https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=1200&q=80",
-    title: "Combining WhatsApp, Email, and Voice for the...",
-    description:
-      "A multi-channel sales sequence is an automated outreach strategy that engages...",
-  },
+  // {
+  //   id: 6,
+  //   date: "2026-06-26",
+  //   image:
+  //     "https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=1200&q=80",
+  //   title: "Combining WhatsApp, Email, and Voice for the...",
+  //   description:
+  //     "A multi-channel sales sequence is an automated outreach strategy that engages...",
+  // },
 
-  {
-    id: 7,
-    date: "2026-06-26",
-    image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80",
-    title: "WhatsApp Business Automation: A Blueprint fo...",
-    description:
-      "Leads from your favorite platforms. Conversations on autopilot.",
-  },
+  // {
+  //   id: 7,
+  //   date: "2026-06-26",
+  //   image:
+  //     "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80",
+  //   title: "WhatsApp Business Automation: A Blueprint fo...",
+  //   description:
+  //     "Leads from your favorite platforms. Conversations on autopilot.",
+  // },
 
-  {
-    id: 8,
-    date: "2026-06-25",
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80",
-    title: "Follow-Up Automation for High-Ticket Sales:...",
-    description:
-      "High-ticket sales follow-up requires a multi-channel automated strategy...",
-  },
+  // {
+  //   id: 8,
+  //   date: "2026-06-25",
+  //   image:
+  //     "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80",
+  //   title: "Follow-Up Automation for High-Ticket Sales:...",
+  //   description:
+  //     "High-ticket sales follow-up requires a multi-channel automated strategy...",
+  // },
 
-  {
-    id: 9,
-    date: "2026-06-24",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
-    title: "Stop Tool Sprawl: How to Consolidate Your Sales Tec...",
-    description:
-      "To consolidate your sales tech stack, bring your communication and automation...",
-  },
+  // {
+  //   id: 9,
+  //   date: "2026-06-24",
+  //   image:
+  //     "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
+  //   title: "Stop Tool Sprawl: How to Consolidate Your Sales Tec...",
+  //   description:
+  //     "To consolidate your sales tech stack, bring your communication and automation...",
+  // },
 
-  {
-    id: 10,
-    date: "2026-06-24",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
-    title: "Why Fast-Growing Teams Are Replacing 3 Tools with...",
-    description:
-      "Fast-growing teams are replacing multiple sales tools with one unified platform to...",
-  },
+  // {
+  //   id: 10,
+  //   date: "2026-06-24",
+  //   image:
+  //     "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+  //   title: "Why Fast-Growing Teams Are Replacing 3 Tools with...",
+  //   description:
+  //     "Fast-growing teams are replacing multiple sales tools with one unified platform to...",
+  // },
 
-  {
-    id: 11,
-    date: "2026-06-23",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    title: "Sales Automation ROI Calculator: How Much Can...",
-    description:
-      "To calculate the ROI of sales automation, subtract the total cost of automation...",
-  },
+  // {
+  //   id: 11,
+  //   date: "2026-06-23",
+  //   image:
+  //     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+  //   title: "Sales Automation ROI Calculator: How Much Can...",
+  //   description:
+  //     "To calculate the ROI of sales automation, subtract the total cost of automation...",
+  // },
 
-  {
-    id: 12,
-    date: "2026-06-23",
-    image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
-    title: "Traditional CRM vs. Automated Sales...",
-    description:
-      "The primary difference between a traditional CRM and an automated sales communication...",
-  },
+  // {
+  //   id: 12,
+  //   date: "2026-06-23",
+  //   image:
+  //     "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
+  //   title: "Traditional CRM vs. Automated Sales...",
+  //   description:
+  //     "The primary difference between a traditional CRM and an automated sales communication...",
+  // },
 ];
 
 /* =========================================================
@@ -500,7 +500,7 @@ const Blog = () => {
                 },
               }}
             >
-              Our Latest{" "}
+              Resources & {" "}
               <Box
                 component="span"
                 sx={{
@@ -508,7 +508,7 @@ const Blog = () => {
                   fontWeight: 700,
                 }}
               >
-                Blogs
+                Guides
               </Box>
             </Typography>
 
@@ -528,8 +528,8 @@ const Blog = () => {
                 color: "#526b8a",
               }}
             >
-              Insights, guides, and growth strategies to help you scale your
-              business faster using automation and AI.
+              Practical guides on outbound automation, AI calling, WhatsApp compliance, and reducing COD returns for D2C brands — written for operators, not just marketers.
+
             </Typography>
           </Box>
         </Container>
@@ -1005,142 +1005,7 @@ const Blog = () => {
           CONTACT US SECTION
       =================================================== */}
 
-      <Box
-        sx={{
-          width: "100%",
-
-          backgroundColor: "#ffffff",
-
-          py: {
-            xs: 7,
-            sm: 9,
-            md: 11,
-          },
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            px: {
-              xs: 2,
-              sm: 3,
-              md: 4,
-            },
-          }}
-        >
-          {/* CONTACT HEADING */}
-
-          <Box
-            sx={{
-              width: "100%",
-
-              maxWidth: "900px",
-
-              mx: "auto",
-
-              textAlign: "center",
-
-              mb: {
-                xs: 4,
-                md: 5,
-              },
-            }}
-          >
-            {/* CONTACT BADGE */}
-
-            <Box
-              sx={{
-                display: "inline-flex",
-
-                alignItems: "center",
-
-                justifyContent: "center",
-
-                px: 2.5,
-
-                py: 1.2,
-
-                mb: 3,
-
-                border: "1px solid #ff5a13",
-
-                borderRadius: "30px",
-
-                backgroundColor: "#fff0e9",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: {
-                    xs: "14px",
-                    md: "16px",
-                  },
-
-                  fontWeight: 600,
-
-                  color: "#111111",
-                }}
-              >
-                CONTACT US
-              </Typography>
-            </Box>
-
-            <Typography
-              component="h2"
-              sx={{
-                fontSize: {
-                  xs: "25px",
-                  sm: "30px",
-                  md: "40px",
-                },
-
-                lineHeight: 1.15,
-
-                fontWeight: 400,
-
-                color: "#000000",
-
-                mb: 2,
-              }}
-            >
-              Let's Build Something{" "}
-              <Box
-                component="span"
-                sx={{
-                  color: "#4b36df",
-
-                  fontWeight: 500,
-                }}
-              >
-                Together
-              </Box>
-            </Typography>
-
-            <Typography
-              sx={{
-                maxWidth: "850px",
-
-                mx: "auto",
-
-                fontSize: {
-                  xs: "16px",
-                  sm: "18px",
-                  md: "20px",
-                },
-
-                lineHeight: 1.5,
-
-                color: "#526b8a",
-              }}
-            >
-              Tell us about your outreach goals. Our team will help you automate
-              conversations and scale faster.
-            </Typography>
-          </Box>
-
-          <ContactForm />
-        </Container>
-      </Box>
+      <ContactUs/>
 
       {/* ===================================================
           SNACKBAR

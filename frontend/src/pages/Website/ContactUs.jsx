@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FAQHome from "./FAQHome";
 
 import {
   Accordion,
@@ -400,7 +401,7 @@ const ContactUs = () => {
                 },
               }}
             >
-              Let's Get in Touch
+               Get in Touch
             </Typography>
 
             <Typography
@@ -418,9 +419,7 @@ const ContactUs = () => {
                 color: "#355777",
               }}
             >
-              We'd love to learn about your business needs and show you how
-              Rapid Sales can streamline customer engagement through AI
-              Calling, Email Outreach, and WhatsApp Automation.
+             Have a question about pricing, a specific use case, or want a walkthrough? Reach out and our team will get back to you within one business day.
             </Typography>
           </Box>
 
@@ -971,228 +970,8 @@ const ContactUs = () => {
       </Box>
 
       {/* FAQ SECTION */}
-      <Box
-        sx={{
-          width: "100%",
-          backgroundColor: "#ffffff",
-          pb: {
-            xs: 6,
-            sm: 7,
-            md: 8,
-          },
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            px: {
-              xs: 2,
-              sm: 3,
-              md: 3,
-            },
-          }}
-        >
-          {/* FAQ BADGE */}
-          <Box
-            sx={{
-              width: "fit-content",
-              height: {
-                xs: "42px",
-                md: "46px",
-              },
-              mx: "auto",
-              mb: {
-                xs: 3,
-                md: 3.5,
-              },
-              px: {
-                xs: 1.5,
-                md: 2,
-              },
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 1,
-              border: "1px solid #ff5a13",
-              borderRadius: "30px",
-              backgroundColor: "#fff0e9",
-            }}
-          >
-            <SearchIcon
-              sx={{
-                width: {
-                  xs: 20,
-                  md: 22,
-                },
-                height: {
-                  xs: 20,
-                  md: 22,
-                },
-                color: "#111111",
-              }}
-            />
 
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "14px",
-                  md: "16px",
-                },
-                fontWeight: 600,
-                color: "#111111",
-              }}
-            >
-              FAQ's
-            </Typography>
-          </Box>
-
-          {/* FAQ HEADING */}
-          <Box
-            sx={{
-              maxWidth: "800px",
-              mx: "auto",
-              mb: {
-                xs: 4,
-                md: 5,
-              },
-              textAlign: "center",
-            }}
-          >
-            <Typography
-              component="h2"
-              sx={{
-                fontSize: {
-                  xs: "26px",
-                  sm: "30px",
-                  md: "36px",
-                },
-                lineHeight: 1.2,
-                fontWeight: 400,
-                color: "#000000",
-                mb: {
-                  xs: 1.5,
-                  md: 2,
-                },
-              }}
-            >
-              Frequently asked questions
-            </Typography>
-
-            <Typography
-              sx={{
-                maxWidth: "750px",
-                mx: "auto",
-                fontSize: {
-                  xs: "14px",
-                  sm: "16px",
-                  md: "18px",
-                },
-                lineHeight: 1.5,
-                color: "#355777",
-              }}
-            >
-              Everything you need to know about automating outreach,
-              launching AI agents, and scaling your sales operations.
-            </Typography>
-          </Box>
-
-          {/* FAQ ACCORDIONS */}
-          <Box>
-            {faqData.map((faq, index) => (
-              <Accordion
-                key={index}
-                disableGutters
-                sx={{
-                  width: {
-                    xs: "100%",
-                    md: "75%",
-                  },
-                  maxWidth: "850px",
-                  mx: "auto",
-                  mb: 1.5,
-                  border: "1px solid #e0e1e4",
-                  borderRadius: "14px !important",
-                  backgroundColor: "#ffffff",
-                  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
-                  overflow: "hidden",
-                  "&::before": {
-                    display: "none",
-                  },
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={
-                    <ExpandMoreIcon
-                      sx={{
-                        width: {
-                          xs: 22,
-                          md: 24,
-                        },
-                        height: {
-                          xs: 22,
-                          md: 24,
-                        },
-                        color: "#526071",
-                      }}
-                    />
-                  }
-                  sx={{
-                    minHeight: {
-                      xs: "58px !important",
-                      md: "64px !important",
-                    },
-                    px: {
-                      xs: 2,
-                      md: 2.5,
-                    },
-                    "& .MuiAccordionSummary-content": {
-                      margin: "0 !important",
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "14px",
-                        sm: "15px",
-                        md: "17px",
-                      },
-                      lineHeight: 1.4,
-                      fontWeight: 500,
-                      color: "#071c38",
-                    }}
-                  >
-                    Q. {faq.question}
-                  </Typography>
-                </AccordionSummary>
-
-                <AccordionDetails
-                  sx={{
-                    px: {
-                      xs: 2,
-                      md: 2.5,
-                    },
-                    pb: 2.5,
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "13px",
-                        md: "15px",
-                      },
-                      lineHeight: 1.55,
-                      color: "#526071",
-                    }}
-                  >
-                    {faq.answer}
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            ))}
-          </Box>
-        </Container>
-      </Box>
+      <FAQHome/>
 
       {/* FORM STATUS MESSAGE */}
       <Snackbar

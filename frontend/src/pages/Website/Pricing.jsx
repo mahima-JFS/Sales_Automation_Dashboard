@@ -561,7 +561,7 @@ export default function Pricing() {
               color: "#0F172A",
             }}
           >
-            Plans that{" "}
+            Simple,{" "}
             <Box
               component="span"
               sx={{
@@ -570,9 +570,9 @@ export default function Pricing() {
                 fontWeight: 700,
               }}
             >
-              scale
+              Usage-Based
             </Box>{" "}
-            your sales
+            Pricing
           </Typography>
 
           {/* DESCRIPTION */}
@@ -593,8 +593,8 @@ export default function Pricing() {
               color: "#526071",
             }}
           >
-            Automate outreach across WhatsApp, Email, and AI Voice calls — all
-            from one powerful AI sales platform.
+            Start free. Pay only for what you actually use — emails sent, WhatsApp conversations opened, and AI calling minutes consumed.
+
           </Typography>
 
           {/* BUTTON */}
