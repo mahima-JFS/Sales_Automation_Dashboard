@@ -1,25 +1,26 @@
 import React from "react";
 import { Box, Typography, Paper } from "@mui/material";
+import LogoIcon from "../../assets/images/JFSpx.png";
 
-const LogoIcon = ({ size = 68 }) => (
-  <Box component="svg" viewBox="0 0 100 100" sx={{ width: size, height: size }}>
-    <path
-      d="M50 20 C30 20, 20 32, 20 45 C20 56, 29 63, 40 63 C48 63, 54 58, 54 51 C54 46, 50 43, 46 43 C43 43, 41 45, 41 47"
-      fill="none"
-      stroke="#f35b0b"
-      strokeWidth="9"
-      strokeLinecap="round"
-    />
+// const LogoIcon = ({ size = 68 }) => (
+//   <Box component="svg" viewBox="0 0 100 100" sx={{ width: size, height: size }}>
+//     <path
+//       d="M50 20 C30 20, 20 32, 20 45 C20 56, 29 63, 40 63 C48 63, 54 58, 54 51 C54 46, 50 43, 46 43 C43 43, 41 45, 41 47"
+//       fill="none"
+//       stroke="#f35b0b"
+//       strokeWidth="9"
+//       strokeLinecap="round"
+//     />
 
-    <path
-      d="M50 80 C70 80, 80 68, 80 55 C80 44, 71 37, 60 37 C52 37, 46 42, 46 49 C46 54, 50 57, 54 57 C57 57, 59 55, 59 53"
-      fill="none"
-      stroke="#f35b0b"
-      strokeWidth="9"
-      strokeLinecap="round"
-    />
-  </Box>
-);
+//     <path
+//       d="M50 80 C70 80, 80 68, 80 55 C80 44, 71 37, 60 37 C52 37, 46 42, 46 49 C46 54, 50 57, 54 57 C57 57, 59 55, 59 53"
+//       fill="none"
+//       stroke="#f35b0b"
+//       strokeWidth="9"
+//       strokeLinecap="round"
+//     />
+//   </Box>
+// );
 
 const categories = [
   {
@@ -264,7 +265,6 @@ const BuiltForTeams = () => {
           }}
         >
           {/* OUTER CIRCLE */}
-
           <Box
             sx={{
               position: "absolute",
@@ -279,9 +279,7 @@ const BuiltForTeams = () => {
               border: "1px solid rgba(244, 178, 160, 0.4)",
             }}
           />
-
           {/* MIDDLE CIRCLE */}
-
           <Box
             sx={{
               position: "absolute",
@@ -296,9 +294,7 @@ const BuiltForTeams = () => {
               border: "1px solid rgba(244, 178, 160, 0.4)",
             }}
           />
-
           {/* INNER CIRCLE */}
-
           <Box
             sx={{
               position: "absolute",
@@ -313,30 +309,32 @@ const BuiltForTeams = () => {
               border: "1px solid rgba(244, 178, 160, 0.4)",
             }}
           />
-
           {/* CENTER LOGO */}
-
           <Box
             sx={{
               position: "absolute",
-
               top: "50%",
               left: "50%",
-
               transform: "translate(-50%, -50%)",
-
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-
               zIndex: 2,
             }}
           >
-            <LogoIcon />
+            <Box
+              component="img"
+              src={LogoIcon}
+              alt="Logo"
+              sx={{
+                width: 150,
+                height: 150,
+                objectFit: "contain",
+                display: "block",
+              }}
+            />
           </Box>
-
           {/* CATEGORY CONTENT */}
-
           {categories.map((item) => {
             const pos = toPercentPos(item.angle, VERTEX_RADIUS);
 

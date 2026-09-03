@@ -53,20 +53,29 @@ const Header = () => {
         textDecoration: "none",
         color: "#0F172A",
         cursor: "pointer",
+        flexShrink: 0,
       }}
     >
       <Box
         sx={{
-          width: 50,
-          height: 40,
+          width: {
+            xs: 64,
+            sm: 72,
+            md: 90,
+          },
+          height: {
+            xs: 50,
+            sm: 56,
+            md: 64,
+          },
           borderRadius: "12px",
-          bgcolor: "#FFF7ED",
+          // bgcolor: "#FFF7ED",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexShrink: 0,
           overflow: "hidden",
-          p: "1px",
+          p: 0.5,
         }}
       >
         <Box
@@ -81,38 +90,8 @@ const Header = () => {
           }}
         />
       </Box>
-
-      <Typography
-        component="div"
-        sx={{
-          fontSize: {
-            xs: 17,
-            sm: 19,
-            md: 25,
-          },
-
-          fontWeight: 700,
-
-          letterSpacing: "0.5px",
-
-          lineHeight: 1.15,
-
-          color: "#0F172A",
-        }}
-      >
-        Sales{" "}
-        <Box
-          component="span"
-          sx={{
-            color: "#4F46E5",
-          }}
-        >
-          Automation
-        </Box>
-      </Typography>
     </Stack>
   );
-
   return (
     <AppBar
       position="sticky"
@@ -130,8 +109,8 @@ const Header = () => {
           disableGutters
           sx={{
             minHeight: {
-              xs: "64px",
-              md: "72px",
+              xs: "68px",
+              md: "80px",
             },
             display: "flex",
             justifyContent: "space-between",
@@ -141,8 +120,6 @@ const Header = () => {
             },
           }}
         >
-          {/* LOGO */}
-
           {Logo}
 
           {/* DESKTOP NAVIGATION */}
