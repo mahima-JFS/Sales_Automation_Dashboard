@@ -444,10 +444,10 @@ const Features = () => {
               color: "#526071",
             }}
           >
-            Rapid Sales brings your outreach channels, workflows, and lead
-            activity together in one system. Run email campaigns, WhatsApp
-            outreach, AI voice calls, and multi-step sequences without depending
-            on disconnected tools.
+            JFS brings your outreach channels, workflows, and lead activity
+            together in one system. Run email campaigns, WhatsApp outreach, AI
+            voice calls, and multi-step sequences without depending on
+            disconnected tools.
           </Typography>
 
           {/* BUTTONS */}
@@ -1085,7 +1085,7 @@ const Features = () => {
               title="API and Operational Control"
               description={
                 <>
-                  Connect Rapid Sales with your existing
+                  Connect JFS with your existing
                   <br />
                   workflow and manage operations with
                   <br />
@@ -1280,7 +1280,7 @@ const Features = () => {
                   mb: 5,
                 }}
               >
-                How Rapid Sales Fixes It
+                How JFS Fixes It
               </Typography>
 
               <Box

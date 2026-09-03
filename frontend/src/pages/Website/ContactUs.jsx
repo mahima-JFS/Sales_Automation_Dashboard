@@ -22,10 +22,9 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import PhoneInputModule from "react-phone-input-2";
 
-const PhoneInput =
-  PhoneInputModule?.default ?? PhoneInputModule;
-  
-  import "react-phone-input-2/lib/style.css";
+const PhoneInput = PhoneInputModule?.default ?? PhoneInputModule;
+
+import "react-phone-input-2/lib/style.css";
 
 const CONTACT_API_URL =
   import.meta.env.VITE_CONTACT_API_URL || "/api/contact-us";
@@ -58,9 +57,9 @@ const ContactUs = () => {
 
   const faqData = [
     {
-      question: "What is Rapid Sales?",
+      question: "What is JFS?",
       answer:
-        "Rapid Sales is a smart AI sales assistant that automates multi-channel outbound outreach. It combines Email, WhatsApp, and AI Voice calls into a single workflow to engage prospects, qualify leads, and automatically hand over only high-intent, genuine buyers to your human sales team.",
+        "JFS is a smart AI sales assistant that automates multi-channel outbound outreach. It combines Email, WhatsApp, and AI Voice calls into a single workflow to engage prospects, qualify leads, and automatically hand over only high-intent, genuine buyers to your human sales team.",
     },
     {
       question: "How can RapidSales help my sales team?",
@@ -150,18 +149,13 @@ const ContactUs = () => {
 
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())
-    ) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = "Valid email required";
     }
 
     const digitsOnly = String(formData.phone || "").replace(/\D/g, "");
     const countryCodeLength = String(phoneCountry?.dialCode || "").length;
-    const localDigits = Math.max(
-      0,
-      digitsOnly.length - countryCodeLength
-    );
+    const localDigits = Math.max(0, digitsOnly.length - countryCodeLength);
 
     if (!formData.phone || localDigits < 6) {
       newErrors.phone = "Valid phone required";
@@ -216,7 +210,7 @@ const ContactUs = () => {
       // Message that the backend/SMS provider can send to this phone.
       message:
         formData.useCase.trim() ||
-        `Hello ${formData.fullName.trim()}, thank you for contacting Rapid Sales.`,
+        `Hello ${formData.fullName.trim()}, thank you for contacting JFS.`,
     };
 
     try {
@@ -238,15 +232,10 @@ const ContactUs = () => {
       }
 
       if (!response.ok) {
-        throw new Error(
-          result?.message || "Unable to send your message."
-        );
+        throw new Error(result?.message || "Unable to send your message.");
       }
 
-      showMessage(
-        result?.message || "Message sent successfully!",
-        "success"
-      );
+      showMessage(result?.message || "Message sent successfully!", "success");
 
       setFormData({
         fullName: "",
@@ -269,9 +258,8 @@ const ContactUs = () => {
       console.error("Contact form error:", error);
 
       showMessage(
-        error?.message ||
-          "Message could not be sent. Please try again.",
-        "error"
+        error?.message || "Message could not be sent. Please try again.",
+        "error",
       );
     } finally {
       setLoading(false);
@@ -293,23 +281,18 @@ const ContactUs = () => {
     },
 
     "& .MuiOutlinedInput-notchedOutline": {
-      borderColor:
-        submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
-      borderWidth:
-        submitted && errors[fieldName] ? "2px" : "1px",
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
+      borderWidth: submitted && errors[fieldName] ? "2px" : "1px",
     },
 
     "&:hover .MuiOutlinedInput-notchedOutline": {
-      borderColor:
-        submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
     },
 
-    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-      {
-        borderColor:
-          submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
-        borderWidth: "2px",
-      },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: submitted && errors[fieldName] ? "#ff1f1f" : "#111111",
+      borderWidth: "2px",
+    },
 
     "& input": {
       paddingLeft: {
@@ -401,7 +384,7 @@ const ContactUs = () => {
                 },
               }}
             >
-               Get in Touch
+              Get in Touch
             </Typography>
 
             <Typography
@@ -419,7 +402,9 @@ const ContactUs = () => {
                 color: "#355777",
               }}
             >
-             Have a question about pricing, a specific use case, or want a walkthrough? Reach out and our team will get back to you within one business day.
+              Have a question about pricing, a specific use case, or want a
+              walkthrough? Reach out and our team will get back to you within
+              one business day.
             </Typography>
           </Box>
 
@@ -683,12 +668,9 @@ const ContactUs = () => {
                       }
 
                       const digits = String(value).replace(/\D/g, "");
-                      const dialCode = String(
-                        country?.dialCode || ""
-                      );
+                      const dialCode = String(country?.dialCode || "");
 
-                      const localLength =
-                        digits.length - dialCode.length;
+                      const localLength = digits.length - dialCode.length;
 
                       if (localLength < 6 || localLength > 15) {
                         return "Valid phone required";
@@ -777,27 +759,19 @@ const ContactUs = () => {
 
                       "& .MuiOutlinedInput-notchedOutline": {
                         borderColor:
-                          submitted && errors.teamSize
-                            ? "#ff1f1f"
-                            : "#111111",
+                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
                         borderWidth:
-                          submitted && errors.teamSize
-                            ? "2px"
-                            : "1px",
+                          submitted && errors.teamSize ? "2px" : "1px",
                       },
 
                       "&:hover .MuiOutlinedInput-notchedOutline": {
                         borderColor:
-                          submitted && errors.teamSize
-                            ? "#ff1f1f"
-                            : "#111111",
+                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
                       },
 
                       "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                         borderColor:
-                          submitted && errors.teamSize
-                            ? "#ff1f1f"
-                            : "#111111",
+                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
                         borderWidth: "2px",
                       },
 
@@ -949,12 +923,10 @@ const ContactUs = () => {
                   },
                   fontWeight: 600,
                   textTransform: "none",
-                  boxShadow:
-                    "0 8px 18px rgba(75, 54, 223, 0.20)",
+                  boxShadow: "0 8px 18px rgba(75, 54, 223, 0.20)",
                   "&:hover": {
                     backgroundColor: "#3d2ac5",
-                    boxShadow:
-                      "0 10px 22px rgba(75, 54, 223, 0.26)",
+                    boxShadow: "0 10px 22px rgba(75, 54, 223, 0.26)",
                   },
                   "&.Mui-disabled": {
                     backgroundColor: "#8c82df",
@@ -971,7 +943,7 @@ const ContactUs = () => {
 
       {/* FAQ SECTION */}
 
-      <FAQHome/>
+      <FAQHome />
 
       {/* FORM STATUS MESSAGE */}
       <Snackbar

@@ -41,7 +41,7 @@ const FAQHome = () => {
     {
       question: " What exactly does [YourBrand] do? ",
       answer:
-        "Rapid Sales is a smart AI sales assistant that automates multi-channel outbound outreach. It combines Email, WhatsApp, and AI Voice calls into a single workflow to engage prospects, qualify leads, and automatically hand over only high-intent, genuine buyers to your human sales team.",
+        "JFS is a smart AI sales assistant that automates multi-channel outbound outreach. It combines Email, WhatsApp, and AI Voice calls into a single workflow to engage prospects, qualify leads, and automatically hand over only high-intent, genuine buyers to your human sales team.",
     },
     {
       question: "What does it cost?",
@@ -93,17 +93,17 @@ const FAQHome = () => {
       answer:
         "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
     },
-     {
+    {
       question: " Can it recover abandoned online carts?  ",
       answer:
         "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
     },
-     {
+    {
       question: " How does this help reduce COD return-to-origin rates? ",
       answer:
         "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
     },
-     {
+    {
       question: " How does this help exporters sell internationally? ",
       answer:
         "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
