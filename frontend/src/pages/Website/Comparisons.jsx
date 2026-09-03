@@ -1,4 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+
+
 
 
 import {
@@ -22,7 +26,9 @@ import FAQHome from "./FAQHome";
 ============================================================ */
 
 const comparisonSections = [
+  
   {
+    
     label: "WHATSAPP PLATFORMS",
 
     title: (
@@ -205,6 +211,8 @@ const comparisonSections = [
 ============================================================ */
 
 const Comparisons = () => {
+    const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -364,10 +372,10 @@ const Comparisons = () => {
                 color: "#53678F",
 
                 fontSize: {
-                  xs: "10px",
-                  sm: "10px",
-                  md: "15px",
-                  lg: "10px",
+                  xs: "20px",
+                  sm: "20px",
+                  md: "20px",
+                  lg: "20px",
                 },
 
                 lineHeight: {
@@ -508,6 +516,8 @@ const Comparisons = () => {
 
                 <Button
                   variant="outlined"
+                                  onClick={() => navigate("/Pricing")}
+
                   endIcon={<ArrowOutward />}
                   sx={{
                     width: {
@@ -982,39 +992,33 @@ const ComparisonCard = ({ card }) => {
       {/* READ COMPARISON */}
 
       <Button
-        disableRipple
-        sx={{
-          justifyContent: "flex-start",
+  component={RouterLink}
+  to="/comparisons/rapid-sales-vs-wati"
+  disableRipple
+  sx={{
+    justifyContent: "flex-start",
+    alignSelf: "flex-start",
+    p: 0,
+    mt: 1,
+    color: "#F4510B",
+    fontSize: {
+      xs: "15px",
+      md: "17px",
+    },
+    fontWeight: 600,
+    textTransform: "none",
+    minWidth: 0,
 
-          alignSelf: "flex-start",
+    "&:hover": {
+      backgroundColor: "transparent",
+      color: "#D94105",
+    },
+  }}
+>
+  Read the comparison →
+</Button>
 
-          p: 0,
 
-          mt: 1,
-
-          color: "#F4510B",
-
-          fontSize: {
-            xs: "15px",
-            md: "17px",
-          },
-
-          fontWeight: 600,
-
-          lineHeight: 1.4,
-
-          textTransform: "none",
-
-          minWidth: 0,
-
-          "&:hover": {
-            backgroundColor: "transparent",
-            color: "#D94105",
-          },
-        }}
-      >
-        Read the comparison →
-      </Button>
     </Box>
   );
 };
