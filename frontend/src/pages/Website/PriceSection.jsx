@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Box, Typography, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  ToggleButton,
+  ToggleButtonGroup,
+  Container,
+  Stack,
+} from "@mui/material";
 
 /* =====================================================
    CHECK ICON
@@ -26,119 +34,266 @@ const CheckIcon = () => (
    PLAN DATA
 ===================================================== */
 
+// const plans = [
+//   {
+//     tag: "Basic",
+//     price: "₹3,000",
+//     priceNote: "Includes 100 Shared Credits",
+//     cta: "Get Started",
+//     ctaVariant: "dark",
+//     features: [
+//       "Audience Segments",
+//       "Campaign Sequences",
+//       "2 AI Calling Languages and 4 Voices",
+//       "WhatsApp Webhooks",
+//       "AI WhatsApp Auto-Reply",
+//       "Email Accounts",
+//       "Unlimited Lead Uploads",
+//       "Call Recording & Storage",
+//       "Standard support",
+//     ],
+//   },
+//   {
+//     tag: "Advance",
+//     badge: "POPULAR",
+//     highlighted: true,
+//     price: "₹6,000",
+//     priceNote: "Includes 250 Shared Credits",
+//     cta: "Get Started",
+//     ctaVariant: "orange",
+//     features: [
+//       "Audience Segments",
+//       "Advanced Sequences",
+//       "4 AI Calling Languages and 8 Voices",
+//       "AI Smart Bookings",
+//       "AI WhatsApp Auto-Reply",
+//       "Automated Callbacks",
+//       "Instant Lead Sync",
+//       "WhatsApp Webhooks",
+//       "Email Outreach",
+//       "Call Recording & Storage",
+//       "Shopify Integration",
+//       "AI Content Creation",
+//     ],
+//   },
+//   {
+//     tag: "Pro",
+//     price: "₹12,000",
+//     priceNote: "Includes 500 Shared Credits",
+//     cta: "Get Started",
+//     ctaVariant: "dark",
+//     features: [
+//       "Audience Segments",
+//       "Advanced Sequences",
+//       "10 AI Calling Languages and 20 Voices",
+//       "AI Smart Bookings",
+//       "Automated Callbacks",
+//       "AI WhatsApp Auto-Reply",
+//       "Instant Lead Sync",
+//       "WhatsApp API Access",
+//       "Email Outreach",
+//       "3000 Call Recording Minutes",
+//       "Priority support",
+//       "Shopify Integration",
+//       "AI Content Creation",
+//     ],
+//   },
+// ];
+
 const plans = [
   {
-    tag: "Basic",
-    price: "₹3,000",
-    priceNote: "Includes 100 Shared Credits",
-    cta: "Get Started",
+    tag: "Starter",
+
+    pricing: {
+      monthly: {
+        price: "₹2,499",
+        billed: "Billed monthly",
+      },
+      quarterly: {
+        price: "₹2,249",
+        billed: "₹6,747 billed every 3 months",
+      },
+      annually: {
+        price: "₹1,899",
+        billed: "₹22,788 billed every year",
+      },
+    },
+
+    priceNote: "120 workspace credits included",
+    cta: "Start free trial",
     ctaVariant: "dark",
+
     features: [
-      "Audience Segments",
-      "Campaign Sequences",
-      "2 AI Calling Languages and 4 Voices",
-      "WhatsApp Webhooks",
-      "AI WhatsApp Auto-Reply",
-      "Email Accounts",
-      "Unlimited Lead Uploads",
-      "Call Recording & Storage",
-      "Standard support",
+      "Contact segments",
+      "Outreach sequences",
+      "2 AI voice agents, 4 languages",
+      "WhatsApp connection",
+      "Auto-reply on WhatsApp",
+      "Shared email inbox",
+      "Unlimited contact imports",
+      "Call recordings, 90-day storage",
+      "Email support",
     ],
   },
+
   {
-    tag: "Advance",
+    tag: "Most teams pick this",
     badge: "POPULAR",
     highlighted: true,
-    price: "₹6,000",
-    priceNote: "Includes 250 Shared Credits",
-    cta: "Get Started",
+
+    pricing: {
+      monthly: {
+        price: "₹5,999",
+        billed: "Billed monthly",
+      },
+      quarterly: {
+        price: "₹5,399",
+        billed: "₹16,197 billed every 3 months",
+      },
+      annually: {
+        price: "₹4,499",
+        billed: "₹53,988 billed every year",
+      },
+    },
+
+    priceNote: "300 workspace credits included",
+    cta: "Start free trial",
     ctaVariant: "orange",
+
     features: [
-      "Audience Segments",
-      "Advanced Sequences",
-      "4 AI Calling Languages and 8 Voices",
-      "AI Smart Bookings",
-      "AI WhatsApp Auto-Reply",
-      "Automated Callbacks",
-      "Instant Lead Sync",
-      "WhatsApp Webhooks",
-      "Email Outreach",
-      "Call Recording & Storage",
-      "Shopify Integration",
-      "AI Content Creation",
+      "Contact segments",
+      "Branching sequences across channels",
+      "Auto-reply on WhatsApp",
+      "Automated callback scheduling",
+      "Live CRM sync",
+      "WhatsApp connection",
+      "Shared email inbox",
+      "Call recordings, 90-day storage",
+      "Shopify connection",
+      "AI drafting for content",
     ],
   },
+
   {
-    tag: "Pro",
-    price: "₹12,000",
-    priceNote: "Includes 500 Shared Credits",
-    cta: "Get Started",
+    tag: "Scale",
+
+    pricing: {
+      monthly: {
+        price: "₹11,499",
+        billed: "Billed monthly",
+      },
+      quarterly: {
+        price: "₹10,349",
+        billed: "₹31,047 billed every 3 months",
+      },
+      annually: {
+        price: "₹8,624",
+        billed: "₹103,488 billed every year",
+      },
+    },
+
+    priceNote: "600 workspace credits included",
+    cta: "Start free trial",
     ctaVariant: "dark",
+
     features: [
-      "Audience Segments",
-      "Advanced Sequences",
-      "10 AI Calling Languages and 20 Voices",
-      "AI Smart Bookings",
-      "Automated Callbacks",
-      "AI WhatsApp Auto-Reply",
-      "Instant Lead Sync",
-      "WhatsApp API Access",
-      "Email Outreach",
-      "3000 Call Recording Minutes",
+      "Contact segments",
+      "Branching sequences across channels",
+      "10 AI voice agents, 20 languages",
+      "AI-booked appointments",
+      "Automated callback scheduling",
+      "Auto-reply on WhatsApp",
+      "Live CRM sync",
+      "WhatsApp API access",
+      "Shared email inbox",
+      "3,000 call recording minutes",
       "Priority support",
-      "Shopify Integration",
-      "AI Content Creation",
+      "Shopify connection",
+      "AI drafting for content",
     ],
   },
-  {
-    tag: "Enterprise",
-    price: null,
-    cta: "Let's Talk",
-    ctaVariant: "dark",
-    features: [
-      "Unlimited Leads Upload",
-      "10 Email Accounts",
-      "Send UP TO 500 Emails/Day",
-      "WhatsApp Conversation as per your Meta or CAPS tier",
-      "Marketing, Utility & Auth Templates",
-      "AI Calling",
-      "10 Calling Languages",
-      "20 AI Voices",
-      "Campaign Sequences",
-      "Single User",
-      "Advanced Analytics",
-      "3000 Mins of Call Recording",
-      "Leads Automations",
-    ],
-  },
-  {
-    tag: "WhatsApp only Advance",
-    price: "₹1,999",
-    cta: "Get Started",
-    ctaVariant: "dark",
-    features: [
-      "Unlimited Sequences",
-      "Unlimited Basic Sequence",
-      "Broadcast",
-      "Abandoned Cart Notifications",
-      "250/day (Meta Tier Based)",
-      "Marketing, Utility & Auth Templates",
-    ],
-  },
-  {
-    tag: "WhatsApp Only Pro",
-    price: "₹2,999",
-    cta: "Get Started",
-    ctaVariant: "dark",
-    features: [
-      "Unlimited Segments",
-      "Unlimited Advance Sequence",
-      "Broadcast",
-      "Abandoned Cart Notifications",
-      "250/day (Meta Tier Based)",
-      "Auto WhatsBot Reply",
-    ],
-  },
+
+  // {
+  //   tag: "Enterprise",
+
+  //   pricing: {
+  //     monthly: {
+  //       price: null,
+  //       billed: "",
+  //     },
+  //     quarterly: {
+  //       price: null,
+  //       billed: "",
+  //     },
+  //     annually: {
+  //       price: null,
+  //       billed: "",
+  //     },
+  //   },
+
+  //   cta: "Let's Talk",
+  //   ctaVariant: "dark",
+
+  //   features: [
+  //     "Unlimited Leads Upload",
+  //     "10 Email Accounts",
+  //     "Send UP TO 500 Emails/Day",
+  //     "WhatsApp Conversation as per your Meta or CAPS tier",
+  //     "Marketing, Utility & Auth Templates",
+  //     "AI Calling",
+  //     "10 Calling Languages",
+  //     "20 AI Voices",
+  //     "Campaign Sequences",
+  //     "Single User",
+  //     "Advanced Analytics",
+  //     "3000 Mins of Call Recording",
+  //     "Leads Automations",
+  //   ],
+  // },
+
+  // {
+  //   tag: "WhatsApp only Advance",
+
+  //   pricing: {
+  //     monthly: { price: "₹1,999", billed: "Billed monthly" },
+  //     quarterly: { price: "₹1,999", billed: "Billed every 3 months" },
+  //     annually: { price: "₹1,999", billed: "Billed every year" },
+  //   },
+
+  //   cta: "Get Started",
+  //   ctaVariant: "dark",
+
+  //   features: [
+  //     "Unlimited Sequences",
+  //     "Unlimited Basic Sequence",
+  //     "Broadcast",
+  //     "Abandoned Cart Notifications",
+  //     "250/day (Meta Tier Based)",
+  //     "Marketing, Utility & Auth Templates",
+  //   ],
+  // },
+
+  // {
+  //   tag: "WhatsApp Only Pro",
+
+  //   pricing: {
+  //     monthly: { price: "₹2,999", billed: "Billed monthly" },
+  //     quarterly: { price: "₹2,999", billed: "Billed every 3 months" },
+  //     annually: { price: "₹2,999", billed: "Billed every year" },
+  //   },
+
+  //   cta: "Get Started",
+  //   ctaVariant: "dark",
+
+  //   features: [
+  //     "Unlimited Segments",
+  //     "Unlimited Advance Sequence",
+  //     "Broadcast",
+  //     "Abandoned Cart Notifications",
+  //     "250/day (Meta Tier Based)",
+  //     "Auto WhatsBot Reply",
+  //   ],
+  // },
 ];
 
 const billingOptions = ["Monthly", "Quarterly", "Annually"];
@@ -146,8 +301,9 @@ const billingOptions = ["Monthly", "Quarterly", "Annually"];
 /* =====================================================
    PLAN CARD
 ===================================================== */
+const PlanCard = ({ plan, billing }) => {
+  const selectedPricing = plan.pricing?.[billing];
 
-const PlanCard = ({ plan }) => {
   const cardInner = (
     <Box
       sx={{
@@ -203,7 +359,8 @@ const PlanCard = ({ plan }) => {
           {plan.tag}
         </Typography>
 
-        {plan.price ? (
+        {/* DYNAMIC PRICING */}
+        {selectedPricing?.price ? (
           <>
             <Typography
               sx={{
@@ -213,23 +370,43 @@ const PlanCard = ({ plan }) => {
                 color: "#151b28",
               }}
             >
-              {plan.price}
+              {selectedPricing.price}
+
               <Box
                 component="span"
-                sx={{ fontSize: 13, fontWeight: 500, color: "#8a8f9c" }}
+                sx={{
+                  fontSize: 13,
+                  fontWeight: 500,
+                  color: "#8a8f9c",
+                }}
               >
                 {" "}
-                /mo <sup style={{ fontSize: 9 }}>+GST</sup>
+                /mo <sup style={{ fontSize: 9 }}>+ GST</sup>
               </Box>
             </Typography>
 
-            {plan.priceNote && (
+            {/* BILLING TEXT */}
+            {selectedPricing.billed && (
               <Typography
                 sx={{
                   textAlign: "center",
                   fontSize: 11,
                   color: "#9aa0ab",
                   mt: 0.3,
+                }}
+              >
+                {selectedPricing.billed}
+              </Typography>
+            )}
+
+            {/* WORKSPACE CREDITS */}
+            {plan.priceNote && (
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontSize: 11,
+                  color: "#9aa0ab",
+                  mt: 0.8,
                   mb: 1.5,
                 }}
               >
@@ -276,11 +453,20 @@ const PlanCard = ({ plan }) => {
             <Box
               key={feature}
               component="li"
-              sx={{ display: "flex", alignItems: "flex-start", gap: 0.8 }}
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 0.8,
+              }}
             >
               <CheckIcon />
+
               <Typography
-                sx={{ fontSize: 12, lineHeight: 1.5, color: "#4b5160" }}
+                sx={{
+                  fontSize: 12,
+                  lineHeight: 1.5,
+                  color: "#4b5160",
+                }}
               >
                 {feature}
               </Typography>
@@ -314,7 +500,7 @@ const PlanCard = ({ plan }) => {
 ===================================================== */
 
 const PricingSection = () => {
-  const [billing, setBilling] = useState("Monthly");
+  const [billing, setBilling] = useState("monthly");
 
   return (
     <Box
@@ -342,7 +528,14 @@ const PricingSection = () => {
           }}
         >
           <Typography sx={{ fontSize: 12 }}>🏷️</Typography>
-          <Typography sx={{ fontSize: 12, fontWeight: 600, color: "#f35b0b" }}>
+
+          <Typography
+            sx={{
+              fontSize: 12,
+              fontWeight: 600,
+              color: "#f35b0b",
+            }}
+          >
             PRICING
           </Typography>
         </Box>
@@ -370,10 +563,10 @@ const PricingSection = () => {
           }}
         >
           <Box component="span" sx={{ color: "#4F46E5" }}>
-            Start for Free,
+            Try it free,
           </Box>{" "}
           <Box component="span" sx={{ color: "#151b28" }}>
-            Scale on Demand
+            Pay only when you scale.
           </Box>
         </Typography>
 
@@ -387,19 +580,12 @@ const PricingSection = () => {
             mt: 1,
           }}
         >
-          Replace separate subscriptions for{" "}
+          One workspace for Replace separate subscriptions for{" "}
           <Box component="span" sx={{ color: "#4F46E5" }}>
-            Email, WhatsApp, and Callers
+            calls, WhatsApp, and email -{" "}
           </Box>
-          . Consolidate your entire outreach stack into{" "}
-          <Box component="span" sx={{ color: "#4F46E5" }}>
-            one system
-          </Box>{" "}
-          and track your exact calling costs in{" "}
-          <Box component="span" sx={{ color: "#4F46E5" }}>
-            real-time
-          </Box>
-          .
+          instead of three separate tools. See exactly what every conversation
+          costs, as it happens.{" "}
         </Typography>
       </Box>
 
@@ -409,54 +595,102 @@ const PricingSection = () => {
 
       <Box
         sx={{
-          position: "relative",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          mt: 3,
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+
+          mb: "44px",
+
+          pr: {
+            xs: 0,
+            md: "5px",
+          },
         }}
       >
-        <Typography
-          sx={{
-            position: { md: "absolute" },
-            top: { md: -22 },
-            right: { md: "calc(50% - 260px)" },
-            fontSize: 11,
-            fontWeight: 600,
-            color: "#151b28",
-          }}
-        >
-          Save 20% or more ↘
-        </Typography>
+        <Box>
+          <Typography
+            sx={{
+              textAlign: "right",
+              color: "#5138dc",
+              fontFamily: "Arial, sans-serif",
+              fontSize: "15px",
+              mb: "57px",
+              mr: "20px",
+              position: "relative",
 
-        <Box
-          sx={{
-            display: "inline-flex",
-            border: "1px solid #16a34a",
-            borderRadius: "999px",
-            p: 0.4,
-            gap: 0.4,
-          }}
-        >
-          {billingOptions.map((option) => (
-            <Box
-              key={option}
-              onClick={() => setBilling(option)}
-              sx={{
-                px: 2,
-                py: 0.7,
-                borderRadius: "999px",
-                fontSize: 12.5,
-                fontWeight: 600,
-                cursor: "pointer",
-                bgcolor: billing === option ? "#12141c" : "transparent",
-                color: billing === option ? "#ffffff" : "#4b5160",
-                transition: "background-color 0.2s ease, color 0.2s ease",
-              }}
-            >
-              {option}
-            </Box>
-          ))}
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                right: "52px",
+                top: "27px",
+                width: "2px",
+                height: "48px",
+                background: "#6047e1",
+                transform: "rotate(-12deg)",
+                borderRadius: "2px",
+              },
+            }}
+          >
+            Save 29% or more
+          </Typography>
+
+          <ToggleButtonGroup
+            exclusive
+            value={billing}
+            onChange={(event, value) => {
+              if (value !== null) {
+                setBilling(value);
+              }
+            }}
+            sx={{
+              height: "50px",
+              background: "#29976c",
+              borderRadius: "16px",
+              padding: "5px",
+
+              "& .MuiToggleButtonGroup-grouped": {
+                border: "none !important",
+              },
+            }}
+          >
+            {["monthly", "quarterly", "annually"].map((item) => (
+              <ToggleButton
+                key={item}
+                value={item}
+                sx={{
+                  px: {
+                    xs: "16px",
+                    md: "26px",
+                  },
+
+                  minWidth: "100px",
+
+                  borderRadius: "20px !important",
+
+                  color: "#fff",
+
+                  fontFamily: "Arial, sans-serif",
+
+                  fontSize: "15px",
+
+                  fontWeight: 600,
+
+                  textTransform: "capitalize",
+
+                  "&.Mui-selected": {
+                    background: "#fff",
+                    color: "#111",
+                  },
+
+                  "&.Mui-selected:hover": {
+                    background: "#fff",
+                  },
+                }}
+              >
+                {item}
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
         </Box>
       </Box>
 
@@ -467,19 +701,24 @@ const PricingSection = () => {
       <Box
         sx={{
           display: "grid",
+
           gridTemplateColumns: {
             xs: "1fr",
             sm: "repeat(2, minmax(0, 1fr))",
             lg: "repeat(3, minmax(0, 1fr))",
           },
+
           gap: 3,
+
           maxWidth: 1200,
+
           mx: "auto",
+
           mt: 5,
         }}
       >
         {plans.map((plan) => (
-          <PlanCard key={plan.tag} plan={plan} />
+          <PlanCard key={plan.tag} plan={plan} billing={billing} />
         ))}
       </Box>
     </Box>

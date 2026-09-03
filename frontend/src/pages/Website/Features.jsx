@@ -303,9 +303,9 @@ const Features = () => {
           justifyContent: "center",
 
           pt: {
-            xs: 8,
-            sm: 10,
-            md: 14,
+            xs: 3,
+            sm: 5,
+            md: 7,
           },
 
           px: {

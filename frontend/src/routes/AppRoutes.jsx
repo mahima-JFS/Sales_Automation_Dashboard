@@ -1,10 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import MainLayout from "../layouts/MainLayout";
-
-// Pages
-import Dashboard from "../pages/Dashboard/Dashboard";
-import Leads from "../pages/Leads/Leads";
+// Website Pages
 import Home from "../pages/Website/Home";
 import ContactUs from "../pages/Website/ContactUs";
 import Blog from "../pages/Website/Blog";
@@ -16,44 +12,37 @@ import FeatureAIAgent from "../pages/Website/FeatureAIAgent";
 import WhatappAutomation from "../pages/Website/WhatappAutomation";
 import EmailOutreach from "../pages/Website/EmailOutreach";
 import BlogDetails from "../pages/Website/BlogDetails";
-// import LeadSources from "../pages/LeadSources/LeadSources";
-// import Automation from "../pages/Automation/Automation";
-// import Email from "../pages/Email/Email";
-// import WhatsApp from "../pages/WhatsApp/WhatsApp";
-// import AICalls from "../pages/AICalls/AICalls";
-// import FollowUps from "../pages/FollowUps/FollowUps";
-// import Analytics from "../pages/Analytics/Analytics";
-// import Settings from "../pages/Settings/Settings";
+
+// Auth
+import Login from "../Login/Login";
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route>
-        <Route index element={<Home />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/features" element={<Features />} />
-        <Route path="/comparisons" element={<Comparisons />} />
-        <Route path="/book-a-demo" element={<BookDemo />} />
-        <Route path="/feature/ai-calling-agent" element={<FeatureAIAgent />} />
-        <Route
-          path="/feature/whatsapp-automation"
-          element={<WhatappAutomation />}
-        />
-        <Route path="/feature/email-outreach" element={<EmailOutreach />} />
-        <Route path="/blog/:slug" element={<BlogDetails />} />
-      </Route>
-      {/* Main Dashboard Layout */}
-      {/* <Route path="/" element={<MainLayout />}>
-        <Route index element={<Dashboard />} />
+      {/* LOGIN - NO HEADER / FOOTER */}
+      <Route path="/login" element={<Login />} />
 
-        <Route path="leads" element={<Leads />} />
-      </Route> */}
+      {/* WEBSITE PAGES */}
+      <Route path="/" element={<Home />} />
+      <Route path="/contact" element={<ContactUs />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/features" element={<Features />} />
+      <Route path="/comparisons" element={<Comparisons />} />
+      <Route path="/book-a-demo" element={<BookDemo />} />
+
+      <Route path="/feature/ai-calling-agent" element={<FeatureAIAgent />} />
+
+      <Route
+        path="/feature/whatsapp-automation"
+        element={<WhatappAutomation />}
+      />
+
+      <Route path="/feature/email-outreach" element={<EmailOutreach />} />
+
+      <Route path="/blog/:slug" element={<BlogDetails />} />
     </Routes>
   );
 };
 
 export default AppRoutes;
-
-// sora sora fallback

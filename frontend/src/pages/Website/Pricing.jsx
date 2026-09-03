@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FAQHome from "./FAQHome";
 
-
 import {
   Box,
   Button,
@@ -19,6 +18,8 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckIcon from "@mui/icons-material/Check";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import NorthEastIcon from "@mui/icons-material/NorthEastOutlined";
+import PricingSection from "./PriceSection";
 
 /* =========================================================
    TOP SECTION FEATURES
@@ -246,7 +247,6 @@ const PricingCard = ({ plan }) => {
           >
             🔥
           </span>
-
           POPULAR
         </Box>
       )}
@@ -440,171 +440,234 @@ const PricingCard = ({ plan }) => {
    MAIN PRICING SECTION
 ========================================================= */
 
-export default function PricingSection() {
-    const navigate = useNavigate();
+export default function Pricing() {
+  const navigate = useNavigate();
 
   const [billing, setBilling] = useState("monthly");
 
   return (
     <>
-      {/* =====================================================
-          SECTION 1
-          PLANS THAT SCALE YOUR SALES
-      ===================================================== */}
+      {/* SECTION 1
+          PLANS THAT SCALE YOUR SALES  */}
 
       <Box
+        component="section"
         sx={{
-          minHeight: "590px",
+          width: "100%",
+
           position: "relative",
+
           overflow: "hidden",
-          backgroundColor: "#fff",
+
+          display: "flex",
+
+          justifyContent: "center",
+
+          pt: {
+            xs: 8,
+            sm: 10,
+            md: 14,
+          },
+
+          px: {
+            xs: 2,
+            sm: 3,
+          },
+          // pb: {
+          //   xs: 2,
+          //   sm: 5,
+          //   md: 7,
+          // },
+
+          backgroundColor: "#FFFFFF",
 
           backgroundImage: `
-            linear-gradient(#eeeeee 1px, transparent 1px),
-            linear-gradient(90deg, #eeeeee 1px, transparent 1px)
+            linear-gradient(
+              rgba(110, 110, 110, 0.07) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              90deg,
+              rgba(110, 110, 110, 0.07) 1px,
+              transparent 1px
+            )
           `,
 
-          backgroundSize: "23px 23px",
+          backgroundSize: "20px 20px",
         }}
       >
-        <Container
-          maxWidth={false}
+        {/* BACKGROUND GLOW */}
+
+        <Box
           sx={{
-            px: {
-              xs: 3,
-              sm: 5,
-              md: 8,
+            position: "absolute",
+
+            top: "10%",
+
+            left: "50%",
+
+            transform: "translateX(-50%)",
+
+            width: {
+              xs: "100%",
+              md: "900px",
             },
 
-            height: "100%",
+            height: {
+              xs: "500px",
+              md: "600px",
+            },
+
+            background:
+              "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.80) 45%, rgba(255,255,255,0) 75%)",
+
+            pointerEvents: "none",
+
+            zIndex: 0,
+          }}
+        />
+
+        {/* HERO CONTENT */}
+
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: 1,
+            width: "100%",
+            maxWidth: "1050px",
+            mx: "auto",
+            textAlign: "center",
+
+            // Extra space at the bottom
+            pb: {
+              xs: 4,
+              sm: 6,
+              md: 8,
+            },
           }}
         >
-          {/* MAIN CONTENT */}
-
-          <Box
+          {/* HERO TITLE */}
+          <Typography
+            component="h1"
             sx={{
-              textAlign: "center",
+              fontSize: {
+                xs: "2.2rem",
+                sm: "3rem",
+                md: "3.5rem",
+              },
+              fontWeight: 700,
+              lineHeight: 1.1,
+              letterSpacing: "-0.04em",
+              color: "#0F172A",
+            }}
+          >
+            Plans that{" "}
+            <Box
+              component="span"
+              sx={{
+                display: "inline-block",
+                color: "#4F46E5",
+                fontWeight: 700,
+              }}
+            >
+              scale
+            </Box>{" "}
+            your sales
+          </Typography>
 
-              pt: {
-                xs: 10,
-                md: 11,
+          {/* DESCRIPTION */}
+          <Typography
+            sx={{
+              maxWidth: "760px",
+              mx: "auto",
+              mt: {
+                xs: 3,
+                md: 4,
+              },
+              fontSize: {
+                xs: "16px",
+                sm: "18px",
+                md: "20px",
+              },
+              lineHeight: 1.55,
+              color: "#526071",
+            }}
+          >
+            Automate outreach across WhatsApp, Email, and AI Voice calls — all
+            from one powerful AI sales platform.
+          </Typography>
+
+          {/* BUTTON */}
+          {/* <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mt: {
+                xs: 4,
+                md: 6,
               },
             }}
           >
-            <Typography
-              component="h1"
+            <Stack
+              direction={{
+                xs: "column",
+                sm: "row",
+              }}
+              spacing={2}
+              alignItems="center"
               sx={{
-                fontFamily: "Arial, sans-serif",
-
-                fontSize: {
-                  xs: "20px",
-                  sm: "30px",
-                  md: "40px",
+                width: {
+                  xs: "100%",
+                  sm: "auto",
                 },
-
-                fontWeight: 400,
-
-                lineHeight: 1.15,
-
-                letterSpacing: "-2.5px",
-
-                color: "#050505",
               }}
             >
-              Plans that{" "}
-              <Box
-                component="span"
+              <Button
+                endIcon={<NorthEastIcon />}
                 sx={{
-                  color: "#4f39d9",
-                  fontWeight: 700,
+                  width: {
+                    xs: "100%",
+                    sm: "340px",
+                  },
+                  maxWidth: {
+                    xs: "400px",
+                    sm: "400px",
+                  },
+                  height: "57px",
+                  borderRadius: "10px",
+                  textTransform: "none",
+                  fontSize: {
+                    xs: "17px",
+                    md: "19px",
+                  },
+                  fontWeight: 600,
+                  color: "#FFFFFF",
+                  backgroundColor: "#FF5A00",
+
+                  "&:hover": {
+                    backgroundColor: "#E94F00",
+                  },
                 }}
               >
-                scale
-              </Box>{" "}
-              your sales
-            </Typography>
+                Get Started
+              </Button>
+            </Stack>
+          </Box> */}
 
-            <Typography
-              sx={{
-                mt: 4,
-
-                color: "#58709b",
-
-                fontFamily: "Arial, sans-serif",
-
-                fontSize: {
-                  xs: "10px",
-                  md: "20px",
-                },
-
-                fontWeight: 400,
-
-                lineHeight: 1.5,
-              }}
-            >
-              Automate outreach across WhatsApp, Email, and AI Voice calls —
-              all from one powerful AI sales platform.
-            </Typography>
-
-            {/* GET STARTED */}
-
-           <Button
-  variant="contained"
-  endIcon={<ArrowForwardIcon />}
-  onClick={() => navigate("/book-a-demo")}
-  sx={{
-    minWidth: {
-      xs: "170px",
-      sm: "190px",
-    },
-
-    height: {
-      xs: "46px",
-      md: "52px",
-    },
-
-    borderRadius: "12px",
-
-    backgroundColor: "#ffffff",
-
-    color: "#000000",
-
-    fontSize: {
-      xs: "15px",
-      md: "20px",
-    },
-
-    fontWeight: 500,
-
-    textTransform: "none",
-
-    boxShadow: "none",
-
-    "&:hover": {
-      backgroundColor: "#f5f5f5",
-      boxShadow: "none",
-    },
-  }}
->
-  Book a Demo
-</Button>
-          </Box>
-
-          {/* FEATURE ROW */}
-
+          {/* FEATURES */}
           <Stack
             direction={{
               xs: "column",
-              sm: "row",
+              md: "row",
             }}
-            justifyContent="space-between"
+            justifyContent="center"
             alignItems={{
               xs: "flex-start",
-              sm: "center",
+              md: "center",
             }}
             spacing={{
               xs: 3,
-              sm: 2,
+              md: 5,
             }}
             sx={{
               mt: {
@@ -612,10 +675,18 @@ export default function PricingSection() {
                 md: 12,
               },
 
-              px: {
-                xs: 0,
-                md: 1,
+              pb: {
+                xs: 2,
+                md: 4,
               },
+
+              width: "100%",
+
+              flexWrap: {
+                md: "wrap",
+              },
+
+              rowGap: 3,
             }}
           >
             {features.map((feature) => (
@@ -624,22 +695,37 @@ export default function PricingSection() {
                 direction="row"
                 alignItems="center"
                 spacing={1.4}
+                sx={{
+                  flexShrink: 0,
+                }}
               >
                 <Box
                   sx={{
-                    width: "31px",
-                    height: "31px",
+                    width: {
+                      xs: "26px",
+                      md: "31px",
+                    },
+
+                    height: {
+                      xs: "26px",
+                      md: "31px",
+                    },
+
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+
                     color: "#5139dc",
+
                     flexShrink: 0,
                   }}
                 >
                   <AutoAwesomeIcon
                     sx={{
-                      fontSize: "30px",
-                      strokeWidth: 1.5,
+                      fontSize: {
+                        xs: "25px",
+                        md: "30px",
+                      },
                     }}
                   />
                 </Box>
@@ -651,15 +737,16 @@ export default function PricingSection() {
                     fontFamily: "Arial, sans-serif",
 
                     fontSize: {
-                      xs: "18px",
-                      md: "23px",
+                      xs: "13px",
+                      sm: "15px",
+                      md: "18px",
                     },
 
                     fontWeight: 400,
 
-                    whiteSpace: {
-                      sm: "nowrap",
-                    },
+                    whiteSpace: "nowrap",
+
+                    lineHeight: 1.2,
                   }}
                 >
                   {feature}
@@ -667,15 +754,10 @@ export default function PricingSection() {
               </Stack>
             ))}
           </Stack>
-        </Container>
+        </Box>
       </Box>
 
-      {/* =====================================================
-          SECTION 2
-          PRICING
-      ===================================================== */}
-
-      <Box
+      {/* <Box
         component="section"
         sx={{
           background: "#fff",
@@ -689,24 +771,20 @@ export default function PricingSection() {
         }}
       >
         <Container
-  maxWidth={false}
-  sx={{
-    width: "100%",
-    maxWidth: "1190px",
-    mx: "auto",
+          maxWidth={false}
+          sx={{
+            width: "100%",
+            maxWidth: "1190px",
+            mx: "auto",
 
-    px: {
-      xs: "18px",
-      md: "24px",
-    },
+            px: {
+              xs: "18px",
+              md: "24px",
+            },
 
-    boxSizing: "border-box",
-  }}
->
-
-
-          {/* PRICING BADGE */}
-
+            boxSizing: "border-box",
+          }}
+        >
           <Box
             sx={{
               display: "flex",
@@ -741,9 +819,9 @@ export default function PricingSection() {
             >
               <Box
                 sx={{
-                  width: "31px",
+                  width: "20px",
 
-                  height: "31px",
+                  height: "25px",
 
                   borderRadius: "50%",
 
@@ -762,7 +840,7 @@ export default function PricingSection() {
                   sx={{
                     color: "#e89b15",
 
-                    fontSize: "5px",
+                    fontSize: "3px",
                   }}
                 />
               </Box>
@@ -771,7 +849,7 @@ export default function PricingSection() {
                 sx={{
                   fontFamily: "Arial, sans-serif",
 
-                  fontSize: "15px",
+                  fontSize: "13px",
 
                   fontWeight: 700,
 
@@ -783,8 +861,6 @@ export default function PricingSection() {
             </Box>
           </Box>
 
-          {/* HEADING */}
-
           <Typography
             component="h2"
             sx={{
@@ -793,18 +869,18 @@ export default function PricingSection() {
               fontFamily: "Arial, sans-serif",
 
               fontSize: {
-                xs: "20px",
-                sm: "30px",
-                md: "40px",
+                xs: "2.2rem",
+                sm: "3rem",
+                md: "2.5rem",
               },
 
-              lineHeight: 1.15,
+              fontWeight: 700,
 
-              fontWeight: 400,
+              lineHeight: 1.1,
 
-              color: "#050505",
+              letterSpacing: "-0.04em",
 
-              letterSpacing: "-2px",
+              color: "#0F172A",
             }}
           >
             <Box
@@ -817,8 +893,6 @@ export default function PricingSection() {
             </Box>
             , Scale on Demand
           </Typography>
-
-          {/* DESCRIPTION */}
 
           <Typography
             sx={{
@@ -835,19 +909,18 @@ export default function PricingSection() {
               fontFamily: "Arial, sans-serif",
 
               fontSize: {
-                xs: "10px",
+                xs: "16px",
+                sm: "18px",
                 md: "20px",
               },
 
-              lineHeight: 1.5,
+              lineHeight: 1.55,
             }}
           >
             Replace separate subscriptions for Email, WhatsApp, and Callers.
             Consolidate your entire outreach stack into one system and track
             your exact calling costs in real-time.
           </Typography>
-
-          {/* BILLING TOGGLE */}
 
           <Box
             sx={{
@@ -974,32 +1047,28 @@ export default function PricingSection() {
             </Box>
           </Box>
 
-          {/* PRICING CARDS */}
-
           <Box
-  sx={{
-    display: "grid",
+            sx={{
+              display: "grid",
 
-    gridTemplateColumns: {
-      xs: "1fr",
-      sm: "repeat(2, minmax(0, 1fr))",
-      md: "repeat(3, minmax(0, 1fr))",
-    },
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, minmax(0, 1fr))",
+                md: "repeat(3, minmax(0, 1fr))",
+              },
 
-    gap: {
-      xs: "24px",
-      md: "28px",
-    },
+              gap: {
+                xs: "24px",
+                md: "28px",
+              },
 
-    width: "100%",
-    maxWidth: "1380px",
-    mx: "auto",
+              width: "100%",
+              maxWidth: "1380px",
+              mx: "auto",
 
-    alignItems: "stretch",
-  }}
->
-
-          
+              alignItems: "stretch",
+            }}
+          >
             {plans.map((plan) => (
               <Box
                 key={plan.name}
@@ -1016,17 +1085,13 @@ export default function PricingSection() {
             ))}
           </Box>
         </Container>
-      </Box>
+      </Box> */}
 
-      {/* =====================================================
-          FAQ SECTION
-      ===================================================== */}
-
+      <PricingSection />
 
       {/* =====================================================
           CTA SECTION
       ===================================================== */}
-
       <Box
         sx={{
           width: "100%",
@@ -1142,8 +1207,8 @@ export default function PricingSection() {
               mb: 5,
             }}
           >
-            Automate your entire outreach across Email, WhatsApp, and AI
-            Calls, all from one dashboard.
+            Automate your entire outreach across Email, WhatsApp, and AI Calls,
+            all from one dashboard.
           </Typography>
 
           {/* CTA BUTTON */}
@@ -1151,8 +1216,7 @@ export default function PricingSection() {
           <Button
             variant="contained"
             endIcon={<ArrowForwardIcon />}
-              onClick={() => navigate("/book-a-demo")}
-
+            onClick={() => navigate("/book-a-demo")}
             sx={{
               minWidth: {
                 xs: "170px",
@@ -1190,12 +1254,9 @@ export default function PricingSection() {
           >
             Book a Demo
           </Button>
-          
         </Box>
-        
       </Box>
-            <FAQHome />
-
+      <FAQHome />
     </>
   );
 }

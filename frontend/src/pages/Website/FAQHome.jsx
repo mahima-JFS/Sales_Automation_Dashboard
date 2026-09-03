@@ -90,7 +90,7 @@ const FAQHome = () => {
 
         // IMPORTANT FOR MOBILE
         overflowX: "hidden",
-        mb: 2,
+        // mb: 2,
         p: 0,
         boxSizing: "border-box",
       }}
