@@ -15,6 +15,16 @@ import BlogDetails from "../pages/Website/BlogDetails";
 
 // Auth
 import Login from "../Login/Login";
+import ComparisonsDetails from "../pages/Website/ComparisonsDetails";
+
+// import LeadSources from "../pages/LeadSources/LeadSources";
+// import Automation from "../pages/Automation/Automation";
+// import Email from "../pages/Email/Email";
+// import WhatsApp from "../pages/WhatsApp/WhatsApp";
+// import AICalls from "../pages/AICalls/AICalls";
+// import FollowUps from "../pages/FollowUps/FollowUps";
+// import Analytics from "../pages/Analytics/Analytics";
+// import Settings from "../pages/Settings/Settings";
 
 const AppRoutes = () => {
   return (
@@ -41,6 +51,36 @@ const AppRoutes = () => {
       <Route path="/feature/email-outreach" element={<EmailOutreach />} />
 
       <Route path="/blog/:slug" element={<BlogDetails />} />
+      <Route>
+        <Route index element={<Home />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/comparisons" element={<Comparisons />} />
+        <Route path="/book-a-demo" element={<BookDemo />} />
+        <Route path="/feature/ai-calling-agent" element={<FeatureAIAgent />} />
+        <Route
+          path="/feature/whatsapp-automation"
+          element={<WhatappAutomation />}
+        />
+        <Route path="/feature/email-outreach" element={<EmailOutreach />} />
+        <Route path="/blog/:slug"element={<BlogDetails />}/>
+<Route
+  path="/comparisons/rapid-sales-vs-wati"
+  element={<ComparisonsDetails />}
+/>
+
+
+
+
+      </Route>
+      {/* Main Dashboard Layout */}
+      {/* <Route path="/" element={<MainLayout />}>
+        <Route index element={<Dashboard />} />
+
+        <Route path="leads" element={<Leads />} />
+      </Route> */}
     </Routes>
   );
 };
