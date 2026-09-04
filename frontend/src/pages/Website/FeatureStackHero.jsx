@@ -1228,7 +1228,7 @@ export default function FeatureStackHero() {
 
   return (
     <>
-      <Box
+      {/* <Box
         component="section"
         sx={{
           position: "relative",
@@ -1242,10 +1242,6 @@ export default function FeatureStackHero() {
           overflow: "hidden",
         }}
       >
-        {/* =====================================================
-          BACKGROUND GLOW
-      ===================================================== */}
-
         <Box
           sx={{
             position: "absolute",
@@ -1257,6 +1253,42 @@ export default function FeatureStackHero() {
             background:
               "radial-gradient(circle, rgba(249,115,22,0.06), transparent 70%)",
             pointerEvents: "none",
+          }}
+        /> */}
+
+      <Box
+        component="section"
+        sx={{
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+              radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+              radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+              radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+              radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+            `,
+        }}
+      >
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
           }}
         />
 

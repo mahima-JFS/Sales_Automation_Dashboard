@@ -447,10 +447,58 @@ export default function Pricing() {
 
   return (
     <>
-      {/* SECTION 1
-          PLANS THAT SCALE YOUR SALES  */}
-
       <Box
+        component="section"
+        sx={{
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+          radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+          radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+          radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+          radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+        `,
+        }}
+      >
+        {/* SQUARE GRID TEXTURE — replaces the noise overlay */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `
+            linear-gradient(rgba(79, 70, 229, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(79, 70, 229, 0.06) 1px, transparent 1px)
+          `,
+            backgroundSize: "20px 20px",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
+        {/* Optional: fade the grid toward the edges so it doesn't look uniform/flat */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(circle at 50% 30%, transparent 0%, transparent 40%, #FDFDFF 90%)",
+            opacity: 0.5,
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+        {/* <Box
         component="section"
         sx={{
           width: "100%",
@@ -496,8 +544,6 @@ export default function Pricing() {
           backgroundSize: "20px 20px",
         }}
       >
-        {/* BACKGROUND GLOW */}
-
         <Box
           sx={{
             position: "absolute",
@@ -525,7 +571,7 @@ export default function Pricing() {
 
             zIndex: 0,
           }}
-        />
+        /> */}
 
         {/* HERO CONTENT */}
 
@@ -551,13 +597,16 @@ export default function Pricing() {
             component="h1"
             sx={{
               fontSize: {
-                xs: "2rem",
-                sm: "2.5rem",
-                md: "3rem",
+                xs: "2.2rem",
+                sm: "2rem",
+                md: "2.5rem",
               },
+
               fontWeight: 700,
-              lineHeight: 1.1,
-              letterSpacing: "-0.04em",
+
+              lineHeight: 1.3,
+
+              letterSpacing: "-0.02em",
               color: "#0F172A",
             }}
           >

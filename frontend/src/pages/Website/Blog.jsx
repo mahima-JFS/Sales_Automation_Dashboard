@@ -15,6 +15,9 @@ import {
 } from "@mui/material";
 
 import ContactUs from "./ContactUs";
+import AutomateOutreach from "./AutomateOutreach";
+import ContactForm from "./ContactForm";
+import FAQHome from "./FAQHome";
 
 /* =========================================================
    CREATE SLUG
@@ -290,13 +293,6 @@ const Blog = () => {
     setLoading(true);
 
     try {
-      /*
-       * Temporary success handling.
-       *
-       * Later you can replace this section with your
-       * Laravel API request.
-       */
-
       await new Promise((resolve) => {
         setTimeout(resolve, 800);
       });
@@ -427,589 +423,441 @@ const Blog = () => {
     },
   };
 
-  /* =======================================================
-     RETURN
-  ======================================================= */
-
   return (
-    <Box
-      sx={{
-        width: "100%",
-        minHeight: "100vh",
-        backgroundColor: "#ffffff",
-        color: "#000000",
-        overflowX: "hidden",
-      }}
-    >
-      {/* ===================================================
-          BLOG HERO SECTION
-      =================================================== */}
-
+    <>
       <Box
+        component="section"
         sx={{
           width: "100%",
-          backgroundColor: "#ffffff",
-
-          pt: {
-            xs: 3,
-            sm: 5,
-            md: 7,
-          },
-
-          pb: {
-            xs: 6,
-            sm: 8,
-            md: 9,
-          },
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            px: {
-              xs: 2,
-              sm: 3,
-              md: 4,
-            },
-          }}
-        >
-          <Box
-            sx={{
-              width: "100%",
-              maxWidth: "1100px",
-              mx: "auto",
-              textAlign: "center",
-            }}
-          >
-            <Typography
-              component="h1"
-              sx={{
-                fontSize: {
-                  xs: "2.2rem",
-                  sm: "3rem",
-                  md: "2.5rem",
-                },
-
-                lineHeight: 1.15,
-                fontWeight: 700,
-                color: "#000000",
-
-                mb: {
-                  xs: 2,
-                  md: 3,
-                },
-              }}
-            >
-              Resources & {" "}
-              <Box
-                component="span"
-                sx={{
-                  color: "#4b36df",
-                  fontWeight: 700,
-                }}
-              >
-                Guides
-              </Box>
-            </Typography>
-
-            <Typography
-              sx={{
-                maxWidth: "1100px",
-                mx: "auto",
-
-                fontSize: {
-                  xs: "16px",
-                  sm: "18px",
-                  md: "21px",
-                },
-
-                lineHeight: 1.5,
-                fontWeight: 400,
-                color: "#526b8a",
-              }}
-            >
-              Practical guides on outbound automation, AI calling, WhatsApp compliance, and reducing COD returns for D2C brands — written for operators, not just marketers.
-
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
-
-      {/* ===================================================
-          BLOG CARDS
-      =================================================== */}
-
-      <Box
-        sx={{
-          width: "100%",
-
-          pb: {
-            xs: 7,
-            sm: 9,
-            md: 12,
-          },
-        }}
-      >
-        <Container
-          maxWidth="xl"
-          sx={{
-            px: {
-              xs: 2,
-              sm: 3,
-              md: 4,
-            },
-          }}
-        >
-          <Box
-            sx={{
-              width: "100%",
-
-              display: "grid",
-
-              gridTemplateColumns: {
-                xs: "1fr",
-                sm: "repeat(2, minmax(0, 1fr))",
-                md: "repeat(3, minmax(0, 1fr))",
-              },
-
-              gap: {
-                xs: 2.5,
-                md: 3,
-              },
-            }}
-          >
-            {blogData.map((blog) => (
-              <Box
-                key={blog.id}
-                sx={{
-                  width: "100%",
-
-                  display: "flex",
-
-                  backgroundColor: "#ffffff",
-
-                  border: "1px solid #dedede",
-
-                  borderRadius: "18px",
-
-                  overflow: "hidden",
-
-                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.08)",
-
-                  transition: "all 0.3s ease",
-
-                  "&:hover": {
-                    transform: "translateY(-5px)",
-
-                    boxShadow: "0 16px 35px rgba(0, 0, 0, 0.12)",
-                  },
-                }}
-              >
-                {/* BLOG CARD */}
-
-                <Box
-                  sx={{
-                    width: "100%",
-
-                    display: "flex",
-
-                    flexDirection: "column",
-                  }}
-                >
-                  {/* IMAGE */}
-
-                  <Box
-                    sx={{
-                      width: "100%",
-
-                      height: {
-                        xs: "210px",
-                        sm: "220px",
-                        md: "245px",
-                      },
-
-                      overflow: "hidden",
-
-                      backgroundColor: "#f5f5f5",
-                    }}
-                  >
-                    <Box
-                      component="img"
-                      src={blog.image}
-                      alt={blog.title}
-                      loading="lazy"
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        display: "block",
-
-                        objectFit: "cover",
-
-                        transition: "transform 0.4s ease",
-
-                        "&:hover": {
-                          transform: "scale(1.03)",
-                        },
-                      }}
-                    />
-                  </Box>
-
-                  {/* CONTENT */}
-
-                  <Box
-                    sx={{
-                      flex: 1,
-
-                      display: "flex",
-
-                      flexDirection: "column",
-
-                      px: {
-                        xs: 3,
-                        sm: 3.5,
-                        md: 3.5,
-                      },
-
-                      py: {
-                        xs: 3,
-                        sm: 3.5,
-                        md: 3.5,
-                      },
-                    }}
-                  >
-                    {/* DATE */}
-
-                    <Box
-                      sx={{
-                        display: "flex",
-
-                        alignItems: "center",
-
-                        gap: 1,
-
-                        mb: 2.2,
-                      }}
-                    >
-                      <Typography
-                        component="span"
-                        sx={{
-                          fontSize: {
-                            xs: "20px",
-                            md: "21px",
-                          },
-
-                          color: "#111111",
-
-                          lineHeight: 1,
-                        }}
-                      >
-                        📅
-                      </Typography>
-
-                      <Typography
-                        sx={{
-                          fontSize: {
-                            xs: "15px",
-                            md: "17px",
-                          },
-
-                          color: "#111111",
-
-                          fontWeight: 400,
-                        }}
-                      >
-                        {blog.date}
-                      </Typography>
-                    </Box>
-
-                    {/* TITLE */}
-
-                    <Typography
-                      component="h2"
-                      sx={{
-                        fontSize: {
-                          xs: "22px",
-                          sm: "23px",
-                          md: "25px",
-                        },
-
-                        lineHeight: 1.35,
-
-                        fontWeight: 700,
-
-                        color: "#050505",
-
-                        mb: 2.2,
-
-                        display: "-webkit-box",
-
-                        WebkitLineClamp: 2,
-
-                        WebkitBoxOrient: "vertical",
-
-                        overflow: "hidden",
-                      }}
-                    >
-                      {blog.title}
-                    </Typography>
-
-                    {/* DESCRIPTION */}
-
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "16px",
-                          md: "17px",
-                        },
-
-                        lineHeight: 1.55,
-
-                        color: "#718096",
-
-                        mb: 3,
-
-                        display: "-webkit-box",
-
-                        WebkitLineClamp: 2,
-
-                        WebkitBoxOrient: "vertical",
-
-                        overflow: "hidden",
-                      }}
-                    >
-                      {blog.description}
-                    </Typography>
-
-                    {/* READ MORE */}
-
-                    <Box
-                      sx={{
-                        mt: "auto",
-                      }}
-                    >
-                      <Button
-                        component={Link}
-                        to={`/blog/${createSlug(blog.title)}`}
-                        variant="text"
-                        endIcon={
-                          <Box
-                            component="span"
-                            sx={{
-                              fontSize: "20px",
-                              lineHeight: 1,
-                            }}
-                          >
-                            →
-                          </Box>
-                        }
-                        sx={{
-                          minWidth: "auto",
-                          p: 0,
-
-                          color: "#f45116",
-
-                          fontSize: {
-                            xs: "16px",
-                            md: "18px",
-                          },
-
-                          fontWeight: 500,
-
-                          textTransform: "none",
-
-                          "&:hover": {
-                            backgroundColor: "transparent",
-
-                            color: "#d83e08",
-                          },
-
-                          "& .MuiButton-endIcon": {
-                            marginLeft: "8px",
-                          },
-                        }}
-                      >
-                        Read More
-                      </Button>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
-            ))}
-          </Box>
-        </Container>
-      </Box>
-
-      {/* ===================================================
-          CTA SECTION
-      =================================================== */}
-
-      <Box
-        sx={{
-          width: "100%",
-
-          minHeight: {
-            xs: "480px",
-            sm: "500px",
-            md: "560px",
-          },
-
+          position: "relative",
+          overflow: "hidden",
           display: "flex",
-
-          alignItems: "center",
-
           justifyContent: "center",
 
-          textAlign: "center",
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
 
-          background:
-            "linear-gradient(180deg, #000000 0%, #080020 35%, #24165d 65%, #4935df 100%)",
+          backgroundColor: "#FDFDFF",
 
-          color: "#ffffff",
-
-          px: 2,
-
-          py: 8,
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+                    radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+                    radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+                    radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+                    radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+                  `,
         }}
       >
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
         <Box
           sx={{
             width: "100%",
+            // backgroundColor: "#ffffff",
 
-            maxWidth: "1000px",
+            // pt: {
+            //   xs: 3,
+            //   sm: 5,
+            //   md: 7,
+            // },
 
-            mx: "auto",
+            // pb: {
+            //   xs: 6,
+            //   sm: 8,
+            //   md: 9,
+            // },
           }}
         >
-          {/* LOGO */}
-
-          <Box
+          <Container
+            maxWidth="lg"
             sx={{
-              width: "75px",
-
-              height: "30px",
-
-              mx: "auto",
-
-              mb: 5,
-
-              display: "flex",
-
-              alignItems: "center",
-
-              justifyContent: "center",
+              px: {
+                xs: 2,
+                sm: 3,
+                md: 4,
+              },
             }}
           >
-            <Typography
+            <Box
               sx={{
-                fontSize: "80px",
-
-                fontWeight: 700,
-
-                color: "#ef7200",
-
-                lineHeight: 1,
+                width: "100%",
+                maxWidth: "1100px",
+                mx: "auto",
+                textAlign: "center",
               }}
             >
-              ◉
-            </Typography>
+              <Typography
+                component="h1"
+                sx={{
+                  fontSize: {
+                    xs: "2.2rem",
+                    sm: "3rem",
+                    md: "2.5rem",
+                  },
+
+                  lineHeight: 1.15,
+                  fontWeight: 700,
+                  color: "#000000",
+
+                  mb: {
+                    xs: 2,
+                    md: 3,
+                  },
+                }}
+              >
+                Resources &{" "}
+                <Box
+                  component="span"
+                  sx={{
+                    color: "#4b36df",
+                    fontWeight: 700,
+                  }}
+                >
+                  Guides
+                </Box>
+              </Typography>
+
+              <Typography
+                sx={{
+                  maxWidth: "1100px",
+                  mx: "auto",
+
+                  fontSize: {
+                    xs: "16px",
+                    sm: "18px",
+                    md: "21px",
+                  },
+
+                  lineHeight: 1.5,
+                  fontWeight: 400,
+                  color: "#526b8a",
+                  mb: 3,
+                }}
+              >
+                Practical guides on outbound automation, AI calling, WhatsApp
+                compliance, and reducing COD returns for D2C brands — written
+                for operators, not just marketers.
+              </Typography>
+            </Box>
+          </Container>
+          <Box
+            sx={{
+              width: "100%",
+
+              pb: {
+                xs: 7,
+                sm: 9,
+                md: 12,
+              },
+            }}
+          >
+            <Container
+              maxWidth="xl"
+              sx={{
+                px: {
+                  xs: 2,
+                  sm: 3,
+                  md: 4,
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  width: "100%",
+
+                  display: "grid",
+
+                  gridTemplateColumns: {
+                    xs: "1fr",
+                    sm: "repeat(2, minmax(0, 1fr))",
+                    md: "repeat(3, minmax(0, 1fr))",
+                  },
+
+                  gap: {
+                    xs: 2.5,
+                    md: 3,
+                  },
+                }}
+              >
+                {blogData.map((blog) => (
+                  <Box
+                    key={blog.id}
+                    sx={{
+                      width: "100%",
+
+                      display: "flex",
+
+                      backgroundColor: "#ffffff",
+
+                      border: "1px solid #dedede",
+
+                      borderRadius: "18px",
+
+                      overflow: "hidden",
+
+                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.08)",
+
+                      transition: "all 0.3s ease",
+
+                      "&:hover": {
+                        transform: "translateY(-5px)",
+
+                        boxShadow: "0 16px 35px rgba(0, 0, 0, 0.12)",
+                      },
+                    }}
+                  >
+                    {/* BLOG CARD */}
+
+                    <Box
+                      sx={{
+                        width: "100%",
+
+                        display: "flex",
+
+                        flexDirection: "column",
+                      }}
+                    >
+                      {/* IMAGE */}
+
+                      <Box
+                        sx={{
+                          width: "100%",
+
+                          height: {
+                            xs: "210px",
+                            sm: "220px",
+                            md: "245px",
+                          },
+
+                          overflow: "hidden",
+
+                          backgroundColor: "#f5f5f5",
+                        }}
+                      >
+                        <Box
+                          component="img"
+                          src={blog.image}
+                          alt={blog.title}
+                          loading="lazy"
+                          sx={{
+                            width: "100%",
+                            height: "100%",
+                            display: "block",
+
+                            objectFit: "cover",
+
+                            transition: "transform 0.4s ease",
+
+                            "&:hover": {
+                              transform: "scale(1.03)",
+                            },
+                          }}
+                        />
+                      </Box>
+
+                      {/* CONTENT */}
+
+                      <Box
+                        sx={{
+                          flex: 1,
+
+                          display: "flex",
+
+                          flexDirection: "column",
+
+                          px: {
+                            xs: 3,
+                            sm: 3.5,
+                            md: 3.5,
+                          },
+
+                          py: {
+                            xs: 3,
+                            sm: 3.5,
+                            md: 3.5,
+                          },
+                        }}
+                      >
+                        {/* DATE */}
+
+                        <Box
+                          sx={{
+                            display: "flex",
+
+                            alignItems: "center",
+
+                            gap: 1,
+
+                            mb: 2.2,
+                          }}
+                        >
+                          <Typography
+                            component="span"
+                            sx={{
+                              fontSize: {
+                                xs: "20px",
+                                md: "21px",
+                              },
+
+                              color: "#111111",
+
+                              lineHeight: 1,
+                            }}
+                          >
+                            📅
+                          </Typography>
+
+                          <Typography
+                            sx={{
+                              fontSize: {
+                                xs: "15px",
+                                md: "17px",
+                              },
+
+                              color: "#111111",
+
+                              fontWeight: 400,
+                            }}
+                          >
+                            {blog.date}
+                          </Typography>
+                        </Box>
+
+                        {/* TITLE */}
+
+                        <Typography
+                          component="h2"
+                          sx={{
+                            fontSize: {
+                              xs: "22px",
+                              sm: "23px",
+                              md: "25px",
+                            },
+
+                            lineHeight: 1.35,
+
+                            fontWeight: 700,
+
+                            color: "#050505",
+
+                            mb: 2.2,
+
+                            display: "-webkit-box",
+
+                            WebkitLineClamp: 2,
+
+                            WebkitBoxOrient: "vertical",
+
+                            overflow: "hidden",
+                          }}
+                        >
+                          {blog.title}
+                        </Typography>
+
+                        {/* DESCRIPTION */}
+
+                        <Typography
+                          sx={{
+                            fontSize: {
+                              xs: "16px",
+                              md: "17px",
+                            },
+
+                            lineHeight: 1.55,
+
+                            color: "#718096",
+
+                            mb: 3,
+
+                            display: "-webkit-box",
+
+                            WebkitLineClamp: 2,
+
+                            WebkitBoxOrient: "vertical",
+
+                            overflow: "hidden",
+                          }}
+                        >
+                          {blog.description}
+                        </Typography>
+
+                        {/* READ MORE */}
+
+                        <Box
+                          sx={{
+                            mt: "auto",
+                          }}
+                        >
+                          <Button
+                            component={Link}
+                            to={`/blog/${createSlug(blog.title)}`}
+                            variant="text"
+                            endIcon={
+                              <Box
+                                component="span"
+                                sx={{
+                                  fontSize: "20px",
+                                  lineHeight: 1,
+                                }}
+                              >
+                                →
+                              </Box>
+                            }
+                            sx={{
+                              minWidth: "auto",
+                              p: 0,
+
+                              color: "#f45116",
+
+                              fontSize: {
+                                xs: "16px",
+                                md: "18px",
+                              },
+
+                              fontWeight: 500,
+
+                              textTransform: "none",
+
+                              "&:hover": {
+                                backgroundColor: "transparent",
+
+                                color: "#d83e08",
+                              },
+
+                              "& .MuiButton-endIcon": {
+                                marginLeft: "8px",
+                              },
+                            }}
+                          >
+                            Read More
+                          </Button>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </Container>
           </Box>
-
-          {/* CTA HEADING */}
-
-          <Typography
-            component="h2"
-            sx={{
-              fontSize: {
-                xs: "20px",
-                sm: "30px",
-                md: "45px",
-              },
-
-              lineHeight: 1.15,
-
-              fontWeight: 400,
-
-              color: "#ffffff",
-
-              mb: 2.5,
-            }}
-          >
-            Automate Your Outreach
-          </Typography>
-
-          {/* CTA DESCRIPTION */}
-
-          <Typography
-            sx={{
-              maxWidth: "850px",
-
-              mx: "auto",
-
-              fontSize: {
-                xs: "17px",
-                sm: "19px",
-                md: "23px",
-              },
-
-              lineHeight: 1.5,
-
-              color: "#d6d4e9",
-
-              mb: 5,
-            }}
-          >
-            Automate your entire outreach across Email, WhatsApp, and AI Calls,
-            all from one dashboard.
-          </Typography>
-
-          {/* CTA BUTTON */}
-
-          <Button
-            variant="contained"
-            onClick={() => navigate("/book-a-demo")}
-            sx={{
-              minWidth: {
-                xs: "170px",
-                sm: "190px",
-              },
-              height: {
-                xs: "46px",
-                md: "52px",
-              },
-              borderRadius: "12px",
-              backgroundColor: "#ffffff",
-              color: "#000000",
-              fontSize: {
-                xs: "15px",
-                md: "20px",
-              },
-              fontWeight: 500,
-              textTransform: "none",
-              boxShadow: "none",
-              "&:hover": {
-                backgroundColor: "#f5f5f5",
-                boxShadow: "none",
-              },
-            }}
-          >
-            Book a Demo →
-          </Button>
         </Box>
       </Box>
 
-      {/* ===================================================
-          BOOK DEMO
-      =================================================== */}
+      <AutomateOutreach />
 
-      {/* ===================================================
-          CONTACT US SECTION
-      =================================================== */}
+      <ContactForm />
 
-      <ContactUs/>
-
-      {/* ===================================================
-          SNACKBAR
-      =================================================== */}
+      <FAQHome />
 
       <Snackbar
         open={snackbar.open}
@@ -1031,7 +879,7 @@ const Blog = () => {
           {snackbar.message}
         </Alert>
       </Snackbar>
-    </Box>
+    </>
   );
 };
 
