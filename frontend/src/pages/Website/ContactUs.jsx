@@ -25,6 +25,7 @@ import PhoneInputModule from "react-phone-input-2";
 const PhoneInput = PhoneInputModule?.default ?? PhoneInputModule;
 
 import "react-phone-input-2/lib/style.css";
+import ContactForm from "./ContactForm";
 
 const CONTACT_API_URL =
   import.meta.env.VITE_CONTACT_API_URL || "/api/contact-us";
@@ -319,661 +320,665 @@ const ContactUs = () => {
   });
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        minHeight: "100vh",
-        backgroundColor: "#ffffff",
-        color: "#000000",
-        overflowX: "hidden",
-      }}
-    >
-      {/* CONTACT SECTION */}
-      <Box
-        sx={{
-          width: "100%",
-          backgroundColor: "#ffffff",
-          pt: {
-            xs: 5,
-            sm: 6,
-            md: 7,
-          },
-          pb: {
-            xs: 6,
-            md: 7,
-          },
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          sx={{
-            px: {
-              xs: 2,
-              sm: 3,
-              md: 3,
-            },
-          }}
-        >
-          {/* HEADING */}
-          <Box
-            sx={{
-              width: "100%",
-              maxWidth: "800px",
-              margin: "0 auto",
-              textAlign: "center",
-              mb: {
-                xs: 4,
-                md: 5,
-              },
-            }}
-          >
-            <Typography
-              component="h1"
-              sx={{
-                fontSize: {
-                  xs: "28px",
-                  sm: "34px",
-                  md: "40px",
-                },
-                lineHeight: 1.2,
-                fontWeight: 400,
-                color: "#000000",
-                mb: {
-                  xs: 2,
-                  md: 2.5,
-                },
-              }}
-            >
-              Get in Touch
-            </Typography>
+    // <Box
+    //   sx={{
+    //     width: "100%",
+    //     minHeight: "100vh",
+    //     backgroundColor: "#ffffff",
+    //     color: "#000000",
+    //     overflowX: "hidden",
+    //   }}
+    // >
+    //   {/* CONTACT SECTION */}
+    //   <Box
+    //     sx={{
+    //       width: "100%",
+    //       backgroundColor: "#ffffff",
+    //       pt: {
+    //         xs: 5,
+    //         sm: 6,
+    //         md: 7,
+    //       },
+    //       pb: {
+    //         xs: 6,
+    //         md: 7,
+    //       },
+    //     }}
+    //   >
+    //     <Container
+    //       maxWidth="lg"
+    //       sx={{
+    //         px: {
+    //           xs: 2,
+    //           sm: 3,
+    //           md: 3,
+    //         },
+    //       }}
+    //     >
+    //       {/* HEADING */}
+    //       <Box
+    //         sx={{
+    //           width: "100%",
+    //           maxWidth: "800px",
+    //           margin: "0 auto",
+    //           textAlign: "center",
+    //           mb: {
+    //             xs: 4,
+    //             md: 5,
+    //           },
+    //         }}
+    //       >
+    //         <Typography
+    //           component="h1"
+    //           sx={{
+    //             fontSize: {
+    //               xs: "28px",
+    //               sm: "34px",
+    //               md: "40px",
+    //             },
+    //             lineHeight: 1.2,
+    //             fontWeight: 400,
+    //             color: "#000000",
+    //             mb: {
+    //               xs: 2,
+    //               md: 2.5,
+    //             },
+    //           }}
+    //         >
+    //           Get in Touch
+    //         </Typography>
 
-            <Typography
-              sx={{
-                width: "100%",
-                maxWidth: "760px",
-                margin: "0 auto",
-                fontSize: {
-                  xs: "15px",
-                  sm: "16px",
-                  md: "18px",
-                },
-                lineHeight: 1.55,
-                fontWeight: 400,
-                color: "#355777",
-              }}
-            >
-              Have a question about pricing, a specific use case, or want a
-              walkthrough? Reach out and our team will get back to you within
-              one business day.
-            </Typography>
-          </Box>
+    //         <Typography
+    //           sx={{
+    //             width: "100%",
+    //             maxWidth: "760px",
+    //             margin: "0 auto",
+    //             fontSize: {
+    //               xs: "15px",
+    //               sm: "16px",
+    //               md: "18px",
+    //             },
+    //             lineHeight: 1.55,
+    //             fontWeight: 400,
+    //             color: "#355777",
+    //           }}
+    //         >
+    //           Have a question about pricing, a specific use case, or want a
+    //           walkthrough? Reach out and our team will get back to you within
+    //           one business day.
+    //         </Typography>
+    //       </Box>
 
-          {/* FORM */}
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{
-              width: "90%",
-              maxWidth: "800px",
-              mx: "auto",
-              backgroundColor: "#ffffff",
-              border: "1px solid #dddddf",
-              borderRadius: {
-                xs: "14px",
-                sm: "17px",
-                md: "20px",
-              },
-              px: {
-                xs: 1.5,
-                sm: 2.5,
-                md: 3,
-              },
-              py: {
-                xs: 2,
-                sm: 2.5,
-                md: 3,
-              },
-              boxShadow: "0 5px 20px rgba(91, 65, 255, 0.05)",
-            }}
-          >
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "1fr",
-                  md: "1fr 1fr",
-                },
-                columnGap: {
-                  md: 3,
-                },
-                rowGap: {
-                  xs: 2.5,
-                  md: 3,
-                },
-              }}
-            >
-              {/* FULL NAME */}
-              <Box>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: "14px",
-                      md: "15px",
-                    },
-                    lineHeight: 1.3,
-                    fontWeight: 500,
-                    color: "#000000",
-                    mb: 1,
-                  }}
-                >
-                  Full Name <span>*</span>
-                </Typography>
+    //       {/* FORM */}
+    //       <Box
+    //         component="form"
+    //         onSubmit={handleSubmit}
+    //         noValidate
+    //         sx={{
+    //           width: "90%",
+    //           maxWidth: "800px",
+    //           mx: "auto",
+    //           backgroundColor: "#ffffff",
+    //           border: "1px solid #dddddf",
+    //           borderRadius: {
+    //             xs: "14px",
+    //             sm: "17px",
+    //             md: "20px",
+    //           },
+    //           px: {
+    //             xs: 1.5,
+    //             sm: 2.5,
+    //             md: 3,
+    //           },
+    //           py: {
+    //             xs: 2,
+    //             sm: 2.5,
+    //             md: 3,
+    //           },
+    //           boxShadow: "0 5px 20px rgba(91, 65, 255, 0.05)",
+    //         }}
+    //       >
+    //         <Box
+    //           sx={{
+    //             display: "grid",
+    //             gridTemplateColumns: {
+    //               xs: "1fr",
+    //               md: "1fr 1fr",
+    //             },
+    //             columnGap: {
+    //               md: 3,
+    //             },
+    //             rowGap: {
+    //               xs: 2.5,
+    //               md: 3,
+    //             },
+    //           }}
+    //         >
+    //           {/* FULL NAME */}
+    //           <Box>
+    //             <Typography
+    //               sx={{
+    //                 fontSize: {
+    //                   xs: "14px",
+    //                   md: "15px",
+    //                 },
+    //                 lineHeight: 1.3,
+    //                 fontWeight: 500,
+    //                 color: "#000000",
+    //                 mb: 1,
+    //               }}
+    //             >
+    //               Full Name <span>*</span>
+    //             </Typography>
 
-                <TextField
-                  fullWidth
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  variant="outlined"
-                  error={submitted && Boolean(errors.fullName)}
-                  helperText={submitted ? errors.fullName : ""}
-                  sx={fieldSx("fullName")}
-                />
-              </Box>
+    //             <TextField
+    //               fullWidth
+    //               name="fullName"
+    //               value={formData.fullName}
+    //               onChange={handleChange}
+    //               placeholder="John Doe"
+    //               variant="outlined"
+    //               error={submitted && Boolean(errors.fullName)}
+    //               helperText={submitted ? errors.fullName : ""}
+    //               sx={fieldSx("fullName")}
+    //             />
+    //           </Box>
 
-              {/* EMAIL */}
-              <Box>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: "14px",
-                      md: "15px",
-                    },
-                    lineHeight: 1.3,
-                    fontWeight: 500,
-                    color: "#000000",
-                    mb: 1,
-                  }}
-                >
-                  Email <span>*</span>
-                </Typography>
+    //           {/* EMAIL */}
+    //           <Box>
+    //             <Typography
+    //               sx={{
+    //                 fontSize: {
+    //                   xs: "14px",
+    //                   md: "15px",
+    //                 },
+    //                 lineHeight: 1.3,
+    //                 fontWeight: 500,
+    //                 color: "#000000",
+    //                 mb: 1,
+    //               }}
+    //             >
+    //               Email <span>*</span>
+    //             </Typography>
 
-                <TextField
-                  fullWidth
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@email.com"
-                  variant="outlined"
-                  error={submitted && Boolean(errors.email)}
-                  helperText={submitted ? errors.email : ""}
-                  sx={fieldSx("email")}
-                />
-              </Box>
+    //             <TextField
+    //               fullWidth
+    //               type="email"
+    //               name="email"
+    //               value={formData.email}
+    //               onChange={handleChange}
+    //               placeholder="john@email.com"
+    //               variant="outlined"
+    //               error={submitted && Boolean(errors.email)}
+    //               helperText={submitted ? errors.email : ""}
+    //               sx={fieldSx("email")}
+    //             />
+    //           </Box>
 
-              {/* PHONE */}
-              <Box
-                sx={{
-                  gridColumn: {
-                    xs: "auto",
-                    md: "1 / -1",
-                  },
-                  minWidth: 0,
-                  position: "relative",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: "14px",
-                      md: "15px",
-                    },
-                    fontWeight: 500,
-                    mb: 1,
-                  }}
-                >
-                  Phone Number <span>*</span>
-                </Typography>
+    //           {/* PHONE */}
+    //           <Box
+    //             sx={{
+    //               gridColumn: {
+    //                 xs: "auto",
+    //                 md: "1 / -1",
+    //               },
+    //               minWidth: 0,
+    //               position: "relative",
+    //             }}
+    //           >
+    //             <Typography
+    //               sx={{
+    //                 fontSize: {
+    //                   xs: "14px",
+    //                   md: "15px",
+    //                 },
+    //                 fontWeight: 500,
+    //                 mb: 1,
+    //               }}
+    //             >
+    //               Phone Number <span>*</span>
+    //             </Typography>
 
-                <Box
-                  sx={{
-                    width: "100%",
+    //             <Box
+    //               sx={{
+    //                 width: "100%",
 
-                    "& .react-tel-input": {
-                      width: "100%",
-                    },
+    //                 "& .react-tel-input": {
+    //                   width: "100%",
+    //                 },
 
-                    "& .react-tel-input .form-control": {
-                      width: "100%",
-                      height: {
-                        xs: "48px",
-                        md: "50px",
-                      },
-                      borderRadius: "12px",
-                      border:
-                        submitted && errors.phone
-                          ? "2px solid #ff1f1f"
-                          : "1px solid #111111",
-                      color: "#111111",
-                      fontSize: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-                      backgroundColor: "#ffffff",
-                      paddingLeft: "58px",
-                      boxSizing: "border-box",
-                    },
+    //                 "& .react-tel-input .form-control": {
+    //                   width: "100%",
+    //                   height: {
+    //                     xs: "48px",
+    //                     md: "50px",
+    //                   },
+    //                   borderRadius: "12px",
+    //                   border:
+    //                     submitted && errors.phone
+    //                       ? "2px solid #ff1f1f"
+    //                       : "1px solid #111111",
+    //                   color: "#111111",
+    //                   fontSize: {
+    //                     xs: "14px",
+    //                     md: "16px",
+    //                   },
+    //                   backgroundColor: "#ffffff",
+    //                   paddingLeft: "58px",
+    //                   boxSizing: "border-box",
+    //                 },
 
-                    "& .react-tel-input .form-control:focus": {
-                      border:
-                        submitted && errors.phone
-                          ? "2px solid #ff1f1f"
-                          : "2px solid #111111",
-                      boxShadow: "none",
-                    },
+    //                 "& .react-tel-input .form-control:focus": {
+    //                   border:
+    //                     submitted && errors.phone
+    //                       ? "2px solid #ff1f1f"
+    //                       : "2px solid #111111",
+    //                   boxShadow: "none",
+    //                 },
 
-                    "& .react-tel-input .flag-dropdown": {
-                      border: "none",
-                      borderRadius: "12px 0 0 12px",
-                      backgroundColor: "#ffffff",
-                    },
+    //                 "& .react-tel-input .flag-dropdown": {
+    //                   border: "none",
+    //                   borderRadius: "12px 0 0 12px",
+    //                   backgroundColor: "#ffffff",
+    //                 },
 
-                    "& .react-tel-input .flag-dropdown.open": {
-                      border: "none",
-                      backgroundColor: "#ffffff",
-                    },
+    //                 "& .react-tel-input .flag-dropdown.open": {
+    //                   border: "none",
+    //                   backgroundColor: "#ffffff",
+    //                 },
 
-                    "& .react-tel-input .selected-flag": {
-                      width: "50px",
-                      height: "100%",
-                      paddingLeft: "12px",
-                      borderRadius: "12px 0 0 12px",
-                      backgroundColor: "#ffffff",
-                    },
+    //                 "& .react-tel-input .selected-flag": {
+    //                   width: "50px",
+    //                   height: "100%",
+    //                   paddingLeft: "12px",
+    //                   borderRadius: "12px 0 0 12px",
+    //                   backgroundColor: "#ffffff",
+    //                 },
 
-                    "& .react-tel-input .selected-flag:hover": {
-                      backgroundColor: "#ffffff",
-                    },
+    //                 "& .react-tel-input .selected-flag:hover": {
+    //                   backgroundColor: "#ffffff",
+    //                 },
 
-                    "& .react-tel-input .selected-flag:focus": {
-                      backgroundColor: "#ffffff",
-                    },
+    //                 "& .react-tel-input .selected-flag:focus": {
+    //                   backgroundColor: "#ffffff",
+    //                 },
 
-                    "& .react-tel-input .country-list": {
-                      width: {
-                        xs: "calc(100vw - 70px)",
-                        sm: "450px",
-                        md: "450px",
-                      },
-                      maxWidth: "450px",
-                      maxHeight: "300px",
-                      zIndex: 9999,
-                      marginTop: "4px",
-                      boxShadow: "0 5px 18px rgba(0,0,0,0.18)",
-                      borderRadius: "4px",
-                      fontSize: "16px",
-                    },
+    //                 "& .react-tel-input .country-list": {
+    //                   width: {
+    //                     xs: "calc(100vw - 70px)",
+    //                     sm: "450px",
+    //                     md: "450px",
+    //                   },
+    //                   maxWidth: "450px",
+    //                   maxHeight: "300px",
+    //                   zIndex: 9999,
+    //                   marginTop: "4px",
+    //                   boxShadow: "0 5px 18px rgba(0,0,0,0.18)",
+    //                   borderRadius: "4px",
+    //                   fontSize: "16px",
+    //                 },
 
-                    "& .react-tel-input .country-list .country": {
-                      padding: "10px 12px",
-                    },
+    //                 "& .react-tel-input .country-list .country": {
+    //                   padding: "10px 12px",
+    //                 },
 
-                    "& .react-tel-input .country-list .country:hover": {
-                      backgroundColor: "#f1f1f1",
-                    },
+    //                 "& .react-tel-input .country-list .country:hover": {
+    //                   backgroundColor: "#f1f1f1",
+    //                 },
 
-                    "& .react-tel-input .country-list .country.highlight": {
-                      backgroundColor: "#f1f1f1",
-                    },
+    //                 "& .react-tel-input .country-list .country.highlight": {
+    //                   backgroundColor: "#f1f1f1",
+    //                 },
 
-                    "& .react-tel-input .country-list .search": {
-                      position: "sticky",
-                      top: 0,
-                      zIndex: 2,
-                      backgroundColor: "#ffffff",
-                      padding: "10px",
-                    },
+    //                 "& .react-tel-input .country-list .search": {
+    //                   position: "sticky",
+    //                   top: 0,
+    //                   zIndex: 2,
+    //                   backgroundColor: "#ffffff",
+    //                   padding: "10px",
+    //                 },
 
-                    "& .react-tel-input .country-list .search-box": {
-                      width: "100%",
-                      height: "38px",
-                      border: "1px solid #cccccc",
-                      borderRadius: "7px",
-                      padding: "0 10px",
-                      fontSize: "14px",
-                      boxSizing: "border-box",
-                    },
-                  }}
-                >
-                  <PhoneInput
-                    country="in"
-                    value={formData.phone}
-                    onChange={handlePhoneChange}
-                    countryCodeEditable={false}
-                    enableSearch
-                    searchPlaceholder="Search country"
-                    preferredCountries={["in", "us", "gb", "ae"]}
-                    autoFormat
-                    inputProps={{
-                      name: "phone",
-                      autoComplete: "tel",
-                      "aria-label": "Phone Number",
-                    }}
-                    isValid={(value, country) => {
-                      if (!value) {
-                        return "Valid phone required";
-                      }
+    //                 "& .react-tel-input .country-list .search-box": {
+    //                   width: "100%",
+    //                   height: "38px",
+    //                   border: "1px solid #cccccc",
+    //                   borderRadius: "7px",
+    //                   padding: "0 10px",
+    //                   fontSize: "14px",
+    //                   boxSizing: "border-box",
+    //                 },
+    //               }}
+    //             >
+    //               <PhoneInput
+    //                 country="in"
+    //                 value={formData.phone}
+    //                 onChange={handlePhoneChange}
+    //                 countryCodeEditable={false}
+    //                 enableSearch
+    //                 searchPlaceholder="Search country"
+    //                 preferredCountries={["in", "us", "gb", "ae"]}
+    //                 autoFormat
+    //                 inputProps={{
+    //                   name: "phone",
+    //                   autoComplete: "tel",
+    //                   "aria-label": "Phone Number",
+    //                 }}
+    //                 isValid={(value, country) => {
+    //                   if (!value) {
+    //                     return "Valid phone required";
+    //                   }
 
-                      const digits = String(value).replace(/\D/g, "");
-                      const dialCode = String(country?.dialCode || "");
+    //                   const digits = String(value).replace(/\D/g, "");
+    //                   const dialCode = String(country?.dialCode || "");
 
-                      const localLength = digits.length - dialCode.length;
+    //                   const localLength = digits.length - dialCode.length;
 
-                      if (localLength < 6 || localLength > 15) {
-                        return "Valid phone required";
-                      }
+    //                   if (localLength < 6 || localLength > 15) {
+    //                     return "Valid phone required";
+    //                   }
 
-                      return true;
-                    }}
-                  />
-                </Box>
+    //                   return true;
+    //                 }}
+    //               />
+    //             </Box>
 
-                {submitted && errors.phone && (
-                  <Typography
-                    sx={{
-                      color: "#ff1f1f",
-                      fontSize: "14px",
-                      marginTop: "4px",
-                    }}
-                  >
-                    {errors.phone}
-                  </Typography>
-                )}
-              </Box>
+    //             {submitted && errors.phone && (
+    //               <Typography
+    //                 sx={{
+    //                   color: "#ff1f1f",
+    //                   fontSize: "14px",
+    //                   marginTop: "4px",
+    //                 }}
+    //               >
+    //                 {errors.phone}
+    //               </Typography>
+    //             )}
+    //           </Box>
 
-              {/* COMPANY */}
-              <Box>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: "14px",
-                      md: "15px",
-                    },
-                    fontWeight: 500,
-                    mb: 1,
-                  }}
-                >
-                  Company Name <span>*</span>
-                </Typography>
+    //           {/* COMPANY */}
+    //           <Box>
+    //             <Typography
+    //               sx={{
+    //                 fontSize: {
+    //                   xs: "14px",
+    //                   md: "15px",
+    //                 },
+    //                 fontWeight: 500,
+    //                 mb: 1,
+    //               }}
+    //             >
+    //               Company Name <span>*</span>
+    //             </Typography>
 
-                <TextField
-                  fullWidth
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Enter your company name"
-                  variant="outlined"
-                  error={submitted && Boolean(errors.company)}
-                  helperText={submitted ? errors.company : ""}
-                  sx={fieldSx("company")}
-                />
-              </Box>
+    //             <TextField
+    //               fullWidth
+    //               name="company"
+    //               value={formData.company}
+    //               onChange={handleChange}
+    //               placeholder="Enter your company name"
+    //               variant="outlined"
+    //               error={submitted && Boolean(errors.company)}
+    //               helperText={submitted ? errors.company : ""}
+    //               sx={fieldSx("company")}
+    //             />
+    //           </Box>
 
-              {/* TEAM SIZE */}
-              <Box>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: "14px",
-                      md: "15px",
-                    },
-                    fontWeight: 500,
-                    mb: 1,
-                  }}
-                >
-                  Sales Team Size <span>*</span>
-                </Typography>
+    //           {/* TEAM SIZE */}
+    //           <Box>
+    //             <Typography
+    //               sx={{
+    //                 fontSize: {
+    //                   xs: "14px",
+    //                   md: "15px",
+    //                 },
+    //                 fontWeight: 500,
+    //                 mb: 1,
+    //               }}
+    //             >
+    //               Sales Team Size <span>*</span>
+    //             </Typography>
 
-                <FormControl
-                  fullWidth
-                  error={submitted && Boolean(errors.teamSize)}
-                >
-                  <Select
-                    name="teamSize"
-                    value={formData.teamSize}
-                    onChange={handleChange}
-                    displayEmpty
-                    sx={{
-                      height: {
-                        xs: "46px",
-                        md: "50px",
-                      },
-                      borderRadius: "12px",
-                      fontSize: {
-                        xs: "14px",
-                        md: "16px",
-                      },
+    //             <FormControl
+    //               fullWidth
+    //               error={submitted && Boolean(errors.teamSize)}
+    //             >
+    //               <Select
+    //                 name="teamSize"
+    //                 value={formData.teamSize}
+    //                 onChange={handleChange}
+    //                 displayEmpty
+    //                 sx={{
+    //                   height: {
+    //                     xs: "46px",
+    //                     md: "50px",
+    //                   },
+    //                   borderRadius: "12px",
+    //                   fontSize: {
+    //                     xs: "14px",
+    //                     md: "16px",
+    //                   },
 
-                      "& .MuiOutlinedInput-notchedOutline": {
-                        borderColor:
-                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
-                        borderWidth:
-                          submitted && errors.teamSize ? "2px" : "1px",
-                      },
+    //                   "& .MuiOutlinedInput-notchedOutline": {
+    //                     borderColor:
+    //                       submitted && errors.teamSize ? "#ff1f1f" : "#111111",
+    //                     borderWidth:
+    //                       submitted && errors.teamSize ? "2px" : "1px",
+    //                   },
 
-                      "&:hover .MuiOutlinedInput-notchedOutline": {
-                        borderColor:
-                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
-                      },
+    //                   "&:hover .MuiOutlinedInput-notchedOutline": {
+    //                     borderColor:
+    //                       submitted && errors.teamSize ? "#ff1f1f" : "#111111",
+    //                   },
 
-                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                        borderColor:
-                          submitted && errors.teamSize ? "#ff1f1f" : "#111111",
-                        borderWidth: "2px",
-                      },
+    //                   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    //                     borderColor:
+    //                       submitted && errors.teamSize ? "#ff1f1f" : "#111111",
+    //                     borderWidth: "2px",
+    //                   },
 
-                      "& .MuiSelect-select": {
-                        display: "flex",
-                        alignItems: "center",
-                        paddingLeft: {
-                          xs: "14px",
-                          md: "16px",
-                        },
-                      },
-                    }}
-                  >
-                    <MenuItem value="" disabled>
-                      Select team size
-                    </MenuItem>
-                    <MenuItem value="1-5">1 - 5</MenuItem>
-                    <MenuItem value="6-10">6 - 10</MenuItem>
-                    <MenuItem value="11-25">11 - 25</MenuItem>
-                    <MenuItem value="26-50">26 - 50</MenuItem>
-                    <MenuItem value="51-100">51 - 100</MenuItem>
-                    <MenuItem value="100+">100+</MenuItem>
-                  </Select>
+    //                   "& .MuiSelect-select": {
+    //                     display: "flex",
+    //                     alignItems: "center",
+    //                     paddingLeft: {
+    //                       xs: "14px",
+    //                       md: "16px",
+    //                     },
+    //                   },
+    //                 }}
+    //               >
+    //                 <MenuItem value="" disabled>
+    //                   Select team size
+    //                 </MenuItem>
+    //                 <MenuItem value="1-5">1 - 5</MenuItem>
+    //                 <MenuItem value="6-10">6 - 10</MenuItem>
+    //                 <MenuItem value="11-25">11 - 25</MenuItem>
+    //                 <MenuItem value="26-50">26 - 50</MenuItem>
+    //                 <MenuItem value="51-100">51 - 100</MenuItem>
+    //                 <MenuItem value="100+">100+</MenuItem>
+    //               </Select>
 
-                  {submitted && errors.teamSize && (
-                    <Typography
-                      sx={{
-                        color: "#ff1f1f",
-                        fontSize: "14px",
-                        marginTop: "4px",
-                      }}
-                    >
-                      {errors.teamSize}
-                    </Typography>
-                  )}
-                </FormControl>
-              </Box>
+    //               {submitted && errors.teamSize && (
+    //                 <Typography
+    //                   sx={{
+    //                     color: "#ff1f1f",
+    //                     fontSize: "14px",
+    //                     marginTop: "4px",
+    //                   }}
+    //                 >
+    //                   {errors.teamSize}
+    //                 </Typography>
+    //               )}
+    //             </FormControl>
+    //           </Box>
 
-              {/* USE CASE */}
-              <Box
-                sx={{
-                  gridColumn: {
-                    xs: "auto",
-                    md: "1 / -1",
-                  },
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: "14px",
-                      md: "15px",
-                    },
-                    fontWeight: 500,
-                    mb: 1,
-                  }}
-                >
-                  Your Use Case
-                </Typography>
+    //           {/* USE CASE */}
+    //           <Box
+    //             sx={{
+    //               gridColumn: {
+    //                 xs: "auto",
+    //                 md: "1 / -1",
+    //               },
+    //             }}
+    //           >
+    //             <Typography
+    //               sx={{
+    //                 fontSize: {
+    //                   xs: "14px",
+    //                   md: "15px",
+    //                 },
+    //                 fontWeight: 500,
+    //                 mb: 1,
+    //               }}
+    //             >
+    //               Your Use Case
+    //             </Typography>
 
-                <TextField
-                  fullWidth
-                  multiline
-                  rows={3}
-                  name="useCase"
-                  value={formData.useCase}
-                  onChange={handleChange}
-                  placeholder="Agency, brand, automation needs..."
-                  variant="outlined"
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      minHeight: {
-                        xs: "80px",
-                        md: "85px",
-                      },
-                      borderRadius: "12px",
-                      fontSize: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-                      alignItems: "flex-start",
-                    },
+    //             <TextField
+    //               fullWidth
+    //               multiline
+    //               rows={3}
+    //               name="useCase"
+    //               value={formData.useCase}
+    //               onChange={handleChange}
+    //               placeholder="Agency, brand, automation needs..."
+    //               variant="outlined"
+    //               sx={{
+    //                 "& .MuiOutlinedInput-root": {
+    //                   minHeight: {
+    //                     xs: "80px",
+    //                     md: "85px",
+    //                   },
+    //                   borderRadius: "12px",
+    //                   fontSize: {
+    //                     xs: "14px",
+    //                     md: "16px",
+    //                   },
+    //                   alignItems: "flex-start",
+    //                 },
 
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#111111",
-                    },
+    //                 "& .MuiOutlinedInput-notchedOutline": {
+    //                   borderColor: "#111111",
+    //                 },
 
-                    "&:hover .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#111111",
-                    },
+    //                 "&:hover .MuiOutlinedInput-notchedOutline": {
+    //                   borderColor: "#111111",
+    //                 },
 
-                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                      {
-                        borderColor: "#111111",
-                        borderWidth: "2px",
-                      },
+    //                 "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+    //                   {
+    //                     borderColor: "#111111",
+    //                     borderWidth: "2px",
+    //                   },
 
-                    "& textarea": {
-                      paddingLeft: {
-                        xs: "14px",
-                        md: "16px",
-                      },
-                      paddingTop: {
-                        xs: "12px",
-                        md: "14px",
-                      },
-                    },
+    //                 "& textarea": {
+    //                   paddingLeft: {
+    //                     xs: "14px",
+    //                     md: "16px",
+    //                   },
+    //                   paddingTop: {
+    //                     xs: "12px",
+    //                     md: "14px",
+    //                   },
+    //                 },
 
-                    "& textarea::placeholder": {
-                      color: "#718096",
-                      opacity: 1,
-                    },
-                  }}
-                />
-              </Box>
-            </Box>
+    //                 "& textarea::placeholder": {
+    //                   color: "#718096",
+    //                   opacity: 1,
+    //                 },
+    //               }}
+    //             />
+    //           </Box>
+    //         </Box>
 
-            {/* SEND BUTTON */}
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                mt: {
-                  xs: 3,
-                  md: 3.5,
-                },
-              }}
-            >
-              <Button
-                type="submit"
-                variant="contained"
-                disabled={loading}
-                sx={{
-                  width: {
-                    xs: "100%",
-                    sm: "200px",
-                  },
-                  height: {
-                    xs: "46px",
-                    md: "48px",
-                  },
-                  borderRadius: "12px",
-                  backgroundColor: "#4b36df",
-                  color: "#ffffff",
-                  fontSize: {
-                    xs: "14px",
-                    md: "16px",
-                  },
-                  fontWeight: 600,
-                  textTransform: "none",
-                  boxShadow: "0 8px 18px rgba(75, 54, 223, 0.20)",
-                  "&:hover": {
-                    backgroundColor: "#3d2ac5",
-                    boxShadow: "0 10px 22px rgba(75, 54, 223, 0.26)",
-                  },
-                  "&.Mui-disabled": {
-                    backgroundColor: "#8c82df",
-                    color: "#ffffff",
-                  },
-                }}
-              >
-                {loading ? "Sending..." : "Send Message"}
-              </Button>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
+    //         {/* SEND BUTTON */}
+    //         <Box
+    //           sx={{
+    //             width: "100%",
+    //             display: "flex",
+    //             justifyContent: "center",
+    //             mt: {
+    //               xs: 3,
+    //               md: 3.5,
+    //             },
+    //           }}
+    //         >
+    //           <Button
+    //             type="submit"
+    //             variant="contained"
+    //             disabled={loading}
+    //             sx={{
+    //               width: {
+    //                 xs: "100%",
+    //                 sm: "200px",
+    //               },
+    //               height: {
+    //                 xs: "46px",
+    //                 md: "48px",
+    //               },
+    //               borderRadius: "12px",
+    //               backgroundColor: "#4b36df",
+    //               color: "#ffffff",
+    //               fontSize: {
+    //                 xs: "14px",
+    //                 md: "16px",
+    //               },
+    //               fontWeight: 600,
+    //               textTransform: "none",
+    //               boxShadow: "0 8px 18px rgba(75, 54, 223, 0.20)",
+    //               "&:hover": {
+    //                 backgroundColor: "#3d2ac5",
+    //                 boxShadow: "0 10px 22px rgba(75, 54, 223, 0.26)",
+    //               },
+    //               "&.Mui-disabled": {
+    //                 backgroundColor: "#8c82df",
+    //                 color: "#ffffff",
+    //               },
+    //             }}
+    //           >
+    //             {loading ? "Sending..." : "Send Message"}
+    //           </Button>
+    //         </Box>
+    //       </Box>
+    //     </Container>
+    //   </Box>
 
-      {/* FAQ SECTION */}
+    //   {/* FAQ SECTION */}
 
+    //   <FAQHome />
+
+    //   {/* FORM STATUS MESSAGE */}
+    //   <Snackbar
+    //     open={snackbar.open}
+    //     autoHideDuration={5000}
+    //     onClose={() =>
+    //       setSnackbar((previous) => ({
+    //         ...previous,
+    //         open: false,
+    //       }))
+    //     }
+    //     anchorOrigin={{
+    //       vertical: "bottom",
+    //       horizontal: "center",
+    //     }}
+    //   >
+    //     <Alert
+    //       severity={snackbar.severity}
+    //       onClose={() =>
+    //         setSnackbar((previous) => ({
+    //           ...previous,
+    //           open: false,
+    //         }))
+    //       }
+    //       sx={{ width: "100%" }}
+    //     >
+    //       {snackbar.message}
+    //     </Alert>
+    //   </Snackbar>
+    // </Box>
+    <>
+      <ContactForm />
       <FAQHome />
-
-      {/* FORM STATUS MESSAGE */}
-      <Snackbar
-        open={snackbar.open}
-        autoHideDuration={5000}
-        onClose={() =>
-          setSnackbar((previous) => ({
-            ...previous,
-            open: false,
-          }))
-        }
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-      >
-        <Alert
-          severity={snackbar.severity}
-          onClose={() =>
-            setSnackbar((previous) => ({
-              ...previous,
-              open: false,
-            }))
-          }
-          sx={{ width: "100%" }}
-        >
-          {snackbar.message}
-        </Alert>
-      </Snackbar>
-    </Box>
+    </>
   );
 };
 
