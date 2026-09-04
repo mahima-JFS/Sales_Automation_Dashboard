@@ -39,74 +39,88 @@ const FAQHome = () => {
 
   const faqData = [
     {
-      question: " What exactly does JFS do? ",
+      question: " What exactly does TrueDialer do? ",
       answer:
-        "JFS is a smart AI sales assistant that automates multi-channel outbound outreach. It combines Email, WhatsApp, and AI Voice calls into a single workflow to engage prospects, qualify leads, and automatically hand over only high-intent, genuine buyers to your human sales team.",
-    },
+"AI-powered lead generation, qualification, follow-ups, voice calls, WhatsApp and sales automation."  
+  },
+
     {
       question: "What does it cost?",
       answer:
-        "JFS automates repetitive sales activities such as lead engagement, follow-ups, appointment booking, and customer nurturing. This allows sales teams to focus on closing deals while the platform handles outreach and lead qualification.",
-    },
+"Pricing depends on your usage, features, integrations, and business requirements."   
+ },
+
     {
       question: "Do I need coding skills to set up a campaign?",
       answer:
-        "Yes. JFS enables businesses to automate WhatsApp conversations, send personalized messages, schedule follow-ups, and engage leads at scale while maintaining a human-like communication experience.",
-    },
+"No. Campaigns can be created and managed without coding."   
+ },
+
     {
       question: "Can I send from my own company email domain? ",
       answer:
-        "Absolutely. JFS helps businesses create automated email campaigns, nurture leads, schedule follow-ups, and track engagement metrics to improve conversion rates.",
-    },
+"Yes. Connect your business email domain and send communications under your brand."   
+ },
+
     {
       question: " Can my team see a lead’s full interaction history?",
       answer:
-        "JFS can be used by agencies, real estate companies, SaaS businesses, e-commerce companies, service providers, and many other industries.",
-    },
+"Yes. View calls, messages, emails, activities, notes, and follow-ups in one place."  
+  },
+
     {
       question: " Do you supply lead lists or contact data? ",
       answer:
-        "Yes. JFS provides AI-powered voice calling capabilities to automate customer conversations and sales outreach.",
-    },
+"No. You can connect your existing leads and integrate supported lead sources."  
+  },
+
     {
       question: " How does the system know when to stop messaging a lead? ",
       answer:
-        "JFS can integrate with CRM systems to help synchronize customer information, leads, and sales activities.",
-    },
+"Automation stops based on replies, conversion, opt-outs, or your configured rules."   
+ },
+
     {
       question: " Can it handle high-volume B2B qualification?",
       answer:
-        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
-    },
+"Yes. AI can qualify, score, and route large volumes of B2B leads automatically." 
+   },
+
     {
       question: " Will using this get my WhatsApp number banned? ",
       answer:
-        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+"We follow WhatsApp's applicable policies and best practices, but no platform can guarantee zero risk of restrictions."
     },
+
     {
       question: "  What languages does the AI voice agent support? ",
       answer:
-        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+"It supports multiple Indian and international languages, depending on the selected voice."
     },
+
     {
       question: "Do the AI voice calls sound robotic?  ",
       answer:
-        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+"No. AI agents are designed for natural, conversational interactions."
     },
-    {
+
+     {
       question: " Can it recover abandoned online carts?  ",
       answer:
-        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
-    },
-    {
+"Yes. Automate reminders and follow-ups to bring customers back to checkout." 
+   },
+
+
+     {
       question: " How does this help reduce COD return-to-origin rates? ",
       answer:
-        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+"By verifying COD orders, following up on failed deliveries, and encouraging suitable prepaid conversions."
     },
-    {
+
+     {
       question: " How does this help exporters sell internationally? ",
       answer:
-        "Businesses should follow WhatsApp's policies and messaging guidelines when conducting outreach campaigns.",
+"It enables 24/7 multilingual lead qualification and follow-ups across global time zones."
     },
   ];
 
