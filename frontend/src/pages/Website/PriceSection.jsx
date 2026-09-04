@@ -504,231 +504,267 @@ const PricingSection = () => {
 
   return (
     <Box
+      component="section"
       sx={{
         width: "100%",
-        bgcolor: "#ffffff",
-        py: { xs: 2, md: 3 },
-        px: { xs: 2, sm: 2 },
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
+
+        pt: { xs: 3, sm: 5, md: 7 },
+        px: { xs: 2, sm: 3 },
+        pb: { xs: 2, sm: 3, md: 3 },
+
+        backgroundColor: "#FDFDFF",
+
+        // Layered mesh gradient — indigo, orange, and a hint of pink
+        backgroundImage: `
+              radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+              radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+              radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+              radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+            `,
       }}
     >
-      {/* =====================================================
+      {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      <Box
+        sx={{
+          width: "100%",
+          // bgcolor: "#ffffff",
+          // py: { xs: 2, md: 3 },
+          // px: { xs: 2, sm: 2 },
+        }}
+      >
+        {/* =====================================================
           BADGE
       ===================================================== */}
 
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.6,
-            px: 1.8,
-            py: 0.5,
-            borderRadius: "999px",
-            bgcolor: "#fdece0",
-          }}
-        >
-          <Typography sx={{ fontSize: 12 }}>🏷️</Typography>
-
-          <Typography
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Box
             sx={{
-              fontSize: 12,
-              fontWeight: 600,
-              color: "#f35b0b",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 0.6,
+              px: 1.8,
+              py: 0.5,
+              borderRadius: "999px",
+              bgcolor: "#fdece0",
             }}
           >
-            PRICING
-          </Typography>
-        </Box>
-      </Box>
+            <Typography sx={{ fontSize: 12 }}>🏷️</Typography>
 
-      {/* =====================================================
+            <Typography
+              sx={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: "#f35b0b",
+              }}
+            >
+              PRICING
+            </Typography>
+          </Box>
+        </Box>
+
+        {/* =====================================================
           HEADING + DESCRIPTION
       ===================================================== */}
 
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          mt: 1.5,
-        }}
-      >
-        <Typography
-          component="h2"
+        <Box
           sx={{
-            textAlign: "center",
-            fontWeight: 700,
-            fontSize: {
-              xs: 24,
-              sm: 28,
-              md: 32,
-            },
-            m: 0,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            mt: 1.5,
           }}
         >
-          <Box component="span" sx={{ color: "#4F46E5" }}>
-            Try it free,
-          </Box>{" "}
-          <Box component="span" sx={{ color: "#151b28" }}>
-            Pay only when you scale.
-          </Box>
-        </Typography>
+          <Typography
+            component="h2"
+            sx={{
+              textAlign: "center",
+              fontWeight: 700,
+              fontSize: {
+                xs: 24,
+                sm: 28,
+                md: 32,
+              },
+              m: 0,
+            }}
+          >
+            <Box component="span" sx={{ color: "#4F46E5" }}>
+              Try it free,
+            </Box>{" "}
+            <Box component="span" sx={{ color: "#151b28" }}>
+              Pay only when you scale.
+            </Box>
+          </Typography>
 
-        <Typography
-          sx={{
-            textAlign: "center",
+          <Typography
+            sx={{
+              textAlign: "center",
 
-            fontSize: {
-              xs: 15,
-              sm: 17,
-              md: 18,
-            },
-            lineHeight: 1.6,
-            color: "#6b7280",
-            maxWidth: 850,
-            mt: 1,
-          }}
-        >
-          One workspace for Replace separate subscriptions for{" "}
-          <Box component="span" sx={{ color: "#4F46E5" }}>
-            calls, WhatsApp, and email -{" "}
-          </Box>
-          instead of three separate tools. See exactly what every conversation
-          costs, as it happens.{" "}
-        </Typography>
-      </Box>
+              fontSize: {
+                xs: 15,
+                sm: 17,
+                md: 18,
+              },
+              lineHeight: 1.6,
+              color: "#6b7280",
+              maxWidth: 850,
+              mt: 1,
+            }}
+          >
+            One workspace for Replace separate subscriptions for{" "}
+            <Box component="span" sx={{ color: "#4F46E5" }}>
+              calls, WhatsApp, and email -{" "}
+            </Box>
+            instead of three separate tools. See exactly what every conversation
+            costs, as it happens.{" "}
+          </Typography>
+        </Box>
 
-      {/* =====================================================
+        {/* =====================================================
           BILLING TOGGLE
       ===================================================== */}
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
 
-          mb: "10px",
+            mb: "10px",
 
-          pr: {
-            xs: 0,
-            md: "5px",
-          },
-        }}
-      >
-        <Box>
-          <Typography
-            sx={{
-              textAlign: "right",
-              color: "#5138dc",
-              fontFamily: "Arial, sans-serif",
-              fontSize: "15px",
-              mb: "20px",
-              mr: "20px",
-              position: "relative",
+            pr: {
+              xs: 0,
+              md: "5px",
+            },
+          }}
+        >
+          <Box>
+            <Typography
+              sx={{
+                textAlign: "right",
+                color: "#5138dc",
+                fontFamily: "Arial, sans-serif",
+                fontSize: "15px",
+                mb: "20px",
+                mr: "20px",
+                position: "relative",
 
-              "&::after": {
-                content: '""',
-                position: "absolute",
-                right: "52px",
-                top: "27px",
-                width: "2px",
-                height: "25px",
-                background: "#6047e1",
-                transform: "rotate(-12deg)",
-                borderRadius: "2px",
-              },
-            }}
-          >
-            Save 29% or more
-          </Typography>
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  right: "52px",
+                  top: "27px",
+                  width: "2px",
+                  height: "25px",
+                  background: "#6047e1",
+                  transform: "rotate(-12deg)",
+                  borderRadius: "2px",
+                },
+              }}
+            >
+              Save 29% or more
+            </Typography>
 
-          <ToggleButtonGroup
-            exclusive
-            value={billing}
-            onChange={(event, value) => {
-              if (value !== null) {
-                setBilling(value);
-              }
-            }}
-            sx={{
-              height: "50px",
-              background: "#29976c",
-              borderRadius: "16px",
-              padding: "5px",
+            <ToggleButtonGroup
+              exclusive
+              value={billing}
+              onChange={(event, value) => {
+                if (value !== null) {
+                  setBilling(value);
+                }
+              }}
+              sx={{
+                height: "50px",
+                background: "#29976c",
+                borderRadius: "16px",
+                padding: "5px",
 
-              "& .MuiToggleButtonGroup-grouped": {
-                border: "none !important",
-              },
-            }}
-          >
-            {["monthly", "quarterly", "annually"].map((item) => (
-              <ToggleButton
-                key={item}
-                value={item}
-                sx={{
-                  px: {
-                    xs: "16px",
-                    md: "26px",
-                  },
+                "& .MuiToggleButtonGroup-grouped": {
+                  border: "none !important",
+                },
+              }}
+            >
+              {["monthly", "quarterly", "annually"].map((item) => (
+                <ToggleButton
+                  key={item}
+                  value={item}
+                  sx={{
+                    px: {
+                      xs: "16px",
+                      md: "26px",
+                    },
 
-                  minWidth: "100px",
+                    minWidth: "100px",
 
-                  borderRadius: "20px !important",
+                    borderRadius: "20px !important",
 
-                  color: "#fff",
+                    color: "#fff",
 
-                  fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial, sans-serif",
 
-                  fontSize: "15px",
+                    fontSize: "15px",
 
-                  fontWeight: 600,
+                    fontWeight: 600,
 
-                  textTransform: "capitalize",
+                    textTransform: "capitalize",
 
-                  "&.Mui-selected": {
-                    background: "#fff",
-                    color: "#111",
-                  },
+                    "&.Mui-selected": {
+                      background: "#fff",
+                      color: "#111",
+                    },
 
-                  "&.Mui-selected:hover": {
-                    background: "#fff",
-                  },
-                }}
-              >
-                {item}
-              </ToggleButton>
-            ))}
-          </ToggleButtonGroup>
+                    "&.Mui-selected:hover": {
+                      background: "#fff",
+                    },
+                  }}
+                >
+                  {item}
+                </ToggleButton>
+              ))}
+            </ToggleButtonGroup>
+          </Box>
         </Box>
-      </Box>
 
-      {/* =====================================================
+        {/* =====================================================
           PLAN CARDS GRID
       ===================================================== */}
 
-      <Box
-        sx={{
-          display: "grid",
+        <Box
+          sx={{
+            display: "grid",
 
-          gridTemplateColumns: {
-            xs: "1fr",
-            sm: "repeat(2, minmax(0, 1fr))",
-            lg: "repeat(3, minmax(0, 1fr))",
-          },
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, minmax(0, 1fr))",
+              lg: "repeat(3, minmax(0, 1fr))",
+            },
 
-          gap: 3,
+            gap: 3,
 
-          maxWidth: 1200,
+            maxWidth: 1200,
 
-          mx: "auto",
+            mx: "auto",
 
-          mt: 5,
-        }}
-      >
-        {plans.map((plan) => (
-          <PlanCard key={plan.tag} plan={plan} billing={billing} />
-        ))}
+            mt: 5,
+          }}
+        >
+          {plans.map((plan) => (
+            <PlanCard key={plan.tag} plan={plan} billing={billing} />
+          ))}
+        </Box>
       </Box>
     </Box>
   );

@@ -541,65 +541,96 @@ const LeadCapture = () => {
   const navigate = useNavigate();
 
   return (
+    // <Box
+    //   component="section"
+    //   sx={{
+    //     position: "relative",
+    //     width: "100%",
+    //     overflow: "hidden",
+
+    //     py: {
+    //       xs: 7,
+    //       sm: 9,
+    //       md: 11,
+    //     },
+
+    //     background: `
+    //       radial-gradient(
+    //         circle at 42% 45%,
+    //         rgba(235, 139, 53, 0.10),
+    //         transparent 28%
+    //       ),
+    //       radial-gradient(
+    //         circle at 82% 20%,
+    //         rgba(79,70,229,0.045),
+    //         transparent 30%
+    //       ),
+    //       #f8f8f8
+    //     `,
+    //   }}
+    // >
+    //   <Box
+    //     sx={{
+    //       position: "absolute",
+    //       width: 420,
+    //       height: 420,
+    //       borderRadius: "50%",
+    //       left: -250,
+    //       bottom: -250,
+    //       background:
+    //         "radial-gradient(circle, rgba(245,91,11,0.06), transparent 70%)",
+    //       filter: "blur(20px)",
+    //       pointerEvents: "none",
+    //     }}
+    //   />
+
+    //   <Box
+    //     sx={{
+    //       position: "absolute",
+    //       width: 450,
+    //       height: 450,
+    //       borderRadius: "50%",
+    //       right: -260,
+    //       top: -260,
+    //       background:
+    //         "radial-gradient(circle, rgba(79,70,229,0.06), transparent 70%)",
+    //       filter: "blur(20px)",
+    //       pointerEvents: "none",
+    //     }}
+    //   />
     <Box
       component="section"
       sx={{
-        position: "relative",
         width: "100%",
+        position: "relative",
         overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
 
-        py: {
-          xs: 7,
-          sm: 9,
-          md: 11,
-        },
+        pt: { xs: 3, sm: 5, md: 7 },
+        px: { xs: 2, sm: 3 },
+        pb: { xs: 2, sm: 3, md: 3 },
 
-        background: `
-          radial-gradient(
-            circle at 42% 45%,
-            rgba(235, 139, 53, 0.10),
-            transparent 28%
-          ),
-          radial-gradient(
-            circle at 82% 20%,
-            rgba(79,70,229,0.045),
-            transparent 30%
-          ),
-          #f8f8f8
+        backgroundColor: "#FDFDFF",
+
+        // Layered mesh gradient — indigo, orange, and a hint of pink
+        backgroundImage: `
+          radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+          radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+          radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+          radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
         `,
       }}
     >
-      {/* =====================================================
-          DECORATIVE GLOW
-      ===================================================== */}
-
+      {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
       <Box
         sx={{
           position: "absolute",
-          width: 420,
-          height: 420,
-          borderRadius: "50%",
-          left: -250,
-          bottom: -250,
-          background:
-            "radial-gradient(circle, rgba(245,91,11,0.06), transparent 70%)",
-          filter: "blur(20px)",
+          inset: 0,
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
           pointerEvents: "none",
-        }}
-      />
-
-      <Box
-        sx={{
-          position: "absolute",
-          width: 450,
-          height: 450,
-          borderRadius: "50%",
-          right: -260,
-          top: -260,
-          background:
-            "radial-gradient(circle, rgba(79,70,229,0.06), transparent 70%)",
-          filter: "blur(20px)",
-          pointerEvents: "none",
+          zIndex: 0,
         }}
       />
 

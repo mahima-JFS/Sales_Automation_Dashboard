@@ -109,15 +109,8 @@ const Home = () => {
   }, []);
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        width: "100%",
-        bgcolor: "#FFFFFF",
-        color: "#0F172A",
-      }}
-    >
-      <Box
+    <Box>
+      {/* <Box
         component="section"
         sx={{
           width: "100%",
@@ -161,8 +154,6 @@ const Home = () => {
           backgroundSize: "20px 20px",
         }}
       >
-        {/* BACKGROUND GLOW */}
-
         <Box
           sx={{
             position: "absolute",
@@ -183,6 +174,93 @@ const Home = () => {
             background:
               "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.80) 45%, rgba(255,255,255,0) 75%)",
 
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        /> */}
+
+      {/* <Box
+        component="section"
+        sx={{
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+      radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+      radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+      radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+      radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+    `,
+        }}
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        /> */}
+
+      <Box
+        component="section"
+        sx={{
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+      radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+      radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+      radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+      radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+    `,
+        }}
+      >
+        {/* SQUARE GRID TEXTURE — replaces the noise overlay */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `
+        linear-gradient(rgba(79, 70, 229, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 70, 229, 0.06) 1px, transparent 1px)
+      `,
+            backgroundSize: "20px 20px",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
+        {/* Optional: fade the grid toward the edges so it doesn't look uniform/flat */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(circle at 50% 30%, transparent 0%, transparent 40%, #FDFDFF 90%)",
+            opacity: 0.5,
             pointerEvents: "none",
             zIndex: 0,
           }}
@@ -222,7 +300,7 @@ const Home = () => {
               sx={{
                 fontSize: {
                   xs: "2.2rem",
-                  sm: "3rem",
+                  sm: "2rem",
                   md: "2.5rem",
                 },
 
@@ -525,24 +603,41 @@ const Home = () => {
       ===================================================== */}
 
       <Box
+        component="section"
         sx={{
+          width: "100%",
           position: "relative",
-          py: {
-            xs: 2,
-            sm: 4,
-            md: 8,
-          },
-          px: {
-            xs: 2,
-            sm: 4,
-            md: 10,
-            lg: 18,
-          },
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
 
-          background:
-            "radial-gradient(circle at left center, rgba(99,102,241,0.12), transparent 35%), radial-gradient(circle at right center, rgba(249,115,22,0.12), transparent 35%)",
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+      radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+      radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+      radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+      radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+    `,
         }}
       >
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
         <Container maxWidth="xl" disableGutters>
           {/* TOP HEADING */}
 
