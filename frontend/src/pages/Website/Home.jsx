@@ -89,7 +89,7 @@ const SHOWCASE_ITEMS = [
     id: "leads",
     title: "Lead Management & History",
     description: "Manage every lead and interaction from one place.",
-    image: whatsappImage,
+    image: emailImage,
   },
 ];
 
@@ -611,22 +611,54 @@ const Home = () => {
           display: "flex",
           justifyContent: "center",
 
-          pt: { xs: 3, sm: 5, md: 7 },
-          px: { xs: 2, sm: 3 },
-          pb: { xs: 2, sm: 3, md: 3 },
+          pt: {
+            xs: 3,
+            sm: 5,
+            md: 7,
+          },
+
+          px: {
+            xs: 1.5,
+            sm: 2,
+            md: 4,
+            lg: 6,
+            xl: 8,
+          },
+
+          pb: {
+            xs: 2,
+            sm: 3,
+            md: 3,
+          },
 
           backgroundColor: "#FDFDFF",
 
-          // Layered mesh gradient — indigo, orange, and a hint of pink
+          // Layered mesh gradient
           backgroundImage: `
-      radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
-      radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
-      radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
-      radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+      radial-gradient(
+        at 15% 20%,
+        rgba(79, 70, 229, 0.16) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 85% 10%,
+        rgba(255, 104, 17, 0.14) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 50% 60%,
+        rgba(236, 72, 153, 0.08) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 90% 80%,
+        rgba(79, 70, 229, 0.10) 0px,
+        transparent 50%
+      )
     `,
         }}
       >
-        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        {/* Fine noise / texture overlay */}
         <Box
           sx={{
             position: "absolute",
@@ -638,311 +670,381 @@ const Home = () => {
           }}
         />
 
-        <Container maxWidth="xl" disableGutters>
-          {/* TOP HEADING */}
-
-          <Typography
-            align="center"
+        {/* MAIN CONTENT */}
+        <Box
+          sx={{
+            width: "100%",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <Container
+            maxWidth="xl"
             sx={{
-              maxWidth: 900,
+              width: "100%",
               mx: "auto",
-              mb: {
-                xs: 3,
-                sm: 4,
-                md: 5,
-              },
+
               px: {
                 xs: 1,
-                sm: 0,
+                sm: 2,
+                md: 3,
+                lg: 4,
+                xl: 5,
               },
-              fontSize: {
-                xs: 19,
-                sm: 24,
-                md: 32,
-              },
-              fontWeight: 600,
-              lineHeight: 1.35,
-              color: "#1E293B",
+
+              boxSizing: "border-box",
             }}
           >
-            Everything You Need in One Place.
-            <br />
-            <Box component="span" sx={{ color: "#4F46E5" }}>
-              More Time to Sell
-            </Box>
-            , Less Time Switching.
-          </Typography>
+            {/* TOP HEADING */}
 
-          {/* SHOWCASE */}
-
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: {
-                xs: "110px minmax(0, 1fr)",
-                sm: "150px minmax(0, 1fr)",
-                md: "260px minmax(0, 1fr)",
-              },
-
-              width: "100%",
-              maxWidth: "100%",
-
-              border: "1px solid #CBD5E1",
-              borderRadius: {
-                xs: 2,
-                sm: 3,
-                md: 5,
-              },
-
-              overflow: "hidden",
-              bgcolor: "#FFFFFF",
-
-              boxShadow: {
-                xs: "0px 12px 30px rgba(15,23,42,0.10)",
-                md: "0px 30px 80px rgba(15,23,42,0.12)",
-              },
-            }}
-          >
-            <Box
+            <Typography
+              align="center"
               sx={{
-                minWidth: 0,
+                maxWidth: 900,
+                mx: "auto",
 
-                borderRight: "1px solid #CBD5E1",
+                mb: {
+                  xs: 3,
+                  sm: 4,
+                  md: 5,
+                },
 
-                bgcolor: "#FAFAFA",
+                px: {
+                  xs: 1,
+                  sm: 0,
+                },
+
+                fontSize: {
+                  xs: 19,
+                  sm: 24,
+                  md: 32,
+                },
+
+                fontWeight: 600,
+                lineHeight: 1.35,
+                color: "#1E293B",
               }}
             >
-              {SHOWCASE_ITEMS.map((item, index) => {
-                const isActive = activeShowcase === index;
+              Everything You Need in One Place.
+              <br />
+              <Box
+                component="span"
+                sx={{
+                  color: "#4F46E5",
+                }}
+              >
+                More Time to Sell
+              </Box>
+              , Less Time Switching.
+            </Typography>
 
-                return (
-                  <Box
-                    key={item.id}
-                    onClick={() => setActiveShowcase(index)}
-                    sx={{
-                      minHeight: {
-                        xs: 40,
-                        sm: 60,
-                        md: 88,
-                      },
-
-                      px: {
-                        xs: 1,
-                        sm: 1.75,
-                        md: 3,
-                      },
-                      py: {
-                        xs: 0.75,
-                        sm: 1.25,
-                        md: 2,
-                      },
-
-                      cursor: "pointer",
-
-                      borderBottom:
-                        index !== SHOWCASE_ITEMS.length - 1
-                          ? "1px solid #CBD5E1"
-                          : "none",
-
-                      bgcolor: isActive ? "#F5F3FF" : "transparent",
-
-                      transition: "0.3s",
-
-                      "&:hover": {
-                        bgcolor: "#F8FAFC",
-                      },
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: 8.5,
-                          sm: 12,
-                          md: 15,
-                        },
-                        lineHeight: 1.25,
-                        fontWeight: isActive ? 700 : 500,
-                        color: isActive ? "#4F46E5" : "#1E293B",
-                      }}
-                    >
-                      {item.title}
-                    </Typography>
-
-                    {item.description && (
-                      <Typography
-                        sx={{
-                          mt: 0.5,
-                          fontSize: {
-                            xs: 7,
-                            sm: 10,
-                            md: 12,
-                          },
-                          lineHeight: 1.3,
-                          color: "#64748B",
-
-                          display: {
-                            xs: "none",
-                            sm: "-webkit-box",
-                          },
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                        }}
-                      >
-                        {item.description}
-                      </Typography>
-                    )}
-                  </Box>
-                );
-              })}
-            </Box>
-
-            {/* =========================================
-        RIGHT IMAGE / VIDEO
-    ========================================= */}
+            {/* SHOWCASE */}
 
             <Box
               sx={{
-                position: "relative",
+                display: "grid",
+
+                gridTemplateColumns: {
+                  xs: "110px minmax(0, 1fr)",
+                  sm: "150px minmax(0, 1fr)",
+                  md: "260px minmax(0, 1fr)",
+                },
+
                 width: "100%",
-                minWidth: 0,
-                minHeight: {
-                  xs: 220,
-                  sm: 320,
-                  md: 530,
+                maxWidth: "100%",
+
+                border: "1px solid #CBD5E1",
+
+                borderRadius: {
+                  xs: 2,
+                  sm: 3,
+                  md: 5,
                 },
 
                 overflow: "hidden",
 
-                bgcolor: "#F8FAFC",
+                bgcolor: "#FFFFFF",
+
+                boxShadow: {
+                  xs: "0px 12px 30px rgba(15,23,42,0.10)",
+                  md: "0px 30px 80px rgba(15,23,42,0.12)",
+                },
               }}
             >
-              {SHOWCASE_ITEMS[activeShowcase].video ? (
-                <Box
-                  component="video"
-                  key={SHOWCASE_ITEMS[activeShowcase].id}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  sx={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center top",
-                    display: "block",
-                  }}
-                >
-                  <source
-                    src={SHOWCASE_ITEMS[activeShowcase].video}
-                    type="video/mp4"
-                  />
-                </Box>
-              ) : (
-                <Box
-                  component="img"
-                  src={SHOWCASE_ITEMS[activeShowcase].image}
-                  alt={SHOWCASE_ITEMS[activeShowcase].title}
-                  sx={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center top",
-                    transition: "opacity 0.4s ease",
-                  }}
-                />
-              )}
-
-              {/* TITLE OVERLAY */}
+              {/* LEFT MENU */}
 
               <Box
                 sx={{
-                  position: "absolute",
+                  minWidth: 0,
 
-                  top: {
-                    xs: 8,
-                    sm: 16,
-                    md: 30,
-                  },
+                  borderRight: "1px solid #CBD5E1",
 
-                  left: "50%",
-
-                  transform: "translateX(-50%)",
-
-                  width: "90%",
-
-                  textAlign: "center",
-
-                  zIndex: 2,
+                  bgcolor: "#FAFAFA",
                 }}
               >
-                <Typography
+                {SHOWCASE_ITEMS.map((item, index) => {
+                  const isActive = activeShowcase === index;
+
+                  return (
+                    <Box
+                      key={item.id}
+                      onClick={() => setActiveShowcase(index)}
+                      sx={{
+                        minHeight: {
+                          xs: 40,
+                          sm: 60,
+                          md: 88,
+                        },
+
+                        px: {
+                          xs: 1,
+                          sm: 1.75,
+                          md: 3,
+                        },
+
+                        py: {
+                          xs: 0.75,
+                          sm: 1.25,
+                          md: 2,
+                        },
+
+                        cursor: "pointer",
+
+                        borderBottom:
+                          index !== SHOWCASE_ITEMS.length - 1
+                            ? "1px solid #CBD5E1"
+                            : "none",
+
+                        bgcolor: isActive ? "#F5F3FF" : "transparent",
+
+                        transition: "0.3s",
+
+                        "&:hover": {
+                          bgcolor: "#F8FAFC",
+                        },
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: 8.5,
+                            sm: 12,
+                            md: 15,
+                          },
+
+                          lineHeight: 1.25,
+
+                          fontWeight: isActive ? 700 : 500,
+
+                          color: isActive ? "#4F46E5" : "#1E293B",
+                        }}
+                      >
+                        {item.title}
+                      </Typography>
+
+                      {item.description && (
+                        <Typography
+                          sx={{
+                            mt: 0.5,
+
+                            fontSize: {
+                              xs: 7,
+                              sm: 10,
+                              md: 12,
+                            },
+
+                            lineHeight: 1.3,
+
+                            color: "#64748B",
+
+                            display: {
+                              xs: "none",
+                              sm: "-webkit-box",
+                            },
+
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+
+                            overflow: "hidden",
+                          }}
+                        >
+                          {item.description}
+                        </Typography>
+                      )}
+                    </Box>
+                  );
+                })}
+              </Box>
+
+              {/* RIGHT IMAGE / VIDEO */}
+
+              <Box
+                sx={{
+                  position: "relative",
+
+                  width: "100%",
+                  minWidth: 0,
+
+                  minHeight: {
+                    xs: 220,
+                    sm: 320,
+                    md: 530,
+                  },
+
+                  overflow: "hidden",
+
+                  bgcolor: "#F8FAFC",
+                }}
+              >
+                {SHOWCASE_ITEMS[activeShowcase].video ? (
+                  <Box
+                    component="video"
+                    key={SHOWCASE_ITEMS[activeShowcase].id}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    sx={{
+                      position: "absolute",
+
+                      inset: 0,
+
+                      width: "100%",
+                      height: "100%",
+
+                      objectFit: "cover",
+
+                      objectPosition: "center top",
+
+                      display: "block",
+                    }}
+                  >
+                    <source
+                      src={SHOWCASE_ITEMS[activeShowcase].video}
+                      type="video/mp4"
+                    />
+                  </Box>
+                ) : (
+                  <Box
+                    component="img"
+                    src={SHOWCASE_ITEMS[activeShowcase].image}
+                    alt={SHOWCASE_ITEMS[activeShowcase].title}
+                    sx={{
+                      position: "absolute",
+
+                      inset: 0,
+
+                      width: "100%",
+                      height: "100%",
+
+                      objectFit: "cover",
+
+                      objectPosition: "center top",
+
+                      transition: "opacity 0.4s ease",
+                    }}
+                  />
+                )}
+
+                {/* TITLE OVERLAY */}
+
+                <Box
                   sx={{
-                    fontSize: {
-                      xs: 11,
+                    position: "absolute",
+
+                    top: {
+                      xs: 8,
                       sm: 16,
                       md: 30,
                     },
 
-                    fontWeight: 700,
+                    left: "50%",
 
-                    color: "#FFFFFF",
+                    transform: "translateX(-50%)",
 
-                    textShadow: "0px 2px 10px rgba(0,0,0,0.35)",
+                    width: "90%",
+
+                    textAlign: "center",
+
+                    zIndex: 2,
                   }}
                 >
-                  {SHOWCASE_ITEMS[activeShowcase].title}
-                </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: {
+                        xs: 11,
+                        sm: 16,
+                        md: 30,
+                      },
+
+                      fontWeight: 700,
+
+                      color: "#FFFFFF",
+
+                      textShadow: "0px 2px 10px rgba(0,0,0,0.35)",
+                    }}
+                  >
+                    {SHOWCASE_ITEMS[activeShowcase].title}
+                  </Typography>
+                </Box>
               </Box>
             </Box>
-          </Box>
 
-          {/* BOTTOM TEXT */}
+            {/* BOTTOM TEXT */}
 
-          <Typography
-            align="center"
-            sx={{
-              maxWidth: 850,
-              mx: "auto",
-              mt: {
-                xs: 3,
-                sm: 4,
-                md: 5,
-              },
-              px: {
-                xs: 1,
-                sm: 0,
-              },
+            <Typography
+              align="center"
+              sx={{
+                maxWidth: 850,
+                mx: "auto",
 
-              fontSize: {
-                xs: 15,
-                sm: 18,
-                md: 24,
-              },
+                mt: {
+                  xs: 3,
+                  sm: 4,
+                  md: 5,
+                },
 
-              fontWeight: 600,
+                px: {
+                  xs: 1,
+                  sm: 0,
+                },
 
-              lineHeight: 1.5,
+                fontSize: {
+                  xs: 15,
+                  sm: 18,
+                  md: 24,
+                },
 
-              color: "#475569",
-            }}
-          >
-            <Box component="span" sx={{ color: "#4F46E5" }}>
-              Sales Automation
-            </Box>{" "}
-            brings your outreach together.{" "}
-            <Box component="span" sx={{ color: "#4F46E5" }}>
-              Launch email campaigns, send WhatsApp messages, run AI-powered
-              sales calls,
-            </Box>{" "}
-            and track every touchpoint from one place.
-          </Typography>
-        </Container>
+                fontWeight: 600,
+
+                lineHeight: 1.5,
+
+                color: "#475569",
+              }}
+            >
+              <Box
+                component="span"
+                sx={{
+                  color: "#4F46E5",
+                }}
+              >
+                Sales Automation
+              </Box>{" "}
+              brings your outreach together.{" "}
+              <Box
+                component="span"
+                sx={{
+                  color: "#4F46E5",
+                }}
+              >
+                Launch email campaigns, send WhatsApp messages, run AI-powered
+                sales calls,
+              </Box>{" "}
+              and track every touchpoint from one place.
+            </Typography>
+          </Container>
+        </Box>
       </Box>
       {/* Feature  */}
       <FeatureStackHero />
