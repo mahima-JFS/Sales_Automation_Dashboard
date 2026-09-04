@@ -1,4 +1,5 @@
 import React from "react";
+import FAQHome from "./FAQHome";
 
 import {
   Box,
@@ -629,47 +630,7 @@ const BlogDetails = () => {
 
   const articleData = getArticleData(title);
 
-  // ==========================================================
-  // FAQ
-  // ==========================================================
-
-  const faqs = [
-    {
-      question: "What is sales automation?",
-      answer:
-        "Sales automation uses software, workflows and AI to automate repetitive sales communication, follow-ups and lead management tasks.",
-    },
-    {
-      question:
-        "Can WhatsApp and AI voice calls be used together?",
-      answer:
-        "Yes. Businesses can use AI voice calls for direct conversations and WhatsApp for follow-up messages, links and additional information.",
-    },
-    {
-      question:
-        "How does automation help sales teams?",
-      answer:
-        "Automation reduces repetitive manual work, improves follow-up consistency and helps sales teams respond to prospects more quickly.",
-    },
-    {
-      question:
-        "Can automated communication be personalized?",
-      answer:
-        "Yes. Automated messages can use customer information such as name, company, enquiry details and previous interactions.",
-    },
-    {
-      question:
-        "How can businesses measure automation performance?",
-      answer:
-        "Businesses can measure response rates, conversion rates, campaign ROI, follow-up performance and revenue generated from automated campaigns.",
-    },
-    {
-      question:
-        "Does automation completely replace sales representatives?",
-      answer:
-        "No. Automation is designed to handle repetitive tasks and support sales representatives. Human interaction remains important for complex sales conversations.",
-    },
-  ];
+  
 
   // ==========================================================
   // RECENT POSTS
@@ -1377,140 +1338,9 @@ const BlogDetails = () => {
       </Container>
 
 
-      {/* ======================================================
-          FAQ
-      ====================================================== */}
-
-     <Container
-  maxWidth={false}
-  sx={{
-    maxWidth: "1000px", // decreases left/right space
-    mx: "auto",
-    px: {
-      xs: 1.5,
-      sm: 2,
-      md: 3,
-    },
-    pb: 8,
-  }}
->
-  <Typography
-    component="h2"
-    sx={{
-      textAlign: "center",
-      fontSize: {
-        xs: 28,
-        md: 30,
-      },
-      lineHeight: 1.2,
-      fontWeight: 800,
-      color: "#050505",
-      mb: 4,
-    }}
-  >
-    Frequently Asked Questions
-  </Typography>
-
-  {faqs.map((faq, index) => (
-    <Accordion
-      key={index}
-      disableGutters
-      elevation={0}
-      sx={{
-        border: "1px solid #dedede",
-        borderRadius: "18px !important",
-        mb: 1.5, // decreased gap between boxes
-        overflow: "hidden",
-        backgroundColor: "#fff",
-
-        "&:before": {
-          display: "none",
-        },
-      }}
-    >
-      <AccordionSummary
-        expandIcon={
-          <ExpandMore
-            sx={{
-              fontSize: 20,
-            }}
-          />
-        }
-        sx={{
-          px: {
-            xs: 2,
-            md: 3,
-          },
-          py: {
-            xs: 1,
-            md: 1.5,
-          },
-          minHeight: "unset",
-
-          "&.Mui-expanded": {
-            minHeight: "unset",
-          },
-
-          "& .MuiAccordionSummary-content": {
-            margin: "8px 0",
-          },
-
-          "& .MuiAccordionSummary-content.Mui-expanded": {
-            margin: "8px 0",
-          },
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: {
-              xs: 14,
-              md: 18,
-            },
-            color: "#111",
-            fontWeight: 400,
-          }}
-        >
-          Q. {faq.question}
-        </Typography>
-      </AccordionSummary>
-
-      <AccordionDetails
-        sx={{
-          px: {
-            xs: 2,
-            md: 3,
-          },
-          pb: 2,
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: {
-              xs: 13,
-              md: 15,
-            },
-            lineHeight: 1.6,
-            color: "#555",
-          }}
-        >
-          {faq.answer}
-        </Typography>
-      </AccordionDetails>
-    </Accordion>
-  ))}
-</Container>
-
-      {/* ======================================================
-          WHATSAPP BUTTON
-      ====================================================== */}
-
-      
 
 
-      {/* ======================================================
-          CHAT BUTTON
-      ====================================================== */}
-
+<FAQHome/>
       
 
     </Box>
