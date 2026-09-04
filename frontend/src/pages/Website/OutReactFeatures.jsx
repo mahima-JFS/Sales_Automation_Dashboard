@@ -187,82 +187,110 @@ const OutreachBuiltIn = () => {
   }, []);
 
   return (
+    // <Box
+    //   component="section"
+    //   sx={{
+    //     position: "relative",
+    //     overflow: "hidden",
+
+    //     py: {
+    //       xs: 3,
+    //       sm: 5,
+    //       md: 8,
+    //     },
+
+    //     background: "#FAFAFB",
+    //   }}
+    // >
+    //   <Box
+    //     sx={{
+    //       position: "absolute",
+
+    //       top: -180,
+    //       left: -180,
+
+    //       width: {
+    //         xs: 300,
+    //         md: 500,
+    //       },
+
+    //       height: {
+    //         xs: 300,
+    //         md: 500,
+    //       },
+
+    //       borderRadius: "50%",
+
+    //       background:
+    //         "radial-gradient(circle, rgba(79,70,229,0.08) 0%, rgba(79,70,229,0) 70%)",
+
+    //       filter: "blur(20px)",
+
+    //       pointerEvents: "none",
+    //     }}
+    //   />
+
+    //   <Box
+    //     sx={{
+    //       position: "absolute",
+
+    //       right: -180,
+    //       bottom: -180,
+
+    //       width: {
+    //         xs: 300,
+    //         md: 500,
+    //       },
+
+    //       height: {
+    //         xs: 300,
+    //         md: 500,
+    //       },
+
+    //       borderRadius: "50%",
+
+    //       background:
+    //         "radial-gradient(circle, rgba(245,91,11,0.06) 0%, rgba(245,91,11,0) 70%)",
+
+    //       filter: "blur(25px)",
+
+    //       pointerEvents: "none",
+    //     }}
+    //   />
+
     <Box
       component="section"
       sx={{
+        width: "100%",
         position: "relative",
         overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
 
-        py: {
-          xs: 3,
-          sm: 5,
-          md: 8,
-        },
+        pt: { xs: 3, sm: 5, md: 7 },
+        px: { xs: 2, sm: 3 },
+        pb: { xs: 2, sm: 3, md: 3 },
 
-        background: "#FAFAFB",
+        backgroundColor: "#FDFDFF",
+
+        // Layered mesh gradient — indigo, orange, and a hint of pink
+        backgroundImage: `
+              radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+              radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+              radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+              radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+            `,
       }}
     >
-      {/* =====================================================
-          BACKGROUND GLOW - TOP LEFT
-      ===================================================== */}
-
+      {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
       <Box
         sx={{
           position: "absolute",
-
-          top: -180,
-          left: -180,
-
-          width: {
-            xs: 300,
-            md: 500,
-          },
-
-          height: {
-            xs: 300,
-            md: 500,
-          },
-
-          borderRadius: "50%",
-
-          background:
-            "radial-gradient(circle, rgba(79,70,229,0.08) 0%, rgba(79,70,229,0) 70%)",
-
-          filter: "blur(20px)",
-
+          inset: 0,
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
           pointerEvents: "none",
-        }}
-      />
-
-      {/* =====================================================
-          BACKGROUND GLOW - BOTTOM RIGHT
-      ===================================================== */}
-
-      <Box
-        sx={{
-          position: "absolute",
-
-          right: -180,
-          bottom: -180,
-
-          width: {
-            xs: 300,
-            md: 500,
-          },
-
-          height: {
-            xs: 300,
-            md: 500,
-          },
-
-          borderRadius: "50%",
-
-          background:
-            "radial-gradient(circle, rgba(245,91,11,0.06) 0%, rgba(245,91,11,0) 70%)",
-
-          filter: "blur(25px)",
-
-          pointerEvents: "none",
+          zIndex: 0,
         }}
       />
 

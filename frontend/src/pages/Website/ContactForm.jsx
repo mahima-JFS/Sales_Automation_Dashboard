@@ -216,32 +216,67 @@ const ContactForm = () => {
   });
 
   return (
+    // <Box
+    //   sx={{
+    //     width: "100%",
+    //     minHeight: "100vh",
+    //     backgroundColor: "#ffffff",
+    //     color: "#000000",
+    //     overflowX: "hidden",
+    //   }}
+    // >
     <Box
+      component="section"
       sx={{
         width: "100%",
-        minHeight: "100vh",
-        backgroundColor: "#ffffff",
-        color: "#000000",
-        overflowX: "hidden",
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
+
+        pt: { xs: 3, sm: 5, md: 7 },
+        px: { xs: 2, sm: 3 },
+        pb: { xs: 2, sm: 3, md: 3 },
+
+        backgroundColor: "#FDFDFF",
+
+        // Layered mesh gradient — indigo, orange, and a hint of pink
+        backgroundImage: `
+              radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+              radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+              radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+              radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+            `,
       }}
     >
+      {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
       {/* CONTACT SECTION */}
       <Box
         sx={{
           width: "100%",
-          backgroundColor: "#ffffff",
+          // backgroundColor: "#ffffff",
 
-          // Reduced upper space
-          pt: {
-            xs: 1.5,
-            sm: 2,
-            md: 2.5,
-          },
+          // // Reduced upper space
+          // pt: {
+          //   xs: 1.5,
+          //   sm: 2,
+          //   md: 2.5,
+          // },
 
-          pb: {
-            xs: 6,
-            md: 7,
-          },
+          // pb: {
+          //   xs: 6,
+          //   md: 7,
+          // },
         }}
       >
         <Container
@@ -378,7 +413,10 @@ const ContactForm = () => {
                 />
               </Box>
 
-              {/* PHONE */}
+              {/* =================================================
+    PHONE NUMBER
+================================================= */}
+
               <Box
                 sx={{
                   gridColumn: {
@@ -393,30 +431,191 @@ const ContactForm = () => {
                       xs: "14px",
                       md: "15px",
                     },
-
                     fontWeight: 500,
-                    mb: 0.7,
+                    color: "#000000",
+                    mb: 1,
                   }}
                 >
                   Phone Number <span>*</span>
                 </Typography>
 
-                <TextField
-                  fullWidth
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter your phone number"
-                  variant="outlined"
-                  type="tel"
-                  error={submitted && Boolean(errors.phone)}
-                  helperText={submitted ? errors.phone : ""}
-                  inputProps={{
-                    maxLength: 10,
-                    inputMode: "numeric",
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: {
+                      xs: "48px",
+                      md: "50px",
+                    },
+
+                    display: "flex",
+                    alignItems: "center",
+
+                    border:
+                      submitted && errors.phone
+                        ? "2px solid #ff1f1f"
+                        : "1px solid #111111",
+
+                    borderRadius: "12px",
+
+                    backgroundColor: "#ffffff",
+
+                    overflow: "hidden",
+
+                    boxSizing: "border-box",
+
+                    "&:focus-within": {
+                      border:
+                        submitted && errors.phone
+                          ? "2px solid #ff1f1f"
+                          : "2px solid #111111",
+                    },
                   }}
-                  sx={fieldSx("phone")}
-                />
+                >
+                  {/* COUNTRY CODE */}
+                  <Box
+                    sx={{
+                      height: "100%",
+
+                      width: {
+                        xs: "82px",
+                        sm: "88px",
+                        md: "95px",
+                      },
+
+                      minWidth: {
+                        xs: "82px",
+                        sm: "88px",
+                        md: "95px",
+                      },
+
+                      display: "flex",
+                      alignItems: "center",
+
+                      justifyContent: "center",
+
+                      gap: 0.6,
+
+                      flexShrink: 0,
+
+                      borderRight: "1px solid #e0e0e0",
+
+                      backgroundColor: "#ffffff",
+                    }}
+                  >
+                    <Typography
+                      component="span"
+                      sx={{
+                        fontSize: {
+                          xs: "17px",
+                          md: "18px",
+                        },
+
+                        lineHeight: 1,
+                      }}
+                    >
+                      🇮🇳
+                    </Typography>
+
+                    <Typography
+                      component="span"
+                      sx={{
+                        color: "#555555",
+                        fontSize: "10px",
+                        lineHeight: 1,
+                      }}
+                    >
+                      ▼
+                    </Typography>
+
+                    <Typography
+                      component="span"
+                      sx={{
+                        fontSize: {
+                          xs: "14px",
+                          md: "15px",
+                        },
+
+                        color: "#111111",
+
+                        fontWeight: 400,
+
+                        lineHeight: 1,
+                      }}
+                    >
+                      +91
+                    </Typography>
+                  </Box>
+
+                  {/* PHONE INPUT */}
+                  <TextField
+                    fullWidth
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    variant="standard"
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    error={submitted && Boolean(errors.phone)}
+                    slotProps={{
+                      input: {
+                        disableUnderline: true,
+                        inputMode: "numeric",
+                        maxLength: 10,
+                      },
+                    }}
+                    sx={{
+                      flex: 1,
+
+                      minWidth: 0,
+
+                      "& .MuiInputBase-root": {
+                        height: "100%",
+                        width: "100%",
+                        padding: 0,
+                      },
+
+                      "& input": {
+                        width: "100%",
+
+                        height: "100%",
+
+                        boxSizing: "border-box",
+
+                        padding: {
+                          xs: "0 12px",
+                          md: "0 14px",
+                        },
+
+                        fontSize: {
+                          xs: "14px",
+                          md: "16px",
+                        },
+
+                        color: "#111111",
+
+                        outline: "none",
+                      },
+
+                      "& input::placeholder": {
+                        color: "#718096",
+                        opacity: 1,
+                      },
+                    }}
+                  />
+                </Box>
+
+                {/* PHONE ERROR */}
+                {submitted && errors.phone && (
+                  <Typography
+                    sx={{
+                      color: "#ff1f1f",
+                      fontSize: "14px",
+                      marginTop: "4px",
+                    }}
+                  >
+                    {errors.phone}
+                  </Typography>
+                )}
               </Box>
 
               {/* COMPANY */}
