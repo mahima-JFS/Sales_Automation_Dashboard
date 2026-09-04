@@ -277,7 +277,7 @@ const PlatformCard = ({
         sx={{
           color: COLORS.blue,
           fontSize: { xs: 12, md: 15 },
-          fontWeight: 800,
+          fontWeight: 600,
           letterSpacing: "2px",
           textTransform: "uppercase",
           mb: 2,
@@ -285,10 +285,9 @@ const PlatformCard = ({
       >
         {subtitle}
       </Typography>
-
       <Typography
         sx={{
-          fontSize: { xs: 18, md: 22 },
+          fontSize: { xs: 15, md: 18 },
           fontWeight: 800,
           color: COLORS.black,
           mb: 2,
@@ -356,8 +355,8 @@ const PricingPlan = ({ title, price, annual, description }) => {
         <Box>
           <Typography
             sx={{
-              fontSize: { xs: 10, md: 20 },
-              fontWeight: 800,
+              fontSize: { xs: 10, md: 15 },
+              fontWeight: 700,
               color: COLORS.black,
               mb: 1,
             }}
@@ -387,7 +386,7 @@ const PricingPlan = ({ title, price, annual, description }) => {
         >
           <Typography
             sx={{
-              fontSize: { xs: 23, md: 18 },
+              fontSize: { xs: 10, md: 15 },
               fontWeight: 800,
               color: COLORS.black,
               whiteSpace: "nowrap",
@@ -437,9 +436,9 @@ const RateCard = ({ title, badge, price, description, free = false }) => {
       >
         <Typography
           sx={{
-            fontSize: { xs: 20, md: 20 },
-            fontWeight: 800,
-            color: COLORS.black,
+            fontSize: { xs: 15, md: 18 },
+            fontWeight: 700,
+            color: COLORS.orange,
           }}
         >
           {title}
@@ -492,55 +491,78 @@ export default function ComparisonsDetails() {
   const data = comparisonData[slug] || comparisonData["rapid-sales-vs-wati"];
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        bgcolor: "#fff",
-        color: COLORS.navy,
-        overflow: "hidden",
-      }}
-    >
-      {/* =====================================================
-          HERO
-      ====================================================== */}
-
+    <>
       <Box
+        component="section"
         sx={{
+          width: "100%",
           position: "relative",
           overflow: "hidden",
-          backgroundColor: "#fff",
+          display: "flex",
+          justifyContent: "center",
 
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
           backgroundImage: `
-            linear-gradient(#eef1f4 1px, transparent 1px),
-            linear-gradient(90deg, #eef1f4 1px, transparent 1px)
-          `,
-
-          backgroundSize: "20px 20px",
-          pt: {
-            xs: 3,
-            sm: 5,
-            md: 7,
-          },
+          radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+          radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+          radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+          radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+        `,
         }}
       >
-        <Container maxWidth="xl">
-          {/* Hero title */}
+        {/* SQUARE GRID TEXTURE — replaces the noise overlay */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `
+            linear-gradient(rgba(79, 70, 229, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(79, 70, 229, 0.06) 1px, transparent 1px)
+          `,
+            backgroundSize: "20px 20px",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
 
+        {/* Optional: fade the grid toward the edges so it doesn't look uniform/flat */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(circle at 50% 30%, transparent 0%, transparent 40%, #FDFDFF 90%)",
+            opacity: 0.5,
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
+        <Container maxWidth="xl">
           <Typography
             component="h1"
             sx={{
-              mt: 4,
+              // mt: 4,
               textAlign: "center",
               color: "#000",
               fontWeight: 500,
               fontSize: {
-                xs: "20px",
-                sm: "30px",
-                md: "50px",
-                lg: "45px",
+                xs: "2.2rem",
+                sm: "2rem",
+                md: "2.5rem",
               },
-              lineHeight: 1.12,
-              letterSpacing: "-0.02px",
+
+              fontWeight: 700,
+
+              lineHeight: 1.3,
+
+              letterSpacing: "-0.02em",
             }}
           >
             JFS vs{" "}
@@ -659,10 +681,18 @@ export default function ComparisonsDetails() {
               variant="contained"
               onClick={() => navigate("/book-a-demo")}
               sx={{
-                minWidth: {
-                  xs: "80%",
-                  sm: 370,
+                width: {
+                  xs: "100%",
+                  sm: "228px",
                 },
+
+                maxWidth: "228px",
+
+                height: "50px",
+
+                minHeight: "50px",
+
+                minWidth: 0,
                 py: 1.8,
                 px: 4,
                 borderRadius: "15px",
@@ -684,10 +714,18 @@ export default function ComparisonsDetails() {
               variant="outlined"
               onClick={() => navigate("/Pricing")}
               sx={{
-                minWidth: {
+                width: {
                   xs: "100%",
-                  sm: 370,
+                  sm: "228px",
                 },
+
+                maxWidth: "228px",
+
+                height: "50px",
+
+                minHeight: "50px",
+
+                minWidth: 0,
                 py: 1.8,
                 px: 4,
                 borderRadius: "12px",
@@ -708,276 +746,333 @@ export default function ComparisonsDetails() {
         </Container>
       </Box>
 
-      {/* =====================================================
-          SHORT ANSWER
-      ====================================================== */}
-      <Container maxWidth="xl">
-        <Card
-          elevation={0}
-          sx={{
-            mt: 0,
-            mb: 6,
-
-            // SAME CENTERED / REDUCED WIDTH STYLE
-            width: {
-              xs: "95%",
-              sm: "90%",
-              md: "85%",
-              lg: "80%",
-            },
-            maxWidth: "1100px",
-            mx: "auto",
-
-            // OUTSIDE BOX PADDING
-            p: {
-              xs: 2,
-              sm: 3,
-              md: 4,
-            },
-
-            boxSizing: "border-box",
-
-            border: "1px solid #e1e5ea",
-            borderRadius: "18px",
-            boxShadow: "0 10px 30px rgba(20,40,70,0.05)",
-          }}
-        >
-          {/* ===============================
-        SHORT ANSWER HEADER
-    ================================ */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              mb: 3,
-            }}
-          >
-            <Typography
-              component="span"
-              sx={{
-                color: "#f45b18",
-                fontSize: {
-                  xs: 14,
-                  md: 18,
-                },
-                fontWeight: 700,
-                letterSpacing: "3px",
-              }}
-            >
-              THE SHORT ANSWER
-            </Typography>
-          </Box>
-
-          {/* ===============================
-        DESCRIPTION
-    ================================ */}
-          <Typography
-            sx={{
-              fontSize: {
-                xs: 16,
-                sm: 18,
-                md: 21,
-              },
-              lineHeight: 1.6,
-              color: "#111827",
-              textAlign: "left",
-            }}
-          >
-            <Box component="strong">
-              Choose Wati if your support runs across Instagram and Facebook
-              Messenger as well as WhatsApp
-            </Box>{" "}
-            — it is a mature, support-first omnichannel inbox with 16,000+
-            customers.
-            <br />
-            <Box component="strong">Choose JFS if sales is the goal:</Box> it
-            sequences Email, WhatsApp, and outbound AI voice calls together —
-            and now covers inbound too.
-          </Typography>
-
-          {/* ===============================
-        TWO BOXES
-    ================================ */}
-          <Box
-            sx={{
-              mt: 3,
-              display: "grid",
-              gridTemplateColumns: {
-                xs: "1fr",
-                md: "1fr 1fr",
-              },
-              gap: {
-                xs: 2,
-                md: 3,
-              },
-              width: "100%",
-            }}
-          >
-            {/* ===============================
-          JFS - LEFT
-      ================================ */}
-            <Card
-              elevation={0}
-              sx={{
-                width: "100%",
-                boxSizing: "border-box",
-
-                p: {
-                  xs: 2.5,
-                  md: 3,
-                },
-
-                bgcolor: COLORS.peach,
-                border: `1px solid ${COLORS.peachBorder}`,
-                borderRadius: "16px",
-
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Typography
-                component="h3"
-                sx={{
-                  fontWeight: 700,
-                  fontSize: {
-                    xs: 18,
-                    md: 22,
-                  },
-                  mb: 2,
-                  color: COLORS.black,
-                  lineHeight: 1.2,
-                }}
-              >
-                JFS wins on
-              </Typography>
-
-              <Box
-                component="ul"
-                sx={{
-                  m: 0,
-                  pl: 2.5,
-
-                  "& li:last-child": {
-                    mb: 0,
-                  },
-                }}
-              >
-                {data.rapidWins.map((item, index) => (
-                  <Box
-                    component="li"
-                    key={index}
-                    sx={{
-                      mb: 1.5,
-                      color: "#264b76",
-                      fontSize: {
-                        xs: 14,
-                        md: 16,
-                      },
-                      lineHeight: 1.45,
-
-                      "&::marker": {
-                        color: COLORS.orange,
-                      },
-                    }}
-                  >
-                    {item}
-                  </Box>
-                ))}
-              </Box>
-            </Card>
-
-            {/* ===============================
-          WATI - RIGHT
-      ================================ */}
-            <Card
-              elevation={0}
-              sx={{
-                width: "100%",
-                boxSizing: "border-box",
-
-                p: {
-                  xs: 2.5,
-                  md: 3,
-                },
-
-                bgcolor: "#ffffff",
-                border: `1px solid ${COLORS.border}`,
-                borderRadius: "16px",
-
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Typography
-                component="h3"
-                sx={{
-                  fontWeight: 700,
-                  fontSize: {
-                    xs: 18,
-                    md: 22,
-                  },
-                  mb: 2,
-                  color: COLORS.black,
-                  lineHeight: 1.2,
-                }}
-              >
-                Wati wins on
-              </Typography>
-
-              <Box
-                component="ul"
-                sx={{
-                  m: 0,
-                  pl: 2.5,
-
-                  "& li:last-child": {
-                    mb: 0,
-                  },
-                }}
-              >
-                {data.watiWins.map((item, index) => (
-                  <Box
-                    component="li"
-                    key={index}
-                    sx={{
-                      mb: 1.5,
-                      color: "#264b76",
-                      fontSize: {
-                        xs: 14,
-                        md: 16,
-                      },
-                      lineHeight: 1.45,
-
-                      "&::marker": {
-                        color: COLORS.blue,
-                      },
-                    }}
-                  >
-                    {item}
-                  </Box>
-                ))}
-              </Box>
-            </Card>
-          </Box>
-        </Card>
-      </Container>
-
-      {/* =====================================================
-          HEAD TO HEAD
-      ====================================================== */}
-
+      {/*  */}
       <Box
+        component="section"
         sx={{
-          bgcolor: COLORS.background,
-          py: {
-            xs: 7,
-            md: 10,
-          },
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+          `,
         }}
       >
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
         <Container maxWidth="xl">
-          {/* Head-to-Head Label */}
+          <Card
+            elevation={0}
+            sx={{
+              mt: 0,
+              mb: 6,
+
+              // SAME CENTERED / REDUCED WIDTH STYLE
+              width: {
+                xs: "95%",
+                sm: "90%",
+                md: "85%",
+                lg: "80%",
+              },
+              maxWidth: "1100px",
+              mx: "auto",
+
+              // OUTSIDE BOX PADDING
+              p: {
+                xs: 2,
+                sm: 3,
+                md: 4,
+              },
+
+              boxSizing: "border-box",
+
+              border: "1px solid #e1e5ea",
+              borderRadius: "18px",
+              boxShadow: "0 10px 30px rgba(20,40,70,0.05)",
+            }}
+          >
+            {/* ===============================
+        SHORT ANSWER HEADER
+    ================================ */}
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                mb: 3,
+              }}
+            >
+              <Typography
+                component="span"
+                sx={{
+                  color: "#f45b18",
+                  fontSize: {
+                    xs: 14,
+                    md: 18,
+                  },
+                  fontWeight: 700,
+                  letterSpacing: "3px",
+                }}
+              >
+                THE SHORT ANSWER
+              </Typography>
+            </Box>
+
+            {/* ===============================
+        DESCRIPTION
+    ================================ */}
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: 16,
+                  sm: 18,
+                  md: 21,
+                },
+                lineHeight: 1.6,
+                color: "#111827",
+                textAlign: "left",
+              }}
+            >
+              <Box component="strong">
+                Choose Wati if your support runs across Instagram and Facebook
+                Messenger as well as WhatsApp
+              </Box>{" "}
+              — it is a mature, support-first omnichannel inbox with 16,000+
+              customers.
+              <br />
+              <Box component="strong">Choose JFS if sales is the goal:</Box> it
+              sequences Email, WhatsApp, and outbound AI voice calls together —
+              and now covers inbound too.
+            </Typography>
+
+            {/* ===============================
+        TWO BOXES
+    ================================ */}
+            <Box
+              sx={{
+                mt: 3,
+                display: "grid",
+                gridTemplateColumns: {
+                  xs: "1fr",
+                  md: "1fr 1fr",
+                },
+                gap: {
+                  xs: 2,
+                  md: 3,
+                },
+                width: "100%",
+              }}
+            >
+              {/* ===============================
+          JFS - LEFT
+      ================================ */}
+              <Card
+                elevation={0}
+                sx={{
+                  width: "100%",
+                  boxSizing: "border-box",
+
+                  p: {
+                    xs: 2.5,
+                    md: 3,
+                  },
+
+                  bgcolor: COLORS.peach,
+                  border: `1px solid ${COLORS.peachBorder}`,
+                  borderRadius: "16px",
+
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Typography
+                  component="h3"
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: {
+                      xs: 18,
+                      md: 22,
+                    },
+                    mb: 2,
+                    color: COLORS.black,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  JFS wins on
+                </Typography>
+
+                <Box
+                  component="ul"
+                  sx={{
+                    m: 0,
+                    pl: 2.5,
+
+                    "& li:last-child": {
+                      mb: 0,
+                    },
+                  }}
+                >
+                  {data.rapidWins.map((item, index) => (
+                    <Box
+                      component="li"
+                      key={index}
+                      sx={{
+                        mb: 1.5,
+                        color: "#264b76",
+                        fontSize: {
+                          xs: 14,
+                          md: 16,
+                        },
+                        lineHeight: 1.45,
+
+                        "&::marker": {
+                          color: COLORS.orange,
+                        },
+                      }}
+                    >
+                      {item}
+                    </Box>
+                  ))}
+                </Box>
+              </Card>
+
+              {/* ===============================
+          WATI - RIGHT
+      ================================ */}
+              <Card
+                elevation={0}
+                sx={{
+                  width: "100%",
+                  boxSizing: "border-box",
+
+                  p: {
+                    xs: 2.5,
+                    md: 3,
+                  },
+
+                  bgcolor: "#ffffff",
+                  border: `1px solid ${COLORS.border}`,
+                  borderRadius: "16px",
+
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Typography
+                  component="h3"
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: {
+                      xs: 18,
+                      md: 22,
+                    },
+                    mb: 2,
+                    color: COLORS.black,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  Wati wins on
+                </Typography>
+
+                <Box
+                  component="ul"
+                  sx={{
+                    m: 0,
+                    pl: 2.5,
+
+                    "& li:last-child": {
+                      mb: 0,
+                    },
+                  }}
+                >
+                  {data.watiWins.map((item, index) => (
+                    <Box
+                      component="li"
+                      key={index}
+                      sx={{
+                        mb: 1.5,
+                        color: "#264b76",
+                        fontSize: {
+                          xs: 14,
+                          md: 16,
+                        },
+                        lineHeight: 1.45,
+
+                        "&::marker": {
+                          color: COLORS.blue,
+                        },
+                      }}
+                    >
+                      {item}
+                    </Box>
+                  ))}
+                </Box>
+              </Card>
+            </Box>
+          </Card>
+        </Container>
+      </Box>
+      {/*  */}
+
+      {/*  */}
+      <Box
+        component="section"
+        sx={{
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+          `,
+        }}
+      >
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+        <Container maxWidth="xl">
           <Box
             sx={{
               display: "flex",
@@ -993,7 +1088,7 @@ export default function ComparisonsDetails() {
           <Typography
             component="h2"
             sx={{
-              mt: 3,
+              mt: 2,
               textAlign: "center",
               fontSize: {
                 xs: "24px",
@@ -1011,8 +1106,8 @@ export default function ComparisonsDetails() {
           {/* Subtitle */}
           <Typography
             sx={{
-              mt: 3,
-              mb: 7,
+              mt: 2,
+              mb: 2,
               textAlign: "center",
               fontSize: {
                 xs: "16px",
@@ -1144,895 +1239,1055 @@ export default function ComparisonsDetails() {
           </TableContainer>
         </Container>
       </Box>
-      {/* =====================================================
-          NEW SECTION 1
-          THE TWO PLATFORMS
-      ====================================================== */}
+      {/*  */}
 
       <Box
+        component="section"
         sx={{
-          py: { xs: 8, md: 12 },
-          bgcolor: COLORS.background,
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+          `,
         }}
       >
-        <Container maxWidth="xl">
-          {/* SECTION HEADER */}
-          <Box
-            sx={{
-              width: "100%",
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              mt: -15,
-            }}
-          >
-            <SectionLabel icon={<AutoAwesome fontSize="small" />}>
-              The Two Platforms
-            </SectionLabel>
-
-            <Typography
-              component="h2"
-              sx={{
-                mt: 2,
-                width: "100%",
-                textAlign: "center",
-                fontSize: {
-                  xs: "25px",
-                  sm: "18px",
-                  md: "25px",
-                },
-                lineHeight: 1.2,
-                fontWeight: 600,
-                color: COLORS.black,
-              }}
-            >
-              A Broadcast Tool vs an Outreach Stack
-            </Typography>
-
-            <Typography
-              sx={{
-                mt: 3,
-                width: "100%",
-                maxWidth: "850px",
-                mx: "auto",
-                textAlign: "center",
-                fontSize: {
-                  xs: "16px",
-                  sm: "20px",
-                  md: "20px",
-                },
-                lineHeight: 1.6,
-                color: COLORS.lightBlue,
-              }}
-            >
-              AiSensy and JFS overlap on exactly one channel. What happens
-              around that channel is where they part ways.
-            </Typography>
-          </Box>
-
-          {/* PLATFORM CARDS */}
-          <Box
-            sx={{
-              width: {
-                xs: "80%",
-                sm: "50%",
-                md: "30%",
-                lg: "90%",
-              },
-              maxWidth: "1100px",
-              mx: "auto",
-              mt: 7,
-
-              display: "grid",
-
-              gridTemplateColumns: {
-                xs: "1fr",
-                md: "repeat(2, minmax(0, 1fr))",
-              },
-
-              gap: {
-                xs: 3,
-                md: 4,
-              },
-
-              alignItems: "stretch",
-            }}
-          >
-            {/* WATI */}
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+        <Box
+          sx={{
+            py: { xs: 8, md: 12 },
+          }}
+        >
+          <Container maxWidth="xl">
+            {/* SECTION HEADER */}
             <Box
               sx={{
                 width: "100%",
-                minWidth: 0,
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                mt: -15,
               }}
             >
-              <PlatformCard
-                subtitle="WhatsApp Inbox & Marketing Platform"
-                title="What Wati does well"
-                bullets={[
-                  "Omnichannel inbox: WhatsApp, Instagram DMs, FB Messenger, web widget",
-                  "No-code chatbot builder plus Astra AI agents",
-                ]}
+              <SectionLabel icon={<AutoAwesome fontSize="small" />}>
+                The Two Platforms
+              </SectionLabel>
+
+              <Typography
+                component="h2"
+                sx={{
+                  mt: 2,
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: {
+                    xs: "25px",
+                    sm: "18px",
+                    md: "25px",
+                  },
+                  lineHeight: 1.2,
+                  fontWeight: 600,
+                  color: COLORS.black,
+                }}
               >
-                Wati turned the WhatsApp Business API into a collaborative team
-                inbox, and it remains strong at exactly that. If a Facebook ad
-                drives people to WhatsApp, Wati gives your agents shared chats,
-                tags, routing, no-code chatbots and broadcast campaigns to
-                handle the incoming conversations.
-              </PlatformCard>
-            </Box>
+                A Broadcast Tool vs an Outreach Stack
+              </Typography>
 
-            <Box
-              sx={{
-                width: "100%",
-                minWidth: 0,
-              }}
-            >
-              <PlatformCard
-                rapid
-                subtitle="Tri-Channel Outbound Sales Engine"
-                title="What JFS does well"
-                bullets={[
-                  "AI voice agents that dial mobile numbers and converse in English, Hindi, Hinglish and regional languages",
-                  "Email sequences sent from your own authenticated domain",
-                ]}
+              <Typography
+                sx={{
+                  mt: 3,
+                  width: "100%",
+                  maxWidth: "850px",
+                  mx: "auto",
+                  textAlign: "center",
+                  fontSize: {
+                    xs: "16px",
+                    sm: "20px",
+                    md: "20px",
+                  },
+                  lineHeight: 1.6,
+                  color: COLORS.lightBlue,
+                }}
               >
-                JFS starts where a lead list starts: a CSV. Upload it, pick a
-                sequence, and the platform works each prospect across Email,
-                WhatsApp and AI voice calls until someone replies — then stops
-                automatically and hands the conversation to a human with the
-                full history attached.
-              </PlatformCard>
+                AiSensy and JFS overlap on exactly one channel. What happens
+                around that channel is where they part ways.
+              </Typography>
             </Box>
-          </Box>
-        </Container>
-      </Box>
-      {/* =====================================================
-          NEW SECTION 2
-          FOUR DIFFERENCES
-      ====================================================== */}
 
-      <Box
-        sx={{
-          py: {
-            xs: 6,
-            md: 9,
-          },
-          bgcolor: COLORS.background,
-        }}
-      >
-        <Container maxWidth="xl">
-          {/* SECTION HEADER */}
-          <Stack
-            sx={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-              mt: -13,
-            }}
-          >
-            <SectionLabel icon={<AutoAwesome fontSize="small" />}>
-              Key Differences
-            </SectionLabel>
-
-            <Typography
-              component="h2"
+            {/* PLATFORM CARDS */}
+            <Box
               sx={{
-                mt: 3,
-                width: "100%",
-                textAlign: "center",
-                fontSize: {
-                  xs: 28,
-                  sm: 34,
-                  md: 35,
+                width: {
+                  xs: "80%",
+                  sm: "50%",
+                  md: "30%",
+                  lg: "90%",
                 },
-                lineHeight: 1.2,
-                fontWeight: 500,
-                color: COLORS.black,
-              }}
-            >
-              The Four Differences That <Highlight>Actually Matter</Highlight>
-            </Typography>
-
-            <Typography
-              sx={{
-                mt: 2,
-                maxWidth: 750,
+                maxWidth: "1100px",
                 mx: "auto",
-                textAlign: "center",
-                color: COLORS.lightBlue,
-                fontSize: {
-                  xs: 15,
-                  sm: 16,
-                  md: 18,
-                },
-                lineHeight: 1.5,
-              }}
-            >
-              Where the two products genuinely diverge — and what it costs you
-              either way.
-            </Typography>
-          </Stack>
+                mt: 7,
 
-          {/* MAIN CONTENT */}
-          <Box
-            sx={{
-              width: {
-                xs: "95%",
-                sm: "90%",
-                md: "85%",
-                lg: "80%",
-              },
-              maxWidth: "1050px",
-              mx: "auto",
-              mt: 6,
-            }}
-          >
-            {/* DIFFERENCE 1 */}
-            <Typography
-              component="h3"
-              sx={{
-                fontSize: {
-                  xs: 18,
-                  sm: 21,
-                  md: 22,
-                },
-                fontWeight: 700,
-                mb: 2.5,
-                color: COLORS.navy,
-                lineHeight: 1.35,
-              }}
-            >
-              1. When a prospect ignores WhatsApp, what happens next?
-            </Typography>
-
-            <Box
-              sx={{
                 display: "grid",
+
                 gridTemplateColumns: {
                   xs: "1fr",
                   md: "repeat(2, minmax(0, 1fr))",
                 },
-                gap: 2.5,
+
+                gap: {
+                  xs: 3,
+                  md: 4,
+                },
+
                 alignItems: "stretch",
               }}
             >
-              <Box sx={{ minWidth: 0 }}>
-                <ComparisonBox type="wati">
-                  The journey ends in WhatsApp. You can re-broadcast or
-                  retarget, but a prospect who does not open the chat never
-                  hears from you on another channel.
-                </ComparisonBox>
+              {/* WATI */}
+              <Box
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                }}
+              >
+                <PlatformCard
+                  subtitle="WhatsApp Inbox & Marketing Platform"
+                  title="What Wati does well"
+                  bullets={[
+                    "Omnichannel inbox: WhatsApp, Instagram DMs, FB Messenger, web widget",
+                    "No-code chatbot builder plus Astra AI agents",
+                  ]}
+                >
+                  Wati turned the WhatsApp Business API into a collaborative
+                  team inbox, and it remains strong at exactly that. If a
+                  Facebook ad drives people to WhatsApp, Wati gives your agents
+                  shared chats, tags, routing, no-code chatbots and broadcast
+                  campaigns to handle the incoming conversations.
+                </PlatformCard>
               </Box>
 
-              <Box sx={{ minWidth: 0 }}>
-                <ComparisonBox type="rapid">
-                  Sequences escalate across channels. A WhatsApp message unread
-                  for a set window can trigger an email, then an AI voice call —
-                  and any reply on any channel halts the entire sequence
-                  instantly.
-                </ComparisonBox>
-              </Box>
-            </Box>
-
-            {/* DIFFERENCE 2 */}
-            <Typography
-              component="h3"
-              sx={{
-                mt: 6,
-                fontSize: {
-                  xs: 18,
-                  sm: 21,
-                  md: 22,
-                },
-                fontWeight: 700,
-                mb: 2.5,
-                color: COLORS.navy,
-                lineHeight: 1.35,
-              }}
-            >
-              2. Chatbots vs AI that can hold a phone conversation
-            </Typography>
-
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "1fr",
-                  md: "repeat(2, minmax(0, 1fr))",
-                },
-                gap: 2.5,
-                alignItems: "stretch",
-              }}
-            >
-              <Box sx={{ minWidth: 0 }}>
-                <ComparisonBox type="wati">
-                  Flow-builder chatbots and Astra AI agents answer questions in
-                  chat. Useful for "track my order" — but text bots rarely
-                  create sales intent, and AI co-pilot credits are metered.
-                </ComparisonBox>
-              </Box>
-
-              <Box sx={{ minWidth: 0 }}>
-                <ComparisonBox type="rapid">
-                  JFS has both layers — an AI chatbot handles inbound WhatsApp
-                  queries, and AI voice agents make real outbound calls:
-                  greeting in Hinglish, handling objections, pausing when
-                  interrupted, qualifying budget and intent, and writing the
-                  transcript to the lead timeline.
-                </ComparisonBox>
+              <Box
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                }}
+              >
+                <PlatformCard
+                  rapid
+                  subtitle="Tri-Channel Outbound Sales Engine"
+                  title="What JFS does well"
+                  bullets={[
+                    "AI voice agents that dial mobile numbers and converse in English, Hindi, Hinglish and regional languages",
+                    "Email sequences sent from your own authenticated domain",
+                  ]}
+                >
+                  JFS starts where a lead list starts: a CSV. Upload it, pick a
+                  sequence, and the platform works each prospect across Email,
+                  WhatsApp and AI voice calls until someone replies — then stops
+                  automatically and hands the conversation to a human with the
+                  full history attached.
+                </PlatformCard>
               </Box>
             </Box>
-
-            {/* DIFFERENCE 3 */}
-            <Typography
-              component="h3"
-              sx={{
-                mt: 6,
-                fontSize: {
-                  xs: 18,
-                  sm: 21,
-                  md: 22,
-                },
-                fontWeight: 700,
-                mb: 2.5,
-                color: COLORS.navy,
-                lineHeight: 1.35,
-              }}
-            >
-              3. How the bill grows as your team grows
-            </Typography>
-
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "1fr",
-                  md: "repeat(2, minmax(0, 1fr))",
-                },
-                gap: 2.5,
-                alignItems: "stretch",
-              }}
-            >
-              <Box sx={{ minWidth: 0 }}>
-                <ComparisonBox type="wati">
-                  Subscription + per-user fees after included seats + rate-card
-                  message charges + add-ons for automation triggers and AI
-                  credits.
-                </ComparisonBox>
-              </Box>
-
-              <Box sx={{ minWidth: 0 }}>
-                <ComparisonBox type="rapid">
-                  One predictable platform subscription with flat pricing and no
-                  per-user fees. Add your sales team without watching the
-                  software bill climb with every new seat.
-                </ComparisonBox>
-              </Box>
-            </Box>
-
-            {/* DIFFERENCE 4 */}
-            <Typography
-              component="h3"
-              sx={{
-                mt: 6,
-                fontSize: {
-                  xs: 18,
-                  sm: 21,
-                  md: 22,
-                },
-                fontWeight: 700,
-                mb: 2.5,
-                color: COLORS.navy,
-                lineHeight: 1.35,
-              }}
-            >
-              4. COD verification: a button tap vs a verbal yes
-            </Typography>
-
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "1fr",
-                  md: "repeat(2, minmax(0, 1fr))",
-                },
-                gap: 2.5,
-                alignItems: "stretch",
-              }}
-            >
-              <Box sx={{ minWidth: 0 }}>
-                <ComparisonBox type="wati">
-                  Sends a WhatsApp confirmation template after a
-                  Cash-on-Delivery order. Many buyers ignore it, and some tap
-                  "Confirm" with no intention of accepting delivery.
-                </ComparisonBox>
-              </Box>
-
-              <Box sx={{ minWidth: 0 }}>
-                <ComparisonBox type="rapid">
-                  Calls the buyer within moments of the order — "Namaste, aapne
-                  ₹2,000 ka order place kiya hai, kya hum ise dispatch kar
-                  dein?" A verbal confirmation in the buyer's own language is a
-                  far stronger intent signal.
-                </ComparisonBox>
-              </Box>
-            </Box>
-          </Box>
-        </Container>
+          </Container>
+        </Box>
       </Box>
 
-      {/* =====================================================
-          NEW SECTION 3
-          PRICING
-      ====================================================== */}
+      {/*  */}
 
       <Box
-        id="pricing"
+        component="section"
         sx={{
-          py: {
-            xs: 7,
-            md: 10,
-          },
-          bgcolor: "#fff",
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+          `,
         }}
       >
-        <Container maxWidth="xl">
-          {/* ================= HEADER ================= */}
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              textAlign: "center",
-            }}
-          >
-            {/* PRICING LABEL */}
-            <Box
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
+        <Box
+          sx={{
+            py: {
+              xs: 6,
+              md: 9,
+            },
+            // bgcolor: COLORS.background,
+          }}
+        >
+          <Container maxWidth="xl">
+            {/* SECTION HEADER */}
+            <Stack
               sx={{
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                textAlign: "center",
                 mt: -13,
               }}
             >
-              <SectionLabel icon={<Paid sx={{ fontSize: 15 }} />}>
-                Pricing
+              <SectionLabel icon={<AutoAwesome fontSize="small" />}>
+                Key Differences
               </SectionLabel>
-            </Box>
 
-            {/* HEADING */}
-            <Typography
-              component="h2"
+              <Typography
+                component="h2"
+                sx={{
+                  mt: 3,
+                  width: "100%",
+                  textAlign: "center",
+
+                  color: COLORS.black,
+                  fontSize: {
+                    xs: "25px",
+                    sm: "18px",
+                    md: "25px",
+                  },
+                  lineHeight: 1.2,
+                  fontWeight: 600,
+                }}
+              >
+                The Four Differences That <Highlight>Actually Matter</Highlight>
+              </Typography>
+
+              <Typography
+                sx={{
+                  mt: 2,
+                  maxWidth: 750,
+                  mx: "auto",
+                  textAlign: "center",
+                  color: COLORS.lightBlue,
+                  fontSize: {
+                    xs: 15,
+                    sm: 16,
+                    md: 18,
+                  },
+                  lineHeight: 1.5,
+                }}
+              >
+                Where the two products genuinely diverge — and what it costs you
+                either way.
+              </Typography>
+            </Stack>
+
+            {/* MAIN CONTENT */}
+            <Box
               sx={{
-                mt: 3,
-                width: "100%",
-                textAlign: "center",
-                fontSize: {
-                  xs: 20,
-                  sm: 30,
-                  md: 30,
+                width: {
+                  xs: "95%",
+                  sm: "90%",
+                  md: "85%",
+                  lg: "80%",
                 },
-                lineHeight: 1.2,
-                fontWeight: 500,
-                color: COLORS.black,
-              }}
-            >
-              JFS vs Wati <Highlight>Pricing</Highlight>
-            </Typography>
-
-            {/* DESCRIPTION */}
-            <Typography
-              sx={{
-                mt: 2,
-                width: "100%",
-                maxWidth: "780px",
+                maxWidth: "1050px",
                 mx: "auto",
-                textAlign: "center",
-                color: COLORS.lightBlue,
-                fontSize: {
-                  xs: 15,
-                  sm: 17,
-                  md: 19,
-                },
-                lineHeight: 1.5,
+                mt: 6,
               }}
             >
-              Indian pricing from both official pricing pages. Both platforms
-              bill WhatsApp conversation charges separately.
-            </Typography>
-          </Box>
-
-          {/* ================= PRICING BOXES ================= */}
-          <Box
-            sx={{
-              width: {
-                xs: "50%",
-                sm: "50%",
-                md: "50%",
-                lg: "100%",
-              },
-              maxWidth: "1100px",
-              mx: "auto",
-              mt: 6,
-
-              display: "grid",
-
-              gridTemplateColumns: {
-                xs: "1fr",
-                md: "repeat(2, minmax(0, 1fr))",
-              },
-
-              gap: {
-                xs: 3,
-                md: 4,
-              },
-
-              alignItems: "stretch",
-            }}
-          >
-            {/* ================= JFS - LEFT ================= */}
-            <Card
-              elevation={0}
-              sx={{
-                width: "100%",
-                minWidth: 0,
-                p: {
-                  xs: 2.5,
-                  md: 3,
-                },
-                borderRadius: "20px",
-                border: `1px solid ${COLORS.orange}`,
-                boxSizing: "border-box",
-              }}
-            >
-              {/* JFS HEADER */}
-              <Box
+              {/* DIFFERENCE 1 */}
+              <Typography
+                component="h3"
                 sx={{
-                  display: "flex",
-                  flexDirection: {
-                    xs: "column",
-                    sm: "row",
+                  fontSize: {
+                    xs: 18,
+                    sm: 21,
+                    md: 22,
                   },
-                  justifyContent: "space-between",
-                  alignItems: {
-                    xs: "flex-start",
-                    sm: "center",
-                  },
-                  gap: 1.5,
-                  mb: 2,
+                  fontWeight: 700,
+                  mb: 2.5,
+                  color: COLORS.navy,
+                  lineHeight: 1.35,
                 }}
               >
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: 10,
-                      md: 22,
-                    },
-                    fontWeight: 800,
-                    color: COLORS.navy,
-                  }}
-                >
-                  JFS plans
-                </Typography>
+                1. When a prospect ignores WhatsApp, what happens next?
+              </Typography>
 
-                <Chip
-                  label="FLAT PRICING • NO PER-USER FEES"
-                  sx={{
-                    color: COLORS.orange,
-                    bgcolor: COLORS.peachLight,
-                    fontWeight: 600,
-                    fontSize: 9,
-                    height: 25,
-                    "& .MuiChip-label": {
-                      px: 1,
-                    },
-                  }}
-                />
-              </Box>
-
-              <PricingPlan
-                title="WhatsApp Only"
-                price="₹1,999/mo"
-                annual="+ GST"
-                description="250 WhatsApp conversations/day, sequences, analytics"
-              />
-
-              <PricingPlan
-                title="Basic"
-                price="₹3,000/mo"
-                annual="₹2,125/mo billed annually"
-                description="Email + WhatsApp + AI calling · 2 calling languages · 4 AI voices"
-              />
-
-              <PricingPlan
-                title="Advance Popular"
-                price="₹6,000/mo"
-                description="Advanced outbound automation across Email, WhatsApp and AI voice."
-              />
-            </Card>
-
-            {/* ================= WATI - RIGHT ================= */}
-            <Card
-              elevation={0}
-              sx={{
-                width: "100%",
-                minWidth: 0,
-                p: {
-                  xs: 2.5,
-                  md: 3,
-                },
-                borderRadius: "20px",
-                border: `1px solid ${COLORS.border}`,
-                boxSizing: "border-box",
-              }}
-            >
-              {/* WATI HEADER */}
               <Box
                 sx={{
-                  display: "flex",
-                  flexDirection: {
-                    xs: "column",
-                    sm: "row",
+                  display: "grid",
+                  gridTemplateColumns: {
+                    xs: "1fr",
+                    md: "repeat(2, minmax(0, 1fr))",
                   },
-                  justifyContent: "space-between",
-                  alignItems: {
-                    xs: "flex-start",
-                    sm: "center",
-                  },
-                  gap: 1.5,
-                  mb: 2,
+                  gap: 2.5,
+                  alignItems: "stretch",
                 }}
               >
-                <Typography
-                  sx={{
-                    fontSize: {
-                      xs: 20,
-                      md: 23,
-                    },
-                    fontWeight: 800,
-                    color: COLORS.navy,
-                  }}
-                >
-                  Wati plans
-                </Typography>
+                <Box sx={{ minWidth: 0 }}>
+                  <ComparisonBox type="wati">
+                    The journey ends in WhatsApp. You can re-broadcast or
+                    retarget, but a prospect who does not open the chat never
+                    hears from you on another channel.
+                  </ComparisonBox>
+                </Box>
 
-                <Chip
-                  label="PER-USER FEES APPLY"
-                  sx={{
-                    color: COLORS.purple,
-                    bgcolor: "#fbf7ff",
-                    fontWeight: 600,
-                    fontSize: 9,
-                    height: 25,
-                    "& .MuiChip-label": {
-                      px: 1,
-                    },
-                  }}
-                />
+                <Box sx={{ minWidth: 0 }}>
+                  <ComparisonBox type="rapid">
+                    Sequences escalate across channels. A WhatsApp message
+                    unread for a set window can trigger an email, then an AI
+                    voice call — and any reply on any channel halts the entire
+                    sequence instantly.
+                  </ComparisonBox>
+                </Box>
               </Box>
 
-              <PricingPlan
-                title="Growth"
-                price="₹2,699/mo"
-                annual="₹2,199/mo billed annually"
-                description="1 channel · 3 users (no extra users) · 15k broadcasts/mo · no webhooks"
-              />
+              {/* DIFFERENCE 2 */}
+              <Typography
+                component="h3"
+                sx={{
+                  mt: 6,
+                  fontSize: {
+                    xs: 18,
+                    sm: 21,
+                    md: 22,
+                  },
+                  fontWeight: 700,
+                  mb: 2.5,
+                  color: COLORS.navy,
+                  lineHeight: 1.35,
+                }}
+              >
+                2. Chatbots vs AI that can hold a phone conversation
+              </Typography>
 
-              <PricingPlan
-                title="Pro"
-                price="₹6,499/mo"
-                annual="₹4,899/mo billed annually"
-                description="5 users · extra user ₹1,299/mo · unlimited broadcasts"
-              />
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: {
+                    xs: "1fr",
+                    md: "repeat(2, minmax(0, 1fr))",
+                  },
+                  gap: 2.5,
+                  alignItems: "stretch",
+                }}
+              >
+                <Box sx={{ minWidth: 0 }}>
+                  <ComparisonBox type="wati">
+                    Flow-builder chatbots and Astra AI agents answer questions
+                    in chat. Useful for "track my order" — but text bots rarely
+                    create sales intent, and AI co-pilot credits are metered.
+                  </ComparisonBox>
+                </Box>
 
-              <PricingPlan
-                title="Business"
-                price="₹18,499/mo"
-                description="Advanced features, automation and larger team support."
-              />
-            </Card>
-          </Box>
-        </Container>
+                <Box sx={{ minWidth: 0 }}>
+                  <ComparisonBox type="rapid">
+                    JFS has both layers — an AI chatbot handles inbound WhatsApp
+                    queries, and AI voice agents make real outbound calls:
+                    greeting in Hinglish, handling objections, pausing when
+                    interrupted, qualifying budget and intent, and writing the
+                    transcript to the lead timeline.
+                  </ComparisonBox>
+                </Box>
+              </Box>
+
+              {/* DIFFERENCE 3 */}
+              <Typography
+                component="h3"
+                sx={{
+                  mt: 6,
+                  fontSize: {
+                    xs: 18,
+                    sm: 21,
+                    md: 22,
+                  },
+                  fontWeight: 700,
+                  mb: 2.5,
+                  color: COLORS.navy,
+                  lineHeight: 1.35,
+                }}
+              >
+                3. How the bill grows as your team grows
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: {
+                    xs: "1fr",
+                    md: "repeat(2, minmax(0, 1fr))",
+                  },
+                  gap: 2.5,
+                  alignItems: "stretch",
+                }}
+              >
+                <Box sx={{ minWidth: 0 }}>
+                  <ComparisonBox type="wati">
+                    Subscription + per-user fees after included seats +
+                    rate-card message charges + add-ons for automation triggers
+                    and AI credits.
+                  </ComparisonBox>
+                </Box>
+
+                <Box sx={{ minWidth: 0 }}>
+                  <ComparisonBox type="rapid">
+                    One predictable platform subscription with flat pricing and
+                    no per-user fees. Add your sales team without watching the
+                    software bill climb with every new seat.
+                  </ComparisonBox>
+                </Box>
+              </Box>
+
+              {/* DIFFERENCE 4 */}
+              <Typography
+                component="h3"
+                sx={{
+                  mt: 6,
+                  fontSize: {
+                    xs: 18,
+                    sm: 21,
+                    md: 22,
+                  },
+                  fontWeight: 700,
+                  mb: 2.5,
+                  color: COLORS.navy,
+                  lineHeight: 1.35,
+                }}
+              >
+                4. COD verification: a button tap vs a verbal yes
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: {
+                    xs: "1fr",
+                    md: "repeat(2, minmax(0, 1fr))",
+                  },
+                  gap: 2.5,
+                  alignItems: "stretch",
+                }}
+              >
+                <Box sx={{ minWidth: 0 }}>
+                  <ComparisonBox type="wati">
+                    Sends a WhatsApp confirmation template after a
+                    Cash-on-Delivery order. Many buyers ignore it, and some tap
+                    "Confirm" with no intention of accepting delivery.
+                  </ComparisonBox>
+                </Box>
+
+                <Box sx={{ minWidth: 0 }}>
+                  <ComparisonBox type="rapid">
+                    Calls the buyer within moments of the order — "Namaste,
+                    aapne ₹2,000 ka order place kiya hai, kya hum ise dispatch
+                    kar dein?" A verbal confirmation in the buyer's own language
+                    is a far stronger intent signal.
+                  </ComparisonBox>
+                </Box>
+              </Box>
+            </Box>
+          </Container>
+        </Box>
       </Box>
-      {/* =====================================================
-          NEW SECTION 4
-          WHATSAPP RATES
-      ====================================================== */}
+
       <Box
+        component="section"
         sx={{
-          pb: { xs: 3, md: 5 },
-          pt: { xs: 3, md: 5 },
-          bgcolor: "#fff",
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+          `,
         }}
       >
-        <Container maxWidth="xl">
-          {/* =========================
-        HEADING SECTION
-    ========================== */}
-          <Stack
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-            sx={{
-              width: "100%",
-            }}
-          >
-            <Typography
-              component="h2"
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+        <Box
+          id="pricing"
+          sx={{
+            py: {
+              xs: 7,
+              md: 10,
+            },
+          }}
+        >
+          <Container maxWidth="xl">
+            {/* ================= HEADER ================= */}
+            <Box
               sx={{
-                fontSize: {
-                  xs: 5,
-                  sm: 20,
-                  md: 23,
-                },
-                fontWeight: 800,
-                color: COLORS.black,
-                textAlign: "center",
                 width: "100%",
-                lineHeight: 1.2,
-                mt: -5,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
               }}
             >
-              JFS WhatsApp conversation rates (India)
-            </Typography>
+              {/* PRICING LABEL */}
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  mt: -13,
+                }}
+              >
+                <SectionLabel icon={<Paid sx={{ fontSize: 15 }} />}>
+                  Pricing
+                </SectionLabel>
+              </Box>
 
+              {/* HEADING */}
+              <Typography
+                component="h2"
+                sx={{
+                  mt: 3,
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: {
+                    xs: 20,
+                    sm: 30,
+                    md: 30,
+                  },
+                  lineHeight: 1.2,
+                  fontWeight: 500,
+                  color: COLORS.black,
+                }}
+              >
+                JFS vs Wati <Highlight>Pricing</Highlight>
+              </Typography>
+
+              {/* DESCRIPTION */}
+              <Typography
+                sx={{
+                  mt: 2,
+                  width: "100%",
+                  maxWidth: "780px",
+                  mx: "auto",
+                  textAlign: "center",
+                  color: COLORS.lightBlue,
+                  fontSize: {
+                    xs: 15,
+                    sm: 17,
+                    md: 19,
+                  },
+                  lineHeight: 1.5,
+                }}
+              >
+                Indian pricing from both official pricing pages. Both platforms
+                bill WhatsApp conversation charges separately.
+              </Typography>
+            </Box>
+
+            {/* ================= PRICING BOXES ================= */}
+            <Box
+              sx={{
+                width: {
+                  xs: "50%",
+                  sm: "50%",
+                  md: "50%",
+                  lg: "100%",
+                },
+                maxWidth: "1100px",
+                mx: "auto",
+                mt: 6,
+
+                display: "grid",
+
+                gridTemplateColumns: {
+                  xs: "1fr",
+                  md: "repeat(2, minmax(0, 1fr))",
+                },
+
+                gap: {
+                  xs: 3,
+                  md: 4,
+                },
+
+                alignItems: "stretch",
+              }}
+            >
+              {/* ================= JFS - LEFT ================= */}
+              <Card
+                elevation={0}
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                  p: {
+                    xs: 2.5,
+                    md: 3,
+                  },
+                  borderRadius: "20px",
+                  border: `1px solid ${COLORS.orange}`,
+                  boxSizing: "border-box",
+                }}
+              >
+                {/* JFS HEADER */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: {
+                      xs: "column",
+                      sm: "row",
+                    },
+                    justifyContent: "space-between",
+                    alignItems: {
+                      xs: "flex-start",
+                      sm: "center",
+                    },
+                    gap: 1.5,
+                    mb: 2,
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: {
+                        xs: 10,
+                        md: 22,
+                      },
+                      fontWeight: 700,
+                      color: COLORS.purple,
+                    }}
+                  >
+                    JFS plans
+                  </Typography>
+
+                  <Chip
+                    label="FLAT PRICING • NO PER-USER FEES"
+                    sx={{
+                      color: COLORS.orange,
+                      bgcolor: COLORS.peachLight,
+                      fontWeight: 600,
+                      fontSize: 9,
+                      height: 25,
+                      "& .MuiChip-label": {
+                        px: 1,
+                      },
+                    }}
+                  />
+                </Box>
+
+                <PricingPlan
+                  title="WhatsApp Only"
+                  price="₹1,999/mo"
+                  annual="+ GST"
+                  description="250 WhatsApp conversations/day, sequences, analytics"
+                />
+
+                <PricingPlan
+                  title="Basic"
+                  price="₹3,000/mo"
+                  annual="₹2,125/mo billed annually"
+                  description="Email + WhatsApp + AI calling · 2 calling languages · 4 AI voices"
+                />
+
+                <PricingPlan
+                  title="Advance Popular"
+                  price="₹6,000/mo"
+                  description="Advanced outbound automation across Email, WhatsApp and AI voice."
+                />
+              </Card>
+
+              {/* ================= WATI - RIGHT ================= */}
+              <Card
+                elevation={0}
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                  p: {
+                    xs: 2.5,
+                    md: 3,
+                  },
+                  borderRadius: "20px",
+                  border: `1px solid ${COLORS.border}`,
+                  boxSizing: "border-box",
+                }}
+              >
+                {/* WATI HEADER */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: {
+                      xs: "column",
+                      sm: "row",
+                    },
+                    justifyContent: "space-between",
+                    alignItems: {
+                      xs: "flex-start",
+                      sm: "center",
+                    },
+                    gap: 1.5,
+                    mb: 2,
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: {
+                        xs: 20,
+                        md: 23,
+                      },
+                      fontWeight: 700,
+                      color: COLORS.orange,
+                    }}
+                  >
+                    Wati plans
+                  </Typography>
+
+                  <Chip
+                    label="PER-USER FEES APPLY"
+                    sx={{
+                      color: COLORS.purple,
+                      bgcolor: "#fbf7ff",
+                      fontWeight: 600,
+                      fontSize: 9,
+                      height: 25,
+                      "& .MuiChip-label": {
+                        px: 1,
+                      },
+                    }}
+                  />
+                </Box>
+
+                <PricingPlan
+                  title="Growth"
+                  price="₹2,699/mo"
+                  annual="₹2,199/mo billed annually"
+                  description="1 channel · 3 users (no extra users) · 15k broadcasts/mo · no webhooks"
+                />
+
+                <PricingPlan
+                  title="Pro"
+                  price="₹6,499/mo"
+                  annual="₹4,899/mo billed annually"
+                  description="5 users · extra user ₹1,299/mo · unlimited broadcasts"
+                />
+
+                <PricingPlan
+                  title="Business"
+                  price="₹18,499/mo"
+                  description="Advanced features, automation and larger team support."
+                />
+              </Card>
+            </Box>
+          </Container>
+        </Box>
+      </Box>
+
+      <Box
+        component="section"
+        sx={{
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+          `,
+        }}
+      >
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+        <Box
+          sx={{
+            pb: { xs: 3, md: 5 },
+            pt: { xs: 3, md: 5 },
+          }}
+        >
+          <Container maxWidth="xl">
+            {/* =========================
+        HEADING SECTION
+    ========================== */}
+            <Stack
+              alignItems="center"
+              justifyContent="center"
+              textAlign="center"
+              sx={{
+                width: "100%",
+              }}
+            >
+              <Typography
+                component="h2"
+                sx={{
+                  fontSize: {
+                    xs: 15,
+                    sm: 18,
+                    md: 20,
+                  },
+                  fontWeight: 700,
+                  color: COLORS.black,
+                  textAlign: "center",
+                  width: "100%",
+                  lineHeight: 1.2,
+                  mt: -5,
+                }}
+              >
+                JFS WhatsApp conversation rates (India)
+              </Typography>
+
+              <Typography
+                sx={{
+                  mt: 2,
+                  color: COLORS.lightBlue,
+                  fontSize: {
+                    xs: 10,
+                    sm: 10,
+                    md: 15,
+                  },
+                  textAlign: "center",
+                  width: "100%",
+                  lineHeight: 1.5,
+                }}
+              >
+                Published openly — what you pay per conversation
+                <br />
+                category on top of your plan.
+              </Typography>
+            </Stack>
+
+            {/* =========================
+        4 CARDS - ONE ROW
+    ========================== */}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: {
+                  xs: "column",
+                  sm: "column",
+                  md: "row",
+                },
+                gap: 1,
+                mt: 1,
+                width: "100%",
+                alignItems: "stretch",
+              }}
+            >
+              {/* Marketing */}
+              <Box
+                sx={{
+                  flex: 1,
+                  width: {
+                    xs: "100%",
+                    md: "25%",
+                  },
+                  minWidth: 0,
+                  color: COLORS.lightBlue,
+                  fontSize: {
+                    xs: 10,
+                    sm: 10,
+                    md: 15,
+                  },
+                  fontWeight: 700,
+                }}
+              >
+                <RateCard
+                  title="Marketing"
+                  badge="Promotional"
+                  price="₹0.8631"
+                  description="Per conversation — offers, broadcasts, nurturing"
+                />
+              </Box>
+
+              {/* Utility */}
+              <Box
+                sx={{
+                  flex: 1,
+                  width: {
+                    xs: "100%",
+                    md: "25%",
+                  },
+                  minWidth: 0,
+                }}
+              >
+                <RateCard
+                  title="Utility"
+                  badge="Transactional"
+                  price="₹0.4150"
+                  description="Per conversation — order updates, confirmations"
+                />
+              </Box>
+
+              {/* Service */}
+              <Box
+                sx={{
+                  flex: 1,
+                  width: {
+                    xs: "100%",
+                    md: "25%",
+                  },
+                  minWidth: 0,
+                }}
+              >
+                <RateCard
+                  title="Service"
+                  badge="Support"
+                  price="Free"
+                  free
+                  description="Customer replies within the 24-hour window"
+                />
+              </Box>
+
+              {/* Authentication */}
+              <Box
+                sx={{
+                  flex: 1,
+                  width: {
+                    xs: "100%",
+                    md: "25%",
+                  },
+                  minWidth: 0,
+                }}
+              >
+                <RateCard
+                  title="Authentication"
+                  badge="OTP"
+                  price="₹0.4150"
+                  description="Per conversation — OTP and login verification"
+                />
+              </Box>
+            </Box>
+
+            {/* =========================
+        BOTTOM DESCRIPTION
+    ========================== */}
             <Typography
               sx={{
-                mt: 2,
+                mt: 4,
                 color: COLORS.lightBlue,
                 fontSize: {
                   xs: 10,
                   sm: 10,
                   md: 15,
                 },
+                lineHeight: 1.6,
                 textAlign: "center",
                 width: "100%",
-                lineHeight: 1.5,
               }}
             >
-              Published openly — what you pay per conversation
-              <br />
-              category on top of your plan.
+              WhatsApp conversation charges are billed separately as per Meta
+              pricing and vary by country and category. Rates shown for Indian
+              destination numbers as of June 2026.
             </Typography>
-          </Stack>
-
-          {/* =========================
-        4 CARDS - ONE ROW
-    ========================== */}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: {
-                xs: "column",
-                sm: "column",
-                md: "row",
-              },
-              gap: 1,
-              mt: 1,
-              width: "100%",
-              alignItems: "stretch",
-            }}
-          >
-            {/* Marketing */}
-            <Box
-              sx={{
-                flex: 1,
-                width: {
-                  xs: "100%",
-                  md: "25%",
-                },
-                minWidth: 0,
-              }}
-            >
-              <RateCard
-                title="Marketing"
-                badge="Promotional"
-                price="₹0.8631"
-                description="Per conversation — offers, broadcasts, nurturing"
-              />
-            </Box>
-
-            {/* Utility */}
-            <Box
-              sx={{
-                flex: 1,
-                width: {
-                  xs: "100%",
-                  md: "25%",
-                },
-                minWidth: 0,
-              }}
-            >
-              <RateCard
-                title="Utility"
-                badge="Transactional"
-                price="₹0.4150"
-                description="Per conversation — order updates, confirmations"
-              />
-            </Box>
-
-            {/* Service */}
-            <Box
-              sx={{
-                flex: 1,
-                width: {
-                  xs: "100%",
-                  md: "25%",
-                },
-                minWidth: 0,
-              }}
-            >
-              <RateCard
-                title="Service"
-                badge="Support"
-                price="Free"
-                free
-                description="Customer replies within the 24-hour window"
-              />
-            </Box>
-
-            {/* Authentication */}
-            <Box
-              sx={{
-                flex: 1,
-                width: {
-                  xs: "100%",
-                  md: "25%",
-                },
-                minWidth: 0,
-              }}
-            >
-              <RateCard
-                title="Authentication"
-                badge="OTP"
-                price="₹0.4150"
-                description="Per conversation — OTP and login verification"
-              />
-            </Box>
-          </Box>
-
-          {/* =========================
-        BOTTOM DESCRIPTION
-    ========================== */}
-          <Typography
-            sx={{
-              mt: 4,
-              color: COLORS.lightBlue,
-              fontSize: {
-                xs: 10,
-                sm: 10,
-                md: 15,
-              },
-              lineHeight: 1.6,
-              textAlign: "center",
-              width: "100%",
-            }}
-          >
-            WhatsApp conversation charges are billed separately as per Meta
-            pricing and vary by country and category. Rates shown for Indian
-            destination numbers as of June 2026.
-          </Typography>
-        </Container>
+          </Container>
+        </Box>
       </Box>
-      {/* =====================================================
-          NEW SECTION 5
-          THE DECISION
-      ====================================================== */}
 
       <Box
+        component="section"
         sx={{
-          py: {
-            xs: 5,
-            md: 7,
-          },
-          bgcolor: COLORS.background,
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 3, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3 },
+          pb: { xs: 2, sm: 3, md: 3 },
+
+          backgroundColor: "#FDFDFF",
+
+          // Layered mesh gradient — indigo, orange, and a hint of pink
+          backgroundImage: `
+            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+          `,
         }}
       >
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
         <Container
           maxWidth={false}
           sx={{
@@ -2480,7 +2735,8 @@ export default function ComparisonsDetails() {
           </Box>
         </Container>
       </Box>
+
       <FAQHome />
-    </Box>
+    </>
   );
 }

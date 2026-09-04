@@ -19,7 +19,8 @@ import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-import LogoBlue from "../../assets/images/JFSpx.png";
+// import LogoBlue from "../../assets/images/JFSpx.png";
+import LogoBlue from "../../assets/images/trudialer1.svg";
 
 const NAV_LINKS = [
   { label: "Home", path: "/" },

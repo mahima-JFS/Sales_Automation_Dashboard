@@ -442,36 +442,20 @@ const Blog = () => {
 
           // Layered mesh gradient — indigo, orange, and a hint of pink
           backgroundImage: `
-            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
-            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
-            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
-            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
-          `,
+                    radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+                    radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+                    radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+                    radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+                  `,
         }}
       >
-        {/* SQUARE GRID TEXTURE — replaces the noise overlay */}
+        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
         <Box
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `
-              linear-gradient(rgba(79, 70, 229, 0.06) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(79, 70, 229, 0.06) 1px, transparent 1px)
-            `,
-            backgroundSize: "20px 20px",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-        />
-
-        {/* Optional: fade the grid toward the edges so it doesn't look uniform/flat */}
-        <Box
-          sx={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(circle at 50% 30%, transparent 0%, transparent 40%, #FDFDFF 90%)",
-            opacity: 0.5,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
             pointerEvents: "none",
             zIndex: 0,
           }}
