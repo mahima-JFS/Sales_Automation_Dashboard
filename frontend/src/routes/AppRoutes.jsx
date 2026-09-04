@@ -67,7 +67,7 @@ const AppRoutes = () => {
         <Route path="/feature/email-outreach" element={<EmailOutreach />} />
         <Route path="/blog/:slug"element={<BlogDetails />}/>
 <Route
-  path="/comparisons/rapid-sales-vs-wati"
+  path="/comparisons/jfs-vs-wati"
   element={<ComparisonsDetails />}
 />
 
